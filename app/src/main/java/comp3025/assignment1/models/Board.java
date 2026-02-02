@@ -10,18 +10,19 @@ import java.util.Map;
  * After the board has been created, slots can be accessed using numbers.
  */
 public class Board {
-private Map<SlotNumbers,Token>map=new HashMap<>();
+    private Map<SlotNumbers, Token> map = new HashMap<>();
 
     /**
      * This method retrieves the token with the provided slot numbers.
      * If no token has been added with the provided slot numbers, this method returns null.
+     *
      * @param slotNumbers
      * @return
      */
-    public Token getToken(SlotNumbers slotNumbers){
-Token retrievedToken=this.map.get(slotNumbers);
+    public Token getToken(SlotNumbers slotNumbers) {
+        Token retrievedToken = this.map.get(slotNumbers);
 //The get method returns null if the slot numbers hasn't been added.
 
         return retrievedToken;
-}
+    }
 }
