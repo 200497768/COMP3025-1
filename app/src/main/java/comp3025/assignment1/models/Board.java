@@ -11,6 +11,17 @@ import java.util.Objects;
  * After the board has been created, slots can be accessed using numbers.
  */
 public class Board {
+
+    //I need to choose how I want to write this class.
+
+    //I need to be able to add tokens to a horizontal number.
+    //When this happens, I need to be able to retrieve all of the existing tokens with the same horizontal number.
+    //Tokens are added in order, so order is important.
+    //This suggests that List<Token> can be used for a single horizontal number.
+
+    //I will also need to create consecutive slot groups.
+    //Consecutive slot groups allow me to check whether tokens from the same participant have been added to all slots in that group.
+    //
     private Map<SlotNumbers, Token> map = new HashMap<>();
 
     /**
