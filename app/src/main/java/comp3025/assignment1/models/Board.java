@@ -1,6 +1,8 @@
 package comp3025.assignment1.models;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -49,9 +51,24 @@ public class Board {
     public void setToken(Token token, int horizontalNumber) {
         Objects.requireNonNull(token);
 
-        //This has been a mistake.
-        //I need to change Map<SlotNumbers,Token>.
-        //I won't be able to retrieve how many existing tokens with the same horizontal number.
+        //I know the horizontal number that I need to add this token to.
+        //I need to determine the vertical number.
+
+        //The vertical number depends on the existing tokens that have been added to the board.
+        //This class is able to retrieve the tokens.
+        //I need to determine the maximum number out of all the existing tokens.
+        //The problem is that I need to add it to the slot with the next available vertical number.
+        //I've written this class with Map<SlotNumbers,Token>, so this might not be the best way.
+
+        //First, I'll retrieve all tokens with the same horizontal number.
+        List<Token> verticalTokens = new ArrayList<>();
+        for (Token boardToken : this.map.values()) {
+            if (boardToken.get)
+
+            //This won't be possible because a token isn't aware of the slot numbers that it has been added to.
+            //Instead, the board is responsible for knowing the slot numbers.
+            //I need to think about this.
+        }
     }
 
     /**
