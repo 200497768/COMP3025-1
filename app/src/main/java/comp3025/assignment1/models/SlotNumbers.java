@@ -12,6 +12,14 @@ public class SlotNumbers {
     private int horizontal;
 
     public SlotNumbers(int vertical,int horizontal) {
+        if(vertical<1){
+            throw new IllegalArgumentException();
+        }
+
+        if(horizontal<1){
+            throw new IllegalArgumentException();
+        }
+
         this.vertical=vertical;
         this.horizontal=horizontal;
     }
