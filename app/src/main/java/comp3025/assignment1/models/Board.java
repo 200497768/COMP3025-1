@@ -65,6 +65,7 @@ public class Board {
         for (Token boardToken : this.map.values()) {
             if (boardToken.get)
 
+            //I was thinking about creating a list with all of the tokens with the same horizontal number, and determining the maximum vertical number from that list.
             //This won't be possible because a token isn't aware of the slot numbers that it has been added to.
             //Instead, the board is responsible for knowing the slot numbers.
             //I need to think about this.
