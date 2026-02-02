@@ -1,5 +1,8 @@
 package comp3025.assignment1.models;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * This class is a board.
  * A board includes multiple slots.
@@ -7,5 +10,7 @@ package comp3025.assignment1.models;
  * After the board has been created, slots can be accessed using numbers.
  */
 public class Board {
+private Map<SlotNumbers,Token>map=new HashMap<>();
+
 
 }
