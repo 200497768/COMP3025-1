@@ -16,4 +16,9 @@ public class ConsecutiveSlotGroup {
     private int numberOfSlots;
 
     private List<Token> tokens=new ArrayList<>();
+    private Token startingToken;
+
+    public ConsecutiveSlotGroup(Token startingToken) {
+        this.startingToken = startingToken;
+    }
 }

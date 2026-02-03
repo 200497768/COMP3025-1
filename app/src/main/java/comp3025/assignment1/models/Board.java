@@ -50,6 +50,7 @@ public class Board {
     private List<Direction> directions = new ArrayList<>();
 
     public Board() {
+        //Directions will be created, and added to the field.
         Direction verticalDirection = new Direction() {
             @Override
             public int getVerticalAddAmount() {
@@ -64,8 +65,30 @@ public class Board {
         this.directions.add(verticalDirection);
 
         Direction horizontalDirection = new Direction() {
+            @Override
+            public int getVerticalAddAmount() {
+                return 0;
+            }
 
-        }
+            @Override
+            public int getHorizontalAddAmount() {
+                return 1;
+            }
+        };
+        this.directions.add(horizontalDirection);
+
+        Direction diagonalDirection = new Direction() {
+            @Override
+            public int getVerticalAddAmount() {
+                return 1;
+            }
+
+            @Override
+            public int getHorizontalAddAmount() {
+                return 1;
+            }
+        };
+        this.directions.add(diagonalDirection);
     }
 
     /**
@@ -123,6 +146,9 @@ public class Board {
     public List<ConsecutiveSlotGroup> getConsecutiveSlotGroups() {
         List<ConsecutiveSlotGroup> consecutiveSlotGroups = new ArrayList<>();
 
+        int horizontalNumber = 1;
+        int verticalNumber = 1;
+
         //First, every ordered token group needs to be accessed.
         for (OrderedTokenGroup orderedTokenGroup : this.orderedTokenGroups) {
             //Every token from this ordered token group needs to be retrieved.
@@ -132,8 +158,13 @@ public class Board {
                 //Multiple consecutive slot groups will be created, since multiple directions exist.
 
                 for (Direction direction : this.directions) {
-                    ConsecutiveSlotGroup consecutiveSlotGroup = new ConsecutiveSlotGroup();
+                    ConsecutiveSlotGroup consecutiveSlotGroup = new ConsecutiveSlotGroup(token);
 
+                    //The vertical and horizontal numbers will be changed by the numbers from the direction.
+                    verticalNumber = verticalNumber + direction.getVerticalAddAmount();
+                    horizontalNumber = horizontalNumber + direction.getHorizontalAddAmount();
+
+                    consecutiveSlotGroups.add(consecutiveSlotGroup);
                 }
             }
         }
