@@ -23,13 +23,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
         System.out.println("onCreate method running.");
-        Log.i("1", "onCreate method running.");
+        Log.i("200497768", "onCreate method running.");
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         System.out.println("onStart method running.");
-        Log.i("1", "onStart method running.");
+        Log.i("200497768", "onStart method running.");
     }
 }
