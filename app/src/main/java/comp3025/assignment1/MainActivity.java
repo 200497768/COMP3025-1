@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
 
         System.out.println("onCreate method running.");
         Log.i("200497768", "onCreate method running.");
+
+
     }
 
     @Override
