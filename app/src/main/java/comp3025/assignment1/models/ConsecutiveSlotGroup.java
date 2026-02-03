@@ -13,6 +13,13 @@ import java.util.List;
  * If the same participant has added tokens in every slot in this group, that participant wins.
  */
 public class ConsecutiveSlotGroup {
+
+    //I will also need to create consecutive slot groups.
+    //Consecutive slot groups allow me to check whether tokens from the same participant have been added to all slots in that group.
+    //Consecutive slot groups can be created from multiple tokens in this board.
+    //The tokens can be chosen from a vertical, horizontal, or diagonal line.
+
+
     //This field determines the number of tokens needed in order to win.
     //The tokens must be added by the same participant.
     //This class uses this field to determine the number of slots to add to a consecutive slot group.

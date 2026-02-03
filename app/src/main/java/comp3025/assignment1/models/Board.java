@@ -12,32 +12,6 @@ import java.util.Objects;
  */
 public class Board {
 
-    //I need to choose how I want to write this class.
-
-    //I need to be able to add tokens to a horizontal number.
-    //When this happens, I need to be able to retrieve all of the existing tokens with the same horizontal number.
-    //Tokens are added in order, so order is important.
-    //This suggests that List<Token> can be used for a single horizontal number.
-
-    //I will also need to create consecutive slot groups.
-    //Consecutive slot groups allow me to check whether tokens from the same participant have been added to all slots in that group.
-    //Consecutive slot groups can be created from multiple tokens in this board.
-    //The tokens can be chosen from a vertical, horizontal, or diagonal line.
-
-    //I will repeatedly create consecutive slot groups to check the board to determine whether any participant has won.
-    //I'll start with both slot numbers as 1.
-    //In a graph, this will be the origin.
-
-    //When choosing the numbers in a consecutive slot group, I only need to increase the numbers.
-    //I don't need to check slots that are less than the starting slot, since that slot would have been checked before.
-
-    //Creating a consecutive slot group for a vertical line is easy.
-    //I simply need to retrieve a few tokens with the same horizontal number.
-
-    //Creating a consecutive slot group for a horizontal line is slightly more difficult, but still easy.
-    //I need to retrieve a number of tokens from 3 different lists.
-    //Every token will be retrieved with the same vertical number.
-
     //This field is a list with all of the tokens in this board.
     //The tokens are accessed through ordered token groups.
     private List<OrderedTokenGroup>orderedTokenGroups=new ArrayList<>();
@@ -97,8 +71,22 @@ public class Board {
     public List<ConsecutiveSlotGroup> getConsecutiveSlotGroups() {
         List<ConsecutiveSlotGroup> consecutiveSlotGroups = new ArrayList<>();
 
+        //I will repeatedly create consecutive slot groups to check the board to determine whether any participant has won.
+        //I'll start with both slot numbers as 1.
+        //In a graph, this will be the origin.
+
+        //Creating a consecutive slot group for a vertical line is easy.
+        //I simply need to retrieve a few tokens with the same horizontal number.
+
+        //Creating a consecutive slot group for a horizontal line is slightly more difficult, but still easy.
+        //I need to retrieve a number of tokens from 3 different lists.
+        //Every token will be retrieved with the same vertical number.
+
         int horizontalNumber = 1;
         int verticalNumber = 1;
+
+        //When creating consecutive slot groups, I only need to increase the numbers.
+        //I don't need to check slots that are less than the starting slot, since that slot would have been checked before.
 
         //First, every ordered token group needs to be accessed.
         for (OrderedTokenGroup orderedTokenGroup : this.orderedTokenGroups) {
