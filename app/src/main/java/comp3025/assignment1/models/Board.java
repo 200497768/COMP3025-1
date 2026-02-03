@@ -47,6 +47,27 @@ public class Board {
     //The tokens are accessed through ordered token groups.
     private List<OrderedTokenGroup>orderedTokenGroups=new ArrayList<>();
 
+    private List<Direction> directions = new ArrayList<>();
+
+    public Board() {
+        Direction verticalDirection = new Direction() {
+            @Override
+            public int getVerticalAddAmount() {
+                return 1;
+            }
+
+            @Override
+            public int getHorizontalAddAmount() {
+                return 0;
+            }
+        };
+        this.directions.add(verticalDirection);
+
+        Direction horizontalDirection = new Direction() {
+
+        }
+    }
+
     /**
      * This method adds the token to the board.
      * Only the horizontal number can be chosen.
@@ -109,6 +130,11 @@ public class Board {
 
             for (Token token : tokens) {
                 //Multiple consecutive slot groups will be created, since multiple directions exist.
+
+                for (Direction direction : this.directions) {
+                    ConsecutiveSlotGroup consecutiveSlotGroup = new ConsecutiveSlotGroup();
+
+                }
             }
         }
 
