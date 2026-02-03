@@ -102,6 +102,16 @@ public class Board {
     public List<ConsecutiveSlotGroup> getConsecutiveSlotGroups() {
         List<ConsecutiveSlotGroup> consecutiveSlotGroups = new ArrayList<>();
 
+        //First, every ordered token group needs to be accessed.
+        for (OrderedTokenGroup orderedTokenGroup : this.orderedTokenGroups) {
+            //Every token from this ordered token group needs to be retrieved.
+            List<Token> tokens = orderedTokenGroup.getTokens();
+
+            for (Token token : tokens) {
+                //Multiple consecutive slot groups will be created, since multiple directions exist.
+            }
+        }
+
         return consecutiveSlotGroups;
     }
 }
