@@ -1,6 +1,7 @@
 package comp3025.assignment1;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,11 +23,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
         System.out.println("onCreate method running.");
+        Log.i("1", "onCreate method running.");
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         System.out.println("onStart method running.");
+        Log.i("1", "onStart method running.");
     }
 }
