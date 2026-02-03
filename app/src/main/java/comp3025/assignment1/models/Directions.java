@@ -1,5 +1,8 @@
 package comp3025.assignment1.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * This class includes methods that produce directions.
  */
@@ -13,9 +16,9 @@ public class Directions {
     public static List<Direction> getDirections() {
         List<Direction> directions = new ArrayList<>();
 
-        directions.add(this.getVerticalDirection());
-        directions.add(this.getHorizontalDirection());
-        directions.add(this.getDiagonalDirection());
+        directions.add(Directions.getVerticalDirection());
+        directions.add(Directions.getHorizontalDirection());
+        directions.add(Directions.getDiagonalDirection());
 
         return directions;
     }
