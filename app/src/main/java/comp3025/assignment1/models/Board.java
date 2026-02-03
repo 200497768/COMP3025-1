@@ -43,6 +43,10 @@ public class Board {
     //Creating a consecutive slot group for a diagonal line
     private Map<SlotNumbers, Token> map = new HashMap<>();
 
+    //This field is a list with all of the tokens in this board.
+    //The tokens are accessed through ordered token groups.
+    private List<OrderedTokenGroup>orderedTokenGroups=new ArrayList<>();
+
     /**
      * This method adds the token to the board.
      * Only the horizontal number can be chosen.
