@@ -52,43 +52,9 @@ public class Board {
         this.orderedTokenGroups.add(orderedTokenGroup);
 
         //Directions will be created, and added to the field.
-        Direction verticalDirection = new Direction() {
-            @Override
-            public int getVerticalAddAmount() {
-                return 1;
-            }
 
-            @Override
-            public int getHorizontalAddAmount() {
-                return 0;
-            }
-        };
         this.directions.add(verticalDirection);
-
-        Direction horizontalDirection = new Direction() {
-            @Override
-            public int getVerticalAddAmount() {
-                return 0;
-            }
-
-            @Override
-            public int getHorizontalAddAmount() {
-                return 1;
-            }
-        };
         this.directions.add(horizontalDirection);
-
-        Direction diagonalDirection = new Direction() {
-            @Override
-            public int getVerticalAddAmount() {
-                return 1;
-            }
-
-            @Override
-            public int getHorizontalAddAmount() {
-                return 1;
-            }
-        };
         this.directions.add(diagonalDirection);
     }
 
