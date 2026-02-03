@@ -49,10 +49,7 @@ public class Board {
 
     private List<Direction> directions = new ArrayList<>();
 
-    //This field determines the number of tokens needed in order to win.
-    //The tokens must be added by the same participant.
-    //This class uses this field to determine the number of slots to add to a consecutive slot group.
-    private int consecutiveTokensWin = 3;
+
 
     public Board() {
         //Directions will be created, and added to the field.
@@ -159,17 +156,24 @@ public class Board {
             //Every token from this ordered token group needs to be retrieved.
             List<Token> tokens = orderedTokenGroup.getTokens();
 
-            for (Token token : tokens) {
+            for (Token startingToken : tokens) {
                 //Multiple consecutive slot groups will be created, since multiple directions exist.
 
                 for (Direction direction : this.directions) {
-                    ConsecutiveSlotGroup consecutiveSlotGroup = new ConsecutiveSlotGroup(token);
+                    ConsecutiveSlotGroup consecutiveSlotGroup = new ConsecutiveSlotGroup(startingToken);
 
-                    for (int number = 1; number < this.consecutiveTokensWin; number = number + 1) {
+                    while (!consecutiveSlotGroup.getCompleted()) {
                         //The vertical and horizontal numbers will be changed by the numbers from the direction.
                         verticalNumber = verticalNumber + direction.getVerticalAddAmount();
                         horizontalNumber = horizontalNumber + direction.getHorizontalAddAmount();
+
+                        //Both numbers will be used to retrieve the slot.
+                        SlotNumbers slotNumbers = new SlotNumbers(verticalNumber, horizontalNumber);
+                        Token nextToken = this.getToken(slotNumbers);
+
+                        consecutiveSlotGroup.add(nextToken);
                     }
+
                     consecutiveSlotGroups.add(consecutiveSlotGroup);
                 }
             }

@@ -13,12 +13,49 @@ import java.util.List;
  * If the same participant has added tokens in every slot in this group, that participant wins.
  */
 public class ConsecutiveSlotGroup {
+    //This field determines the number of tokens needed in order to win.
+    //The tokens must be added by the same participant.
+    //This class uses this field to determine the number of slots to add to a consecutive slot group.
+    private int consecutiveTokensWin = 3;
+
     private int numberOfSlots;
 
+    //Tokens, or slots, are added to this list.
+    //Some elements will be tokens, and some will be null.
+    //If an element is null, no tokens in that slot, or the slot is outside of the board.
     private List<Token> tokens=new ArrayList<>();
+
+    //This field is the token that this consecutive slot group started with.
+    //The starting token is used to retrieve other tokens that are next to it.
     private Token startingToken;
 
     public ConsecutiveSlotGroup(Token startingToken) {
         this.startingToken = startingToken;
+    }
+
+    /**
+     * This method returns whether this consecutive slot group has been completed.
+     * When this consecutive slot group has been completed, enough slots have been added to determine whether a participant has won.
+     *
+     * @return
+     */
+    public boolean getCompleted() {
+        return this.tokens.size() >= this.consecutiveTokensWin;
+    }
+
+    /**
+     * This method allows a slot to be added to this consecutive slot group.
+     * A slot can only be added if this consecutive slot group isn't complete.
+     * The token that's added can be null if it's a slot with no token.
+     *
+     * @param token
+     */
+    public void add(Token token) {
+        //Tokens can't be added to this consecutive token group if it has been completed.
+        if (this.getCompleted()) {
+            throw new IllegalStateException();
+        }
+
+        this.tokens.add(token);
     }
 }
