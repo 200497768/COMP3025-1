@@ -129,13 +129,36 @@ public class Board {
      * @param slotNumbers
      * @return
      */
-    public Token getToken(SlotNumbers slotNumbers) {
+    public Token getMapToken(SlotNumbers slotNumbers) {
         Objects.requireNonNull(slotNumbers);
 
         Token retrievedToken = this.map.get(slotNumbers);
 //The get method returns null if the slot numbers hasn't been added.
 
         return retrievedToken;
+    }
+
+    public Token getToken(SlotNumbers slotNumbers) {
+        Objects.requireNonNull(slotNumbers);
+
+        int verticalNumber = slotNumbers.getVertical();
+        int horizontalNumber = slotNumbers.getHorizontal();
+
+        //This board includes a list with multiple ordered token groups.
+        //The vertical number is used to retrieve an single ordered token group.
+        this.orderedTokenGroups.
+
+    }
+
+    /**
+     * This method returns an ordered token group from this board using the horizontal number.
+     *
+     * @param horizontalNumber
+     * @return
+     */
+    public OrderedTokenGroup getOrderedTokenGroup(int horizontalNumber) {
+        OrderedTokenGroup orderedTokenGroup = this.orderedTokenGroups.get(horizontalNumber - 1);
+        return orderedTokenGroup;
     }
 
     /**
