@@ -42,20 +42,12 @@ public class Board {
     //The tokens are accessed through ordered token groups.
     private List<OrderedTokenGroup>orderedTokenGroups=new ArrayList<>();
 
-    private List<Direction> directions = new ArrayList<>();
-
     public Board(int numberOfOrderedTokenGroups) {
         //Some number of ordered token groups will be created and added to this board.
 
         //An ordered token group will be created, and added to this board.
         OrderedTokenGroup orderedTokenGroup = new OrderedTokenGroup();
         this.orderedTokenGroups.add(orderedTokenGroup);
-
-        //Directions will be created, and added to the field.
-
-        this.directions.add(verticalDirection);
-        this.directions.add(horizontalDirection);
-        this.directions.add(diagonalDirection);
     }
 
     /**

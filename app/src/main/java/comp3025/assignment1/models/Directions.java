@@ -5,6 +5,20 @@ package comp3025.assignment1.models;
  */
 public class Directions {
 
+    /**
+     * This method produces a list with all of the directions.
+     *
+     * @return
+     */
+    public static List<Direction> getDirections() {
+        List<Direction> directions = new ArrayList<>();
+
+        directions.add(this.getVerticalDirection());
+        directions.add(this.getHorizontalDirection());
+        directions.add(this.getDiagonalDirection());
+
+        return directions;
+    }
     public static Direction getVerticalDirection() {
         Direction verticalDirection = new Direction() {
             @Override
