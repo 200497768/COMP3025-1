@@ -22,4 +22,8 @@ public class OrderedTokenGroup {
         Token token = this.tokens.get(verticalNumber - 1);
         return token;
     }
+
+    public List<Token> getTokens() {
+        return tokens;
+    }
 }
