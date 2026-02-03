@@ -96,7 +96,7 @@ public class Board {
             for (Token startingToken : tokens) {
                 //Multiple consecutive slot groups will be created, since multiple directions exist.
 
-                for (Direction direction : this.directions) {
+                for (Direction direction : Directions.getDirections()) {
                     ConsecutiveSlotGroup consecutiveSlotGroup = new ConsecutiveSlotGroup(startingToken);
 
                     while (!consecutiveSlotGroup.getCompleted()) {
