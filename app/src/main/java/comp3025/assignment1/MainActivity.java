@@ -23,4 +23,10 @@ public class MainActivity extends AppCompatActivity {
 
         System.out.println("onCreate method running.");
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        System.out.println("onStart method running.");
+    }
 }
