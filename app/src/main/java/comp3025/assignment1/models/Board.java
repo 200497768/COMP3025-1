@@ -98,7 +98,7 @@ public class Board {
      * Only the horizontal number can be chosen.
      * The board will choose the vertical number, depending on the number of tokens that have been added with the same horizontal number.
      */
-    public void setToken(Token token, int horizontalNumber) {
+    public void addMapToken(Token token, int horizontalNumber) {
         Objects.requireNonNull(token);
 
         //I know the horizontal number that I need to add this token to.
