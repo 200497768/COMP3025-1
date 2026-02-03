@@ -91,4 +91,17 @@ public class Board {
 
         return retrievedToken;
     }
+
+    /**
+     * This method creates consecutive slot groups for every slot in this board.
+     * This method returns the consecutive slot groups that were created as a list.
+     * Every consecutive slot groups can be used to determine if a participant has won.
+     *
+     * @return
+     */
+    public List<ConsecutiveSlotGroup> getConsecutiveSlotGroups() {
+        List<ConsecutiveSlotGroup> consecutiveSlotGroups = new ArrayList<>();
+
+        return consecutiveSlotGroups;
+    }
 }
