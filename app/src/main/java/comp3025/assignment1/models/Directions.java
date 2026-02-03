@@ -1,5 +1,8 @@
 package comp3025.assignment1.models;
 
+/**
+ * This class includes methods that produce directions.
+ */
 public class Directions {
 
     public static Direction getVerticalDirection() {
