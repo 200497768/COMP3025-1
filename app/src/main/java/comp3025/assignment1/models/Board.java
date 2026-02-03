@@ -45,8 +45,9 @@ public class Board {
     private List<Direction> directions = new ArrayList<>();
 
 
+    public Board(int numberOfOrderedTokenGroups) {
+        //Some number of ordered token groups will be created and added to this board.
 
-    public Board() {
         //Directions will be created, and added to the field.
         Direction verticalDirection = new Direction() {
             @Override
