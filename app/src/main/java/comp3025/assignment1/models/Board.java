@@ -1,9 +1,7 @@
 package comp3025.assignment1.models;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -170,4 +168,16 @@ public class Board {
 
         return consecutiveSlotGroups;
     }
+
+    /**
+     * This method returns the number of ordered token groups in this board.
+     * In other words, this method returns the maximum horizontal number.
+     *
+     * @return
+     */
+    public int getNumberOfOrderedTokenGroups() {
+        return this.orderedTokenGroups.size();
+    }
+
+
 }
