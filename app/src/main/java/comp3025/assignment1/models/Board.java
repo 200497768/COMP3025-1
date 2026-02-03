@@ -90,6 +90,16 @@ public class Board {
         this.directions.add(diagonalDirection);
     }
 
+    /**
+     * This method is used to retrieve a token using slot numbers.
+     * This method will access the ordered token group with the provided horizontal number.
+     * Next, this method will access the token with the provided vertical number.
+     * This method returns the token that was retrievd.
+     * If no token was added to the slot, this method returns null.
+     *
+     * @param slotNumbers
+     * @return
+     */
     public Token getToken(SlotNumbers slotNumbers) {
         Objects.requireNonNull(slotNumbers);
 
@@ -98,7 +108,11 @@ public class Board {
 
         //This board includes a list with multiple ordered token groups.
         //The vertical number is used to retrieve an single ordered token group.
-        this.orderedTokenGroups.
+        OrderedTokenGroup orderedTokenGroup = this.orderedTokenGroups.get(horizontalNumber - 1);
+
+        Token token = orderedTokenGroup.getToken(verticalNumber);
+
+        return token;
 
     }
 
