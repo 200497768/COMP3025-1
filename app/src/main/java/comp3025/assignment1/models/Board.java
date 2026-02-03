@@ -49,6 +49,11 @@ public class Board {
 
     private List<Direction> directions = new ArrayList<>();
 
+    //This field determines the number of tokens needed in order to win.
+    //The tokens must be added by the same participant.
+    //This class uses this field to determine the number of slots to add to a consecutive slot group.
+    private int consecutiveTokensWin = 3;
+
     public Board() {
         //Directions will be created, and added to the field.
         Direction verticalDirection = new Direction() {
