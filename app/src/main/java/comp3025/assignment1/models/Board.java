@@ -160,10 +160,11 @@ public class Board {
                 for (Direction direction : this.directions) {
                     ConsecutiveSlotGroup consecutiveSlotGroup = new ConsecutiveSlotGroup(token);
 
-                    //The vertical and horizontal numbers will be changed by the numbers from the direction.
-                    verticalNumber = verticalNumber + direction.getVerticalAddAmount();
-                    horizontalNumber = horizontalNumber + direction.getHorizontalAddAmount();
-
+                    for (int number = 1; number < this.consecutiveTokensWin; number = number + 1) {
+                        //The vertical and horizontal numbers will be changed by the numbers from the direction.
+                        verticalNumber = verticalNumber + direction.getVerticalAddAmount();
+                        horizontalNumber = horizontalNumber + direction.getHorizontalAddAmount();
+                    }
                     consecutiveSlotGroups.add(consecutiveSlotGroup);
                 }
             }
