@@ -12,4 +12,14 @@ public class OrderedTokenGroup {
     //This field is the tokens in this ordered token group.
     private List<Token> tokens=new ArrayList<>();
 
+    /**
+     * This method returns a token from this ordered token group using the vertical number.
+     *
+     * @param verticalNumber
+     * @return
+     */
+    public Token getToken(int verticalNumber) {
+        Token token = this.tokens.get(verticalNumber - 1);
+        return token;
+    }
 }
