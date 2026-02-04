@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         board.addToken(participant, 1);
         board.addToken(participant, 1);
         board.addToken(participant, 1);
+        board.addToken(participant, 1);
         Log.i("200497768", "Winner is " + board.getWinningParticipant());
 
 //As a student, I want to be able to see both of the views that are needed for this assignment.
