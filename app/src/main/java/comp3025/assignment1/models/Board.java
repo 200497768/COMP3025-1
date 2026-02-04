@@ -114,7 +114,7 @@ public class Board {
                 for (Direction direction : Directions.getDirections()) {
                     ConsecutiveSlotGroup consecutiveSlotGroup = new ConsecutiveSlotGroup(startingToken);
 
-                    while (!consecutiveSlotGroup.getCompleted()) {
+                    while (!consecutiveSlotGroup.getCompletelyCreated()) {
                         //The vertical and horizontal numbers will be changed by the numbers from the direction.
                         verticalNumber = verticalNumber + direction.getVerticalAddAmount();
                         horizontalNumber = horizontalNumber + direction.getHorizontalAddAmount();
