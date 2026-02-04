@@ -46,9 +46,12 @@ public class Board {
         //The vertical number is used to retrieve an single ordered token group.
         OrderedTokenGroup orderedTokenGroup = this.orderedTokenGroups.get(horizontalNumber);
 
-        Token token = orderedTokenGroup.getToken(verticalNumber);
-
-        return token;
+        try {
+            Token token = orderedTokenGroup.getToken(verticalNumber);
+            return token;
+        } catch (IllegalArgumentException illegalArgumentException) {
+            return null;
+        }
     }
 
     public void addToken(Participant participant, int horizontalNumber) {
