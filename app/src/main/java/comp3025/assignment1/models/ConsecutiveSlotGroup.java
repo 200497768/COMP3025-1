@@ -101,5 +101,19 @@ public class ConsecutiveSlotGroup {
             return false;
         }
 
+        if (!this.getTokensAdded()) {
+            return false;
+        }
+
+        String startingParticipant = this.startingToken.getParticipant();
+
+        for (Token token : this.tokens) {
+            String participant = token.getParticipant();
+            if (!participant.equals(startingParticipant)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
