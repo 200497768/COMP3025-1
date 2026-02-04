@@ -2,6 +2,8 @@ package comp3025.assignment1;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,13 +17,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.welcome);
         //This method causes the code to run the welcome view.
 
         setContentView(R.layout.game);
 
         System.out.println("onCreate method running.");
         Log.i("200497768", "onCreate method running.");
+
+        LinearLayout boardArea = findViewById(R.id.boardArea);
+        //This method is able to retrieve the board area that I created.
 
 //As a student, I want to be able to see both of the views that are needed for this assignment.
         //Both views are created using the method that I learned during the week 4 class.

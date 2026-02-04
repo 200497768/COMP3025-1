@@ -25,4 +25,18 @@
         android:layout_weight="1"
         android:text="Back" />
 
+    <LinearLayout
+        android:id="@+id/boardArea"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"></LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="This TextView has been added to the board area." />
+
 </LinearLayout>
