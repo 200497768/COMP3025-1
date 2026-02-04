@@ -51,6 +51,27 @@ public class ConsecutiveSlotGroup {
     }
 
     /**
+     * This method returns whether every slot in this consecutive slot group includes a token.
+     *
+     * @return
+     */
+    public boolean getTokensAdded() {
+        if (this.getCompleted()) {
+            throw new IllegalStateException();
+        }
+
+
+        for (Token token : this.tokens) {
+            //The tokens list can include null because not all tokens might have been added.
+            //This can happen if a token wasn't added to the slot, or the slot is outside of the board.
+            if (token == null) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+    /**
      * This method allows a slot to be added to this consecutive slot group.
      * A slot can only be added if this consecutive slot group isn't complete.
      * The token that's added can be null if it's a slot with no token.
@@ -80,14 +101,5 @@ public class ConsecutiveSlotGroup {
             return false;
         }
 
-        for (Token token : this.tokens) {
-            //The tokens list can include null because not all tokens might have been added.
-            //This can happen if a token wasn't added to the slot, or the slot is outside of the board.
-            if (token == null) {
-                return false;
-            }
-        }
-
-        return true;
     }
 }
