@@ -55,7 +55,7 @@ public class ConsecutiveSlotGroup {
      *
      * @return
      */
-    public boolean getTokensAdded() {
+    public boolean getTokenAddedEverySlot() {
         if (!this.getCompletelyCreated()) {
             throw new IllegalStateException();
         }
@@ -104,7 +104,7 @@ public class ConsecutiveSlotGroup {
 
         //Some slots might have been added as null.
         //If a token hasn't been added to any slot, no participant can win.
-        if (!this.getTokensAdded()) {
+        if (!this.getTokenAddedEverySlot()) {
             return null;
         }
 
