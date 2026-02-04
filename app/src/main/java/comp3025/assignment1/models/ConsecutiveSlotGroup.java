@@ -75,6 +75,7 @@ public class ConsecutiveSlotGroup {
      * @return
      */
     public boolean getWinningParticipant() {
+        //In order for a participant to win, all slots must have been completed.
         if (!this.getCompleted()) {
             return false;
         }
