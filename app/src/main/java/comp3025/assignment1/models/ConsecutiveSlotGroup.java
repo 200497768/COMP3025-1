@@ -46,7 +46,7 @@ public class ConsecutiveSlotGroup {
      *
      * @return
      */
-    public boolean getCompleted() {
+    public boolean getCompletelyCreated() {
         return this.tokens.size() >= this.consecutiveTokensWin;
     }
 
@@ -56,7 +56,7 @@ public class ConsecutiveSlotGroup {
      * @return
      */
     public boolean getTokensAdded() {
-        if (!this.getCompleted()) {
+        if (!this.getCompletelyCreated()) {
             throw new IllegalStateException();
         }
 
@@ -80,7 +80,7 @@ public class ConsecutiveSlotGroup {
      */
     public void add(Token token) {
         //Tokens can't be added to this consecutive token group if it has been completed.
-        if (this.getCompleted()) {
+        if (this.getCompletelyCreated()) {
             throw new IllegalStateException();
         }
 
@@ -97,7 +97,7 @@ public class ConsecutiveSlotGroup {
      */
     public Participant getWinningParticipant() {
         //In order for a participant to win, all slots must have been completed.
-        if (!this.getCompleted()) {
+        if (!this.getCompletelyCreated()) {
             return null;
         }
 
