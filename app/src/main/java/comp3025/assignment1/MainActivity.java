@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         //This method is able to retrieve the board area that I created.
 
         TextView createdTextView = new TextView(MainActivity.this);
+        //(Yadav, 2019)
+
         createdTextView.setText("This string was created using the onCreate method.");
 
         boardArea.addView(createdTextView);
