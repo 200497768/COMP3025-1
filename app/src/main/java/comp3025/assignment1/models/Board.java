@@ -44,6 +44,9 @@ public class Board {
 
         //This board includes a list with multiple ordered token groups.
         //The vertical number is used to retrieve an single ordered token group.
+        if (horizontalNumber >= this.orderedTokenGroups.size()) {
+            return null;
+        }
         OrderedTokenGroup orderedTokenGroup = this.orderedTokenGroups.get(horizontalNumber);
 
         try {
