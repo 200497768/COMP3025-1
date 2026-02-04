@@ -96,19 +96,27 @@ public class ConsecutiveSlotGroup {
      * @return
      */
     public Participant getWinningParticipant() {
-        //In order for a participant to win, all slots must have been completed.
+        //This consecutive slot group might not have been completely created.
+        //The winning participant can only be determined if completely created.
         if (!this.getCompletelyCreated()) {
             return null;
         }
 
+        //Some slots might have been added as null.
+        //If a token hasn't been added to any slot, no participant can win.
         if (!this.getTokensAdded()) {
             return null;
         }
+
+        //The participant for every token will be checked.
+        //In order for a participant to win, the participant must be the same for every token.
 
         Participant startingParticipant = this.startingToken.getParticipant();
 
         for (Token token : this.tokens) {
             Participant participant = token.getParticipant();
+
+            //A participant can only win if all of the tokens are from the same participant.
             if (!participant.equals(startingParticipant)) {
                 return null;
             }
@@ -117,6 +125,12 @@ public class ConsecutiveSlotGroup {
         return startingParticipant;
     }
 
+    /**
+     * This method returns whether a participant has won with this consecutive slot group.
+     * This method determines this by checking whether every token was added by the same participant.
+     *
+     * @return
+     */
     public boolean getWinning() {
         boolean winning = this.getWinningParticipant() == null;
 
