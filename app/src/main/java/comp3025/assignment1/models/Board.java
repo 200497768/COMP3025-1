@@ -16,12 +16,12 @@ public class Board {
     //The tokens are accessed through ordered token groups.
     private List<VerticalGroup> verticalGroups = new ArrayList<>();
 
-    public Board(int numberOfOrderedTokenGroups, int numberOfTokensEachTokenGroup) {
+    public Board(int numberOfVerticalGroups, int verticalGroupCapacity) {
         //Some number of ordered token groups will be created and added to this board.
 
-        for (int number = 0; number < numberOfOrderedTokenGroups; number = number + 1) {
+        for (int number = 0; number < numberOfVerticalGroups; number = number + 1) {
             //An ordered token group will be created, and added to this board.
-            VerticalGroup verticalGroup = new VerticalGroup(numberOfTokensEachTokenGroup);
+            VerticalGroup verticalGroup = new VerticalGroup(verticalGroupCapacity);
             this.verticalGroups.add(verticalGroup);
         }
     }

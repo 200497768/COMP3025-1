@@ -13,11 +13,11 @@ public class VerticalGroup {
     //This field is the tokens in this ordered token group.
     private List<Token> tokens=new ArrayList<>();
 
-    public VerticalGroup(int verticalMaximum) {
-        this.verticalMaximum = verticalMaximum;
+    public VerticalGroup(int capacity) {
+        this.capacity = capacity;
     }
 
-    private int verticalMaximum;
+    private int capacity;
 
     /**
      * This method returns a token from this ordered token group using the vertical number.
@@ -56,7 +56,7 @@ public class VerticalGroup {
      * @return
      */
     public boolean getSlotAvailable() {
-        return this.tokens.size() < this.verticalMaximum;
+        return this.tokens.size() < this.capacity;
     }
 
     /**
