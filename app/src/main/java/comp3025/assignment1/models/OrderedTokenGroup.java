@@ -26,7 +26,12 @@ public class OrderedTokenGroup {
      * @return
      */
     public Token getToken(int verticalNumber) {
-        Token token = this.tokens.get(verticalNumber - 1);
+        if (verticalNumber < 0) {
+            throw new IllegalArgumentException();
+        }
+
+
+        Token token = this.tokens.get(verticalNumber);
         return token;
     }
 
@@ -40,6 +45,13 @@ public class OrderedTokenGroup {
         return tokens;
     }
 
+    /**
+     * This method returns whether a slot is still available in this ordered token group.
+     * If a slot is available, a token can be added using another method from this class.
+     * If a slot isn't available, a token can't be added.
+     *
+     * @return
+     */
     public boolean getSlotAvailable() {
         return this.tokens.size() < this.verticalMaximum;
     }

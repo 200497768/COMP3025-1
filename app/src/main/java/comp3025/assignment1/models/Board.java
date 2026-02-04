@@ -44,7 +44,7 @@ public class Board {
 
         //This board includes a list with multiple ordered token groups.
         //The vertical number is used to retrieve an single ordered token group.
-        OrderedTokenGroup orderedTokenGroup = this.orderedTokenGroups.get(horizontalNumber - 1);
+        OrderedTokenGroup orderedTokenGroup = this.orderedTokenGroups.get(horizontalNumber);
 
         Token token = orderedTokenGroup.getToken(verticalNumber);
 
@@ -66,7 +66,7 @@ public class Board {
      * @return
      */
     public OrderedTokenGroup getOrderedTokenGroup(int horizontalNumber) {
-        OrderedTokenGroup orderedTokenGroup = this.orderedTokenGroups.get(horizontalNumber - 1);
+        OrderedTokenGroup orderedTokenGroup = this.orderedTokenGroups.get(horizontalNumber);
         return orderedTokenGroup;
     }
 

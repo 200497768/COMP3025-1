@@ -12,11 +12,11 @@ public class SlotNumbers {
     private int horizontal;
 
     public SlotNumbers(int vertical,int horizontal) {
-        if(vertical<1){
+        if (vertical < 0) {
             throw new IllegalArgumentException();
         }
 
-        if(horizontal<1){
+        if (horizontal < 0) {
             throw new IllegalArgumentException();
         }
 
