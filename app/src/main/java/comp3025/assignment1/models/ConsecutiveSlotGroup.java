@@ -74,7 +74,7 @@ public class ConsecutiveSlotGroup {
     /**
      * This method allows a slot to be added to this consecutive slot group.
      * A slot can only be added if this consecutive slot group isn't complete.
-     * The token that's added can be null if it's a slot with no token.
+     * The slot that's added can be null if it's a slot with no token.
      *
      * @param token
      */
