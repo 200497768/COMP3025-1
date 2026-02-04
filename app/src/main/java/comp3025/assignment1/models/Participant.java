@@ -5,4 +5,13 @@ package comp3025.assignment1.models;
  */
 public class Participant {
     private String name;
+
+    /**
+     * This method returns the name of this participant.
+     *
+     * @return
+     */
+    public String getName() {
+        return name;
+    }
 }

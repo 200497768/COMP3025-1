@@ -8,7 +8,7 @@ public class Token {
     private Participant participant;
 
     /**
-     * This method returns the name of the participant responsible for adding this token.
+     * This method returns the participant responsible for adding this token.
      *
      * @return
      */
