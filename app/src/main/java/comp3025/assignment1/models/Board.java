@@ -83,7 +83,7 @@ public class Board {
      *
      * @return
      */
-    public List<ConsecutiveSlotGroup> getConsecutiveSlotGroups() {
+    private List<ConsecutiveSlotGroup> getConsecutiveSlotGroups() {
         List<ConsecutiveSlotGroup> consecutiveSlotGroups = new ArrayList<>();
 
         //I will repeatedly create consecutive slot groups to check the board to determine whether any participant has won.
@@ -135,12 +135,15 @@ public class Board {
     }
 
     /**
-     * or null if no winning participant.
+     * This method returns the winning participant.
+     * If no participant has won, this method returns null.
      *
      * @return
      */
     public Participant getWinningParticipant() {
-        for (ConsecutiveSlotGroup consecutiveSlotGroup : this.getConsecutiveSlotGroups()) {
+        List<ConsecutiveSlotGroup> consecutiveSlotGroups = this.getConsecutiveSlotGroups();
+
+        for (ConsecutiveSlotGroup consecutiveSlotGroup : consecutiveSlotGroups) {
             if (consecutiveSlotGroup.getWinning()) {
                 return consecutiveSlotGroup.getWinningParticipant();
             }
