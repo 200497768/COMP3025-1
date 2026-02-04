@@ -8,12 +8,12 @@ import java.util.Objects;
  * An ordered token group is a vertical line in the board that can include multiple tokens.
  * The ordered token group is responsible for determining order, since the tokens fall when added to a vertical line in the board.
  */
-public class OrderedTokenGroup {
+public class VerticalGroup {
 
     //This field is the tokens in this ordered token group.
     private List<Token> tokens=new ArrayList<>();
 
-    public OrderedTokenGroup(int verticalMaximum) {
+    public VerticalGroup(int verticalMaximum) {
         this.verticalMaximum = verticalMaximum;
     }
 

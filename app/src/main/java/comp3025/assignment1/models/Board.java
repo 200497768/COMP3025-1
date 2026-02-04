@@ -14,15 +14,15 @@ public class Board {
 
     //This field is a list with all of the tokens in this board.
     //The tokens are accessed through ordered token groups.
-    private List<OrderedTokenGroup>orderedTokenGroups=new ArrayList<>();
+    private List<VerticalGroup> verticalGroups = new ArrayList<>();
 
     public Board(int numberOfOrderedTokenGroups, int numberOfTokensEachTokenGroup) {
         //Some number of ordered token groups will be created and added to this board.
 
         for (int number = 0; number < numberOfOrderedTokenGroups; number = number + 1) {
             //An ordered token group will be created, and added to this board.
-            OrderedTokenGroup orderedTokenGroup = new OrderedTokenGroup(numberOfTokensEachTokenGroup);
-            this.orderedTokenGroups.add(orderedTokenGroup);
+            VerticalGroup verticalGroup = new VerticalGroup(numberOfTokensEachTokenGroup);
+            this.verticalGroups.add(verticalGroup);
         }
     }
 
@@ -44,10 +44,10 @@ public class Board {
 
         //This board includes a list with multiple ordered token groups.
         //The vertical number is used to retrieve an single ordered token group.
-        if (horizontalNumber >= this.orderedTokenGroups.size()) {
+        if (horizontalNumber >= this.verticalGroups.size()) {
             return null;
         }
-        OrderedTokenGroup orderedTokenGroup = this.orderedTokenGroups.get(horizontalNumber);
+        VerticalGroup orderedTokenGroup = this.verticalGroups.get(horizontalNumber);
 
         try {
             Token token = orderedTokenGroup.getToken(verticalNumber);
@@ -58,7 +58,7 @@ public class Board {
     }
 
     public void addToken(Participant participant, int horizontalNumber) {
-        OrderedTokenGroup orderedTokenGroup = this.orderedTokenGroups.get(horizontalNumber);
+        VerticalGroup orderedTokenGroup = this.verticalGroups.get(horizontalNumber);
 
         Token token = new Token(participant);
 
@@ -71,8 +71,8 @@ public class Board {
      * @param horizontalNumber
      * @return
      */
-    public OrderedTokenGroup getOrderedTokenGroup(int horizontalNumber) {
-        OrderedTokenGroup orderedTokenGroup = this.orderedTokenGroups.get(horizontalNumber);
+    public VerticalGroup getOrderedTokenGroup(int horizontalNumber) {
+        VerticalGroup orderedTokenGroup = this.verticalGroups.get(horizontalNumber);
         return orderedTokenGroup;
     }
 
@@ -104,7 +104,7 @@ public class Board {
         //I don't need to check slots that are less than the starting slot, since that slot would have been checked before.
 
         //First, every ordered token group needs to be accessed.
-        for (OrderedTokenGroup orderedTokenGroup : this.orderedTokenGroups) {
+        for (VerticalGroup orderedTokenGroup : this.verticalGroups) {
             //Every token from this ordered token group needs to be retrieved.
             List<Token> tokens = orderedTokenGroup.getTokens();
 
@@ -156,7 +156,7 @@ public class Board {
      * @return
      */
     public int getNumberOfOrderedTokenGroups() {
-        return this.orderedTokenGroups.size();
+        return this.verticalGroups.size();
     }
 
 
