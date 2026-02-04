@@ -75,6 +75,18 @@ public class ConsecutiveSlotGroup {
      * @return
      */
     public boolean getWinningParticipant() {
+        if (!this.getCompleted()) {
+            return false;
+        }
 
+        for (Token token : this.tokens) {
+            //The tokens list can include null because not all tokens might have been added.
+            //This can happen if a token wasn't added to the slot, or the slot is outside of the board.
+            if (token == null) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
