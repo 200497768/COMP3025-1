@@ -39,10 +39,10 @@ public class MainActivity extends AppCompatActivity {
 
         boardArea.addView(createdTextView);
 
-        Board board = new Board(5);
+        Board board = new Board(5, 4);
 
         Participant participant = new Participant("Hao Tian");
-        Token token = new Token(participant);
+        board.addToken(participant, )
 
 
 //As a student, I want to be able to see both of the views that are needed for this assignment.

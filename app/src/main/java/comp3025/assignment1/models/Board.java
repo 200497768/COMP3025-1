@@ -16,12 +16,12 @@ public class Board {
     //The tokens are accessed through ordered token groups.
     private List<OrderedTokenGroup>orderedTokenGroups=new ArrayList<>();
 
-    public Board(int numberOfOrderedTokenGroups) {
+    public Board(int numberOfOrderedTokenGroups, int numberOfTokensEachTokenGroup) {
         //Some number of ordered token groups will be created and added to this board.
 
         for (int number = 0; number < numberOfOrderedTokenGroups; number = number + 1) {
             //An ordered token group will be created, and added to this board.
-            OrderedTokenGroup orderedTokenGroup = new OrderedTokenGroup();
+            OrderedTokenGroup orderedTokenGroup = new OrderedTokenGroup(numberOfTokensEachTokenGroup);
             this.orderedTokenGroups.add(orderedTokenGroup);
         }
     }
@@ -49,7 +49,14 @@ public class Board {
         Token token = orderedTokenGroup.getToken(verticalNumber);
 
         return token;
+    }
 
+    public void addToken(Participant participant, int horizontalNumber) {
+        OrderedTokenGroup orderedTokenGroup = this.orderedTokenGroups.get(horizontalNumber);
+
+        Token token = new Token(participant);
+
+        orderedTokenGroup.addToken(token);
     }
 
     /**

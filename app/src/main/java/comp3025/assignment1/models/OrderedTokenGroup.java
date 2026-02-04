@@ -13,6 +13,12 @@ public class OrderedTokenGroup {
     //This field is the tokens in this ordered token group.
     private List<Token> tokens=new ArrayList<>();
 
+    public OrderedTokenGroup(int verticalMaximum) {
+        this.verticalMaximum = verticalMaximum;
+    }
+
+    private int verticalMaximum;
+
     /**
      * This method returns a token from this ordered token group using the vertical number.
      *
@@ -34,6 +40,10 @@ public class OrderedTokenGroup {
         return tokens;
     }
 
+    public boolean getSlotAvailable() {
+        return this.tokens.size() < this.verticalMaximum;
+    }
+
     /**
      * This method adds a token to this ordered token group.
      * In other words, this method adds a token to this vertical line.
@@ -44,6 +54,10 @@ public class OrderedTokenGroup {
      */
     public void addToken(Token token) {
         Objects.requireNonNull(token);
+
+        if (!this.getSlotAvailable()) {
+            throw new IllegalStateException();
+        }
 
         this.tokens.add(token);
     }
