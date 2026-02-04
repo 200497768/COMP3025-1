@@ -123,7 +123,7 @@ public class Board {
                         SlotNumbers slotNumbers = new SlotNumbers(verticalNumber, horizontalNumber);
                         Token nextToken = this.getToken(slotNumbers);
 
-                        consecutiveSlotGroup.add(nextToken);
+                        consecutiveSlotGroup.addSlot(nextToken);
                     }
 
                     consecutiveSlotGroups.add(consecutiveSlotGroup);

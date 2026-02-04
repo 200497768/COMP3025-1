@@ -78,7 +78,7 @@ public class ConsecutiveSlotGroup {
      *
      * @param token
      */
-    public void add(Token token) {
+    public void addSlot(Token token) {
         //Tokens can't be added to this consecutive token group if it has been completed.
         if (this.getCompletelyCreated()) {
             throw new IllegalStateException();
