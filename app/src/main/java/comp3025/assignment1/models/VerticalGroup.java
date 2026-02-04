@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * An ordered token group is a vertical line in the board that can include multiple tokens.
- * The ordered token group is responsible for determining order, since the tokens fall when added to a vertical line in the board.
+ * A vertical group is a vertical line in the board that can include multiple tokens.
+ * The vertical group is responsible for determining order, since the tokens fall when added to a vertical line in the board.
  */
 public class VerticalGroup {
 
@@ -22,7 +22,6 @@ public class VerticalGroup {
     /**
      * This method returns a token from this vertical group.
      *
-     * @param verticalNumber
      * @return
      */
     public Token getToken(int tokenNumber) {
