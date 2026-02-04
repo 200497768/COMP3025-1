@@ -105,10 +105,10 @@ public class ConsecutiveSlotGroup {
             return false;
         }
 
-        String startingParticipant = this.startingToken.getParticipant();
+        Participant startingParticipant = this.startingToken.getParticipant();
 
         for (Token token : this.tokens) {
-            String participant = token.getParticipant();
+            Participant participant = token.getParticipant();
             if (!participant.equals(startingParticipant)) {
                 return false;
             }
