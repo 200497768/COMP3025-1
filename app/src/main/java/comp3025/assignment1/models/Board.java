@@ -17,8 +17,17 @@ public class Board {
     private List<VerticalGroup> verticalGroups = new ArrayList<>();
 
     public Board(int numberOfVerticalGroups, int verticalGroupCapacity) {
-        //Some number of ordered token groups will be created and added to this board.
+        //The board must include a single vertical group.
+        if (numberOfVerticalGroups < 1) {
+            throw new IllegalArgumentException();
+        }
 
+        //Every vertical group must include a single slot.
+        if (verticalGroupCapacity < 1) {
+            throw new IllegalArgumentException();
+        }
+
+        //Vertical groups will be created and added to this board.
         for (int number = 0; number < numberOfVerticalGroups; number = number + 1) {
             //An ordered token group will be created, and added to this board.
             VerticalGroup verticalGroup = new VerticalGroup(verticalGroupCapacity);
