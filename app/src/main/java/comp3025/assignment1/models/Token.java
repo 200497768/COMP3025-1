@@ -6,4 +6,13 @@ package comp3025.assignment1.models;
  */
 public class Token {
     private Participant participant;
+
+    /**
+     * This method returns the name of the participant responsible for adding this token.
+     *
+     * @return
+     */
+    public Participant getParticipant() {
+        return participant;
+    }
 }
