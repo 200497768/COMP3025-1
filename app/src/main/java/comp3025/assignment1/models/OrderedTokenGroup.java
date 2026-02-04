@@ -30,6 +30,9 @@ public class OrderedTokenGroup {
             throw new IllegalArgumentException();
         }
 
+        if (verticalNumber >= this.tokens.size()) {
+            throw new IllegalArgumentException();
+        }
 
         Token token = this.tokens.get(verticalNumber);
         return token;
