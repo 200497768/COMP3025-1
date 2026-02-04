@@ -19,9 +19,11 @@ public class Board {
     public Board(int numberOfOrderedTokenGroups) {
         //Some number of ordered token groups will be created and added to this board.
 
-        //An ordered token group will be created, and added to this board.
-        OrderedTokenGroup orderedTokenGroup = new OrderedTokenGroup();
-        this.orderedTokenGroups.add(orderedTokenGroup);
+        for (int number = 0; number < numberOfOrderedTokenGroups; number = number + 1) {
+            //An ordered token group will be created, and added to this board.
+            OrderedTokenGroup orderedTokenGroup = new OrderedTokenGroup();
+            this.orderedTokenGroups.add(orderedTokenGroup);
+        }
     }
 
     /**

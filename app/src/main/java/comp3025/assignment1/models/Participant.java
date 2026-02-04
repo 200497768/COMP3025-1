@@ -8,6 +8,12 @@ import java.util.Objects;
 public class Participant {
     private String name;
 
+    public Participant(String name) {
+        Objects.requireNonNull(name);
+
+        this.name = name;
+    }
+
     /**
      * This method returns the name of this participant.
      *

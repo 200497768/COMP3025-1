@@ -12,6 +12,10 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import comp3025.assignment1.models.Board;
+import comp3025.assignment1.models.Participant;
+import comp3025.assignment1.models.Token;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -34,6 +38,12 @@ public class MainActivity extends AppCompatActivity {
         createdTextView.setText("This string was created using the onCreate method.");
 
         boardArea.addView(createdTextView);
+
+        Board board = new Board(5);
+
+        Participant participant = new Participant("Hao Tian");
+        Token token = new Token(participant);
+
 
 //As a student, I want to be able to see both of the views that are needed for this assignment.
         //Both views are created using the method that I learned during the week 4 class.
