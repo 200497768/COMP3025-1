@@ -65,4 +65,16 @@ public class ConsecutiveSlotGroup {
 
         this.tokens.add(token);
     }
+
+    /**
+     * This method returns the winning participant.
+     * The winning participant is determined by checking all of the slots in this consecutive slot group.
+     * If the same participant has added a token to every slot, the participant has won.
+     * This consecutive slot group must be completed in order for a participant to win.
+     *
+     * @return
+     */
+    public boolean getWinningParticipant() {
+
+    }
 }
