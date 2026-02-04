@@ -56,7 +56,7 @@ public class ConsecutiveSlotGroup {
      * @return
      */
     public boolean getTokensAdded() {
-        if (this.getCompleted()) {
+        if (!this.getCompleted()) {
             throw new IllegalStateException();
         }
 
