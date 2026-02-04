@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +27,11 @@ public class MainActivity extends AppCompatActivity {
 
         LinearLayout boardArea = findViewById(R.id.boardArea);
         //This method is able to retrieve the board area that I created.
+
+        TextView createdTextView = new TextView();
+        createdTextView.setText("This string was created using the onCreate method.");
+
+        boardArea.addView(createdTextView);
 
 //As a student, I want to be able to see both of the views that are needed for this assignment.
         //Both views are created using the method that I learned during the week 4 class.
