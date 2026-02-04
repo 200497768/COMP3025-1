@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout boardArea = findViewById(R.id.boardArea);
         //This method is able to retrieve the board area that I created.
 
-        TextView createdTextView = new TextView();
+        TextView createdTextView = new TextView(MainActivity.this);
         createdTextView.setText("This string was created using the onCreate method.");
 
         boardArea.addView(createdTextView);
@@ -44,3 +44,7 @@ public class MainActivity extends AppCompatActivity {
         Log.i("200497768", "onStart method running.");
     }
 }
+
+//References
+
+//Yadav, C. (2019). How to Dynamically Add Views into View in Android? https://www.tutorialspoint.com/how-to-dynamically-add-views-into-view-in-android
