@@ -16,6 +16,11 @@ public class Board {
     //The tokens are accessed through ordered token groups.
     private List<VerticalGroup> verticalGroups = new ArrayList<>();
 
+    //This field is the capacity for every vertical group.
+    //The capacity for every vertical group in this board is the same.
+    //I might need to retrieve the vertical group capacity in the future.
+    private int verticalGroupCapacity;
+
     public Board(int numberOfVerticalGroups, int verticalGroupCapacity) {
         //The board must include a single vertical group.
         if (numberOfVerticalGroups < 1) {
@@ -162,8 +167,7 @@ public class Board {
     }
 
     /**
-     * This method returns the number of ordered token groups in this board.
-     * In other words, this method returns the maximum horizontal number.
+     * This method returns the number of vertical groups in this board.
      *
      * @return
      */
