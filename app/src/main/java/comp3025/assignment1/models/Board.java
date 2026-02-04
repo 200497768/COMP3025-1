@@ -129,6 +129,21 @@ public class Board {
     }
 
     /**
+     * or null if no winning participant.
+     *
+     * @return
+     */
+    public Participant getWinningParticipant() {
+        for (ConsecutiveSlotGroup consecutiveSlotGroup : this.getConsecutiveSlotGroups()) {
+            if (consecutiveSlotGroup.getWinning()) {
+                return consecutiveSlotGroup.getWinningParticipant();
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * This method returns the number of ordered token groups in this board.
      * In other words, this method returns the maximum horizontal number.
      *

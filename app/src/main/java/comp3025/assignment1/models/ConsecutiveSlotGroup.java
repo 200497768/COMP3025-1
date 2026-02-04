@@ -95,14 +95,14 @@ public class ConsecutiveSlotGroup {
      *
      * @return
      */
-    public boolean getWinningParticipant() {
+    public Participant getWinningParticipant() {
         //In order for a participant to win, all slots must have been completed.
         if (!this.getCompleted()) {
-            return false;
+            return null;
         }
 
         if (!this.getTokensAdded()) {
-            return false;
+            return null;
         }
 
         Participant startingParticipant = this.startingToken.getParticipant();
@@ -110,10 +110,16 @@ public class ConsecutiveSlotGroup {
         for (Token token : this.tokens) {
             Participant participant = token.getParticipant();
             if (!participant.equals(startingParticipant)) {
-                return false;
+                return null;
             }
         }
 
-        return true;
+        return startingParticipant;
+    }
+
+    public boolean getWinning() {
+        boolean winning = this.getWinningParticipant() == null;
+
+        return winning;
     }
 }
