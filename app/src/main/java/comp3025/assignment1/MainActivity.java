@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.welcome);
         //This method causes the code to run the welcome view.
 
+        setContentView(R.layout.game);
+
         System.out.println("onCreate method running.");
         Log.i("200497768", "onCreate method running.");
 
