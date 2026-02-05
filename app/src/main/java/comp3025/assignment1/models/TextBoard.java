@@ -98,8 +98,9 @@ public class TextBoard {
                 } else {
                     //The slot numbers can only be retrieved if a token was added to this slot.
                     SlotNumbers slotNumbers = token.getSlotNumbers();
+                    Participant participant = token.getParticipant();
 
-                    lines.add("A token from this consecutive slot group is " + slotNumbers.getVerticalGroupNumber() + " " + slotNumbers.getTokenNumber() + " participant " + token.getParticipant());
+                    lines.add("A token from this consecutive slot group is " + slotNumbers.getVerticalGroupNumber() + " " + slotNumbers.getTokenNumber() + " participant " + participant.getName());
                 }
             }
         }
