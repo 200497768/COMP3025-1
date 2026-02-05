@@ -22,10 +22,11 @@ public class TextBoard {
 
     /**
      * This method returns the lines that show this board.
+     * When using this method, the strings that are provided will be used in the strings that this method produces.
      *
      * @return
      */
-    public List<String> getLines() {
+    public List<String> getLines(String tokenString, String slotString) {
         List<String> lines = new ArrayList<>();
 
         //Start with the top horizontal line of the board.
@@ -47,9 +48,9 @@ public class TextBoard {
                 Token token = board.getToken(slotNumbers);
 
                 if (token == null) {
-                    line = line + "Empty ";
+                    line = line + slotString + " ";
                 } else {
-                    line = line + "Token ";
+                    line = line + tokenString + " ";
                 }
             }
 

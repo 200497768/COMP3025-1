@@ -66,6 +66,7 @@ public class Board {
     /**
      * This method returns the vertical group capacity.
      * This is the maximum number of tokens in a vertical group.
+     * The vertical group capacity is the same for every vertical group in this board.
      */
     public int getVerticalGroupCapacity() {
         return verticalGroupCapacity;
