@@ -75,4 +75,13 @@ public class VerticalGroup {
 
         this.tokens.add(token);
     }
+
+    /**
+     * This method returns the number of tokens that have been added to this vertical group.
+     *
+     * @return
+     */
+    public int getNumberAdded() {
+        return this.tokens.size();
+    }
 }

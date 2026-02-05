@@ -9,10 +9,23 @@ import java.util.Objects;
 public class Token {
     private Participant participant;
 
+    private String information;
+
+
     public Token(Participant participant) {
         Objects.requireNonNull(participant);
 
         this.participant = participant;
+
+        this.information = "No information added";
+    }
+
+    public String getInformation() {
+        return information;
+    }
+
+    public void setInformation(String information) {
+        this.information = information;
     }
 
     /**

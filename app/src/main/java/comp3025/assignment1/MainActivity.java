@@ -12,7 +12,10 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.List;
+
 import comp3025.assignment1.models.Board;
+import comp3025.assignment1.models.ConsecutiveSlotGroup;
 import comp3025.assignment1.models.Participant;
 import comp3025.assignment1.models.Token;
 
@@ -41,11 +44,25 @@ public class MainActivity extends AppCompatActivity {
 
         Board board = new Board(5, 4, 3);
 
+        Log.i("200497768", "Adding tokens.");
         Participant participant = new Participant("Hao Tian");
         board.addToken(participant, 0);
         board.addToken(participant, 0);
         board.addToken(participant, 0);
         board.addToken(participant, 0);
+
+        List<ConsecutiveSlotGroup> consecutiveSlotGroups = board.getConsecutiveSlotGroups();
+        for (ConsecutiveSlotGroup consecutiveSlotGroup : consecutiveSlotGroups) {
+            Log.i("200497768", "A consecutive slot group is ");
+
+            List<Token> tokens = consecutiveSlotGroup.getTokens();
+            for (Token token : tokens) {
+
+
+                Log.i("200497768", "A token from this consecutive slot group is " + token.getParticipant() + " " + token.getInformation());
+            }
+        }
+
         Log.i("200497768", "Winner is " + board.getWinningParticipant());
 
 //As a student, I want to be able to see both of the views that are needed for this assignment.

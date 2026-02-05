@@ -58,6 +58,10 @@ public class ConsecutiveSlotGroup {
         return this.tokens.size() >= this.consecutiveNumber;
     }
 
+    public List<Token> getTokens() {
+        return tokens;
+    }
+
     /**
      * This method returns whether every slot in this consecutive slot group includes a token.
      *

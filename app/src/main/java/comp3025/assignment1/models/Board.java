@@ -87,6 +87,10 @@ public class Board {
         Token token = new Token(participant);
 
         orderedTokenGroup.addToken(token);
+
+        //This determines the token number of the token that was added.
+        int tokenNumber = orderedTokenGroup.getNumberAdded() - 1;
+        token.setInformation("Vertical group number " + verticalGroupNumber + " Token number " + tokenNumber);
     }
 
     /**
@@ -107,7 +111,7 @@ public class Board {
      *
      * @return
      */
-    private List<ConsecutiveSlotGroup> getConsecutiveSlotGroups() {
+    public List<ConsecutiveSlotGroup> getConsecutiveSlotGroups() {
         List<ConsecutiveSlotGroup> consecutiveSlotGroups = new ArrayList<>();
 
         //I will repeatedly create consecutive slot groups to check the board to determine whether any participant has won.
