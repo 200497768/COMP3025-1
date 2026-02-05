@@ -40,6 +40,11 @@ public class Directions {
             public int getHorizontalAddAmount() {
                 return 0;
             }
+
+            @Override
+            public String getString() {
+                return "Vertical";
+            }
         };
 
         return verticalDirection;
@@ -60,6 +65,11 @@ public class Directions {
             public int getHorizontalAddAmount() {
                 return 1;
             }
+
+            @Override
+            public String getString() {
+                return "Horizontal";
+            }
         };
 
         return horizontalDirection;
@@ -79,6 +89,11 @@ public class Directions {
             @Override
             public int getHorizontalAddAmount() {
                 return 1;
+            }
+
+            @Override
+            public String getString() {
+                return "Diagonal";
             }
         };
 

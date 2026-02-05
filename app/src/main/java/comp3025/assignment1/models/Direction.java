@@ -25,5 +25,9 @@ public class Direction {
         return 0;
     }
 
+    public String getString() {
+        return "string";
+    }
+
 
 }

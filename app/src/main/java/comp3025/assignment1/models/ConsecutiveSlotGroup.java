@@ -179,4 +179,8 @@ public class ConsecutiveSlotGroup {
 
         return winning;
     }
+
+    public Direction getDirection() {
+        return direction;
+    }
 }
