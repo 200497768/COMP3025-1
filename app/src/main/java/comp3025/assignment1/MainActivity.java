@@ -50,30 +50,6 @@ public class MainActivity extends AppCompatActivity {
 
         Board board = new Board(numberOfVerticalGroups, verticalGroupCapacity, consecutiveNumber);
 
-        //Start with the top horizontal line of the board.
-        for (int tokenNumber = verticalGroupCapacity - 1; tokenNumber >= 0; tokenNumber = tokenNumber - 1) {
-
-            String line = "Line " + tokenNumber + " ";
-
-            //Access the slot in each vertical group, going horizontally.
-            for (int verticalGroupNumber = 0; verticalGroupNumber < numberOfVerticalGroups - 1; verticalGroupNumber = verticalGroupNumber + 1) {
-
-                //Retrieve the vertical group with this vertical group number.
-                VerticalGroup verticalGroup = board.getVerticalGroup(verticalGroupNumber);
-
-                //Retrieve the token for this slot from the vertical group.
-                //The method from the board class, not the vertical group class, must be used to retrieve the token.
-                //The method from the board class returns null if no token was added to the slot.
-                //The method from the vertical group class doesn't allow accessing slots before a token has been added.
-                SlotNumbers slotNumbers = new SlotNumbers(tokenNumber, verticalGroupNumber);
-                Token token = board.getToken(slotNumbers);
-
-                if (token == null) {
-                    line = line + "Empty ";
-                } else {
-                    line = line + "Token ";
-                }
-            }
 
             Log.i("200497768", line);
         }
