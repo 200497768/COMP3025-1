@@ -52,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
         //Start with the top horizontal line of the board.
         for (int tokenNumber = verticalGroupCapacity - 1; tokenNumber >= 0; tokenNumber = tokenNumber - 1) {
 
+            String line = "Line " + tokenNumber + " ";
+
             //Access the slot in each vertical group, going horizontally.
             for (int verticalGroupNumber = 0; verticalGroupNumber < numberOfVerticalGroups - 1; verticalGroupNumber = verticalGroupNumber + 1) {
 
@@ -62,10 +64,13 @@ public class MainActivity extends AppCompatActivity {
                 Token token = verticalGroup.getToken(tokenNumber);
 
                 if (token == null) {
-                    Log.i("200497768", "Empty slot");
+                    line = line + "Empty ";
+                } else {
+                    line = line + "Token ";
                 }
-                Log.i("200497768", "Token added");
             }
+
+            Log.i("200497768", line);
         }
 
         Log.i("200497768", "Adding tokens.");
