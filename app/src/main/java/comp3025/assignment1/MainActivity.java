@@ -114,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
 
 //As a student, I want to be able to see both of the views that are needed for this assignment.
         //Both views are created using the method that I learned during the week 4 class.
+        Log.i("200497768", "onCreate method completed.");
     }
 
     @Override
