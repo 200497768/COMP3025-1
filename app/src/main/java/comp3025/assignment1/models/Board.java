@@ -117,7 +117,12 @@ public class Board {
     public void addToken(Participant participant, int verticalGroupNumber) {
         VerticalGroup orderedTokenGroup = this.verticalGroups.get(verticalGroupNumber);
 
-        //This determines the token number of the token that was added.
+        //In order to create a token, the slot numbers of the token in the board must be provided to the token class.
+        //The slot numbers includes the vertical group number and token number.
+        //This method is provided with the vertical group number, but still needs to determine the token number.
+
+        //This determines the token number of the token that this method will add.
+        //The token number can be determined by checking the number of tokens that have been added to this vertical group.
         int tokenNumber = orderedTokenGroup.getNumberAdded() - 1;
 
         SlotNumbers slotNumbers = new SlotNumbers(verticalGroupNumber, tokenNumber);
