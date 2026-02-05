@@ -183,4 +183,8 @@ public class ConsecutiveSlotGroup {
     public Direction getDirection() {
         return direction;
     }
+
+    public int getConsecutiveNumber() {
+        return consecutiveNumber;
+    }
 }
