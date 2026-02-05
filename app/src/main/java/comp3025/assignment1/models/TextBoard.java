@@ -78,18 +78,28 @@ public class TextBoard {
 
         List<ConsecutiveSlotGroup> consecutiveSlotGroups = board.getConsecutiveSlotGroups();
         for (ConsecutiveSlotGroup consecutiveSlotGroup : consecutiveSlotGroups) {
+
+            //The consecutive slot group includes a few fields that are available, even if a token wasn't added to the starting slot.
+            SlotNumbers startingSlotNumbers = consecutiveSlotGroup.getStartingSlotNumbers();
+            Direction direction = consecutiveSlotGroup.getDirection();
+            lines.add("Vertical group number " + startingSlotNumbers.getVerticalGroupNumber() + " token number " + startingSlotNumbers.getTokenNumber() + " direction " + direction.getString() + " consecutive number " + consecutiveSlotGroup.getConsecutiveNumber());
+
+            //The consecutive slot group might include a starting token, depending on whether a token was added to the starting slot.
+            //If a token wasn't added to the starting slot, null will be retrieved as the starting token.
             Token startingToken = consecutiveSlotGroup.getStartingToken();
-            SlotNumbers startingTokenSlotNumbers = startingToken.getSlotNumbers();
 
-            lines.add("This is a consecutive slot group starting with " + startingTokenSlotNumbers.getVerticalGroupNumber() + " " + startingTokenSlotNumbers.getTokenNumber());
-
+            //Retrieve the tokens in this consecutive slot group.
             List<Token> tokens = consecutiveSlotGroup.getTokens();
             for (Token token : tokens) {
+
+                //The token might not exist if a token hasn't been added to this slot, or if the slot is outside of the board.
                 if (token == null) {
-                    lines.add("No token in this slot. Slot numbers can't be retrieved.");
+                    lines.add("No token exists for slot.");
                 } else {
+                    //The slot numbers can only be retrieved if a token was added to this slot.
                     SlotNumbers slotNumbers = token.getSlotNumbers();
-                    lines.add("A token from this consecutive slot group is " + slotNumbers.getVerticalGroupNumber() + " " + slotNumbers.getTokenNumber());
+
+                    lines.add("A token from this consecutive slot group is " + slotNumbers.getVerticalGroupNumber() + " " + slotNumbers.getTokenNumber() + " participant " + token.getParticipant());
                 }
             }
         }
