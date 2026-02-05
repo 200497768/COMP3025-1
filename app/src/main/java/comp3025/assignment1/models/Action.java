@@ -5,4 +5,6 @@ package comp3025.assignment1.models;
  */
 public class Action {
 
+    //This field is the participant that caused the action.
+    private Participant participant;
 }
