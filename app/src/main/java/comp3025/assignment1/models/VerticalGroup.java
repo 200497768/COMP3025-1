@@ -21,6 +21,10 @@ public class VerticalGroup {
 
     /**
      * This method returns a token from this vertical group.
+     * This method only allows accessing a slot with a token.
+     * If a token hasn't been added to a slot, this method can't be used to access that slot.
+     * This method won't return null if a token hasn't been added to the slot.
+     * If null is needed for a slot with no token, use the method from the board class.
      *
      * @return
      */

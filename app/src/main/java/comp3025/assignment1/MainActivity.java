@@ -17,6 +17,7 @@ import java.util.List;
 import comp3025.assignment1.models.Board;
 import comp3025.assignment1.models.ConsecutiveSlotGroup;
 import comp3025.assignment1.models.Participant;
+import comp3025.assignment1.models.SlotNumbers;
 import comp3025.assignment1.models.Token;
 import comp3025.assignment1.models.VerticalGroup;
 
@@ -61,7 +62,11 @@ public class MainActivity extends AppCompatActivity {
                 VerticalGroup verticalGroup = board.getVerticalGroup(verticalGroupNumber);
 
                 //Retrieve the token for this slot from the vertical group.
-                Token token = verticalGroup.getToken(tokenNumber);
+                //The method from the board class, not the vertical group class, must be used to retrieve the token.
+                //The method from the board class returns null if no token was added to the slot.
+                //The method from the vertical group class doesn't allow accessing slots before a token has been added.
+                SlotNumbers slotNumbers = new SlotNumbers(tokenNumber, verticalGroupNumber);
+                Token token = board.getToken(slotNumbers);
 
                 if (token == null) {
                     line = line + "Empty ";
