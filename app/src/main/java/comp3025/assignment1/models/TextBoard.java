@@ -1,5 +1,7 @@
 package comp3025.assignment1.models;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -63,6 +65,35 @@ public class TextBoard {
 
             lines.add(line);
         }
+        return lines;
+    }
+
+    /**
+     * This method returns strings that show the consecutive slot groups that are created by the board to determine the winning participant.
+     *
+     * @return
+     */
+    public List<String> getConsecutiveSlotGroups() {
+        List<String> lines = new ArrayList<>();
+
+        List<ConsecutiveSlotGroup> consecutiveSlotGroups = board.getConsecutiveSlotGroups();
+        for (ConsecutiveSlotGroup consecutiveSlotGroup : consecutiveSlotGroups) {
+            Token startingToken = consecutiveSlotGroup.getStartingToken();
+            SlotNumbers startingTokenSlotNumbers = startingToken.getSlotNumbers();
+
+            Log.i("200497768", "This is a consecutive slot group starting with " + startingTokenSlotNumbers.getVerticalGroupNumber() + " " + startingTokenSlotNumbers.getTokenNumber());
+
+            List<Token> tokens = consecutiveSlotGroup.getTokens();
+            for (Token token : tokens) {
+                if (token == null) {
+                    Log.i("200497768", "No token in this slot. Slot numbers can't be retrieved.");
+                } else {
+                    SlotNumbers slotNumbers = token.getSlotNumbers();
+                    Log.i("200497768", "A token from this consecutive slot group is " + slotNumbers.getVerticalGroupNumber() + " " + slotNumbers.getTokenNumber());
+                }
+            }
+        }
+
         return lines;
     }
 
