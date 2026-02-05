@@ -38,6 +38,9 @@ public class ConsecutiveSlotGroup {
     //The starting token is used to retrieve other tokens that are next to it.
     private Token startingToken;
 
+    public Token getStartingToken() {
+        return startingToken;
+    }
 
     public ConsecutiveSlotGroup(Token startingToken, int consecutiveNumber) {
         this.startingToken = startingToken;
@@ -58,6 +61,12 @@ public class ConsecutiveSlotGroup {
         return this.tokens.size() >= this.consecutiveNumber;
     }
 
+    /**
+     * This method returns the slots that have been added to this consecutive slot group.
+     * If no token was added to a slot, it will be null.
+     *
+     * @return
+     */
     public List<Token> getTokens() {
         return tokens;
     }
