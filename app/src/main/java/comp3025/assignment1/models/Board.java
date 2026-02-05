@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import comp3025.assignment1.models.actions.Action;
+
 /**
  * This class is a board.
  * A board includes multiple slots.
@@ -274,7 +276,7 @@ public class Board {
      * @param action
      */
     public void addAction(Action action) {
-        Objects.requireNonNull(slotNumbers);
+        Objects.requireNonNull(action);
 
         //This board includes a list that shows the actions that have happened.
         //This action needs to be added to that list.
