@@ -37,6 +37,11 @@ public class ConsecutiveSlotGroup {
     //The starting token is used to retrieve other tokens that are next to it.
     private Token startingToken;
 
+    //This field is the slot numbers that this consecutive slot group started with.
+    //In other words, this field is the slot numbers of the first slot in this consecutive slot group.
+    //This field is needed so that the slot numbers of the starting token can be retrieved, even if a token hasn't been added to the starting slot.
+    private SlotNumbers startingSlotNumbers;
+
     //This field is the direction that was used in order to create this consecutive slot group.
     private Direction direction;
 
@@ -50,13 +55,17 @@ public class ConsecutiveSlotGroup {
         return startingToken;
     }
 
-    public ConsecutiveSlotGroup(Token startingToken, int consecutiveNumber, Direction direction) {
+
+    public ConsecutiveSlotGroup(Token startingToken, int consecutiveNumber, SlotNumbers startingSlotNumbers, Direction direction) {
         this.startingToken = startingToken;
 
         if (consecutiveNumber < 1) {
             throw new IllegalArgumentException();
         }
         this.consecutiveNumber = consecutiveNumber;
+
+        Objects.requireNonNull(startingSlotNumbers);
+        this.startingSlotNumbers = startingSlotNumbers;
 
         Objects.requireNonNull(direction);
         this.direction = direction;
