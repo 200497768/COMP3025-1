@@ -23,7 +23,9 @@ public class ConsecutiveSlotGroup {
     //This field determines the number of tokens needed in order to win.
     //The tokens must be added by the same participant.
     //This class uses this field to determine the number of slots to add to a consecutive slot group.
-    private int consecutiveTokensWin = 3;
+
+    //This field is the number of tokens that must be added consecutively in order for a participant to win.
+    private int consecutiveNumber;
 
     private int numberOfSlots;
 
@@ -36,8 +38,14 @@ public class ConsecutiveSlotGroup {
     //The starting token is used to retrieve other tokens that are next to it.
     private Token startingToken;
 
-    public ConsecutiveSlotGroup(Token startingToken) {
+
+    public ConsecutiveSlotGroup(Token startingToken, int consecutiveNumber) {
         this.startingToken = startingToken;
+
+        if (consecutiveNumber < 1) {
+            throw new IllegalArgumentException();
+        }
+        this.consecutiveNumber = consecutiveNumber;
     }
 
     /**
@@ -47,7 +55,7 @@ public class ConsecutiveSlotGroup {
      * @return
      */
     public boolean getCompletelyCreated() {
-        return this.tokens.size() >= this.consecutiveTokensWin;
+        return this.tokens.size() >= this.consecutiveNumber;
     }
 
     /**

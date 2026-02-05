@@ -21,7 +21,11 @@ public class Board {
     //I might need to retrieve the vertical group capacity in the future.
     private int verticalGroupCapacity;
 
-    public Board(int numberOfVerticalGroups, int verticalGroupCapacity) {
+    //This field is the number of tokens that must be added consecutively in order for a participant to win.
+    private int consecutiveNumber;
+
+
+    public Board(int numberOfVerticalGroups, int verticalGroupCapacity, int consecutiveNumber) {
         //The board must include a single vertical group.
         if (numberOfVerticalGroups < 1) {
             throw new IllegalArgumentException();
@@ -31,6 +35,12 @@ public class Board {
         if (verticalGroupCapacity < 1) {
             throw new IllegalArgumentException();
         }
+        this.verticalGroupCapacity = verticalGroupCapacity;
+
+        if (consecutiveNumber < 1) {
+            throw new IllegalArgumentException();
+        }
+        this.consecutiveNumber = consecutiveNumber;
 
         //Vertical groups will be created and added to this board.
         for (int number = 0; number < numberOfVerticalGroups; number = number + 1) {
@@ -126,7 +136,7 @@ public class Board {
                 //Multiple consecutive slot groups will be created, since multiple directions exist.
 
                 for (Direction direction : Directions.getDirections()) {
-                    ConsecutiveSlotGroup consecutiveSlotGroup = new ConsecutiveSlotGroup(startingToken);
+                    ConsecutiveSlotGroup consecutiveSlotGroup = new ConsecutiveSlotGroup(startingToken, this.consecutiveNumber);
 
                     while (!consecutiveSlotGroup.getCompletelyCreated()) {
                         //The vertical and horizontal numbers will be changed by the numbers from the direction.
