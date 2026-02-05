@@ -111,8 +111,8 @@ public class Board {
         //I need to retrieve a number of tokens from 3 different lists.
         //Every token will be retrieved with the same vertical number.
 
-        int horizontalNumber = 0;
-        int verticalNumber = 0;
+        int verticalGroupNumber = 0;
+        int tokenNumber = 0;
 
         //When creating consecutive slot groups, I only need to increase the numbers.
         //I don't need to check slots that are less than the starting slot, since that slot would have been checked before.
@@ -130,11 +130,11 @@ public class Board {
 
                     while (!consecutiveSlotGroup.getCompletelyCreated()) {
                         //The vertical and horizontal numbers will be changed by the numbers from the direction.
-                        verticalNumber = verticalNumber + direction.getVerticalAddAmount();
-                        horizontalNumber = horizontalNumber + direction.getHorizontalAddAmount();
+                        tokenNumber = tokenNumber + direction.getVerticalAddAmount();
+                        verticalGroupNumber = verticalGroupNumber + direction.getHorizontalAddAmount();
 
                         //Both numbers will be used to retrieve the slot.
-                        SlotNumbers slotNumbers = new SlotNumbers(verticalNumber, horizontalNumber);
+                        SlotNumbers slotNumbers = new SlotNumbers(tokenNumber, verticalGroupNumber);
                         Token nextToken = this.getToken(slotNumbers);
 
                         consecutiveSlotGroup.addSlot(nextToken);

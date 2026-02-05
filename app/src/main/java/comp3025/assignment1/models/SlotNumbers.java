@@ -6,6 +6,8 @@ package comp3025.assignment1.models;
  * A group of slot numbers includes a vertical slot number and a horizontal slot number.
  * The minimum slot number is 1.
  * The maximum slot number depends on the board.
+ * The horizontal number determines the vertical group that's chosen.
+ * The vertical number is determines the token that's chosen in a vertical group.
  */
 public class SlotNumbers {
     private int vertical;
