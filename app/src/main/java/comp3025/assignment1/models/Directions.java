@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This class includes methods that produce directions.
+ * This class provides methods that produce directions.
+ * The methods can be used to create vertical, horizontal, and diagonal directions.
  */
 public class Directions {
 
@@ -22,6 +23,12 @@ public class Directions {
 
         return directions;
     }
+
+    /**
+     * This method creates and returns the vertical direction.
+     *
+     * @return
+     */
     public static Direction getVerticalDirection() {
         Direction verticalDirection = new Direction() {
             @Override
@@ -38,6 +45,10 @@ public class Directions {
         return verticalDirection;
     }
 
+    /**
+     * This method creates and returns the horizontal direction.
+     * @return
+     */
     public static Direction getHorizontalDirection() {
         Direction horizontalDirection = new Direction() {
             @Override
@@ -54,6 +65,10 @@ public class Directions {
         return horizontalDirection;
     }
 
+    /**
+     * This method creates and returns the diagonal direction.
+     * @return
+     */
     public static Direction getDiagonalDirection() {
         Direction diagonalDirection = new Direction() {
             @Override
