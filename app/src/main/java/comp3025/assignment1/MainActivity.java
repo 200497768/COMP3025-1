@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
             Log.i("200497768", line);
         }
 
-        Log.i("200497768", "Winner is " + board.getWinningParticipant());
+        Log.i("200497768", "The winning participant from this board is " + board.getWinningParticipant());
 
 //As a student, I want to be able to see both of the views that are needed for this assignment.
         //Both views are created using the method that I learned during the week 4 class.
