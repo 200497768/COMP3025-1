@@ -2,6 +2,7 @@ package comp3025.assignment1.models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * This class is a consecutive slot group.
@@ -36,6 +37,9 @@ public class ConsecutiveSlotGroup {
     //The starting token is used to retrieve other tokens that are next to it.
     private Token startingToken;
 
+    //This field is the direction that was used in order to create this consecutive slot group.
+    private Direction direction;
+
     /**
      * This method returns the starting token for this consecutive slot group.
      * The starting token is the first token that was added when the board created this consecutive slot group.
@@ -46,13 +50,16 @@ public class ConsecutiveSlotGroup {
         return startingToken;
     }
 
-    public ConsecutiveSlotGroup(Token startingToken, int consecutiveNumber) {
+    public ConsecutiveSlotGroup(Token startingToken, int consecutiveNumber, Direction direction) {
         this.startingToken = startingToken;
 
         if (consecutiveNumber < 1) {
             throw new IllegalArgumentException();
         }
         this.consecutiveNumber = consecutiveNumber;
+
+        Objects.requireNonNull(direction);
+        this.direction = direction;
     }
 
     /**
