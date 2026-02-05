@@ -50,9 +50,6 @@ public class MainActivity extends AppCompatActivity {
 
 //As a student, I want to be able to see both of the views that are needed for this assignment.
         //Both views are created using the method that I learned during the week 4 class.
-
-        //I changed this code using the library computer.
-        //If I'm able to access this line in the repository, this means I'm able to use the library computer for this assignment.
     }
 
     @Override
