@@ -10,27 +10,30 @@ package comp3025.assignment1.models;
  * The vertical number is determines the token that's chosen in a vertical group.
  */
 public class SlotNumbers {
-    private int vertical;
-    private int horizontal;
+    int verticalGroupNumber;
 
-    public SlotNumbers(int vertical,int horizontal) {
-        if (vertical < 0) {
+    private int tokenNumber;
+
+    public SlotNumbers(int verticalGroupNumber, int tokenNumber) {
+        if (verticalGroupNumber < 0) {
             throw new IllegalArgumentException();
         }
 
-        if (horizontal < 0) {
+        if (tokenNumber < 0) {
             throw new IllegalArgumentException();
         }
 
-        this.vertical=vertical;
-        this.horizontal=horizontal;
+        this.verticalGroupNumber = verticalGroupNumber;
+        this.tokenNumber = tokenNumber;
     }
 
-    public int getVertical() {
-        return vertical;
+    public int getVerticalGroupNumber() {
+        return verticalGroupNumber;
     }
 
-    public int getHorizontal() {
-        return horizontal;
+    public int getTokenNumber() {
+        return tokenNumber;
     }
+
+
 }
