@@ -95,15 +95,17 @@ public class MainActivity extends AppCompatActivity {
         List<ConsecutiveSlotGroup> consecutiveSlotGroups = board.getConsecutiveSlotGroups();
         for (ConsecutiveSlotGroup consecutiveSlotGroup : consecutiveSlotGroups) {
             Token startingToken = consecutiveSlotGroup.getStartingToken();
+            SlotNumbers startingTokenSlotNumbers = startingToken.getSlotNumbers();
 
-            Log.i("200497768", "This is a consecutive slot group starting with " + startingToken.getInformation());
+            Log.i("200497768", "This is a consecutive slot group starting with " + startingTokenSlotNumbers.getVerticalGroupNumber() + " " + startingTokenSlotNumbers.getTokenNumber());
 
             List<Token> tokens = consecutiveSlotGroup.getTokens();
             for (Token token : tokens) {
                 if (token == null) {
-                    Log.i("200497768", "No token in this slot.");
+                    Log.i("200497768", "No token in this slot. Slot numbers can't be retrieved.");
                 } else {
-                    Log.i("200497768", "A token from this consecutive slot group is " + token.getInformation());
+                    SlotNumbers slotNumbers = token.getSlotNumbers();
+                    Log.i("200497768", "A token from this consecutive slot group is " + slotNumbers.getVerticalGroupNumber() + " " + slotNumbers.getTokenNumber());
                 }
             }
         }

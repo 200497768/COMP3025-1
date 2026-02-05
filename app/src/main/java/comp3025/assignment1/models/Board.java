@@ -85,8 +85,8 @@ public class Board {
     public Token getToken(SlotNumbers slotNumbers) {
         Objects.requireNonNull(slotNumbers);
 
-        int verticalNumber = slotNumbers.getVertical();
-        int verticalGroupNumber = slotNumbers.getHorizontal();
+        int tokenNumber = slotNumbers.getTokenNumber();
+        int verticalGroupNumber = slotNumbers.getVerticalGroupNumber();
 
         //This board includes a list with multiple ordered token groups.
         //The vertical number is used to retrieve an single ordered token group.
@@ -96,7 +96,7 @@ public class Board {
         VerticalGroup orderedTokenGroup = this.verticalGroups.get(verticalGroupNumber);
 
         try {
-            Token token = orderedTokenGroup.getToken(verticalNumber);
+            Token token = orderedTokenGroup.getToken(tokenNumber);
             return token;
         } catch (IllegalArgumentException illegalArgumentException) {
             return null;
