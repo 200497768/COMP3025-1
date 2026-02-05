@@ -224,21 +224,37 @@ public class Board {
     }
 
     /**
+     * This method returns the winning consecutive slot group for this board.
+     * If no winning consecutive slot group exists in this board, this method returns null.
+     *
+     * @return
+     */
+    private ConsecutiveSlotGroup getWinningConsecutiveSlotGroup() {
+        List<ConsecutiveSlotGroup> consecutiveSlotGroups = this.getConsecutiveSlotGroups();
+
+        for (ConsecutiveSlotGroup consecutiveSlotGroup : consecutiveSlotGroups) {
+            if (consecutiveSlotGroup.getWinning()) {
+                return consecutiveSlotGroup;
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * This method returns the winning participant.
      * If no participant has won, this method returns null.
      *
      * @return
      */
     public Participant getWinningParticipant() {
-        List<ConsecutiveSlotGroup> consecutiveSlotGroups = this.getConsecutiveSlotGroups();
+        ConsecutiveSlotGroup winningConsecutiveSlotGroup = this.getWinningConsecutiveSlotGroup();
 
-        for (ConsecutiveSlotGroup consecutiveSlotGroup : consecutiveSlotGroups) {
-            if (consecutiveSlotGroup.getWinning()) {
-                return consecutiveSlotGroup.getWinningParticipant();
-            }
+        if (winningConsecutiveSlotGroup == null) {
+            return null;
         }
 
-        return null;
+        return winningConsecutiveSlotGroup.getWinningParticipant();
     }
 
     /**
