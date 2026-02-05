@@ -197,7 +197,7 @@ public class Board {
                         verticalGroupNumber = verticalGroupNumber + direction.getHorizontalAddAmount();
 
                         //Both numbers will be used to retrieve the slot.
-                        SlotNumbers slotNumbers = new SlotNumbers(tokenNumber, verticalGroupNumber);
+                        SlotNumbers slotNumbers = new SlotNumbers(verticalGroupNumber, tokenNumber);
                         Token nextToken = this.getToken(slotNumbers);
 
                         consecutiveSlotGroup.addSlot(nextToken);
