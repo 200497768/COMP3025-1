@@ -175,7 +175,7 @@ public class ConsecutiveSlotGroup {
      * @return
      */
     public boolean getWinning() {
-        boolean winning = this.getWinningParticipant() == null;
+        boolean winning = this.getWinningParticipant() != null;
 
         return winning;
     }
