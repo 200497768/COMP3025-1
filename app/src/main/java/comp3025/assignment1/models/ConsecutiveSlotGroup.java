@@ -5,10 +5,9 @@ import java.util.List;
 
 /**
  * This class is a consecutive slot group.
- * A consecutive slot group is a group of slots from a board that are next to each other.
- * A consecutive slot group can be created with the slot numbers of a starting slot and direction.
- * The direction can be vertical, horizontal, or diagonal.
- * The consecutive slot group will be created by repeatedly adding 1 to the starting slot numbers.
+ * A consecutive slot group is a group of slots in a board that are next to each other.
+ * A consecutive slot group allows the board to determine whether a participant has won by adding a group of tokens.
+ * The board class uses this class by creating all of the possible consecutive slot groups for the board.
  * This class includes a method to determine if the same participant has added tokens in every slot in this group.
  * If the same participant has added tokens in every slot in this group, that participant wins.
  */
@@ -18,7 +17,6 @@ public class ConsecutiveSlotGroup {
     //Consecutive slot groups allow me to check whether tokens from the same participant have been added to all slots in that group.
     //Consecutive slot groups can be created from multiple tokens in this board.
     //The tokens can be chosen from a vertical, horizontal, or diagonal line.
-
 
     //This field determines the number of tokens needed in order to win.
     //The tokens must be added by the same participant.
@@ -38,6 +36,12 @@ public class ConsecutiveSlotGroup {
     //The starting token is used to retrieve other tokens that are next to it.
     private Token startingToken;
 
+    /**
+     * This method returns the starting token for this consecutive slot group.
+     * The starting token is the first token that was added when the board created this consecutive slot group.
+     *
+     * @return
+     */
     public Token getStartingToken() {
         return startingToken;
     }
@@ -54,6 +58,8 @@ public class ConsecutiveSlotGroup {
     /**
      * This method returns whether this consecutive slot group has been completed.
      * When this consecutive slot group has been completed, enough slots have been added to determine whether a participant has won.
+     * This consecutive slot group can't determine whether a participant has won until it has been completely created.
+     * After creating a consecutive slot group, the board is responsible for repeatedly adding slots to the consecutive slot group until it has been completely created.
      *
      * @return
      */
@@ -72,7 +78,8 @@ public class ConsecutiveSlotGroup {
     }
 
     /**
-     * This method returns whether every slot in this consecutive slot group includes a token.
+     * This method returns whether a token has been added to every slot in this consecutive slot group.
+     * A participant might have won if a token has been added to every slot.
      *
      * @return
      */
@@ -80,7 +87,6 @@ public class ConsecutiveSlotGroup {
         if (!this.getCompletelyCreated()) {
             throw new IllegalStateException();
         }
-
 
         for (Token token : this.tokens) {
             //The tokens list can include null because not all tokens might have been added.

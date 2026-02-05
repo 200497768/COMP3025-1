@@ -147,6 +147,10 @@ public class Board {
      * This method creates consecutive slot groups for every slot in this board.
      * This method returns the consecutive slot groups that were created as a list.
      * Every consecutive slot groups can be used to determine if a participant has won.
+     * A consecutive slot group can be created with the slot numbers of a starting slot and direction.
+     * The direction can be vertical, horizontal, or diagonal.
+     * This method starts with the starting slot, and uses the direction to determine the slot numbers of the next slot.
+     * The next slot numbers are determined by using the direction to increase the vertical group number, token number, or both.
      *
      * @return
      */
