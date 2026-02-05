@@ -183,7 +183,7 @@ public class Board {
                 //Multiple consecutive slot groups will be created, since multiple directions exist.
 
                 for (Direction direction : Directions.getDirections()) {
-                    ConsecutiveSlotGroup consecutiveSlotGroup = new ConsecutiveSlotGroup(startingToken, this.consecutiveNumber);
+                    ConsecutiveSlotGroup consecutiveSlotGroup = new ConsecutiveSlotGroup(startingToken, this.consecutiveNumber, direction);
 
                     while (!consecutiveSlotGroup.getCompletelyCreated()) {
                         //The vertical and horizontal numbers will be changed by the numbers from the direction.
