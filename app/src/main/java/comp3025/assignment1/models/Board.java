@@ -117,13 +117,14 @@ public class Board {
     public void addToken(Participant participant, int verticalGroupNumber) {
         VerticalGroup orderedTokenGroup = this.verticalGroups.get(verticalGroupNumber);
 
-        Token token = new Token(participant);
-
-        orderedTokenGroup.addToken(token);
-
         //This determines the token number of the token that was added.
         int tokenNumber = orderedTokenGroup.getNumberAdded() - 1;
-        token.setInformation("Vertical group number " + verticalGroupNumber + " Token number " + tokenNumber);
+
+        SlotNumbers slotNumbers = new SlotNumbers(verticalGroupNumber, tokenNumber);
+
+        Token token = new Token(participant, slotNumbers);
+
+        orderedTokenGroup.addToken(token);
     }
 
     /**
