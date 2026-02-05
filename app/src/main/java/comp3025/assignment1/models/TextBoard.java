@@ -81,15 +81,15 @@ public class TextBoard {
             Token startingToken = consecutiveSlotGroup.getStartingToken();
             SlotNumbers startingTokenSlotNumbers = startingToken.getSlotNumbers();
 
-            Log.i("200497768", "This is a consecutive slot group starting with " + startingTokenSlotNumbers.getVerticalGroupNumber() + " " + startingTokenSlotNumbers.getTokenNumber());
+            lines.add("This is a consecutive slot group starting with " + startingTokenSlotNumbers.getVerticalGroupNumber() + " " + startingTokenSlotNumbers.getTokenNumber());
 
             List<Token> tokens = consecutiveSlotGroup.getTokens();
             for (Token token : tokens) {
                 if (token == null) {
-                    Log.i("200497768", "No token in this slot. Slot numbers can't be retrieved.");
+                    lines.add("No token in this slot. Slot numbers can't be retrieved.");
                 } else {
                     SlotNumbers slotNumbers = token.getSlotNumbers();
-                    Log.i("200497768", "A token from this consecutive slot group is " + slotNumbers.getVerticalGroupNumber() + " " + slotNumbers.getTokenNumber());
+                    lines.add("A token from this consecutive slot group is " + slotNumbers.getVerticalGroupNumber() + " " + slotNumbers.getTokenNumber());
                 }
             }
         }
