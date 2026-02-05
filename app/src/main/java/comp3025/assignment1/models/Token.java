@@ -9,23 +9,18 @@ import java.util.Objects;
 public class Token {
     private Participant participant;
 
-    private String information;
+    private SlotNumbers slotNumbers;
 
-
-    public Token(Participant participant) {
+    public Token(Participant participant, SlotNumbers slotNumbers) {
         Objects.requireNonNull(participant);
-
         this.participant = participant;
 
-        this.information = "No information added";
+        Objects.requireNonNull(slotNumbers);
+        this.slotNumbers = slotNumbers;
     }
 
-    public String getInformation() {
-        return information;
-    }
-
-    public void setInformation(String information) {
-        this.information = information;
+    public SlotNumbers getSlotNumbers() {
+        return slotNumbers;
     }
 
     /**
