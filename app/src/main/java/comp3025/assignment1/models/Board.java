@@ -27,7 +27,6 @@ public class Board {
     //This field is the number of tokens that must be added consecutively in order for a participant to win.
     private int consecutiveNumber;
 
-
     public Board(int numberOfVerticalGroups, int verticalGroupCapacity, int consecutiveNumber) {
         //The board must include a single vertical group.
         if (numberOfVerticalGroups < 1) {

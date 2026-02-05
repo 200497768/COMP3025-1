@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
 
         TextBoard textBoard = new TextBoard(board, "Token", "Empty");
 
-        //Show the text board.
         Log.i("200497768", "Here's the board after I created it.");
         for (String line : textBoard.getLines()) {
             Log.i("200497768", line);
@@ -59,40 +58,43 @@ public class MainActivity extends AppCompatActivity {
 
         Participant participant = new Participant("Hao Tian");
 
+        //I'll add a token to vertical group number 0.
         board.addToken(participant, 0);
-
-        //Show the text board.
-        Log.i("200497768", "Here's the board after I added a token.");
+        Log.i("200497768", "Here's the board after I added a token to vertical group number 0.");
         for (String line : textBoard.getLines()) {
             Log.i("200497768", line);
         }
 
+        //I'll add a token to vertical group number 0.
         board.addToken(participant, 0);
-
-        //Show the text board.
-        Log.i("200497768", "Here's the board after I added a token.");
+        Log.i("200497768", "Here's the board after I added a token to vertical group number 0.");
         for (String line : textBoard.getLines()) {
             Log.i("200497768", line);
         }
 
+        //I'll add a token to vertical group number 0.
         board.addToken(participant, 0);
-
-        //Show the text board.
-        Log.i("200497768", "Here's the board after I added a token.");
+        Log.i("200497768", "Here's the board after I added a token to vertical group number 0.");
         for (String line : textBoard.getLines()) {
             Log.i("200497768", line);
         }
 
-        board.addToken(participant, 0);
+        //I'll add a token to vertical group number 1.
+        board.addToken(participant, 1);
+        Log.i("200497768", "Here's the board after I added a token to vertical group number 1.");
+        for (String line : textBoard.getLines()) {
+            Log.i("200497768", line);
+        }
 
-        //Show the text board.
-        Log.i("200497768", "Here's the board after I added a token.");
+        //I'll add a token to vertical group number 0.
+        board.addToken(participant, 0);
+        Log.i("200497768", "Here's the board after I added a token to vertical group number 0.");
         for (String line : textBoard.getLines()) {
             Log.i("200497768", line);
         }
 
         //Show the consecutive slot groups using the text board.
-        Log.i("200497768", "Here's the board after I added a token.");
+        Log.i("200497768", "Here's the consecutive slot groups.");
         for (String line : textBoard.getConsecutiveSlotGroups()) {
             Log.i("200497768", line);
         }
