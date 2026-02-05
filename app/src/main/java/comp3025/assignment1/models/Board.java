@@ -168,21 +168,23 @@ public class Board {
         //I need to retrieve a number of tokens from 3 different lists.
         //Every token will be retrieved with the same vertical number.
 
+        //The slot numbers that the consecutive slot group will start with will start with 0.
         int verticalGroupNumber = 0;
         int tokenNumber = 0;
 
         //When creating consecutive slot groups, I only need to increase the numbers.
         //I don't need to check slots that are less than the starting slot, since that slot would have been checked before.
 
-        //First, every ordered token group needs to be accessed.
-        for (VerticalGroup orderedTokenGroup : this.verticalGroups) {
+        //First, every vertical group needs to be accessed.
+        for (VerticalGroup verticalGroup : this.verticalGroups) {
             //Every token from this ordered token group needs to be retrieved.
-            List<Token> tokens = orderedTokenGroup.getTokens();
+            List<Token> tokens = verticalGroup.getTokens();
 
             for (Token startingToken : tokens) {
                 //Multiple consecutive slot groups will be created, since multiple directions exist.
 
                 for (Direction direction : Directions.getDirections()) {
+                    //The slot numbers for this direction need to be changed repeatedly in this direction.
 
                     //The vertical group number and token numbers are combined to produce the starting slot numbers.
                     //This is the slot numbers that this consecutive slot group will start with.
@@ -191,13 +193,17 @@ public class Board {
                     //A consecutive slot group will be created using this combination of slot numbers and direction.
                     ConsecutiveSlotGroup consecutiveSlotGroup = new ConsecutiveSlotGroup(startingToken, this.consecutiveNumber, startingSlotNumbers, direction);
 
+                    //The slot numbers will start with the starting slot numbers, and will be changed by adding the add amounts from the direction.
+                    int changedVerticalGroupNumber = verticalGroupNumber;
+                    int changedTokenNumber = tokenNumber;
+
                     while (!consecutiveSlotGroup.getCompletelyCreated()) {
                         //The vertical and horizontal numbers will be changed by the numbers from the direction.
-                        tokenNumber = tokenNumber + direction.getVerticalAddAmount();
-                        verticalGroupNumber = verticalGroupNumber + direction.getHorizontalAddAmount();
+                        changedVerticalGroupNumber = changedVerticalGroupNumber + direction.getHorizontalAddAmount();
+                        changedTokenNumber = changedTokenNumber + direction.getVerticalAddAmount();
 
                         //Both numbers will be used to retrieve the slot.
-                        SlotNumbers slotNumbers = new SlotNumbers(verticalGroupNumber, tokenNumber);
+                        SlotNumbers slotNumbers = new SlotNumbers(changedVerticalGroupNumber, changedTokenNumber);
                         Token nextToken = this.getToken(slotNumbers);
 
                         consecutiveSlotGroup.addSlot(nextToken);
@@ -205,7 +211,13 @@ public class Board {
 
                     consecutiveSlotGroups.add(consecutiveSlotGroup);
                 }
+
+                //Increase the token number in order to create a consecutive slot group for the next token.
+                tokenNumber = tokenNumber + 1;
             }
+
+            //Increase the vertical group number in order to create consecutive slot groups for the next vertical group.
+            verticalGroupNumber = verticalGroupNumber + 1;
         }
 
         return consecutiveSlotGroups;
