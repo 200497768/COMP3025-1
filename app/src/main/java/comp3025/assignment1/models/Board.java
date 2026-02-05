@@ -111,8 +111,8 @@ public class Board {
         //I need to retrieve a number of tokens from 3 different lists.
         //Every token will be retrieved with the same vertical number.
 
-        int horizontalNumber = 1;
-        int verticalNumber = 1;
+        int horizontalNumber = 0;
+        int verticalNumber = 0;
 
         //When creating consecutive slot groups, I only need to increase the numbers.
         //I don't need to check slots that are less than the starting slot, since that slot would have been checked before.
