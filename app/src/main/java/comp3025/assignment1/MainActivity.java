@@ -18,6 +18,7 @@ import comp3025.assignment1.models.Board;
 import comp3025.assignment1.models.ConsecutiveSlotGroup;
 import comp3025.assignment1.models.Participant;
 import comp3025.assignment1.models.Token;
+import comp3025.assignment1.models.VerticalGroup;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,6 +48,25 @@ public class MainActivity extends AppCompatActivity {
         int consecutiveNumber = 3;
 
         Board board = new Board(numberOfVerticalGroups, verticalGroupCapacity, consecutiveNumber);
+
+        //Start with the top horizontal line of the board.
+        for (int tokenNumber = verticalGroupCapacity - 1; tokenNumber >= 0; tokenNumber = tokenNumber - 1) {
+
+            //Access the slot in each vertical group, going horizontally.
+            for (int verticalGroupNumber = 0; verticalGroupNumber < numberOfVerticalGroups - 1; verticalGroupNumber = verticalGroupNumber + 1) {
+
+                //Retrieve the vertical group with this vertical group number.
+                VerticalGroup verticalGroup = board.getVerticalGroup(verticalGroupNumber);
+
+                //Retrieve the token for this slot from the vertical group.
+                Token token = verticalGroup.getToken(tokenNumber);
+
+                if (token == null) {
+                    Log.i("200497768", "Empty slot");
+                }
+                Log.i("200497768", "Token added");
+            }
+        }
 
         Log.i("200497768", "Adding tokens.");
         Participant participant = new Participant("Hao Tian");

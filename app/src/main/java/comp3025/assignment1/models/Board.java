@@ -81,6 +81,17 @@ public class Board {
         }
     }
 
+    /**
+     * This method returns a vertical group from this board.
+     * Instead of accessing the vertical groups, using the methods from the board class is recommended.
+     *
+     * @param verticalGroupNumber
+     * @return
+     */
+    public VerticalGroup getVerticalGroup(int verticalGroupNumber) {
+        return this.verticalGroups.get(verticalGroupNumber);
+    }
+
     public void addToken(Participant participant, int verticalGroupNumber) {
         VerticalGroup orderedTokenGroup = this.verticalGroups.get(verticalGroupNumber);
 
