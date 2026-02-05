@@ -123,7 +123,7 @@ public class Board {
 
         //This determines the token number of the token that this method will add.
         //The token number can be determined by checking the number of tokens that have been added to this vertical group.
-        int tokenNumber = orderedTokenGroup.getNumberAdded() - 1;
+        int tokenNumber = orderedTokenGroup.getNumberAdded();
 
         SlotNumbers slotNumbers = new SlotNumbers(verticalGroupNumber, tokenNumber);
 
