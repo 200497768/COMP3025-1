@@ -60,9 +60,16 @@ public class MainActivity extends AppCompatActivity {
 
         //I'll add a token to vertical group number 0.
         board.addToken(participant, 0);
+
         Log.i("200497768", "Here's the board after I added a token to vertical group number 0.");
         for (String line : textBoard.getLines()) {
             Log.i("200497768", line);
+        }
+
+        if (board.getWinningParticipant() == null) {
+            Log.i("200497768", "No participant has won at this time.");
+        } else {
+            Log.i("200497768", "A participant has won. The winning participant is " + board.getWinningParticipant());
         }
 
         //I'll add a token to vertical group number 0.
@@ -72,11 +79,23 @@ public class MainActivity extends AppCompatActivity {
             Log.i("200497768", line);
         }
 
+        if (board.getWinningParticipant() == null) {
+            Log.i("200497768", "No participant has won at this time.");
+        } else {
+            Log.i("200497768", "A participant has won. The winning participant is " + board.getWinningParticipant());
+        }
+
         //I'll add a token to vertical group number 0.
         board.addToken(participant, 0);
         Log.i("200497768", "Here's the board after I added a token to vertical group number 0.");
         for (String line : textBoard.getLines()) {
             Log.i("200497768", line);
+        }
+
+        if (board.getWinningParticipant() == null) {
+            Log.i("200497768", "No participant has won at this time.");
+        } else {
+            Log.i("200497768", "A participant has won. The winning participant is " + board.getWinningParticipant());
         }
 
         //I'll add a token to vertical group number 1.
@@ -86,6 +105,12 @@ public class MainActivity extends AppCompatActivity {
             Log.i("200497768", line);
         }
 
+        if (board.getWinningParticipant() == null) {
+            Log.i("200497768", "No participant has won at this time.");
+        } else {
+            Log.i("200497768", "A participant has won. The winning participant is " + board.getWinningParticipant());
+        }
+
         //I'll add a token to vertical group number 0.
         board.addToken(participant, 0);
         Log.i("200497768", "Here's the board after I added a token to vertical group number 0.");
@@ -93,13 +118,17 @@ public class MainActivity extends AppCompatActivity {
             Log.i("200497768", line);
         }
 
+        if (board.getWinningParticipant() == null) {
+            Log.i("200497768", "No participant has won at this time.");
+        } else {
+            Log.i("200497768", "A participant has won. The winning participant is " + board.getWinningParticipant());
+        }
+
         //Show the consecutive slot groups using the text board.
         Log.i("200497768", "Here's the consecutive slot groups.");
         for (String line : textBoard.getConsecutiveSlotGroups()) {
             Log.i("200497768", line);
         }
-
-        Log.i("200497768", "The winning participant for this board is " + board.getWinningParticipant());
 
 //As a student, I want to be able to see both of the views that are needed for this assignment.
         //Both views are created using the method that I learned during the week 4 class.
