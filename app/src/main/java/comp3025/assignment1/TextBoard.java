@@ -9,6 +9,13 @@ import comp3025.assignment1.models.SlotNumbers;
 import comp3025.assignment1.models.Token;
 import comp3025.assignment1.models.VerticalGroup;
 
+/**
+ * This class provides the ability to show a board using text.
+ * An existing board is needed in order to use this class.
+ * When creating a text board, the text board must be associated with an existing board.
+ * After a text board has been created, the text board remains associated with the board.
+ * The text board provides a method that produces strings to show the tokens and slots in the board.
+ */
 public class TextBoard {
 
     //This field is the board that this view will show.
