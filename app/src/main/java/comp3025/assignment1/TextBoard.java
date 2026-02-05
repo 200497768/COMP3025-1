@@ -54,6 +54,7 @@ public class TextBoard {
                 }
             }
 
+            lines.add(line);
         }
         return lines;
     }
