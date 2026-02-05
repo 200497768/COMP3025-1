@@ -42,7 +42,11 @@ public class MainActivity extends AppCompatActivity {
 
         boardArea.addView(createdTextView);
 
-        Board board = new Board(5, 4, 3);
+        int numberOfVerticalGroups = 5;
+        int verticalGroupCapacity = 4;
+        int consecutiveNumber = 3;
+
+        Board board = new Board(numberOfVerticalGroups, verticalGroupCapacity, consecutiveNumber);
 
         Log.i("200497768", "Adding tokens.");
         Participant participant = new Participant("Hao Tian");
