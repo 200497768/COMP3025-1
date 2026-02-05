@@ -53,16 +53,17 @@ public class MainActivity extends AppCompatActivity {
         TextBoard textBoard = new TextBoard(board);
 
         //Show the text board.
+        Log.i("200497768", "Here's the board after I created it.");
         for (String line : textBoard.getLines("Token", "Empty")) {
             Log.i("200497768", line);
         }
 
-        Log.i("200497768", "Adding tokens.");
         Participant participant = new Participant("Hao Tian");
 
         board.addToken(participant, 0);
 
         //Show the text board.
+        Log.i("200497768", "Here's the board after I added a token.");
         for (String line : textBoard.getLines("Token", "Empty")) {
             Log.i("200497768", line);
         }
@@ -70,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         board.addToken(participant, 0);
 
         //Show the text board.
+        Log.i("200497768", "Here's the board after I added a token.");
         for (String line : textBoard.getLines("Token", "Empty")) {
             Log.i("200497768", line);
         }
@@ -77,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
         board.addToken(participant, 0);
 
         //Show the text board.
+        Log.i("200497768", "Here's the board after I added a token.");
         for (String line : textBoard.getLines("Token", "Empty")) {
             Log.i("200497768", line);
         }
@@ -84,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
         board.addToken(participant, 0);
 
         //Show the text board.
+        Log.i("200497768", "Here's the board after I added a token.");
         for (String line : textBoard.getLines("Token", "Empty")) {
             Log.i("200497768", line);
         }
