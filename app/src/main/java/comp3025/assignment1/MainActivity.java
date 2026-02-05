@@ -49,11 +49,11 @@ public class MainActivity extends AppCompatActivity {
 
         Board board = new Board(numberOfVerticalGroups, verticalGroupCapacity, consecutiveNumber);
 
-        TextBoard textBoard = new TextBoard(board);
+        TextBoard textBoard = new TextBoard(board, "Token", "Empty");
 
         //Show the text board.
         Log.i("200497768", "Here's the board after I created it.");
-        for (String line : textBoard.getLines("Token", "Empty")) {
+        for (String line : textBoard.getLines()) {
             Log.i("200497768", line);
         }
 
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Show the text board.
         Log.i("200497768", "Here's the board after I added a token.");
-        for (String line : textBoard.getLines("Token", "Empty")) {
+        for (String line : textBoard.getLines()) {
             Log.i("200497768", line);
         }
 
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Show the text board.
         Log.i("200497768", "Here's the board after I added a token.");
-        for (String line : textBoard.getLines("Token", "Empty")) {
+        for (String line : textBoard.getLines()) {
             Log.i("200497768", line);
         }
 
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Show the text board.
         Log.i("200497768", "Here's the board after I added a token.");
-        for (String line : textBoard.getLines("Token", "Empty")) {
+        for (String line : textBoard.getLines()) {
             Log.i("200497768", line);
         }
 
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Show the text board.
         Log.i("200497768", "Here's the board after I added a token.");
-        for (String line : textBoard.getLines("Token", "Empty")) {
+        for (String line : textBoard.getLines()) {
             Log.i("200497768", line);
         }
 

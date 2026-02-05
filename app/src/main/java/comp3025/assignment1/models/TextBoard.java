@@ -23,10 +23,21 @@ public class TextBoard {
     //This field is the board that this view will show.
     private Board board;
 
-    public TextBoard(Board board) {
-        Objects.requireNonNull(board);
+    //This field is the string that will be used to show a token that has been added to the board.
+    private String tokenString;
 
+    //This field is the string that will be used to show a slot in the board.
+    private String slotString;
+
+    public TextBoard(Board board, String tokenString, String slotString) {
+        Objects.requireNonNull(board);
         this.board = board;
+
+        Objects.requireNonNull(tokenString);
+        this.tokenString = tokenString;
+
+        Objects.requireNonNull(slotString);
+        this.slotString = slotString;
     }
 
     /**
@@ -35,7 +46,7 @@ public class TextBoard {
      *
      * @return
      */
-    public List<String> getLines(String tokenString, String slotString) {
+    public List<String> getLines() {
         List<String> lines = new ArrayList<>();
 
         //Start with the top horizontal line of the board.
@@ -57,9 +68,9 @@ public class TextBoard {
                 Token token = board.getToken(slotNumbers);
 
                 if (token == null) {
-                    line = line + slotString + " ";
+                    line = line + this.slotString + " ";
                 } else {
-                    line = line + tokenString + " ";
+                    line = line + this.tokenString + " ";
                 }
             }
 
