@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         boardArea.addView(createdTextView);
 
-        Board board = new Board(5, 4, 4);
+        Board board = new Board(5, 4, 3);
 
         Participant participant = new Participant("Hao Tian");
         board.addToken(participant, 0);
