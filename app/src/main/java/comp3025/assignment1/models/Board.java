@@ -55,6 +55,23 @@ public class Board {
     }
 
     /**
+     * This method returns the number of vertical groups in this board.
+     *
+     * @return
+     */
+    public int getNumberOfVerticalGroups() {
+        return numberOfVerticalGroups;
+    }
+
+    /**
+     * This method returns the vertical group capacity.
+     * This is the maximum number of tokens in a vertical group.
+     */
+    public int getVerticalGroupCapacity() {
+        return verticalGroupCapacity;
+    }
+
+    /**
      * This method is used to retrieve a token using slot numbers.
      * This method will access the ordered token group with the provided horizontal number.
      * Next, this method will access the token with the provided vertical number.
@@ -203,6 +220,5 @@ public class Board {
     public int getNumberOfOrderedTokenGroups() {
         return this.verticalGroups.size();
     }
-
 
 }
