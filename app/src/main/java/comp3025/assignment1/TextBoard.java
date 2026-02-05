@@ -44,7 +44,7 @@ public class TextBoard {
                 //The method from the board class, not the vertical group class, must be used to retrieve the token.
                 //The method from the board class returns null if no token was added to the slot.
                 //The method from the vertical group class doesn't allow accessing slots before a token has been added.
-                SlotNumbers slotNumbers = new SlotNumbers(tokenNumber, verticalGroupNumber);
+                SlotNumbers slotNumbers = new SlotNumbers(verticalGroupNumber, tokenNumber);
                 Token token = board.getToken(slotNumbers);
 
                 if (token == null) {
