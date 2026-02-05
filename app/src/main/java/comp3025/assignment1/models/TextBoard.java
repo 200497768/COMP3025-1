@@ -84,6 +84,14 @@ public class TextBoard {
             Direction direction = consecutiveSlotGroup.getDirection();
             lines.add("Vertical group number " + startingSlotNumbers.getVerticalGroupNumber() + " token number " + startingSlotNumbers.getTokenNumber() + " direction " + direction.getString() + " consecutive number " + consecutiveSlotGroup.getConsecutiveNumber());
 
+            //The winning participant might be retrieved as null.
+            Participant winningParticipant = consecutiveSlotGroup.getWinningParticipant();
+            if (winningParticipant == null) {
+                lines.add("No winning participant.");
+            } else {
+                lines.add("Winning participant " + winningParticipant.getName());
+            }
+
             //The consecutive slot group might include a starting token, depending on whether a token was added to the starting slot.
             //If a token wasn't added to the starting slot, null will be retrieved as the starting token.
             Token startingToken = consecutiveSlotGroup.getStartingToken();
@@ -94,7 +102,7 @@ public class TextBoard {
 
                 //The token might not exist if a token hasn't been added to this slot, or if the slot is outside of the board.
                 if (token == null) {
-                    lines.add("No token exists for slot.");
+                    lines.add("No token exists for slot in consecutive slot group.");
                 } else {
                     //The slot numbers can only be retrieved if a token was added to this slot.
                     SlotNumbers slotNumbers = token.getSlotNumbers();
