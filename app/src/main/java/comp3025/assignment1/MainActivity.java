@@ -18,6 +18,7 @@ import comp3025.assignment1.models.Board;
 import comp3025.assignment1.models.ConsecutiveSlotGroup;
 import comp3025.assignment1.models.Participant;
 import comp3025.assignment1.models.SlotNumbers;
+import comp3025.assignment1.models.TextBoard;
 import comp3025.assignment1.models.Token;
 import comp3025.assignment1.models.VerticalGroup;
 

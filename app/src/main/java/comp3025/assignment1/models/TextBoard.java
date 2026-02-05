@@ -1,4 +1,4 @@
-package comp3025.assignment1;
+package comp3025.assignment1.models;
 
 import java.util.ArrayList;
 import java.util.List;
