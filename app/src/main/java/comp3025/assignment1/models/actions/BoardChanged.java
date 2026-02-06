@@ -2,6 +2,10 @@ package comp3025.assignment1.models.actions;
 
 import comp3025.assignment1.models.Board;
 
+/**
+ * This class includes methods that will happen when the board model has been changed.
+ * Another class can extend this class in order to cause actions to happen when the board model changes.
+ */
 public class BoardChanged {
     private Board board;
 
