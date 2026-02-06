@@ -206,15 +206,15 @@ public class Board {
                     int changedTokenNumber = tokenNumber;
 
                     while (!consecutiveSlotGroup.getCompletelyCreated()) {
-                        //The vertical and horizontal numbers will be changed by the numbers from the direction.
-                        changedVerticalGroupNumber = changedVerticalGroupNumber + direction.getHorizontalAddAmount();
-                        changedTokenNumber = changedTokenNumber + direction.getVerticalAddAmount();
-
                         //Both numbers will be used to retrieve the slot.
                         SlotNumbers slotNumbers = new SlotNumbers(changedVerticalGroupNumber, changedTokenNumber);
                         Token nextToken = this.getToken(slotNumbers);
 
                         consecutiveSlotGroup.addSlot(nextToken);
+
+                        //The vertical and horizontal numbers will be changed by the numbers from the direction.
+                        changedVerticalGroupNumber = changedVerticalGroupNumber + direction.getHorizontalAddAmount();
+                        changedTokenNumber = changedTokenNumber + direction.getVerticalAddAmount();
                     }
 
                     consecutiveSlotGroups.add(consecutiveSlotGroup);
