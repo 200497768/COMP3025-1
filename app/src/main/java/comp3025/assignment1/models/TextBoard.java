@@ -97,6 +97,13 @@ public class TextBoard {
         List<String> lines = new ArrayList<>();
 
         List<ConsecutiveSlotGroup> consecutiveSlotGroups = board.getConsecutiveSlotGroups();
+        lines.add("Number of consecutive slot groups " + consecutiveSlotGroups.size());
+        for (ConsecutiveSlotGroup consecutiveSlotGroup : consecutiveSlotGroups) {
+            SlotNumbers startingSlotNumbers = consecutiveSlotGroup.getStartingSlotNumbers();
+            Direction direction = consecutiveSlotGroup.getDirection();
+            lines.add("Slot numbers " + startingSlotNumbers.getVerticalGroupNumber() + " " + startingSlotNumbers.getTokenNumber() + " " + direction.getString());
+        }
+
         for (ConsecutiveSlotGroup consecutiveSlotGroup : consecutiveSlotGroups) {
 
             //The consecutive slot group includes a few fields that are available, even if a token wasn't added to the starting slot.
