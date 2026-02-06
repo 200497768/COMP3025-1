@@ -47,14 +47,14 @@ public class MainActivity extends AppCompatActivity {
 
         Participant participant = new Participant("Hao Tian");
 
-        //I'll add the first token to vertical group number 0.
+        //I'll add the first token to vertical group number 0, and show the text board.
         board.addToken(participant, 0);
         Log.i("200497768", "Here's the board after I added a token to vertical group number 0.");
         for (String line : textBoard.getLines()) {
             Log.i("200497768", line);
         }
 
-        //I'll add the first token to vertical group number 0, and show the text board.
+        //I'll add a token to vertical group number 0, and show the text board.
         board.addToken(participant, 0);
         Log.i("200497768", "Here's the board after I added a token to vertical group number 0.");
         for (String line : textBoard.getLines()) {
@@ -74,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
         for (String line : textBoard.getLines()) {
             Log.i("200497768", line);
         }
-
 
         //The vertical group number will be used to create a string that shows this number.
         int verticalGroupNumber = 0;
