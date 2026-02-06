@@ -40,20 +40,6 @@
             android:background="#4CAF50"
             android:text="Board area" />
 
-        <TextView
-            android:id="@+id/addedTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="1" />
-
-        <TextView
-            android:id="@+id/anotherTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="2" />
-
 
     </LinearLayout>
 
