@@ -65,12 +65,6 @@ public class MainActivity extends AppCompatActivity {
         //The board has been created, but the views still need to be added to the board area.
         for (VerticalGroup verticalGroup : board.getVerticalGroups()) {
 
-            //Add a string to the board area showing the number for this vertical group.
-            TextView verticalGroupNumberTextView = new TextView(MainActivity.this);
-            //APA for creating this view is (Yadav, 2019)
-            verticalGroupNumberTextView.setText("(" + verticalGroupNumber + ")");
-            boardArea.addView(verticalGroupNumberTextView);
-
             //Create an area for this vertical group, and add it to the board area.
             LinearLayout verticalGroupArea=new LinearLayout(MainActivity.this);
             verticalGroupArea.setOrientation(VERTICAL);
@@ -79,6 +73,12 @@ public class MainActivity extends AppCompatActivity {
             verticalGroupArea.setBackgroundColor(verticalGroupColor);
             //APA is SkyBlue.
 boardArea.addView(verticalGroupArea);
+
+            //Add a string to the vertical group area showing the number for this vertical group.
+            TextView verticalGroupNumberTextView = new TextView(MainActivity.this);
+            //APA for creating this view is (Yadav, 2019)
+            verticalGroupNumberTextView.setText("(" + verticalGroupNumber + ")");
+            verticalGroupArea.addView(verticalGroupNumberTextView);
 
             for (Token slot : verticalGroup.getSlots()) {
                 //Create an element for this slot, depending on whether it has a token, or if it's empty.
