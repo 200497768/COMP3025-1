@@ -38,13 +38,11 @@ public class MainActivity extends AppCompatActivity {
         //This method is able to retrieve the board area that I created.
 
         TextView createdTextView = new TextView(MainActivity.this);
-        //(Yadav, 2019)
+        //APA for creating this TextView is (Yadav, 2019)
 
         createdTextView.setText("This string was created using the onCreate method.");
-
         int createdTextViewColor = Color.rgb(220, 20, 60);
         //APA for numbers is Crimson.
-
         createdTextView.setBackgroundColor(createdTextViewColor);
 
         boardArea.addView(createdTextView);
@@ -75,6 +73,12 @@ public class MainActivity extends AppCompatActivity {
                     //A token exists in this slot.
                     TextView tokenTextView = new TextView(MainActivity.this);
                     tokenTextView.setText("Token");
+
+                    //Change the background color for this token.
+                    int tokenColor = Color.rgb(220, 20, 60);
+                    //APA for numbers is Crimson.
+                    tokenTextView.setBackgroundColor(tokenColor);
+
                     boardArea.addView(tokenTextView);
                 }
             }
