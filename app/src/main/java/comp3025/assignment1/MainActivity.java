@@ -75,7 +75,7 @@ boardArea.addView(verticalGroupArea);
                     //This slot is empty.
                     TextView emptyTextView = new TextView(MainActivity.this);
                     emptyTextView.setText("Empty");
-                    boardArea.addView(emptyTextView);
+                    verticalGroupArea.addView(emptyTextView);
                 } else {
                     //A token exists in this slot.
                     TextView tokenTextView = new TextView(MainActivity.this);
@@ -86,7 +86,7 @@ boardArea.addView(verticalGroupArea);
                     //APA for numbers is Crimson.
                     tokenTextView.setBackgroundColor(tokenColor);
 
-                    boardArea.addView(tokenTextView);
+                    verticalGroupArea.addView(tokenTextView);
                 }
             }
 
