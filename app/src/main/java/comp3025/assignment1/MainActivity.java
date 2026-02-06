@@ -1,5 +1,6 @@
 package comp3025.assignment1;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -40,6 +41,11 @@ public class MainActivity extends AppCompatActivity {
         //(Yadav, 2019)
 
         createdTextView.setText("This string was created using the onCreate method.");
+
+        int createdTextViewColor = Color.rgb(220, 20, 60);
+        //APA for numbers is Crimson.
+
+        createdTextView.setBackgroundColor(createdTextViewColor);
 
         boardArea.addView(createdTextView);
 
@@ -169,5 +175,5 @@ public class MainActivity extends AppCompatActivity {
 }
 
 //References
-
+//Crimson https://www.w3schools.com/colors/color_tryit.asp?color=Crimson
 //Yadav, C. (2019). How to Dynamically Add Views into View in Android? https://www.tutorialspoint.com/how-to-dynamically-add-views-into-view-in-android
