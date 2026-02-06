@@ -45,6 +45,20 @@ public class MainActivity extends AppCompatActivity {
         Board board = new Board(numberOfVerticalGroups, verticalGroupCapacity, consecutiveNumber);
         TextBoard textBoard = new TextBoard(board, "Token", "Empty");
 
+        Participant participant = new Participant("Hao Tian");
+
+        //I'll add the first token to vertical group number 0.
+        board.addToken(participant, 0);
+        Log.i("200497768", "Here's the board after I added a token to vertical group number 0.");
+        for (String line : textBoard.getLines()) {
+            Log.i("200497768", line);
+        }
+        if (board.getWinningParticipant() == null) {
+            Log.i("200497768", "No participant has won at this time.");
+        } else {
+            Log.i("200497768", "A participant has won. The winning participant is " + board.getWinningParticipant());
+        }
+
         //The vertical group number will be used to create a string that shows this number.
         int verticalGroupNumber = 0;
 
@@ -100,16 +114,14 @@ boardArea.addView(verticalGroupArea);
             Log.i("200497768", line);
         }
 
-        Participant participant = new Participant("Hao Tian");
+
 
         //I'll add a token to vertical group number 0.
         board.addToken(participant, 0);
-
         Log.i("200497768", "Here's the board after I added a token to vertical group number 0.");
         for (String line : textBoard.getLines()) {
             Log.i("200497768", line);
         }
-
         if (board.getWinningParticipant() == null) {
             Log.i("200497768", "No participant has won at this time.");
         } else {
@@ -122,20 +134,6 @@ boardArea.addView(verticalGroupArea);
         for (String line : textBoard.getLines()) {
             Log.i("200497768", line);
         }
-
-        if (board.getWinningParticipant() == null) {
-            Log.i("200497768", "No participant has won at this time.");
-        } else {
-            Log.i("200497768", "A participant has won. The winning participant is " + board.getWinningParticipant());
-        }
-
-        //I'll add a token to vertical group number 0.
-        board.addToken(participant, 0);
-        Log.i("200497768", "Here's the board after I added a token to vertical group number 0.");
-        for (String line : textBoard.getLines()) {
-            Log.i("200497768", line);
-        }
-
         if (board.getWinningParticipant() == null) {
             Log.i("200497768", "No participant has won at this time.");
         } else {
@@ -148,7 +146,6 @@ boardArea.addView(verticalGroupArea);
         for (String line : textBoard.getLines()) {
             Log.i("200497768", line);
         }
-
         if (board.getWinningParticipant() == null) {
             Log.i("200497768", "No participant has won at this time.");
         } else {
@@ -161,7 +158,6 @@ boardArea.addView(verticalGroupArea);
         for (String line : textBoard.getLines()) {
             Log.i("200497768", line);
         }
-
         if (board.getWinningParticipant() == null) {
             Log.i("200497768", "No participant has won at this time.");
         } else {
