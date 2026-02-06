@@ -52,6 +52,24 @@ public class VerticalGroup {
     }
 
     /**
+     * This method returns the tokens from this vertical group, including slots.
+     */
+    public List<Token> getSlots() {
+        List<Token> slots = new ArrayList<>();
+
+        //The tokens that exist in this vertical group need to be added.
+        for (Token token : this.tokens) {
+            slots.add(token);
+        }
+
+        //In addition, the slots need to be added until the number of tokens and slots combined is the capacity of this vertical group.
+        while (slots.size() < this.capacity) {
+            slots.add(null);
+        }
+
+        return slots;
+    }
+    /**
      * This method returns whether a slot is still available in this vertical group.
      * If a slot is available, a token can be added using another method from this class.
      * If a slot isn't available, a token can't be added.

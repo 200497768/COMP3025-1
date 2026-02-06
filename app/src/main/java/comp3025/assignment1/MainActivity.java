@@ -63,10 +63,10 @@ public class MainActivity extends AppCompatActivity {
             //APA is SkyBlue.
 boardArea.addView(verticalGroupArea);
 
-            for (Token token : verticalGroup.getTokens()) {
+            for (Token slot : verticalGroup.getSlots()) {
                 //Create an element for this slot, depending on whether it has a token, or if it's empty.
 
-                if (token == null) {
+                if (slot == null) {
                     //This slot is empty.
                     TextView emptyTextView = new TextView(MainActivity.this);
                     //APA for creating this view is (Yadav, 2019)
