@@ -76,6 +76,10 @@ public class Board {
         return verticalGroupCapacity;
     }
 
+    public List<VerticalGroup> getVerticalGroups() {
+        return verticalGroups;
+    }
+
     /**
      * This method is used to retrieve a token using slot numbers.
      * This method will access the ordered token group with the provided horizontal number.
