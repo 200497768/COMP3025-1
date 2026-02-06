@@ -10,4 +10,19 @@ public class BoardAreaActions extends Actions {
     public BoardAreaActions(Board board) {
         super(board);
     }
+
+    @Override
+    public void boardCreated() {
+
+    }
+
+    @Override
+    public void tokenAdded() {
+
+    }
+
+    @Override
+    public void participantWon() {
+
+    }
 }
