@@ -9,7 +9,7 @@ import comp3025.assignment1.models.Board;
  * Another class can extend this class in order to cause actions to happen when the board model changes.
  */
 public class Actions {
-    private Board board;
+    public Board board;
 
     public Actions(Board board) {
         Objects.requireNonNull(board);
