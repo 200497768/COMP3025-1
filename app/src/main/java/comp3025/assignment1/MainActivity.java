@@ -56,14 +56,14 @@ public class MainActivity extends AppCompatActivity {
 
         //I'll add a token to vertical group number 1, and show the text board.
         board.addToken(participant, 1);
-        Log.i("200497768", "Here's the board after I added a token to vertical group number 0.");
+        Log.i("200497768", "Here's the board after I added a token to vertical group number 1.");
         for (String line : textBoard.getLines()) {
             Log.i("200497768", line);
         }
 
         //I'll add a token to vertical group number 1, and show the text board.
         board.addToken(participant, 1);
-        Log.i("200497768", "Here's the board after I added a token to vertical group number 0.");
+        Log.i("200497768", "Here's the board after I added a token to vertical group number 1.");
         for (String line : textBoard.getLines()) {
             Log.i("200497768", line);
         }
