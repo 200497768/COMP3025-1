@@ -43,13 +43,16 @@ public class MainActivity extends AppCompatActivity {
         Board board = new Board(numberOfVerticalGroups, verticalGroupCapacity, consecutiveNumber);
         TextBoard textBoard = new TextBoard(board, "Token", "Empty");
 
+        //The vertical group number will be used to create a string that shows this number.
+        int verticalGroupNumber = 0;
+
         //The board has been created, but the views still need to be added to the board area.
         for (VerticalGroup verticalGroup : board.getVerticalGroups()) {
 
             //Add a string to the board area showing the number for this vertical group.
             TextView verticalGroupNumberTextView = new TextView(MainActivity.this);
             //APA for creating this view is (Yadav, 2019)
-            verticalGroupNumberTextView.setText("Vertical group 0");
+            verticalGroupNumberTextView.setText("(" + verticalGroupNumber + ")");
             boardArea.addView(verticalGroupNumberTextView);
 
             //Create an area for this vertical group, and add it to the board area.
@@ -84,7 +87,9 @@ boardArea.addView(verticalGroupArea);
                 }
             }
 
-
+            //Tokens and slots for this vertical group have been added.
+            //The vertical group number needs to be increased.
+            verticalGroupNumber = verticalGroupNumber + 1;
         }
 
         Log.i("200497768", "Here's the board after I created it.");
