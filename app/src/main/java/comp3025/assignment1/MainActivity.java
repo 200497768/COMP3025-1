@@ -77,10 +77,10 @@ boardArea.addView(verticalGroupArea);
             //Add a string to the vertical group area showing the number for this vertical group.
             TextView verticalGroupNumberTextView = new TextView(MainActivity.this);
             //APA for creating this view is (Yadav, 2019)
-            verticalGroupNumberTextView.setText("(" + verticalGroupNumber + ")");
+            verticalGroupNumberTextView.setText("Vertical " + verticalGroupNumber + " ");
             verticalGroupArea.addView(verticalGroupNumberTextView);
 
-//Go through all of the tokens.
+//Go through all of the tokens in this vertical group.
             //The token number needs to start with the maximum token number so that tokens are ordered how the board is supposed to be.
             for (int tokenNumber = board.getVerticalGroupCapacity() - 1; tokenNumber >= 0; tokenNumber = tokenNumber - 1) {
                 //Create an element for this slot, depending on whether it has a token, or if it's empty.
@@ -95,13 +95,13 @@ boardArea.addView(verticalGroupArea);
                     //This slot is empty.
                     TextView emptyTextView = new TextView(MainActivity.this);
                     //APA for creating this view is (Yadav, 2019)
-                    emptyTextView.setText("Empty");
+                    emptyTextView.setText("Empty ");
                     verticalGroupArea.addView(emptyTextView);
                 } else {
                     //A token exists in this slot.
                     TextView tokenTextView = new TextView(MainActivity.this);
                     //APA for creating this view is (Yadav, 2019)
-                    tokenTextView.setText("Token");
+                    tokenTextView.setText("Token ");
 
                     //Change the background color for this token.
                     int tokenColor = Color.rgb(220, 20, 60);
