@@ -46,10 +46,30 @@ public class MainActivity extends AppCompatActivity {
         int numberOfVerticalGroups = 5;
         int verticalGroupCapacity = 4;
         int consecutiveNumber = 3;
-
         Board board = new Board(numberOfVerticalGroups, verticalGroupCapacity, consecutiveNumber);
-
         TextBoard textBoard = new TextBoard(board, "Token", "Empty");
+
+        //The board has been created, but the views still need to be added to the board area.
+        for (ConsecutiveSlotGroup consecutiveSlotGroup : board.getConsecutiveSlotGroups()) {
+
+            for (Token token : consecutiveSlotGroup.getTokens()) {
+                //Create an element for this slot, depending on whether it has a token, or if it's empty.
+
+                if (token == null) {
+                    //This slot is empty.
+                    TextView emptyTextView = new TextView(MainActivity.this);
+                    emptyTextView.setText("Empty");
+                    boardArea.addView(emptyTextView);
+                } else {
+                    //A token exists in this slot.
+                    TextView tokenTextView = new TextView(MainActivity.this);
+                    tokenTextView.setText("Token");
+                    boardArea.addView(tokenTextView);
+                }
+            }
+
+
+        }
 
         Log.i("200497768", "Here's the board after I created it.");
         for (String line : textBoard.getLines()) {
