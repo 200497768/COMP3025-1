@@ -118,11 +118,7 @@ boardArea.addView(verticalGroupArea);
                     TextView tokenTextView = new TextView(MainActivity.this);
                     //APA for creating this view is (Yadav, 2019)
                     tokenTextView.setText("Token ");
-
-                    //Change the background color for this token.
-                    int tokenColor = Color.rgb(220, 20, 60);
-                    //APA for numbers is Crimson.
-                    tokenTextView.setBackgroundColor(tokenColor);
+                    tokenTextView.setBackgroundColor(participant.getColor());
 
                     verticalGroupArea.addView(tokenTextView);
                 }

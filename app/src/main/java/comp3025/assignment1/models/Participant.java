@@ -1,5 +1,7 @@
 package comp3025.assignment1.models;
 
+import android.graphics.Color;
+
 import java.util.Objects;
 
 /**
@@ -21,6 +23,18 @@ public class Participant {
      */
     public String getName() {
         return name;
+    }
+
+    /**
+     * This method returns the background color for tokens from this participant.
+     *
+     * @return
+     */
+    public int getColor() {
+        int tokenColor = Color.rgb(220, 20, 60);
+        //APA for numbers is Crimson.
+
+        return tokenColor;
     }
 
     @Override
