@@ -159,6 +159,8 @@ public class Board {
      * The direction can be vertical, horizontal, or diagonal.
      * This method starts with the starting slot, and uses the direction to determine the slot numbers of the next slot.
      * The next slot numbers are determined by using the direction to increase the vertical group number, token number, or both.
+     * Only slots with tokens added will be chosen as the starting slot for consecutive slot groups.
+     * If no token has been added to a slot, this method won't create a consecutive slot group starting with that slot.
      *
      * @return
      */
@@ -226,6 +228,9 @@ public class Board {
 
             //Increase the vertical group number in order to create consecutive slot groups for the next vertical group.
             verticalGroupNumber = verticalGroupNumber + 1;
+
+            //Change the token number to the first token in this vertical group.
+            tokenNumber = 0;
         }
 
         return consecutiveSlotGroups;
