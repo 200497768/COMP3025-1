@@ -1,5 +1,7 @@
 package comp3025.assignment1.models.actions;
 
+import android.widget.LinearLayout;
+
 import comp3025.assignment1.models.Board;
 
 /**
@@ -7,8 +9,11 @@ import comp3025.assignment1.models.Board;
  */
 public class BoardAreaActions extends Actions {
 
-    public BoardAreaActions(Board board) {
+    private LinearLayout boardArea;
+
+    public BoardAreaActions(Board board, LinearLayout boardArea) {
         super(board);
+        this.boardArea = boardArea;
     }
 
     @Override
