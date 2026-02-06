@@ -24,6 +24,7 @@ import comp3025.assignment1.models.SlotNumbers;
 import comp3025.assignment1.models.TextBoard;
 import comp3025.assignment1.models.Token;
 import comp3025.assignment1.models.VerticalGroup;
+import comp3025.assignment1.models.actions.BoardAreaActions;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,6 +47,12 @@ public class MainActivity extends AppCompatActivity {
         TextBoard textBoard = new TextBoard(board, "Token", "Empty");
 
         Participant participant = new Participant("Hao Tian");
+
+        BoardAreaActions boardAreaActions = new BoardAreaActions(board, boardArea, MainActivity.this);
+
+        //Add elements to the board area.
+        boardAreaActions.boardCreated();
+        //The board is supposed to cause actions to happen, but since the board has been created, I'll write it from the onCreate method.
 
         //I'll add a token to vertical group number 0, and show the text board.
         board.addToken(participant, 0);
@@ -74,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
         for (String line : textBoard.getLines()) {
             Log.i("200497768", line);
         }
-
 
         //Show whether a participant has won.
         LinearLayout winningParticipantArea = findViewById(R.id.winningParticipantArea);
