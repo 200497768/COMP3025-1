@@ -49,7 +49,7 @@ public class BoardAreaActions extends Actions {
             boardArea.addView(verticalGroupArea);
 
             //Add a string to the vertical group area showing the number for this vertical group.
-            TextView verticalGroupNumberTextView = new TextView(this.context));
+            TextView verticalGroupNumberTextView = new TextView(this.context);
             //APA for creating this view is (Yadav, 2019)
             verticalGroupNumberTextView.setText("Vertical " + verticalGroupNumber + " ");
             verticalGroupArea.addView(verticalGroupNumberTextView);
