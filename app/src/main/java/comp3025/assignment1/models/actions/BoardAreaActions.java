@@ -67,13 +67,13 @@ public class BoardAreaActions extends Actions {
 
                 if (slot == null) {
                     //This slot is empty.
-                    TextView emptyTextView = new TextView(this.context));
+                    TextView emptyTextView = new TextView(this.context);
                     //APA for creating this view is (Yadav, 2019)
                     emptyTextView.setText("Empty ");
                     verticalGroupArea.addView(emptyTextView);
                 } else {
                     //A token exists in this slot.
-                    TextView tokenTextView = new TextView(this.context));
+                    TextView tokenTextView = new TextView(this.context);
                     //APA for creating this view is (Yadav, 2019)
                     tokenTextView.setText("Token ");
                     Participant participant = new Participant("Hao Tian");
