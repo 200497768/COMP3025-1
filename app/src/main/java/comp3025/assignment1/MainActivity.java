@@ -52,6 +52,11 @@ public class MainActivity extends AppCompatActivity {
         //The board has been created, but the views still need to be added to the board area.
         for (ConsecutiveSlotGroup consecutiveSlotGroup : board.getConsecutiveSlotGroups()) {
 
+            //Add a string to the board area showing this line.
+            TextView lineTextView = new TextView(MainActivity.this);
+            lineTextView.setText("Line 0");
+            boardArea.addView(lineTextView);
+            
             for (Token token : consecutiveSlotGroup.getTokens()) {
                 //Create an element for this slot, depending on whether it has a token, or if it's empty.
 
