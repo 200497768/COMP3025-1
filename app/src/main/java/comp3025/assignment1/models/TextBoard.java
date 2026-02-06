@@ -76,6 +76,15 @@ public class TextBoard {
 
             lines.add(line);
         }
+
+        //Add winning participant to the string.
+        Participant winningParticipant = board.getWinningParticipant();
+        if (winningParticipant == null) {
+            lines.add("No participant has won at this time.");
+        } else {
+            lines.add("A participant has won. The winning participant is " + winningParticipant.getName());
+        }
+
         return lines;
     }
 
