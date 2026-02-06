@@ -37,16 +37,6 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout boardArea = findViewById(R.id.boardArea);
         //This method is able to retrieve the board area that I created.
 
-        TextView createdTextView = new TextView(MainActivity.this);
-        //APA for creating this TextView is (Yadav, 2019)
-
-        createdTextView.setText("This string was created using the onCreate method.");
-        int createdTextViewColor = Color.rgb(220, 20, 60);
-        //APA for numbers is Crimson.
-        createdTextView.setBackgroundColor(createdTextViewColor);
-
-        boardArea.addView(createdTextView);
-
         int numberOfVerticalGroups = 5;
         int verticalGroupCapacity = 4;
         int consecutiveNumber = 3;
@@ -58,11 +48,13 @@ public class MainActivity extends AppCompatActivity {
 
             //Add a string to the board area showing the number for this vertical group.
             TextView verticalGroupNumberTextView = new TextView(MainActivity.this);
+            //APA for creating this view is (Yadav, 2019)
             verticalGroupNumberTextView.setText("Vertical group 0");
             boardArea.addView(verticalGroupNumberTextView);
 
             //Create an area for this vertical group, and add it to the board area.
             LinearLayout verticalGroupArea=new LinearLayout(MainActivity.this);
+            //APA for creating this is (Yadav, 2019)
             int verticalGroupColor = Color.rgb(135,206,235);
             verticalGroupArea.setBackgroundColor(verticalGroupColor);
             //APA is SkyBlue.
@@ -74,11 +66,13 @@ boardArea.addView(verticalGroupArea);
                 if (token == null) {
                     //This slot is empty.
                     TextView emptyTextView = new TextView(MainActivity.this);
+                    //APA for creating this view is (Yadav, 2019)
                     emptyTextView.setText("Empty");
                     verticalGroupArea.addView(emptyTextView);
                 } else {
                     //A token exists in this slot.
                     TextView tokenTextView = new TextView(MainActivity.this);
+                    //APA for creating this view is (Yadav, 2019)
                     tokenTextView.setText("Token");
 
                     //Change the background color for this token.
