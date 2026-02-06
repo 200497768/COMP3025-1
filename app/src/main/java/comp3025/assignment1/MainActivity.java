@@ -1,5 +1,7 @@
 package comp3025.assignment1;
 
+import static android.widget.LinearLayout.VERTICAL;
+
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -57,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
             //Create an area for this vertical group, and add it to the board area.
             LinearLayout verticalGroupArea=new LinearLayout(MainActivity.this);
+            verticalGroupArea.setOrientation(VERTICAL);
             //APA for creating this is (Yadav, 2019)
             int verticalGroupColor = Color.rgb(135,206,235);
             verticalGroupArea.setBackgroundColor(verticalGroupColor);
