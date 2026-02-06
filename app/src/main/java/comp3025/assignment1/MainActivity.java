@@ -56,10 +56,17 @@ public class MainActivity extends AppCompatActivity {
         //The board has been created, but the views still need to be added to the board area.
         for (VerticalGroup verticalGroup : board.getVerticalGroups()) {
 
-            //Add a string to the board area showing this line.
-            TextView lineTextView = new TextView(MainActivity.this);
-            lineTextView.setText("Line 0");
-            boardArea.addView(lineTextView);
+            //Add a string to the board area showing the number for this vertical group.
+            TextView verticalGroupNumberTextView = new TextView(MainActivity.this);
+            verticalGroupNumberTextView.setText("Vertical group 0");
+            boardArea.addView(verticalGroupNumberTextView);
+
+            //Create an area for this vertical group, and add it to the board area.
+            LinearLayout verticalGroupArea=new LinearLayout(MainActivity.this);
+            int verticalGroupColor = Color.rgb(135,206,235);
+            verticalGroupArea.setBackgroundColor(verticalGroupColor);
+            //APA is SkyBlue.
+boardArea.addView(verticalGroupArea);
 
             for (Token token : verticalGroup.getTokens()) {
                 //Create an element for this slot, depending on whether it has a token, or if it's empty.
@@ -165,6 +172,10 @@ public class MainActivity extends AppCompatActivity {
             Log.i("200497768", line);
         }
 
+        int boardColor = Color.rgb(135,206,235);
+        boardArea.setBackgroundColor(boardColor);
+        //APA is SkyBlue.
+
 //As a student, I want to be able to see both of the views that are needed for this assignment.
         //Both views are created using the method that I learned during the week 4 class.
         Log.i("200497768", "onCreate method completed.");
@@ -180,4 +191,6 @@ public class MainActivity extends AppCompatActivity {
 
 //References
 //Crimson https://www.w3schools.com/colors/color_tryit.asp?color=Crimson
+//SkyBlue https://www.w3schools.com/colors/color_tryit.asp?color=SkyBlue
+
 //Yadav, C. (2019). How to Dynamically Add Views into View in Android? https://www.tutorialspoint.com/how-to-dynamically-add-views-into-view-in-android
