@@ -98,4 +98,9 @@ public class BoardAreaActions extends Actions {
     public void participantWon() {
 
     }
+
+    @Override
+    public void boardCleared() {
+
+    }
 }
