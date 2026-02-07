@@ -28,7 +28,6 @@ public class GameActivity extends AppCompatActivity {
 
         //Retrieve the participant from the intent that was received from WelcomeActivity.
         Intent intent = getIntent();
-        String information = intent.getStringExtra("information");
         Participant participant = intent.getSerializableExtra("participant", Participant.class);
 
         Log.i("200497768", "onCreate method running.");
