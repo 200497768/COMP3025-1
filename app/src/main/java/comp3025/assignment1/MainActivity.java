@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         //This method causes the code to run the welcome view.
-        setContentView(R.layout.game);
+        setContentView(R.layout.welcome);
 
         Log.i("200497768", "onCreate method running.");
 
