@@ -18,11 +18,15 @@ import comp3025.assignment1.models.Token;
 import comp3025.assignment1.models.VerticalGroup;
 
 /**
- * This class is responsible for changing elements when the board model changes.
+ * This class is responsible for changing board area elements when the board model changes.
  */
 public class BoardAreaActions extends Actions {
 
+    /**
+     * This field is the board are that needs to be changed when the model changes.
+     */
     private LinearLayout boardArea;
+
     private Context context;
 
     public BoardAreaActions(Board board, LinearLayout boardArea, Context context) {
