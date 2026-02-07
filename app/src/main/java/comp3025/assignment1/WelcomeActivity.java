@@ -2,10 +2,13 @@ package comp3025.assignment1;
 
 import static android.widget.LinearLayout.VERTICAL;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -42,6 +45,20 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onStart();
         System.out.println("onStart method running.");
         Log.i("200497768", "onStart method running.");
+    }
+
+    /**
+     * This method changes the view.
+     */
+    public void wishMeLuckButtonChosen(View view) {
+        //Retrieve the participant name from the view.
+        EditText participantNameEditText = findViewById(R.id.participantNameEditText);
+        Editable editable = participantNameEditText.getText();
+
+        Intent intent = new Intent(WelcomeActivity.this, GameActivity.class);
+        intent.putExtra("comp3025.assignment1.participantName", editable);
+
+        startActivity(intent);
     }
 }
 

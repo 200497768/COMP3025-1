@@ -12,7 +12,7 @@
         android:text="Welcome to Connect 3." />
 
     <EditText
-        android:id="@+id/nameEditText"
+        android:id="@+id/participantNameEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -21,9 +21,10 @@
         android:inputType="text" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/wishMeLuckButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:onClick="wishMeLuckButtonChosen"
         android:text="Wish me luck" />
 </LinearLayout>
