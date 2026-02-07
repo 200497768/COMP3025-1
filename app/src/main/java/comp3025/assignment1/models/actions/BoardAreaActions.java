@@ -8,7 +8,7 @@ import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import comp3025.assignment1.MainActivity;
+import comp3025.assignment1.WelcomeActivity;
 import comp3025.assignment1.R;
 import comp3025.assignment1.models.Board;
 import comp3025.assignment1.models.Participant;
