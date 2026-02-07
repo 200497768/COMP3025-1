@@ -28,7 +28,9 @@ public class GameActivity extends AppCompatActivity {
 
         //Retrieve the participant from the intent that was received from WelcomeActivity.
         Intent intent = getIntent();
-        Participant participant = intent.getSerializableExtra("participant", Participant.class);
+        Participant participant = intent.getSerializableExtra("comp3025.assignment1.participant", Participant.class);
+        //If this string doesn't match the name that I used when adding the participant, this method returns null.
+
 
         //Change the view to show the participant name.
         TextView goodLuckTextView = findViewById(R.id.goodLuckTextView);
