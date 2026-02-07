@@ -43,7 +43,6 @@ public class Actions {
     /**
      * This method happens when the board has been cleared.
      * This class that extends this class is responsible for writing this method in order to show that the board has been cleared.
-     * This isn't possible with the board model at this time, but I might add the ability to clear the board in the future.
      */
     public void boardCleared(){
 

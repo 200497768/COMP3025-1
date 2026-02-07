@@ -50,12 +50,7 @@ public class Board {
         }
         this.consecutiveNumber = consecutiveNumber;
 
-        //Vertical groups will be created and added to this board.
-        for (int number = 0; number < numberOfVerticalGroups; number = number + 1) {
-            //An ordered token group will be created, and added to this board.
-            VerticalGroup verticalGroup = new VerticalGroup(verticalGroupCapacity);
-            this.verticalGroups.add(verticalGroup);
-        }
+        this.createVerticalGroups();
     }
 
     /**
@@ -292,6 +287,30 @@ public class Board {
         this.actions.add(action);
 
         //This board will be changed by this action.
+    }
 
+    /**
+     * This method removes all of the tokens that have been added to the board.
+     * Depending on how this method was written, this method might clear the existing vertical groups, or it might create new vertical groups.
+     * Depending on how this method was written, vertical groups that were retrieved before this method might no longer be part of this board.
+     * If the vertical groups need to be accessed, retrieving the vertical groups again after this method is recommended.
+     */
+    public void clear() {
+        this.createVerticalGroups();
+    }
+
+    /**
+     * This method creates the vertical groups for this board.
+     * This method creates a list, and adds vertical groups to that list.
+     * After this method, any existing vertical groups can no longer be accessed.
+     */
+    private void createVerticalGroups() {
+        //Vertical groups will be created and added to this board.
+        this.verticalGroups = new ArrayList<>();
+        for (int number = 0; number < numberOfVerticalGroups; number = number + 1) {
+            //An ordered token group will be created, and added to this board.
+            VerticalGroup verticalGroup = new VerticalGroup(verticalGroupCapacity);
+            this.verticalGroups.add(verticalGroup);
+        }
     }
 }
