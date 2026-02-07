@@ -24,7 +24,6 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-
         Log.i("200497768", "onCreate method running.");
 
         LinearLayout boardArea = findViewById(R.id.boardArea);

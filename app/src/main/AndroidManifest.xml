@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Assignment1">
         <activity
-            android:name=".MainActivity2"
+            android:name=".GameActivity"
             android:exported="false" />
         <activity
             android:name=".WelcomeActivity"
