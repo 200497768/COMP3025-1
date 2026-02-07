@@ -21,6 +21,9 @@ import comp3025.assignment1.models.actions.BoardAreaActions;
 
 public class GameActivity extends AppCompatActivity {
 
+    //This field is the name that must be used when adding the participant to the intent.
+    public static final String participantIntentName = "comp3025.assignment1.participant";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,15 +31,13 @@ public class GameActivity extends AppCompatActivity {
 
         //Retrieve the participant from the intent that was received from WelcomeActivity.
         Intent intent = getIntent();
-        Participant participant = intent.getSerializableExtra("comp3025.assignment1.participant", Participant.class);
-        //If this string doesn't match the name that I used when adding the participant, this method returns null.
-
+        Participant participant = intent.getSerializableExtra(GameActivity.participantIntentName, Participant.class);
+        //This string must match the name that was used to add the participant to the intent.
+        //If the string doesn't match, this method returns null, and this method won't be able to retrieve the participant.
 
         //Change the view to show the participant name.
         TextView goodLuckTextView = findViewById(R.id.goodLuckTextView);
         goodLuckTextView.setText(participant.getName());
-
-        Log.i("200497768", "onCreate method running.");
 
         LinearLayout boardArea = findViewById(R.id.boardArea);
         //This method is able to retrieve the board area that I created.
@@ -109,8 +110,5 @@ public class GameActivity extends AppCompatActivity {
         boardArea.setBackgroundColor(boardColor);
         //APA is SkyBlue.
 
-//As a student, I want to be able to see both of the views that are needed for this assignment.
-        //Both views are created using the method that I learned during the week 4 class.
-        Log.i("200497768", "onCreate method completed.");
     }
 }

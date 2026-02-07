@@ -37,7 +37,6 @@ public class WelcomeActivity extends AppCompatActivity {
 
         //This method causes the code to run the welcome view.
         setContentView(R.layout.activity_welcome);
-
     }
 
     @Override
@@ -57,18 +56,18 @@ public class WelcomeActivity extends AppCompatActivity {
 
         //Create the participant model.
         Participant participant = new Participant("" + participantNameEditable);
+
         //Create an explicit intent that refers to GameActivity.
         Intent intent = new Intent(WelcomeActivity.this, GameActivity.class);
 
         //Add the participant to the intent.
-        intent.putExtra("comp3025.assignment1.participant", participant);
+        intent.putExtra(GameActivity.participantIntentName, participant);
 
         startActivity(intent);
     }
 }
 
 //References
-//Crimson https://www.w3schools.com/colors/color_tryit.asp?color=Crimson
-//SkyBlue https://www.w3schools.com/colors/color_tryit.asp?color=SkyBlue
-
+//Crimson. https://www.w3schools.com/colors/color_tryit.asp?color=Crimson
+//SkyBlue. https://www.w3schools.com/colors/color_tryit.asp?color=SkyBlue
 //Yadav, C. (2019). How to Dynamically Add Views into View in Android? https://www.tutorialspoint.com/how-to-dynamically-add-views-into-view-in-android
