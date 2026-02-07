@@ -30,6 +30,10 @@ public class GameActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Participant participant = intent.getSerializableExtra("participant", Participant.class);
 
+        //Change the view to show the participant name.
+        TextView goodLuckTextView = findViewById(R.id.goodLuckTextView);
+        goodLuckTextView.setText(participant.getName());
+
         Log.i("200497768", "onCreate method running.");
 
         LinearLayout boardArea = findViewById(R.id.boardArea);
@@ -40,8 +44,6 @@ public class GameActivity extends AppCompatActivity {
         int consecutiveNumber = 3;
         Board board = new Board(numberOfVerticalGroups, verticalGroupCapacity, consecutiveNumber);
         TextBoard textBoard = new TextBoard(board, "Token", "Empty");
-
-        Participant participant = new Participant("Hao Tian");
 
         BoardAreaActions boardAreaActions = new BoardAreaActions(board, boardArea, GameActivity.this);
 
