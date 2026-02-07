@@ -53,13 +53,15 @@ public class WelcomeActivity extends AppCompatActivity {
     public void wishMeLuckButtonChosen(View view) {
         //Retrieve the participant name from the view.
         EditText participantNameEditText = findViewById(R.id.participantNameEditText);
-        Editable editable = participantNameEditText.getText();
+        Editable participantNameEditable = participantNameEditText.getText();
 
+        //Create the participant model.
+        Participant participant = new Participant("" + participantNameEditable);
         //Create an explicit intent that refers to GameActivity.
         Intent intent = new Intent(WelcomeActivity.this, GameActivity.class);
 
-        //Add the participant name to the intent.
-        intent.putExtra("comp3025.assignment1.participantName", editable);
+        //Add the participant to the intent.
+        intent.putExtra("comp3025.assignment1.participant", participant);
 
         startActivity(intent);
     }

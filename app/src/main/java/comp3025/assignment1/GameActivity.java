@@ -1,7 +1,9 @@
 package comp3025.assignment1;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
 import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -23,6 +25,11 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        //Retrieve the participant from the intent that was received from WelcomeActivity.
+        Intent intent = getIntent();
+        String information = intent.getStringExtra("information");
+        Participant participant = intent.getSerializableExtra("participant", Participant.class);
 
         Log.i("200497768", "onCreate method running.");
 

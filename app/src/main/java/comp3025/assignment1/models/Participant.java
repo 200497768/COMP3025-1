@@ -2,13 +2,17 @@ package comp3025.assignment1.models;
 
 import android.graphics.Color;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * This class is a participant.
  */
-public class Participant {
+public class Participant implements Serializable {
     private String name;
+
+    //This field is needed for Serializable.
+    private static final long serialVersionUID = 1;
 
     public Participant(String name) {
         Objects.requireNonNull(name);
