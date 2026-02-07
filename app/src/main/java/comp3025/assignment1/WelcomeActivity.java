@@ -55,7 +55,10 @@ public class WelcomeActivity extends AppCompatActivity {
         EditText participantNameEditText = findViewById(R.id.participantNameEditText);
         Editable editable = participantNameEditText.getText();
 
+        //Create an explicit intent that refers to GameActivity.
         Intent intent = new Intent(WelcomeActivity.this, GameActivity.class);
+
+        //Add the participant name to the intent.
         intent.putExtra("comp3025.assignment1.participantName", editable);
 
         startActivity(intent);
