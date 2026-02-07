@@ -26,7 +26,7 @@ import comp3025.assignment1.models.Token;
 import comp3025.assignment1.models.VerticalGroup;
 import comp3025.assignment1.models.actions.BoardAreaActions;
 
-public class MainActivity extends AppCompatActivity {
+public class WelcomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
