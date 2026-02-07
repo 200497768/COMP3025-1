@@ -12,13 +12,13 @@
         android:text="Welcome to Connect 3." />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/nameEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:ems="10"
-        android:inputType="text"
-        android:text="Name" />
+        android:hint="What's your name?"
+        android:inputType="text" />
 
     <Button
         android:id="@+id/button"
