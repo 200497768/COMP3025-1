@@ -12,6 +12,7 @@ import comp3025.assignment1.models.Board;
 import comp3025.assignment1.models.Competition;
 import comp3025.assignment1.models.Participant;
 import comp3025.assignment1.models.TextBoard;
+import comp3025.assignment1.models.actions.ViewActions;
 
 /**
  * This class runs after WelcomeActivity.

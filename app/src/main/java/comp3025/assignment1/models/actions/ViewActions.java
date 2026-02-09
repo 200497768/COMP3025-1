@@ -109,7 +109,7 @@ public class ViewActions extends Actions {
             addButton.setText("Add");
 
             Competition competition = this.competition;
-            BoardAreaActions boardAreaActions = this;
+            ViewActions viewActions = this;
             addButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -120,7 +120,7 @@ public class ViewActions extends Actions {
                     verticalGroup.addToken(token);
 
                     //Show the token.
-                    boardAreaActions.tokenAdded();
+                    viewActions.tokenAdded();
                 }
             });
             boardArea.addView(addButton);
