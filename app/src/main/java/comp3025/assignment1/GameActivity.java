@@ -48,6 +48,10 @@ public class GameActivity extends AppCompatActivity {
         Competition competition = new Competition(board);
         competition.addParticipant(participant);
 
+        //Add the computer participant.
+        Participant computerParticipant = new Participant("Computer");
+        competition.addParticipant(computerParticipant);
+
         LinearLayout boardArea = findViewById(R.id.boardArea);
         LinearLayout addArea = findViewById(R.id.addArea);
         LinearLayout verticalGroupsArea = findViewById(R.id.verticalGroupsArea);
