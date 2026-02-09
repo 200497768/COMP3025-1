@@ -41,6 +41,11 @@ public class BoardAreaActions extends Actions {
 
     private Context context;
 
+    /**
+     * This field is areas that have been created for vertical groups.
+     */
+    private List<LinearLayout> verticalGroupAreas = new ArrayList<>();
+
     public BoardAreaActions(Competition competition, LinearLayout boardArea, Context context) {
         super(competition);
 
@@ -56,6 +61,7 @@ public class BoardAreaActions extends Actions {
 
     @Override
     public void boardCreated() {
+        this.createVerticalGroupAreas();
         this.addSlotsAndTokensBoardArea();
     }
 
@@ -63,25 +69,15 @@ public class BoardAreaActions extends Actions {
      * This method clears the board area, and adds it to the board area that was written as a field.
      */
     private void clearBoardArea() {
-        //Every vertical group includes a list with all of the views.
-        //This method will go through every vertical group, retrieve every list, and remove the views that the list refers to.
-        Board board = this.competition.getBoard();
-        for (VerticalGroup verticalGroup : board.getVerticalGroups()) {
-            for (View view : verticalGroup.getViews()) {
-                this.boardArea.removeView(view);
-            }
+        for (LinearLayout verticalGroupArea : this.verticalGroupAreas) {
+            verticalGroupArea.removeAllViews();
         }
 
-        //Change the vertical group by removing the views, since the views are no longer used.
-        for (VerticalGroup verticalGroup : board.getVerticalGroups()) {
-            verticalGroup.clearViews();
-        }
+//Clear the fields for this class.
+        this.verticalGroupAreas = new ArrayList<>();
     }
 
-    /**
-     * This method creates elements that correspond to the models, and adds it to the board area.
-     */
-    private void addSlotsAndTokensBoardArea() {
+    private void createVerticalGroupAreas() {
         //The vertical group number will be used to create a string that shows this number.
         int verticalGroupNumber = 0;
 
@@ -125,7 +121,19 @@ public class BoardAreaActions extends Actions {
                 }
             });
             verticalGroupArea.addView(addButton);
+        }
+    }
 
+    /**
+     * This method creates elements that correspond to the models, and adds it to the board area.
+     */
+    private void addSlotsAndTokensBoardArea() {
+        //The vertical group number will be used to create a string that shows this number.
+        int verticalGroupNumber = 0;
+
+        Board board = this.competition.getBoard();
+
+        for (LinearLayout verticalGroupArea : this.verticalGroupAreas) {
 //Go through all of the tokens in this vertical group.
             //The token number needs to start with the maximum token number so that tokens are ordered how the board is supposed to be.
             for (int tokenNumber = board.getVerticalGroupCapacity() - 1; tokenNumber >= 0; tokenNumber = tokenNumber - 1) {
@@ -152,10 +160,6 @@ public class BoardAreaActions extends Actions {
                     tokenTextView.setBackgroundColor(participant.getColor());
 
                     verticalGroupArea.addView(tokenTextView);
-
-                    //The code still needs to be able to access this view in the future.
-                    List<View> tokenViews = verticalGroup.getViews();
-                    tokenViews.add(tokenTextView);
                 }
             }
 
@@ -164,6 +168,7 @@ public class BoardAreaActions extends Actions {
             verticalGroupNumber = verticalGroupNumber + 1;
         }
     }
+
 
     @Override
     public void tokenAdded() {
