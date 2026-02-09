@@ -147,4 +147,8 @@ public class VerticalGroup {
     public List<View> getViews() {
         return this.views;
     }
+
+    public void clearViews() {
+        this.views = new ArrayList<>();
+    }
 }

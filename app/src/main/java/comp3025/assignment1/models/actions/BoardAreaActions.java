@@ -49,6 +49,32 @@ public class BoardAreaActions extends Actions {
 
     @Override
     public void boardCreated() {
+        this.createBoardArea();
+    }
+
+    /**
+     * This method clears the board area, and adds it to the board area that was written as a field.
+     */
+    private void clearBoardArea() {
+        //Every vertical group includes a list with all of the views.
+        //This method will go through every vertical group, retrieve every list, and remove the views that the list refers to.
+        Board board = this.competition.getBoard();
+        for (VerticalGroup verticalGroup : board.getVerticalGroups()) {
+            for (View view : verticalGroup.getViews()) {
+                this.boardArea.removeView(view);
+            }
+        }
+
+        //Change the vertical group by removing the views, since the views are no longer used.
+        for (VerticalGroup verticalGroup : board.getVerticalGroups()) {
+            verticalGroup.clearViews();
+        }
+    }
+
+    /**
+     * This method creates elements that correspond to the models, and adds it to the board area.
+     */
+    private void createBoardArea() {
         //The vertical group number will be used to create a string that shows this number.
         int verticalGroupNumber = 0;
 
@@ -129,20 +155,6 @@ public class BoardAreaActions extends Actions {
             //Tokens and slots for this vertical group have been added.
             //The vertical group number needs to be increased.
             verticalGroupNumber = verticalGroupNumber + 1;
-        }
-    }
-
-    /**
-     * This method clears the board area.
-     */
-    private void clearBoardArea() {
-        //Every vertical group includes a list with all of the views.
-        //This method will go through every vertical group, retrieve every list, and remove the views that the list refers to.
-        Board board = this.competition.getBoard();
-        for (VerticalGroup verticalGroup : board.getVerticalGroups()) {
-            for (View view : verticalGroup.getViews()) {
-                this.boardArea.removeView(view);
-            }
         }
     }
 
