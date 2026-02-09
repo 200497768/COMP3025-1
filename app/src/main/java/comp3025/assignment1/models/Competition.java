@@ -15,7 +15,15 @@ import java.util.List;
  */
 public class Competition {
 
+    /**
+     * This field is the board that that this competition involves.
+     * All of the participants will be adding tokens to this board.
+     */
     private Board board;
+
+    /**
+     * This field is the participants that will be participating in this competition.
+     */
     private List<Participant> participants = new ArrayList<>();
 
     //During a round, participants are added to this list.
