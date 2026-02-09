@@ -2,6 +2,7 @@ package comp3025.assignment1.models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * This class is a competition.
@@ -39,6 +40,7 @@ public class Competition {
     }
 
     public Competition(Board board) {
+        Objects.requireNonNull(board);
         this.board = board;
     }
 

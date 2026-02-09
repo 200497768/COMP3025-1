@@ -24,7 +24,14 @@ public class VerticalGroup {
     private List<View> views = new ArrayList<>();
 
     public VerticalGroup(int verticalGroupNumber, int capacity) {
+        if(verticalGroupNumber<0){
+            throw new IllegalArgumentException();
+        }
         this.verticalGroupNumber = verticalGroupNumber;
+
+        if(capacity<0){
+            throw new IllegalArgumentException();
+        }
         this.capacity = capacity;
     }
 

@@ -30,7 +30,6 @@ public class Participant implements Serializable {
 
     public Participant(String name) {
         Objects.requireNonNull(name);
-
         this.name = name;
     }
 

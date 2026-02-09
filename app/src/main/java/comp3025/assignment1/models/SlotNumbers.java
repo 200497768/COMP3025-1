@@ -24,12 +24,11 @@ public class SlotNumbers {
         if (verticalGroupNumber < 0) {
             throw new IllegalArgumentException();
         }
+        this.verticalGroupNumber = verticalGroupNumber;
 
         if (tokenNumber < 0) {
             throw new IllegalArgumentException();
         }
-
-        this.verticalGroupNumber = verticalGroupNumber;
         this.tokenNumber = tokenNumber;
     }
 

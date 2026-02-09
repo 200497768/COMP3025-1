@@ -59,6 +59,7 @@ public class ConsecutiveSlotGroup {
 
 
     public ConsecutiveSlotGroup(Token startingToken, int consecutiveNumber, SlotNumbers startingSlotNumbers, Direction direction) {
+        Objects.requireNonNull(startingToken);
         this.startingToken = startingToken;
 
         if (consecutiveNumber < 1) {

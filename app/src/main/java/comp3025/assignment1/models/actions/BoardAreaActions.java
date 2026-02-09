@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import comp3025.assignment1.WelcomeActivity;
 import comp3025.assignment1.R;
@@ -42,8 +43,14 @@ public class BoardAreaActions extends Actions {
 
     public BoardAreaActions(Competition competition, LinearLayout boardArea, Context context) {
         super(competition);
+
+        Objects.requireNonNull(competition);
         this.competition = competition;
+
+        Objects.requireNonNull(boardArea);
         this.boardArea = boardArea;
+
+        Objects.requireNonNull(context);
         this.context = context;
     }
 
