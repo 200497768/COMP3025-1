@@ -217,13 +217,28 @@ public class ViewActions extends Actions {
         Board board = this.competition.getBoard();
         Participant scoreParticipant = board.getScoreParticipant();
         if (scoreParticipant == null) {
-            //This board has finished.
+            //This board needs another turn.
+            this.showScoreMessage("A participant added a token. " + this.getScoreMessage());
 
         } else {
-            //This board needs another turn.
-            this.showScoreMessage("A participant added a token.");
+//This board has finished.
+
         }
 
+    }
+
+    /**
+     * This method creates the score message as a string.
+     */
+    private String getScoreMessage() {
+        String message = "";
+
+        List<Participant> participants = this.competition.getParticipants();
+        for (Participant participant : participants) {
+            message = message + participant.getName() + " " + participant.getScore() + " ";
+        }
+
+        return message;
     }
 
     private void showScoreMessage(String message) {

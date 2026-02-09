@@ -74,8 +74,5 @@ public class GameActivity extends AppCompatActivity {
         int boardColor = Color.rgb(135, 206, 235);
         boardArea.setBackgroundColor(boardColor);
         //APA is SkyBlue.
-
-        TextView scoreTextView = findViewById(R.id.scoreTextView);
-        scoreTextView.setText(participant.getName() + " 0, computer 0");
     }
 }
