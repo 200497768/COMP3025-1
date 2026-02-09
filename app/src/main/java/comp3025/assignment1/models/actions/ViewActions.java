@@ -54,7 +54,7 @@ public class ViewActions extends Actions {
     private Context context;
 
     /**
-     * This field is areas that have been created for vertical groups.
+     * This field is all of the vertical group areas that have been added to the vertical groups area.
      */
     private List<LinearLayout> verticalGroupAreas = new ArrayList<>();
 
@@ -84,14 +84,14 @@ public class ViewActions extends Actions {
     }
 
     /**
-     * This method clears the board area, and adds it to the board area that was written as a field.
+     * This method clears removes every vertical group area that was added to the vertical groups area.
      */
-    private void clearBoardArea() {
+    private void clearVerticalGroupAreas() {
         for (LinearLayout verticalGroupArea : this.verticalGroupAreas) {
             verticalGroupArea.removeAllViews();
         }
 
-//Clear the fields for this class.
+//Clear the field for this class.
         this.verticalGroupAreas = new ArrayList<>();
     }
 
