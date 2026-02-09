@@ -80,7 +80,7 @@ public class TextBoard {
         }
 
         //Add whether the score can be increased by a participant to the string.
-        Participant winningParticipant = board.getWinningParticipant();
+        Participant winningParticipant = board.getScoreParticipant();
         if (winningParticipant == null) {
             lines.add("No participant can increase the score at this time.");
         } else {
