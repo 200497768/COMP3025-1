@@ -86,14 +86,14 @@ public class BoardAreaActions extends Actions {
 
 //Go through all of the tokens in this vertical group.
             //The token number needs to start with the maximum token number so that tokens are ordered how the board is supposed to be.
-            for (int tokenNumber = this.board.getVerticalGroupCapacity() - 1; tokenNumber >= 0; tokenNumber = tokenNumber - 1) {
+            for (int tokenNumber = board.getVerticalGroupCapacity() - 1; tokenNumber >= 0; tokenNumber = tokenNumber - 1) {
                 //Create an element for this slot, depending on whether it has a token, or if it's empty.
 
                 //Retrieve the slot from this vertical group.
                 //The method from the board class is used, instead of the vertical group class, so that it can retrieve null.
                 //If the token was retrieved from the vertical group, the method would only allow accessing existing tokens.
                 SlotNumbers slotNumbers = new SlotNumbers(verticalGroupNumber, tokenNumber);
-                Token slot = this.board.getToken(slotNumbers);
+                Token slot = board.getToken(slotNumbers);
 
                 if (slot == null) {
                     //This slot is empty.
