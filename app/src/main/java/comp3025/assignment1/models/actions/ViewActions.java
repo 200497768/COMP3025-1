@@ -51,6 +51,8 @@ public class ViewActions extends Actions {
      */
     private LinearLayout verticalGroupsArea;
 
+    private TextView scoreTextView;
+
     private Context context;
 
     /**
@@ -58,7 +60,7 @@ public class ViewActions extends Actions {
      */
     private List<LinearLayout> verticalGroupAreas = new ArrayList<>();
 
-    public ViewActions(Competition competition, LinearLayout boardArea, LinearLayout verticalGroupsArea, LinearLayout addArea, Context context) {
+    public ViewActions(Competition competition, LinearLayout boardArea, LinearLayout verticalGroupsArea, LinearLayout addArea, TextView scoreTextView, Context context) {
         super(competition);
 
         Objects.requireNonNull(competition);
@@ -69,6 +71,9 @@ public class ViewActions extends Actions {
 
         Objects.requireNonNull(addArea);
         this.addArea = addArea;
+
+        Objects.requireNonNull(scoreTextView);
+        this.scoreTextView = scoreTextView;
 
         Objects.requireNonNull(verticalGroupsArea);
         this.verticalGroupsArea = verticalGroupsArea;
@@ -205,7 +210,24 @@ public class ViewActions extends Actions {
         this.createVerticalGroupAreas();
         this.addSlotsAndTokens();
 
+        //Complete the turn for this participant.
         this.competition.completeTurn();
+
+        //Determine whether this participant has increase the score, or if this board needs another turn.
+        Board board = this.competition.getBoard();
+        Participant scoreParticipant = board.getScoreParticipant();
+        if (scoreParticipant == null) {
+            //This board has finished.
+
+        } else {
+            //This board needs another turn.
+            this.showScoreMessage("A participant added a token.");
+        }
+
+    }
+
+    private void showScoreMessage(String message) {
+        this.scoreTextView.setText(message);
     }
 
     @Override
