@@ -5,6 +5,7 @@ import static android.widget.LinearLayout.VERTICAL;
 import android.content.Context;
 import android.graphics.Color;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -58,6 +59,10 @@ public class BoardAreaActions extends Actions {
             verticalGroupNumberTextView.setText("Vertical " + verticalGroupNumber + " ");
             verticalGroupArea.addView(verticalGroupNumberTextView);
 
+            //Create the option to allow adding a token to this vertical group.
+            Button addButton = new Button(this.context);
+            addButton.setText("Add");
+            verticalGroupArea.addView(addButton);
 
 //Go through all of the tokens in this vertical group.
             //The token number needs to start with the maximum token number so that tokens are ordered how the board is supposed to be.
