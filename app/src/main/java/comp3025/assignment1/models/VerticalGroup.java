@@ -17,12 +17,6 @@ public class VerticalGroup {
     //This field is the tokens in this ordered token group.
     private List<Token> tokens=new ArrayList<>();
 
-    /**
-     * This field is the views that show the slots and tokens for this vertical group.
-     * This field is the views that are used to show the vertical group in this board.
-     */
-    private List<View> views = new ArrayList<>();
-
     public VerticalGroup(int verticalGroupNumber, int capacity) {
         if(verticalGroupNumber<0){
             throw new IllegalArgumentException();
@@ -148,14 +142,5 @@ public class VerticalGroup {
 
         SlotNumbers slotNumbers = new SlotNumbers(this.verticalGroupNumber, tokenNumber);
         return slotNumbers;
-    }
-
-
-    public List<View> getViews() {
-        return this.views;
-    }
-
-    public void clearViews() {
-        this.views = new ArrayList<>();
     }
 }
