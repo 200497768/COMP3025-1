@@ -197,7 +197,7 @@ public class ViewActions extends Actions {
                     //APA for creating this view is (Yadav, 2019)
                     tokenTextView.setText("Token ");
                     Participant participant = new Participant("Hao Tian");
-                    tokenTextView.setBackgroundColor(participant.getColor());
+                    tokenTextView.setBackgroundColor(participant.getTokenColor());
 
                     verticalGroupArea.addView(tokenTextView);
                 }

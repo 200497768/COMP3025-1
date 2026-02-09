@@ -7,6 +7,9 @@ import java.util.Objects;
 
 /**
  * This class is a participant that has been added to a competition.
+ * A participant includes a name, and a score.
+ * After creating a participant, the participant needs to be added to a competition.
+ * The score for a participant can be increased during a competition when the participant has added enough consecutive tokens.
  *
  * @author Hao Tian
  */
@@ -25,7 +28,9 @@ public class Participant implements Serializable {
         this.score = this.score + 1;
     }
 
-    //This field is needed for Serializable.
+    /**
+     * This field is needed for Serializable.
+     */
     private static final long serialVersionUID = 1;
 
     public Participant(String name) {
@@ -43,11 +48,11 @@ public class Participant implements Serializable {
     }
 
     /**
-     * This method returns the background color for tokens from this participant.
+     * This method returns the background color for tokens added by this participant.
      *
      * @return
      */
-    public int getColor() {
+    public int getTokenColor() {
         int tokenColor = Color.rgb(220, 20, 60);
         //APA for numbers is Crimson.
 
