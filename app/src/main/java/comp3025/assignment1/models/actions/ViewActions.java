@@ -137,10 +137,13 @@ public class ViewActions extends Actions {
                 @Override
                 public void onClick(View v) {
                     //Add a token to the model.
-                    SlotNumbers slotNumbers = verticalGroup.getNextTokenSlotNumbers();
-                    Participant participant = competition.getParticipantForTurn();
-                    Token token = new Token(participant, slotNumbers);
-                    verticalGroup.addToken(token);
+
+                    //The token must be added using a method from the board class, not by accessing a vertical group.
+                    //At this time, the vertical group that's retrieved from the board refers to the vertical group in the board.
+                    //In the future, when the board has been cleared, the vertical group retrieved by this method might no longer be correct.
+                    //The vertical group retrieved by this method at this time might no longer be part of the board, depending on how the method to clear the board was written.
+
+                    board.addToken(competition.getParticipantForTurn(), verticalGroupNumber);
 
                     //Show the token.
                     viewActions.tokenAdded();
@@ -226,16 +229,21 @@ public class ViewActions extends Actions {
         if (scoreParticipant == null) {
             //This board needs another turn.
             this.showScoreMessage("A participant added a token. " + this.getScoreMessage());
-
         } else {
 //This board has finished.
 
             this.showScoreMessage(scoreParticipant.getName() + " has added " + board.getConsecutiveNumber() + " consecutive tokens. The score for this participant has increased. " + this.getScoreMessage());
             //The board needs to be cleared.
             board.clear();
+
             this.boardChanged();
         }
 
+        //Show the text board.
+        TextBoard textBoard = new TextBoard(board, "Token", "Empty");
+        for (String string : textBoard.getLines()) {
+            Log.i("200497768", string);
+        }
     }
 
     /**

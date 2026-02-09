@@ -77,6 +77,14 @@ public class Board {
         return verticalGroupCapacity;
     }
 
+    /**
+     * This method returns the vertical groups in this board.
+     * This method must only be used to show the vertical groups at this time.
+     * Using this method to refer to vertical groups isn't recommended because the vertical groups that are in this board might change in the future.
+     * If the board is cleared, the vertical groups retrieved using this method might no longer be in the board.
+     *
+     * @return
+     */
     public List<VerticalGroup> getVerticalGroups() {
         return verticalGroups;
     }
@@ -127,18 +135,15 @@ public class Board {
         VerticalGroup verticalGroup = this.verticalGroups.get(verticalGroupNumber);
 
         //In order to create a token, the slot numbers of the token in the board must be provided to the token class.
-        //The slot numbers includes the vertical group number and token number.
-        //This method is provided with the vertical group number, but still needs to determine the token number.
 
         //Create the slot numbers for the token that will be created.
         //This determines the token number of the token that this method will add.
-        //The token number can be determined by checking the number of tokens that have been added to this vertical group.
-        int tokenNumber = verticalGroup.getNumberAdded();
-        SlotNumbers slotNumbers = new SlotNumbers(verticalGroupNumber, tokenNumber);
+        SlotNumbers slotNumbers = verticalGroup.getNextTokenSlotNumbers();
 
         //Create the token.
         Token token = new Token(participant, slotNumbers);
 
+        //Add the token to the vertical group.
         verticalGroup.addToken(token);
     }
 
