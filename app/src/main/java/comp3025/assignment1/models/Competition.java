@@ -26,10 +26,13 @@ public class Competition {
      */
     private List<Participant> participants = new ArrayList<>();
 
-    //During a round, participants are added to this list.
-    //When the number of participants added to this list is the number of participants in this competition, the action group has finished.
-    //This list will be cleared, and the participant action group starts again with the first participant.
-    private List<Participant> participantActionGroup = new ArrayList<>();
+    /**
+     * This field is the number of participants that have completed turns.
+     * After every a participant adds a token, this number will be increased by 1.
+     * When this number has been increased to the number of participants in this competition, the first participant starts again.
+     * This number will be changed to 0 again.
+     */
+    private int turnsCompleted = 0;
 
     public Board getBoard() {
         return board;
@@ -50,14 +53,20 @@ public class Competition {
     }
 
     /**
+     * This method changes the participant to the next participant.
+     * This method must be used when a participant has finished adding a token to the board.
+     */
+    public void changeParticipant() {
+        this.turnsCompleted = this.turnsCompleted + 1;
+    }
+
+    /**
      * This method returns the participant that needs to add a token now.
      *
      * @return
      */
     public Participant getParticipantForTurn() {
-        int participantActionsCompleted = participantActionGroup.size();
-
-        Participant participant = this.participants.get(participantActionsCompleted);
+        Participant participant = this.participants.get(this.turnsCompleted);
 
         return participant;
     }
