@@ -44,6 +44,13 @@ public class ViewActions extends Actions {
      */
     private LinearLayout addArea;
 
+    /**
+     * This field is the area that will be used to show the vertical groups.
+     * This class will create a vertical group area for every vertical group in the board.
+     * The vertical group areas will be added to the vertical groups area.
+     */
+    private LinearLayout verticalGroupsArea;
+
     private Context context;
 
     /**
@@ -51,7 +58,7 @@ public class ViewActions extends Actions {
      */
     private List<LinearLayout> verticalGroupAreas = new ArrayList<>();
 
-    public ViewActions(Competition competition, LinearLayout boardArea, LinearLayout addArea, Context context) {
+    public ViewActions(Competition competition, LinearLayout boardArea, LinearLayout verticalGroupsArea, LinearLayout addArea, Context context) {
         super(competition);
 
         Objects.requireNonNull(competition);
@@ -62,6 +69,9 @@ public class ViewActions extends Actions {
 
         Objects.requireNonNull(addArea);
         this.addArea = addArea;
+
+        Objects.requireNonNull(verticalGroupsArea);
+        this.verticalGroupsArea = verticalGroupsArea;
 
         Objects.requireNonNull(context);
         this.context = context;
