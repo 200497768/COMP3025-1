@@ -3,6 +3,8 @@ package comp3025.assignment1;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -21,6 +23,10 @@ import comp3025.assignment1.models.actions.ViewActions;
  */
 public class GameActivity extends AppCompatActivity {
 
+    private Competition competition;
+    private Board board;
+    private Participant participant;
+
     //This field is the name that must be used when adding the participant to the intent.
     public static final String participantIntentName = "comp3025.assignment1.participant";
 
@@ -32,6 +38,7 @@ public class GameActivity extends AppCompatActivity {
         //Retrieve the participant from the intent that was received from WelcomeActivity.
         Intent intent = getIntent();
         Participant participant = intent.getSerializableExtra(GameActivity.participantIntentName, Participant.class);
+        this.participant = participant;
         //This string must match the name that was used to add the participant to the intent.
         //If the string doesn't match, this method returns null, and this method won't be able to retrieve the participant.
 
@@ -43,6 +50,9 @@ public class GameActivity extends AppCompatActivity {
         int verticalGroupCapacity = 4;
         int consecutiveNumber = 3;
         Board board = new Board(numberOfVerticalGroups, verticalGroupCapacity, consecutiveNumber);
+
+        this.board = board;
+
         TextBoard textBoard = new TextBoard(board, "Token", "Empty");
 
         Competition competition = new Competition(board);
@@ -78,5 +88,23 @@ public class GameActivity extends AppCompatActivity {
         int boardColor = Color.rgb(135, 206, 235);
         boardArea.setBackgroundColor(boardColor);
         //APA is SkyBlue.
+    }
+
+    /**
+     * This method is for when Share my score has been chosen.
+     * This method retrieves information, including the score, and uses an implicit intent.
+     *
+     * @param view
+     */
+    public void method(View view) {
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_TEXT, "I'm " + participant.getName() + ", and my score in Connect " + this.board.getConsecutiveNumber() + " is " + participant.getScore() + ".");
+        intent.setType("text/plain");
+
+        Intent shareIntent = Intent.createChooser(intent, "Score");
+        startActivity(shareIntent);
+
+        //APA will be the week 5 class.
     }
 }
