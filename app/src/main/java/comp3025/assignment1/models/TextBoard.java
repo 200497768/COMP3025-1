@@ -113,12 +113,12 @@ public class TextBoard {
             Direction direction = consecutiveSlotGroup.getDirection();
             lines.add("Vertical group number " + startingSlotNumbers.getVerticalGroupNumber() + " token number " + startingSlotNumbers.getTokenNumber() + " direction " + direction.getString() + " consecutive number " + consecutiveSlotGroup.getConsecutiveNumber());
 
-            //The winning participant might be retrieved as null.
-            Participant winningParticipant = consecutiveSlotGroup.getWinningParticipant();
-            if (winningParticipant == null) {
-                lines.add("No winning participant.");
+            //The participant might be retrieved as null.
+            Participant scoreParticipant = consecutiveSlotGroup.getScoreParticipant();
+            if (scoreParticipant == null) {
+                lines.add("No participant can increase the score.");
             } else {
-                lines.add("Winning participant " + winningParticipant.getName());
+                lines.add("A participant can increase the score " + scoreParticipant.getName());
             }
 
             //The consecutive slot group might include a starting token, depending on whether a token was added to the starting slot.
