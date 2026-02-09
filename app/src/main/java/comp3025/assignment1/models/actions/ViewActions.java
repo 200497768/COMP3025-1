@@ -202,13 +202,20 @@ public class ViewActions extends Actions {
         }
     }
 
-
-    @Override
-    public void tokenAdded() {
+    /**
+     * This method must be used when the board has changed.
+     * This method shows the board, after it has been changed.
+     */
+    private void boardChanged() {
         //At this time, the strategy is to clear the board area, and create it again.
         this.clearVerticalGroupsArea();
         this.createVerticalGroupAreas();
         this.addSlotsAndTokens();
+    }
+
+    @Override
+    public void tokenAdded() {
+        this.boardChanged();
 
         //Complete the turn for this participant.
         this.competition.completeTurn();
@@ -223,6 +230,9 @@ public class ViewActions extends Actions {
         } else {
 //This board has finished.
 
+            this.showScoreMessage(scoreParticipant.getName() + " has added " + board.getConsecutiveNumber() + " consecutive tokens. The score for this participant has increased. " + this.getScoreMessage());
+            //The board needs to be cleared.
+            board.clear();
         }
 
     }

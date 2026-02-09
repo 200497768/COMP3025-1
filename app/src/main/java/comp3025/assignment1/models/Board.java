@@ -31,6 +31,10 @@ public class Board {
     //This field is the number of tokens that must be added consecutively in order for a participant to win.
     private int consecutiveNumber;
 
+    public int getConsecutiveNumber() {
+        return consecutiveNumber;
+    }
+
     //This field is a list showing the actions that have happened to this board since it was created.
     private List<Action> actions = new ArrayList<>();
 
