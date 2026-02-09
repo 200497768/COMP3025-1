@@ -140,7 +140,7 @@ public class ConsecutiveSlotGroup {
      *
      * @return
      */
-    public Participant getWinningParticipant() {
+    public Participant getScoreParticipant() {
         //This consecutive slot group might not have been completely created.
         //The winning participant can only be determined if completely created.
         if (!this.getCompletelyCreated()) {
@@ -171,13 +171,13 @@ public class ConsecutiveSlotGroup {
     }
 
     /**
-     * This method returns whether a participant has won with this consecutive slot group.
+     * This method returns whether a participant has been able to increase the score with this consecutive slot group.
      * This method determines this by checking whether every token was added by the same participant.
      *
      * @return
      */
-    public boolean getWinning() {
-        boolean winning = this.getWinningParticipant() != null;
+    public boolean getScore() {
+        boolean winning = this.getScoreParticipant() != null;
 
         return winning;
     }

@@ -235,16 +235,16 @@ public class Board {
     }
 
     /**
-     * This method returns the winning consecutive slot group for this board.
-     * If no winning consecutive slot group exists in this board, this method returns null.
+     * This method returns the consecutive slot group from this board that can cause the score to increase.
+     * If no consecutive slot groups from this board can cause the score to increase, this method returns null.
      *
      * @return
      */
-    private ConsecutiveSlotGroup getWinningConsecutiveSlotGroup() {
+    private ConsecutiveSlotGroup getScoreConsecutiveSlotGroup() {
         List<ConsecutiveSlotGroup> consecutiveSlotGroups = this.getConsecutiveSlotGroups();
 
         for (ConsecutiveSlotGroup consecutiveSlotGroup : consecutiveSlotGroups) {
-            if (consecutiveSlotGroup.getWinning()) {
+            if (consecutiveSlotGroup.getScore()) {
                 return consecutiveSlotGroup;
             }
         }
@@ -253,19 +253,19 @@ public class Board {
     }
 
     /**
-     * This method returns the winning participant.
-     * If no participant has won, this method returns null.
+     * This method returns the participant that an increase the score.
+     * If the score hasn't been increased for any participant, this method returns null.
      *
      * @return
      */
-    public Participant getWinningParticipant() {
-        ConsecutiveSlotGroup winningConsecutiveSlotGroup = this.getWinningConsecutiveSlotGroup();
+    public Participant getScoreParticipant() {
+        ConsecutiveSlotGroup winningConsecutiveSlotGroup = this.getScoreConsecutiveSlotGroup();
 
         if (winningConsecutiveSlotGroup == null) {
             return null;
         }
 
-        return winningConsecutiveSlotGroup.getWinningParticipant();
+        return winningConsecutiveSlotGroup.getScoreParticipant();
     }
 
     /**
