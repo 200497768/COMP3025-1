@@ -36,10 +36,10 @@ public class Actions {
     }
 
     /**
-     * This method happens when a participant has won.
-     * The class that extends this class is responsible for writing this method in order to show that the participant has won.
+     * This method happens when a participant has increased the score.
+     * The class that extends this class is responsible for writing this method in order to show that the participant has increased the score.
      */
-    public void participantWon(){
+    public void participantScoreIncreased(){
 
     }
 

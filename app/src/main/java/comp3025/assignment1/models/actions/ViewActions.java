@@ -207,7 +207,7 @@ public class ViewActions extends Actions {
     }
 
     @Override
-    public void participantWon() {
+    public void participantScoreIncreased() {
 
     }
 
