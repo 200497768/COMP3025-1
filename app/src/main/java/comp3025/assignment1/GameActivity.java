@@ -63,57 +63,18 @@ public class GameActivity extends AppCompatActivity {
         boardAreaActions.boardCreated();
         //The board is supposed to cause actions to happen, but since the board has been created, I'll write it from the onCreate method.
 
-        //I'll add a token to vertical group number 0, and show the text board.
-        board.addToken(participant, 0);
-        Log.i("200497768", "Here's the board after I added a token to vertical group number 0.");
-        for (String line : textBoard.getLines()) {
-            Log.i("200497768", line);
-        }
-
-        //I'll add a token to vertical group number 1, and show the text board.
-        board.addToken(participant, 1);
-        Log.i("200497768", "Here's the board after I added a token to vertical group number 1.");
-        for (String line : textBoard.getLines()) {
-            Log.i("200497768", line);
-        }
-
-        //I'll add a token to vertical group number 1, and show the text board.
-        board.addToken(participant, 1);
-        Log.i("200497768", "Here's the board after I added a token to vertical group number 1.");
-        for (String line : textBoard.getLines()) {
-            Log.i("200497768", line);
-        }
-
-        //I'll add a token to vertical group number 1, and show the text board.
-        board.addToken(participant, 1);
-        Log.i("200497768", "Here's the board after I added a token to vertical group number 1.");
-        for (String line : textBoard.getLines()) {
-            Log.i("200497768", line);
-        }
-
         //Show whether a participant has won.
         LinearLayout winningParticipantArea = findViewById(R.id.winningParticipantArea);
         TextView winningParticipantTextView = new TextView(GameActivity.this);
         //APA for creating this view is (Yadav, 2019)
 
-        Participant winningParticipant = board.getWinningParticipant();
+        Participant winningParticipant = board.getScoreParticipant();
         if (winningParticipant == null) {
-            winningParticipantTextView.setText("No winning participant at this time.");
+            winningParticipantTextView.setText("No score participant at this time.");
         } else {
-            winningParticipantTextView.setText("Winning participant is " + winningParticipant.getName());
+            winningParticipantTextView.setText("Score participant is " + winningParticipant.getName());
         }
         winningParticipantArea.addView(winningParticipantTextView);
-
-        Log.i("200497768", "Here's the board after I created it.");
-        for (String line : textBoard.getLines()) {
-            Log.i("200497768", line);
-        }
-
-        //Show the consecutive slot groups using the text board.
-        Log.i("200497768", "Here's the consecutive slot groups.");
-        for (String line : textBoard.getConsecutiveSlotGroups()) {
-            Log.i("200497768", line);
-        }
 
         int boardColor = Color.rgb(135, 206, 235);
         boardArea.setBackgroundColor(boardColor);
