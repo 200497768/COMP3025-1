@@ -202,6 +202,8 @@ public class ViewActions extends Actions {
     public void tokenAdded() {
         //At this time, the strategy is to clear the board area, and create it again.
         this.clearVerticalGroupsArea();
+        Log.i("200497768", "A token was added. Vertical groups area was cleared, and ");
+        this.createVerticalGroupAreas();
         this.addSlotsAndTokens();
     }
 
