@@ -72,6 +72,11 @@ public class Competition {
      * @return
      */
     public Participant getParticipantForTurn() {
+        //Ensure that a participant has been added to this competition.
+        if (this.participants.size() == 0) {
+            throw new IllegalStateException();
+        }
+
         Participant participant = this.participants.get(this.turnsCompleted);
 
         return participant;
