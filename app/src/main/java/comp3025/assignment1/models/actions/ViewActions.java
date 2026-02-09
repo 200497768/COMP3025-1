@@ -111,7 +111,7 @@ public class ViewActions extends Actions {
             int verticalGroupColor = Color.rgb(135, 206, 235);
             verticalGroupArea.setBackgroundColor(verticalGroupColor);
             //APA is SkyBlue.
-            boardArea.addView(verticalGroupArea);
+            verticalGroupsArea.addView(verticalGroupArea);
 
             //Add this vertical group area to the list, so that this class will be able to access it in the future.
             this.verticalGroupAreas.add(verticalGroupArea);
