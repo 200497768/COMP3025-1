@@ -56,7 +56,7 @@ public class BoardAreaActions extends Actions {
 
     @Override
     public void boardCreated() {
-        this.createBoardArea();
+        this.addSlotsAndTokensBoardArea();
     }
 
     /**
@@ -81,7 +81,7 @@ public class BoardAreaActions extends Actions {
     /**
      * This method creates elements that correspond to the models, and adds it to the board area.
      */
-    private void createBoardArea() {
+    private void addSlotsAndTokensBoardArea() {
         //The vertical group number will be used to create a string that shows this number.
         int verticalGroupNumber = 0;
 
@@ -170,7 +170,7 @@ public class BoardAreaActions extends Actions {
     public void tokenAdded() {
         //At this time, the strategy is to clear the board area, and create it again.
         this.clearBoardArea();
-        this.createBoardArea();
+        this.addSlotsAndTokensBoardArea();
     }
 
     @Override
