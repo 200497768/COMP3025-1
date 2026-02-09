@@ -57,10 +57,10 @@ public class Competition {
      * @param participant
      */
     public void addParticipant(Participant participant) {
-        this.participants.add(participant);
-
         //Change token color for this participant.
         participant.changeTokenColor(this.getNextTokenColor());
+
+        this.participants.add(participant);
     }
 
     /**
@@ -120,10 +120,25 @@ public class Competition {
         this.board.clear();
     }
 
-    public int getNextTokenColor() {
-        int tokenColor = Color.rgb(220, 20, 60);
-        //APA for numbers is Crimson.
+    /**
+     * This method returns a token color that can be provided to a participant.
+     * Ensure that this method produces the token color before the participant has been added to this competition.
+     * This method is supposed to return a different token color for every participant, but that might not be possible.
+     *
+     * @return
+     */
+    private int getNextTokenColor() {
+        if (this.participants.size() == 0) {
+            int tokenColor = Color.rgb(220, 20, 60);
+            //APA for numbers is Crimson.
 
-        return tokenColor;
+            return tokenColor;
+        } else {
+            int tokenColor = Color.rgb(255, 215, 0);
+            //APA for numbers is Gold.
+
+            return tokenColor;
+        }
+
     }
 }
