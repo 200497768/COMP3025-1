@@ -27,7 +27,7 @@ import comp3025.assignment1.models.VerticalGroup;
 /**
  * This class is responsible for changing board area elements when the board model changes.
  */
-public class BoardAreaActions extends Actions {
+public class ViewActions extends Actions {
 
     /**
      * This field is the competition.
@@ -46,7 +46,7 @@ public class BoardAreaActions extends Actions {
      */
     private List<LinearLayout> verticalGroupAreas = new ArrayList<>();
 
-    public BoardAreaActions(Competition competition, LinearLayout boardArea, Context context) {
+    public ViewActions(Competition competition, LinearLayout boardArea, Context context) {
         super(competition);
 
         Objects.requireNonNull(competition);

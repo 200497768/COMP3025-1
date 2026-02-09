@@ -3,22 +3,15 @@ package comp3025.assignment1;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.text.Editable;
-import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import comp3025.assignment1.models.Board;
 import comp3025.assignment1.models.Competition;
 import comp3025.assignment1.models.Participant;
 import comp3025.assignment1.models.TextBoard;
-import comp3025.assignment1.models.actions.BoardAreaActions;
 
 /**
  * This class runs after WelcomeActivity.
@@ -57,10 +50,10 @@ public class GameActivity extends AppCompatActivity {
         Competition competition = new Competition(board);
         competition.addParticipant(participant);
 
-        BoardAreaActions boardAreaActions = new BoardAreaActions(competition, boardArea, GameActivity.this);
+        ViewActions viewActions = new ViewActions(competition, boardArea, GameActivity.this);
 
         //Add elements to the board area.
-        boardAreaActions.boardCreated();
+        viewActions.boardCreated();
         //The board is supposed to cause actions to happen, but since the board has been created, I'll write it from the onCreate method.
 
         //Show whether a participant has won.

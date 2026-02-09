@@ -1,33 +1,15 @@
 package comp3025.assignment1;
 
-import static android.widget.LinearLayout.VERTICAL;
-
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import java.util.List;
-
-import comp3025.assignment1.models.Board;
-import comp3025.assignment1.models.ConsecutiveSlotGroup;
 import comp3025.assignment1.models.Participant;
-import comp3025.assignment1.models.SlotNumbers;
-import comp3025.assignment1.models.TextBoard;
-import comp3025.assignment1.models.Token;
-import comp3025.assignment1.models.VerticalGroup;
-import comp3025.assignment1.models.actions.BoardAreaActions;
 
 /**
  * This class runs when the code has started running.
