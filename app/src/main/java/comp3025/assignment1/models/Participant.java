@@ -6,12 +6,24 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * This class is a participant.
+ * This class is a participant that has been added to a competition.
  *
  * @author Hao Tian
  */
 public class Participant implements Serializable {
     private String name;
+    private int score;
+
+    public int getScore() {
+        return score;
+    }
+
+    /**
+     * This method increases the score for this participant by 1.
+     */
+    public void increaseScore() {
+        this.score = this.score + 1;
+    }
 
     //This field is needed for Serializable.
     private static final long serialVersionUID = 1;
