@@ -133,6 +133,10 @@ public class ViewActions extends Actions {
 
             Competition competition = this.competition;
             ViewActions viewActions = this;
+
+            //The vertical group number needs to be written this way in order for the method to access it.
+            int thisVerticalGroupNumber = verticalGroupNumber;
+
             addButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -143,7 +147,7 @@ public class ViewActions extends Actions {
                     //In the future, when the board has been cleared, the vertical group retrieved by this method might no longer be correct.
                     //The vertical group retrieved by this method at this time might no longer be part of the board, depending on how the method to clear the board was written.
 
-                    board.addToken(competition.getParticipantForTurn(), verticalGroupNumber);
+                    board.addToken(competition.getParticipantForTurn(), thisVerticalGroupNumber);
 
                     //Show the token.
                     viewActions.tokenAdded();
