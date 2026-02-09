@@ -100,6 +100,10 @@ public class ViewActions extends Actions {
         this.verticalGroupAreas = new ArrayList<>();
     }
 
+    /**
+     * This method creates the vertical group areas, and adds the vertical group areas to the vertical groups area.
+     * Every vertical group area includes the option to add a token to this vertical group.
+     */
     private void createVerticalGroupAreas() {
         //The vertical group number will be used to create a string that shows this number.
         int verticalGroupNumber = 0;

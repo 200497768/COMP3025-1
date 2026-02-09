@@ -91,12 +91,12 @@ public class GameActivity extends AppCompatActivity {
     }
 
     /**
-     * This method is for when Share my score has been chosen.
+     * This method is for when the option to share the score has been chosen.
      * This method retrieves information, including the score, and uses an implicit intent.
      *
      * @param view
      */
-    public void method(View view) {
+    public void shareScoreChosen(View view) {
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_SEND);
         intent.putExtra(Intent.EXTRA_TEXT, "I'm " + participant.getName() + ", and my score in Connect " + this.board.getConsecutiveNumber() + " is " + participant.getScore() + ".");
