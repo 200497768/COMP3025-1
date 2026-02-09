@@ -15,6 +15,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import comp3025.assignment1.models.Board;
+import comp3025.assignment1.models.Competition;
 import comp3025.assignment1.models.Participant;
 import comp3025.assignment1.models.TextBoard;
 import comp3025.assignment1.models.actions.BoardAreaActions;
@@ -53,7 +54,9 @@ public class GameActivity extends AppCompatActivity {
         Board board = new Board(numberOfVerticalGroups, verticalGroupCapacity, consecutiveNumber);
         TextBoard textBoard = new TextBoard(board, "Token", "Empty");
 
-        BoardAreaActions boardAreaActions = new BoardAreaActions(board, boardArea, GameActivity.this);
+        Competition competition = new Competition(board);
+
+        BoardAreaActions boardAreaActions = new BoardAreaActions(competition, boardArea, GameActivity.this);
 
         //Add elements to the board area.
         boardAreaActions.boardCreated();
