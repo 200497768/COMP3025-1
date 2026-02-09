@@ -62,7 +62,7 @@ public class BoardAreaActions extends Actions {
     @Override
     public void boardCreated() {
         this.createVerticalGroupAreas();
-        this.addSlotsAndTokensBoardArea();
+        this.addSlotsAndTokens();
     }
 
     /**
@@ -132,9 +132,10 @@ public class BoardAreaActions extends Actions {
     }
 
     /**
-     * This method creates elements that correspond to the models, and adds it to the board area.
+     * This method adds elements to the vertical group areas.
+     * Every slot or token from the model will be added to the vertical group area.
      */
-    private void addSlotsAndTokensBoardArea() {
+    private void addSlotsAndTokens() {
         //The vertical group number will be used to create a string that shows this number.
         int verticalGroupNumber = 0;
 
@@ -181,7 +182,7 @@ public class BoardAreaActions extends Actions {
     public void tokenAdded() {
         //At this time, the strategy is to clear the board area, and create it again.
         this.clearBoardArea();
-        this.addSlotsAndTokensBoardArea();
+        this.addSlotsAndTokens();
     }
 
     @Override
