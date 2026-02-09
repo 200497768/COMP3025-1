@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import comp3025.assignment1.WelcomeActivity;
 import comp3025.assignment1.R;
 import comp3025.assignment1.models.Board;
@@ -26,6 +29,11 @@ import comp3025.assignment1.models.VerticalGroup;
 public class BoardAreaActions extends Actions {
 
     /**
+     * This field is the competition.
+     */
+    private Competition competition;
+
+    /**
      * This field is the board are that needs to be changed when the model changes.
      */
     private LinearLayout boardArea;
@@ -34,6 +42,7 @@ public class BoardAreaActions extends Actions {
 
     public BoardAreaActions(Competition competition, LinearLayout boardArea, Context context) {
         super(competition);
+        this.competition = competition;
         this.boardArea = boardArea;
         this.context = context;
     }
@@ -110,12 +119,30 @@ public class BoardAreaActions extends Actions {
                     tokenTextView.setBackgroundColor(participant.getColor());
 
                     verticalGroupArea.addView(tokenTextView);
+
+                    //The code still needs to be able to access this view in the future.
+                    List<View> tokenViews = verticalGroup.getTokenViews();
+                    tokenViews.add(tokenTextView);
                 }
             }
 
             //Tokens and slots for this vertical group have been added.
             //The vertical group number needs to be increased.
             verticalGroupNumber = verticalGroupNumber + 1;
+        }
+    }
+
+    /**
+     * This method clears the board area.
+     */
+    private void clearBoardArea() {
+        //Every vertical group includes a list with all of the views.
+        //This method will go through every vertical group, retrieve every list, and remove the views that the list refers to.
+        Board board = this.competition.getBoard();
+        for (VerticalGroup verticalGroup : board.getVerticalGroups()) {
+            for (View view : verticalGroup.getViews()) {
+                this.boardArea.removeView(view);
+            }
         }
     }
 
