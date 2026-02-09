@@ -81,4 +81,12 @@ public class Competition {
 
         return participant;
     }
+
+    /**
+     * This method increases the score for the participant that won this round, and clears the board.
+     */
+    public void roundCompleted() {
+        Participant participant = this.board.getWinningParticipant();
+        this.board.clear();
+    }
 }
