@@ -27,6 +27,10 @@ public class Competition {
      */
     private List<Participant> participants = new ArrayList<>();
 
+    public List<Participant> getParticipants() {
+        return participants;
+    }
+
     /**
      * This field is the number of participants that have completed turns.
      * After every a participant adds a token, this number will be increased by 1.
