@@ -121,7 +121,7 @@ public class BoardAreaActions extends Actions {
                     verticalGroupArea.addView(tokenTextView);
 
                     //The code still needs to be able to access this view in the future.
-                    List<View> tokenViews = verticalGroup.getTokenViews();
+                    List<View> tokenViews = verticalGroup.getViews();
                     tokenViews.add(tokenTextView);
                 }
             }
