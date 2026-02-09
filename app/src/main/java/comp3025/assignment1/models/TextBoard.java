@@ -79,12 +79,12 @@ public class TextBoard {
             lines.add(line);
         }
 
-        //Add winning participant to the string.
+        //Add whether the score can be increased by a participant to the string.
         Participant winningParticipant = board.getWinningParticipant();
         if (winningParticipant == null) {
-            lines.add("No participant has won at this time.");
+            lines.add("No participant can increase the score at this time.");
         } else {
-            lines.add("A participant has won. The winning participant is " + winningParticipant.getName());
+            lines.add("A participant can increase the score. The winning participant is " + winningParticipant.getName());
         }
 
         return lines;
