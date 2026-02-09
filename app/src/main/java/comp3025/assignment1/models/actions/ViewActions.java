@@ -84,9 +84,9 @@ public class ViewActions extends Actions {
     }
 
     /**
-     * This method clears removes every vertical group area that was added to the vertical groups area.
+     * This method clears the vertical groups area by removing every vertical group area that was added to this area.
      */
-    private void clearVerticalGroupAreas() {
+    private void clearVerticalGroupsArea() {
         for (LinearLayout verticalGroupArea : this.verticalGroupAreas) {
             verticalGroupArea.removeAllViews();
         }
@@ -201,7 +201,7 @@ public class ViewActions extends Actions {
     @Override
     public void tokenAdded() {
         //At this time, the strategy is to clear the board area, and create it again.
-        this.clearBoardArea();
+        this.clearVerticalGroupsArea();
         this.addSlotsAndTokens();
     }
 
