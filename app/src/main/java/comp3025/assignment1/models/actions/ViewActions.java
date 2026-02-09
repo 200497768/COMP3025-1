@@ -195,9 +195,15 @@ public class ViewActions extends Actions {
                     //A token exists in this slot.
                     TextView tokenTextView = new TextView(this.context);
                     //APA for creating this view is (Yadav, 2019)
-                    tokenTextView.setText("Token ");
-                    Participant participant = new Participant("Hao Tian");
+
+                    //Retrieve the participant, in order to access name and token color.
+                    Participant participant = slot.getParticipant();
+
+                    //Determine the token color that will be use to show this token.
                     tokenTextView.setBackgroundColor(participant.getTokenColor());
+
+                    //Determine text to use to show this token.
+                    tokenTextView.setText("Token ");
 
                     verticalGroupArea.addView(tokenTextView);
                 }
