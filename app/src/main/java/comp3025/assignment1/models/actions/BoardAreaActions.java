@@ -32,11 +32,12 @@ public class BoardAreaActions extends Actions {
 
     private Context context;
 
-    public BoardAreaActions(Board board, LinearLayout boardArea, Context context) {
-        super(board);
+    public BoardAreaActions(Competition competition, LinearLayout boardArea, Context context) {
+        super(competition);
         this.boardArea = boardArea;
         this.context = context;
     }
+
 
     @Override
     public void boardCreated() {
