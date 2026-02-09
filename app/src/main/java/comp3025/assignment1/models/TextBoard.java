@@ -82,9 +82,9 @@ public class TextBoard {
         //Add whether the score can be increased by a participant to the string.
         Participant winningParticipant = board.getScoreParticipant();
         if (winningParticipant == null) {
-            lines.add("No participant can increase the score at this time.");
+            lines.add("No participant has added enough consecutive tokens to increase the score at this time.");
         } else {
-            lines.add("A participant can increase the score. The winning participant is " + winningParticipant.getName());
+            lines.add("A participant has added enough consecutive tokens to increase the score. The participant is " + winningParticipant.getName());
         }
 
         return lines;
