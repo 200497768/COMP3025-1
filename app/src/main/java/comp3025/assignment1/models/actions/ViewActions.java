@@ -204,6 +204,8 @@ public class ViewActions extends Actions {
         this.clearVerticalGroupsArea();
         this.createVerticalGroupAreas();
         this.addSlotsAndTokens();
+
+        this.competition.completeTurn();
     }
 
     @Override
