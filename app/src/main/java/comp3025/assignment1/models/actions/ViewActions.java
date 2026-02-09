@@ -233,6 +233,7 @@ public class ViewActions extends Actions {
             this.showScoreMessage(scoreParticipant.getName() + " has added " + board.getConsecutiveNumber() + " consecutive tokens. The score for this participant has increased. " + this.getScoreMessage());
             //The board needs to be cleared.
             board.clear();
+            this.boardChanged();
         }
 
     }
