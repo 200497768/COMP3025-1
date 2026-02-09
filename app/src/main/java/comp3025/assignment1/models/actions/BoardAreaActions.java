@@ -38,14 +38,15 @@ public class BoardAreaActions extends Actions {
         this.context = context;
     }
 
-
     @Override
     public void boardCreated() {
         //The vertical group number will be used to create a string that shows this number.
         int verticalGroupNumber = 0;
 
+        Board board = this.competition.getBoard();
+
         //The board has been created, but the views still need to be added to the board area.
-        for (VerticalGroup verticalGroup : this.board.getVerticalGroups()) {
+        for (VerticalGroup verticalGroup : board.getVerticalGroups()) {
 
             //Create an area for this vertical group, and add it to the board area.
             LinearLayout verticalGroupArea = new LinearLayout(this.context);
