@@ -55,9 +55,15 @@ public class Competition {
     /**
      * This method changes the participant to the next participant.
      * This method must be used when a participant has finished adding a token to the board.
+     * After every participant has completed a turn, this method changes the participant to the first participant again.
      */
-    public void changeParticipant() {
+    public void completeTurn() {
         this.turnsCompleted = this.turnsCompleted + 1;
+
+        //Change the number of turns completed to the first participant again after all participants have completed a turn.
+        if (this.turnsCompleted >= this.participants.size()) {
+            this.turnsCompleted = 0;
+        }
     }
 
     /**
