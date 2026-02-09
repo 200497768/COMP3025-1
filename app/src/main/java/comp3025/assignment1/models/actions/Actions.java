@@ -3,6 +3,7 @@ package comp3025.assignment1.models.actions;
 import java.util.Objects;
 
 import comp3025.assignment1.models.Board;
+import comp3025.assignment1.models.Competition;
 
 /**
  * This class includes methods that will happen when the board model has been changed.
@@ -11,11 +12,11 @@ import comp3025.assignment1.models.Board;
  * @author Hao Tian
  */
 public class Actions {
-    public Board board;
+    public Competition competition;
 
-    public Actions(Board board) {
-        Objects.requireNonNull(board);
-        this.board = board;
+    public Actions(Competiton competition) {
+        Objects.requireNonNull(competition);
+        this.competition = competition;
     }
 
     /**

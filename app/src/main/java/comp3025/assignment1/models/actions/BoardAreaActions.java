@@ -5,6 +5,7 @@ import static android.widget.LinearLayout.VERTICAL;
 import android.content.Context;
 import android.graphics.Color;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -62,6 +63,19 @@ public class BoardAreaActions extends Actions {
             //Create the option to allow adding a token to this vertical group.
             Button addButton = new Button(this.context);
             addButton.setText("Add");
+
+            Competition competition = this.competition;
+
+            addButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //Create a new token, and add it.
+                    Participant participant = competition.getParticipantNow();
+                    Token token = new Token();
+
+                    verticalGroup.addToken(token);
+                }
+            });
             verticalGroupArea.addView(addButton);
 
 //Go through all of the tokens in this vertical group.
