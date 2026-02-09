@@ -109,7 +109,7 @@ public class Board {
     }
 
     /**
-     * This method returns a vertical group from this board.
+     * This method returns a vertical group from this board, using the vertical group number.
      * Instead of accessing the vertical groups, using the methods from the board class is recommended.
      *
      * @param verticalGroupNumber
@@ -136,17 +136,6 @@ public class Board {
         Token token = new Token(participant, slotNumbers);
 
         verticalGroup.addToken(token);
-    }
-
-    /**
-     * This method returns an ordered token group from this board using the horizontal number.
-     *
-     * @param horizontalNumber
-     * @return
-     */
-    public VerticalGroup getOrderedTokenGroup(int horizontalNumber) {
-        VerticalGroup orderedTokenGroup = this.verticalGroups.get(horizontalNumber);
-        return orderedTokenGroup;
     }
 
     /**
