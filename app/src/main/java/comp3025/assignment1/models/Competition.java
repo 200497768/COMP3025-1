@@ -14,12 +14,22 @@ import java.util.List;
  * @author Hao Tian
  */
 public class Competition {
+
+    private Board board;
     private List<Participant> participants = new ArrayList<>();
 
     //During a round, participants are added to this list.
     //When the number of participants added to this list is the number of participants in this competition, the action group has finished.
     //This list will be cleared, and the participant action group starts again with the first participant.
     private List<Participant> participantActionGroup = new ArrayList<>();
+
+    public Board getBoard() {
+        return board;
+    }
+
+    public Competition(Board board) {
+        this.board = board;
+    }
 
     /**
      * This method returns the participant that needs to add a token now.
