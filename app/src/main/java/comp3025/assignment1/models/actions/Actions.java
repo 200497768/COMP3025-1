@@ -14,7 +14,7 @@ import comp3025.assignment1.models.Competition;
 public class Actions {
     public Competition competition;
 
-    public Actions(Competiton competition) {
+    public Actions(Competition competition) {
         Objects.requireNonNull(competition);
         this.competition = competition;
     }
