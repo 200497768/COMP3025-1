@@ -95,6 +95,9 @@ public class BoardAreaActions extends Actions {
             //APA is SkyBlue.
             boardArea.addView(verticalGroupArea);
 
+            //Add this vertical group area to the list, so that this class will be able to access it in the future.
+            this.verticalGroupAreas.add(verticalGroupArea);
+
             //Add a string to the vertical group area showing the number for this vertical group.
             TextView verticalGroupNumberTextView = new TextView(this.context);
             //APA for creating this view is (Yadav, 2019)
