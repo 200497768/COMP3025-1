@@ -70,6 +70,23 @@ public class Competition {
         if (this.turnsCompleted >= this.participants.size()) {
             this.turnsCompleted = 0;
         }
+
+        //Check whether the score for any participant needs to be increased.
+        //In other words, check if any participant has added enough consecutive tokens.
+        Participant scoreParticipant = this.board.getScoreParticipant();
+        if (scoreParticipant == null) {
+            //This board needs another turn.
+
+        } else {
+//This board has finished.
+
+            //The board needs to be cleared.
+            //The view actions class will also clear the board, so I still need to change this.
+            board.clear();
+
+            //Increase the score for this participant.
+            scoreParticipant.increaseScore();
+        }
     }
 
     /**
