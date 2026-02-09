@@ -232,15 +232,19 @@ public class ViewActions extends Actions {
         Participant scoreParticipant = board.getScoreParticipant();
         if (scoreParticipant == null) {
             //This board needs another turn.
-            this.showScoreMessage("A participant added a token. " + this.getScoreMessage());
+
+            //Show the participant for the next turn.
+            Participant waitingForParticipant = competition.getParticipantForTurn();
+            this.showScoreMessage("A participant added a token. Now, it's time for " + waitingForParticipant.getName() + " to add a token to the board." + this.getScoreMessage());
         } else {
 //This board has finished.
 
-            this.showScoreMessage(scoreParticipant.getName() + " has added " + board.getConsecutiveNumber() + " consecutive tokens. The score for this participant has increased. " + this.getScoreMessage());
             //The board needs to be cleared.
             board.clear();
 
             this.boardChanged();
+
+            this.showScoreMessage(scoreParticipant.getName() + " has added " + board.getConsecutiveNumber() + " consecutive tokens. The score for this participant has increased. " + this.getScoreMessage());
         }
 
         //Show the text board.
@@ -264,6 +268,11 @@ public class ViewActions extends Actions {
         return message;
     }
 
+    /**
+     * This method changes the score message to the string that's provided.
+     *
+     * @param message
+     */
     private void showScoreMessage(String message) {
         this.scoreTextView.setText(message);
     }
