@@ -58,6 +58,9 @@ public class Competition {
      */
     public void addParticipant(Participant participant) {
         this.participants.add(participant);
+
+        //Change token color for this participant.
+        participant.changeTokenColor(this.getNextTokenColor());
     }
 
     /**
