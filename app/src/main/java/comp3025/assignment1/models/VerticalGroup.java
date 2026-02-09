@@ -15,11 +15,18 @@ public class VerticalGroup {
     //This field is the tokens in this ordered token group.
     private List<Token> tokens=new ArrayList<>();
 
-    public VerticalGroup(int capacity) {
+    public VerticalGroup(int verticalGroupNumber, int capacity) {
+        this.verticalGroupNumber = verticalGroupNumber;
         this.capacity = capacity;
     }
 
     private int capacity;
+
+    //This field is the vertical group number of this vertical group when it has been added to a board.
+    //This field is used by a method that produces the slot numbers for tokens being added to this vertical group.
+    //This field isn't needed if this vertical group doesn't exist in a board.
+    //If this number isn't correct, the method that produces slot numbers must not be used.
+    private int verticalGroupNumber;
 
     /**
      * This method returns a token from this vertical group.
@@ -107,5 +114,24 @@ public class VerticalGroup {
      */
     public int getNumberAdded() {
         return this.tokens.size();
+    }
+
+    /**
+     * This method returns the slot numbers for the token that will be added to this vertical group.
+     *
+     * @return
+     */
+    public SlotNumbers getNextTokenSlotNumbers() {
+        //In order to create a token, the slot numbers of the token in the board must be provided to the token class.
+        //The slot numbers includes the vertical group number and token number.
+        //This method is provided with the vertical group number, but still needs to determine the token number.
+
+        //Create the slot numbers for the token that will be created.
+        //This determines the token number of the token that this method will add.
+        //The token number can be determined by checking the number of tokens that have been added to this vertical group.
+        int tokenNumber = this.getNumberAdded();
+
+        SlotNumbers slotNumbers = new SlotNumbers(this.verticalGroupNumber, tokenNumber);
+        return slotNumbers;
     }
 }
