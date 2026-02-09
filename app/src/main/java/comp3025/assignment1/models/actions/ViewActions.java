@@ -245,7 +245,7 @@ public class ViewActions extends Actions {
 
             //Show the participant for the next turn.
             Participant nextTurnParticipant = competition.getTurnParticipant();
-            this.showScoreMessage("A participant added a token. Now, it's time for " + nextTurnParticipant.getName() + " to add a token to the board." + this.getScoreMessage());
+            this.showScoreMessage("A participant added a token. Now, " + nextTurnParticipant.getName() + " needs to add a token to the board. " + this.getScoreMessage());
         } else {
 //This board has finished.
 
