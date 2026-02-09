@@ -37,7 +37,7 @@ public class GameActivity extends AppCompatActivity {
 
         //Change the view to show the participant name.
         TextView goodLuckTextView = findViewById(R.id.goodLuckTextView);
-        goodLuckTextView.setText(participant.getName());
+        goodLuckTextView.setText("Good luck, "+participant.getName()+"!");
 
         LinearLayout boardArea = findViewById(R.id.boardArea);
         //This method is able to retrieve the board area that I created.
