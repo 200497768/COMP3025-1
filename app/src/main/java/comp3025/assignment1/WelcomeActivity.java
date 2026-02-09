@@ -56,5 +56,6 @@ public class WelcomeActivity extends AppCompatActivity {
 
 //References
 //Crimson. https://www.w3schools.com/colors/color_tryit.asp?color=Crimson
+//Gold. https://www.w3schools.com/colors/color_tryit.asp?color=Gold
 //SkyBlue. https://www.w3schools.com/colors/color_tryit.asp?color=SkyBlue
 //Yadav, C. (2019). How to Dynamically Add Views into View in Android? https://www.tutorialspoint.com/how-to-dynamically-add-views-into-view-in-android
