@@ -13,6 +13,7 @@ import android.widget.TextView;
 import comp3025.assignment1.WelcomeActivity;
 import comp3025.assignment1.R;
 import comp3025.assignment1.models.Board;
+import comp3025.assignment1.models.Competition;
 import comp3025.assignment1.models.Participant;
 import comp3025.assignment1.models.SlotNumbers;
 import comp3025.assignment1.models.TextBoard;
@@ -69,9 +70,12 @@ public class BoardAreaActions extends Actions {
             addButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //Create a new token, and add it.
+                    //Create a new token, and add it to the vertical group.
+                    //The slot numbers will be retrieved from the vertical group.
+                    //The participant depends on the participant this turn.
+                    SlotNumbers slotNumbers = verticalGroup.getNextTokenSlotNumbers();
                     Participant participant = competition.getParticipantNow();
-                    Token token = new Token();
+                    Token token = new Token(participant, slotNumbers);
 
                     verticalGroup.addToken(token);
                 }
