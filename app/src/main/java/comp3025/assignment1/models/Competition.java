@@ -90,11 +90,13 @@ public class Competition {
     }
 
     /**
-     * This method returns the participant that needs to add a token now.
+     * This method returns the participant for this turn.
+     * This is the participant that needs to add a token to the board.
+     * When a token is added to the board, it will have been added by this participant.
      *
      * @return
      */
-    public Participant getParticipantForTurn() {
+    public Participant getTurnParticipant() {
         //Ensure that a participant has been added to this competition.
         if (this.participants.size() == 0) {
             throw new IllegalStateException();

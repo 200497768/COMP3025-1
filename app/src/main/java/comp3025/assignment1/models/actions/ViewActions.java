@@ -147,7 +147,7 @@ public class ViewActions extends Actions {
                     //In the future, when the board has been cleared, the vertical group retrieved by this method might no longer be correct.
                     //The vertical group retrieved by this method at this time might no longer be part of the board, depending on how the method to clear the board was written.
 
-                    board.addToken(competition.getParticipantForTurn(), thisVerticalGroupNumber);
+                    board.addToken(competition.getTurnParticipant(), thisVerticalGroupNumber);
 
                     //Show the token.
                     viewActions.tokenAdded();
@@ -234,8 +234,8 @@ public class ViewActions extends Actions {
             //This board needs another turn.
 
             //Show the participant for the next turn.
-            Participant waitingForParticipant = competition.getParticipantForTurn();
-            this.showScoreMessage("A participant added a token. Now, it's time for " + waitingForParticipant.getName() + " to add a token to the board." + this.getScoreMessage());
+            Participant nextTurnParticipant = competition.getTurnParticipant();
+            this.showScoreMessage("A participant added a token. Now, it's time for " + nextTurnParticipant.getName() + " to add a token to the board." + this.getScoreMessage());
         } else {
 //This board has finished.
 
