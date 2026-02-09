@@ -39,9 +39,6 @@ public class GameActivity extends AppCompatActivity {
         TextView goodLuckTextView = findViewById(R.id.goodLuckTextView);
         goodLuckTextView.setText("Good luck, "+participant.getName()+"!");
 
-        LinearLayout boardArea = findViewById(R.id.boardArea);
-        //This method is able to retrieve the board area that I created.
-
         int numberOfVerticalGroups = 5;
         int verticalGroupCapacity = 4;
         int consecutiveNumber = 3;
@@ -51,7 +48,9 @@ public class GameActivity extends AppCompatActivity {
         Competition competition = new Competition(board);
         competition.addParticipant(participant);
 
-        ViewActions viewActions = new ViewActions(competition, boardArea, GameActivity.this);
+        LinearLayout boardArea = findViewById(R.id.boardArea);
+        LinearLayout addArea = findViewById(R.id.addArea);
+        ViewActions viewActions = new ViewActions(competition, boardArea, addArea, GameActivity.this);
 
         //Add elements to the board area.
         viewActions.boardCreated();

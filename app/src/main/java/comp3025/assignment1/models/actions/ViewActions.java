@@ -39,6 +39,11 @@ public class ViewActions extends Actions {
      */
     private LinearLayout boardArea;
 
+    /**
+     * This field is the area that will be used for the options to add tokens to the board.
+     */
+    private LinearLayout addArea;
+
     private Context context;
 
     /**
@@ -46,7 +51,7 @@ public class ViewActions extends Actions {
      */
     private List<LinearLayout> verticalGroupAreas = new ArrayList<>();
 
-    public ViewActions(Competition competition, LinearLayout boardArea, Context context) {
+    public ViewActions(Competition competition, LinearLayout boardArea, LinearLayout addArea, Context context) {
         super(competition);
 
         Objects.requireNonNull(competition);
@@ -54,6 +59,9 @@ public class ViewActions extends Actions {
 
         Objects.requireNonNull(boardArea);
         this.boardArea = boardArea;
+
+        Objects.requireNonNull(addArea);
+        this.addArea = addArea;
 
         Objects.requireNonNull(context);
         this.context = context;
@@ -123,7 +131,9 @@ public class ViewActions extends Actions {
                     viewActions.tokenAdded();
                 }
             });
-            boardArea.addView(addButton);
+
+            //Add the option to the add area.
+            this.addArea.addView(addButton);
 
             //Tokens and slots for this vertical group have been added.
             //The vertical group number needs to be increased.
