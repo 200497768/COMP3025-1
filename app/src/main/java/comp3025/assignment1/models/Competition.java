@@ -1,5 +1,7 @@
 package comp3025.assignment1.models;
 
+import android.graphics.Color;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -113,5 +115,12 @@ public class Competition {
     public void roundCompleted() {
         Participant participant = this.board.getScoreParticipant();
         this.board.clear();
+    }
+
+    public int getNextTokenColor() {
+        int tokenColor = Color.rgb(220, 20, 60);
+        //APA for numbers is Crimson.
+
+        return tokenColor;
     }
 }

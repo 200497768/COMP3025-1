@@ -17,6 +17,9 @@ public class Participant implements Serializable {
     private String name;
     private int score;
 
+    private int tokenColor = Color.rgb(220, 20, 60);
+    //APA for the numbers for this token color is Crimson.
+
     public int getScore() {
         return score;
     }
@@ -28,9 +31,6 @@ public class Participant implements Serializable {
         this.score = this.score + 1;
     }
 
-    /**
-     * This field is needed for Serializable.
-     */
     private static final long serialVersionUID = 1;
 
     public Participant(String name) {
@@ -47,16 +47,23 @@ public class Participant implements Serializable {
         return name;
     }
 
+
     /**
      * This method returns the background color for tokens added by this participant.
      *
      * @return
      */
     public int getTokenColor() {
-        int tokenColor = Color.rgb(220, 20, 60);
-        //APA for numbers is Crimson.
-
         return tokenColor;
+    }
+
+    /**
+     * This method changes the background color for tokens added by this participant.
+     *
+     * @return
+     */
+    public void changeTokenColor(int tokenColor) {
+        this.tokenColor = tokenColor;
     }
 
     @Override
