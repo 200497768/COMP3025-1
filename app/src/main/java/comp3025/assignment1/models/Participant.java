@@ -7,6 +7,8 @@ import java.util.Objects;
 
 /**
  * This class is a participant.
+ *
+ * @author Hao Tian
  */
 public class Participant implements Serializable {
     private String name;

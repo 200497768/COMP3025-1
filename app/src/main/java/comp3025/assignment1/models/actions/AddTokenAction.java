@@ -7,6 +7,8 @@ import comp3025.assignment1.models.SlotNumbers;
 
 /**
  * This class is an action that can be used to add a token to a board.
+ *
+ * @author Hao Tian
  */
 public class AddTokenAction extends Action {
 

@@ -5,6 +5,8 @@ import java.util.Objects;
 /**
  * This class is a token that has been added to the board.
  * Every token is associated with a participant.
+ *
+ * @author Hao Tian
  */
 public class Token {
     private Participant participant;

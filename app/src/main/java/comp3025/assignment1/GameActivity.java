@@ -19,6 +19,11 @@ import comp3025.assignment1.models.Participant;
 import comp3025.assignment1.models.TextBoard;
 import comp3025.assignment1.models.actions.BoardAreaActions;
 
+/**
+ * This class runs after WelcomeActivity.
+ *
+ * @author Hao Tian
+ */
 public class GameActivity extends AppCompatActivity {
 
     //This field is the name that must be used when adding the participant to the intent.

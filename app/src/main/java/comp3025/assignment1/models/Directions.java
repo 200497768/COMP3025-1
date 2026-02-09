@@ -6,6 +6,8 @@ import java.util.List;
 /**
  * This class provides methods that produce directions.
  * The methods can be used to create vertical, horizontal, and diagonal directions.
+ *
+ * @author Hao Tian
  */
 public class Directions {
 

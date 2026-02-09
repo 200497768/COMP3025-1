@@ -11,6 +11,8 @@ import java.util.Objects;
  * The board class uses this class by creating all of the possible consecutive slot groups for the board.
  * This class includes a method to determine if the same participant has added tokens in every slot in this group.
  * If the same participant has added tokens in every slot in this group, that participant wins.
+ *
+ * @author Hao Tian
  */
 public class ConsecutiveSlotGroup {
 

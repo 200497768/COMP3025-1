@@ -7,6 +7,8 @@ package comp3025.assignment1.models;
  * The minimum number is 0, and the maximum number depends on the board.
  * The vertical group number determines the vertical group that's chosen.
  * The token number is determines the token that's chosen in a vertical group.
+ *
+ * @author Hao Tian
  */
 public class SlotNumbers {
 

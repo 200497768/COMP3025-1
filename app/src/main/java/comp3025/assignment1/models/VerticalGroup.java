@@ -7,6 +7,8 @@ import java.util.Objects;
 /**
  * A vertical group is a vertical line in the board that can include multiple tokens.
  * The vertical group is responsible for determining order, since the tokens fall when added to a vertical line in the board.
+ *
+ * @author Hao Tian
  */
 public class VerticalGroup {
 

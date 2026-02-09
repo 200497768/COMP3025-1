@@ -58,6 +58,7 @@ public class BoardAreaActions extends Actions {
             verticalGroupNumberTextView.setText("Vertical " + verticalGroupNumber + " ");
             verticalGroupArea.addView(verticalGroupNumberTextView);
 
+
 //Go through all of the tokens in this vertical group.
             //The token number needs to start with the maximum token number so that tokens are ordered how the board is supposed to be.
             for (int tokenNumber = this.board.getVerticalGroupCapacity() - 1; tokenNumber >= 0; tokenNumber = tokenNumber - 1) {

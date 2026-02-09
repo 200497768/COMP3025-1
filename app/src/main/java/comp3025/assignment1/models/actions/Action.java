@@ -6,6 +6,8 @@ import comp3025.assignment1.models.Participant;
 
 /**
  * This class is an action that can happen to a board.
+ *
+ * @author Hao Tian
  */
 public class Action {
 

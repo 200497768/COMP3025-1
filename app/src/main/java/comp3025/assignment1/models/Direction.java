@@ -5,6 +5,8 @@ package comp3025.assignment1.models;
  * A direction includes a vertical add amount, and a horizontal add amount.
  * The add amounts can be added to a existing vertical and horizontal numbers in order to proceed in this direction.
  * The directions class can be used to retrieve direction models for vertical, horizontal, and diagonal directions.
+ *
+ * @author Hao Tian
  */
 public class Direction {
 

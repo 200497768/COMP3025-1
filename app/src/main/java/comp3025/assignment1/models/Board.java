@@ -11,6 +11,8 @@ import comp3025.assignment1.models.actions.Action;
  * A board includes multiple slots.
  * When the board is created, the number of vertical and horizontal slots must be entered.
  * After the board has been created, slots can be accessed using numbers.
+ *
+ * @author Hao Tian
  */
 public class Board {
 

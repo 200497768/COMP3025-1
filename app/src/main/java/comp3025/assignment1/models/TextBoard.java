@@ -17,6 +17,8 @@ import comp3025.assignment1.models.VerticalGroup;
  * When creating a text board, the text board must be associated with an existing board.
  * After a text board has been created, the text board remains associated with the board.
  * The text board provides a method that produces strings to show the tokens and slots in the board.
+ *
+ * @author Hao Tian
  */
 public class TextBoard {
 

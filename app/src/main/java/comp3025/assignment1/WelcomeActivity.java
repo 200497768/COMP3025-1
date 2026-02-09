@@ -29,6 +29,11 @@ import comp3025.assignment1.models.Token;
 import comp3025.assignment1.models.VerticalGroup;
 import comp3025.assignment1.models.actions.BoardAreaActions;
 
+/**
+ * This class runs when the code has started running.
+ *
+ * @author Hao Tian
+ */
 public class WelcomeActivity extends AppCompatActivity {
 
     @Override
