@@ -31,6 +31,10 @@ public class Competition {
         this.board = board;
     }
 
+    public void addParticipant(Participant participant) {
+        this.participants.add(participant);
+    }
+
     /**
      * This method returns the participant that needs to add a token now.
      *
