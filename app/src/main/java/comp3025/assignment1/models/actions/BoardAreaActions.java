@@ -121,6 +121,10 @@ public class BoardAreaActions extends Actions {
                 }
             });
             verticalGroupArea.addView(addButton);
+
+            //Tokens and slots for this vertical group have been added.
+            //The vertical group number needs to be increased.
+            verticalGroupNumber = verticalGroupNumber + 1;
         }
     }
 
