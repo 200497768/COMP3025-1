@@ -114,14 +114,13 @@ public class BoardAreaActions extends Actions {
             addButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //Create a new token, and add it to the vertical group.
-                    //The slot numbers will be retrieved from the vertical group.
-                    //The participant depends on the participant this turn.
+                    //Add a token to the model.
                     SlotNumbers slotNumbers = verticalGroup.getNextTokenSlotNumbers();
                     Participant participant = competition.getParticipantForTurn();
                     Token token = new Token(participant, slotNumbers);
-
                     verticalGroup.addToken(token);
+
+                    //Show the token.
                     boardAreaActions.tokenAdded();
                 }
             });
