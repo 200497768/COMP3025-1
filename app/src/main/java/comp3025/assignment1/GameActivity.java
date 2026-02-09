@@ -55,6 +55,7 @@ public class GameActivity extends AppCompatActivity {
         TextBoard textBoard = new TextBoard(board, "Token", "Empty");
 
         Competition competition = new Competition(board);
+        competition.addParticipant(participant);
 
         BoardAreaActions boardAreaActions = new BoardAreaActions(competition, boardArea, GameActivity.this);
 
