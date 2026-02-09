@@ -76,7 +76,7 @@ public class BoardAreaActions extends Actions {
                     //The slot numbers will be retrieved from the vertical group.
                     //The participant depends on the participant this turn.
                     SlotNumbers slotNumbers = verticalGroup.getNextTokenSlotNumbers();
-                    Participant participant = competition.getParticipantNow();
+                    Participant participant = competition.getParticipantForTurn();
                     Token token = new Token(participant, slotNumbers);
 
                     verticalGroup.addToken(token);

@@ -39,6 +39,12 @@ public class Competition {
         this.board = board;
     }
 
+    /**
+     * This method adds a participant to this competition.
+     * After a participant has been added, the method that returns the participant for this turn will include this participant.
+     *
+     * @param participant
+     */
     public void addParticipant(Participant participant) {
         this.participants.add(participant);
     }
@@ -48,7 +54,7 @@ public class Competition {
      *
      * @return
      */
-    public Participant getParticipantNow() {
+    public Participant getParticipantForTurn() {
         int participantActionsCompleted = participantActionGroup.size();
 
         Participant participant = this.participants.get(participantActionsCompleted);
