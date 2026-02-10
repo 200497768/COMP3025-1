@@ -33,6 +33,13 @@ public class Participant implements Serializable {
      */
     private int tokenColor = Color.rgb(220, 20, 60);
 
+    /**
+     * This method returns the score for this participant.
+     * When this participant adds enough consecutive tokens during a round, this number is increased.
+     * The score is the number of rounds that this participant has been able to add enough consecutive tokens in.
+     *
+     * @return
+     */
     public int getScore() {
         return score;
     }
@@ -44,6 +51,9 @@ public class Participant implements Serializable {
         this.score = this.score + 1;
     }
 
+    /**
+     * This field is needed for Serializable.
+     */
     private static final long serialVersionUID = 1;
 
     /**

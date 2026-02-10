@@ -8,9 +8,17 @@ import java.util.Objects;
 
 /**
  * This class is a board.
- * A board includes multiple slots.
+ * A board includes multiple vertical groups, with multiple tokens in every vertical group.
  * When the board is created, the number of vertical and horizontal slots must be entered.
  * After the board has been created, slots can be accessed using numbers.
+ * A token in a board can be accessed using a slot number.
+ * A slot number includes the vertical group number, and the token number.
+ * Tokens from this board can be retrieved by using a method from this class.
+ * If tokens are retrieved from the board, and an empty slot is accessed, the method will produce null for the token in that slot.
+ * Another way to retrieve tokens is to access each vertical group, and retrieve it from the vertical group.
+ * If tokens are retrieved from a vertical group, the token number that's used to access the token must exist in that vertical group.
+ * Retrieving tokens from the board is recommended, instead of from the vertical group.
+ * After some actions, like clearing the board, the board might refer to different vertical groups.
  *
  * @author Hao Tian
  */

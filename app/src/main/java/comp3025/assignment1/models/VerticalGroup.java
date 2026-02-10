@@ -1,7 +1,5 @@
 package comp3025.assignment1.models;
 
-import android.view.View;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -9,6 +7,10 @@ import java.util.Objects;
 /**
  * A vertical group is a vertical line in the board that can include multiple tokens.
  * The vertical group is responsible for determining order, since the tokens fall when added to a vertical line in the board.
+ * When a vertical group is created, the capacity must be provided.
+ * The vertical group starts with no tokens.
+ * Tokens can be added to the vertical group using a method from this class.
+ * A vertical group doesn't allow retrieving a token from a slot number if a token hasn't been added with that slot number.
  *
  * @author Hao Tian
  */
