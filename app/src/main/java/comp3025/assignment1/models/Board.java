@@ -1,5 +1,7 @@
 package comp3025.assignment1.models;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -259,7 +261,10 @@ public class Board {
         //Go through all of the consecutive slot groups.
         for (ConsecutiveSlotGroup consecutiveSlotGroup : this.getConsecutiveSlotGroups()) {
             //Check whether this consecutive slot group has enough tokens from the same participant.
+
+            Log.i("200497768", "Checking whether a consecutive slot group has enough tokens from the same participant.");
             if (consecutiveSlotGroup.getScore()) {
+                Log.i("200497768", "This consecutive slot group has enough tokens from the same participant.");
                 return consecutiveSlotGroup.getScoreParticipant();
             }
         }
