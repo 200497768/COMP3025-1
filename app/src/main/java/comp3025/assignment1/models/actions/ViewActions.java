@@ -227,7 +227,7 @@ public class ViewActions extends Actions {
      * This method must be used when the board has changed.
      * This method shows the board, after it has been changed.
      */
-    private void boardChanged() {
+    public void boardChanged() {
         //At this time, the strategy is to clear the board area, and create it again.
         Log.i("200497768", "The board has been changed.");
         this.clearVerticalGroupsArea();

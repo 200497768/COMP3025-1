@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import comp3025.assignment1.models.actions.ViewActions;
+
 /**
  * This class is a competition.
  * A competition includes participants, and the board that the participants will be using.
@@ -48,7 +50,7 @@ public class Competition {
         return board;
     }
 
-    public Competition(Board board) {
+    public Competition(Board board, ViewActions viewActions) {
         Objects.requireNonNull(board);
         this.board = board;
     }
