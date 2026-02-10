@@ -36,6 +36,10 @@ public class Competition {
         return participants;
     }
 
+    /**
+     * This field is the view actions for this competition.
+     * The view actions isn't needed for this class.
+     */
     private CreatedViewActions viewActions;
 
     /**
@@ -50,7 +54,7 @@ public class Competition {
         return board;
     }
 
-    public Competition(Board board, CreatedViewActions viewActions) {
+    public Competition(Board board) {
         Objects.requireNonNull(board);
         this.board = board;
     }
@@ -70,6 +74,15 @@ public class Competition {
     }
 
     /**
+     * This method changes the view actions for this competition.
+     *
+     * @param viewActions
+     */
+    public void changeViewActions(CreatedViewActions viewActions) {
+        this.viewActions = viewActions;
+    }
+
+    /**
      * This method changes the participant to the next participant.
      * This method must be used when a participant has finished adding a token to the board.
      * After every participant has completed a turn, this method changes the participant to the first participant again.
@@ -82,18 +95,21 @@ public class Competition {
             //This board needs another turn.
 
             //Show the score message explaining that another turn is needed, using the view actions class.
-            this.viewActions.showNeedsAnotherTurn();
+            if (this.viewActions != null) {
+                this.viewActions.showNeedsAnotherTurn();
+            }
         } else {
 //This round has finished.
 
             //Change the model.
             this.completeRound();
 
+            if (this.viewActions !=null) {
             //Show the score message explaining that the round has finished, using the view actions class.
             this.viewActions.showRoundCompleted();
 
 //After the competition has finished, the board will have been changed.
-            this.viewActions.boardChanged();
+                this.viewActions.boardChanged();}
         }
 
         this.turnsCompleted = this.turnsCompleted + 1;

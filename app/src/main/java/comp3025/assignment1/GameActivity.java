@@ -65,7 +65,12 @@ public class GameActivity extends AppCompatActivity {
         LinearLayout addArea = findViewById(R.id.addArea);
         LinearLayout verticalGroupsArea = findViewById(R.id.verticalGroupsArea);
         TextView scoreTextView = findViewById(R.id.scoreTextView);
+
+        //Create the view actions.
         CreatedViewActions viewActions = new CreatedViewActions(competition, boardArea, addArea, verticalGroupsArea, scoreTextView, GameActivity.this);
+
+        //Provide the view actions to the competition.
+        competition.changeViewActions(viewActions);
 
         //Add elements to the board area.
         viewActions.boardCreated();
