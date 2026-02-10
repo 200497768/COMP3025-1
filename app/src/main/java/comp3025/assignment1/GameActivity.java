@@ -26,7 +26,9 @@ public class GameActivity extends AppCompatActivity {
     private Board board;
     private Participant participant;
 
-    //This field is the name that must be used when adding the participant to the intent.
+    /**
+     * This field is the name that must be used when adding the participant to the intent.
+     */
     public static final String participantIntentName = "comp3025.assignment1.participant";
 
     @Override
