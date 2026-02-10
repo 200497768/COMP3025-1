@@ -247,23 +247,7 @@ public class Board {
         return consecutiveSlotGroups;
     }
 
-    /**
-     * This method returns the consecutive slot group from this board with enough consecutive tokens.
-     * If no consecutive slot groups from this board have enough tokens, this method returns null.
-     *
-     * @return
-     */
-    private ConsecutiveSlotGroup getScoreConsecutiveSlotGroup() {
-        List<ConsecutiveSlotGroup> consecutiveSlotGroups = this.getConsecutiveSlotGroups();
 
-        for (ConsecutiveSlotGroup consecutiveSlotGroup : consecutiveSlotGroups) {
-            if (consecutiveSlotGroup.getScore()) {
-                return consecutiveSlotGroup;
-            }
-        }
-
-        return null;
-    }
 
     /**
      * This method returns the participant with enough consecutive tokens to increase the score.
@@ -272,13 +256,15 @@ public class Board {
      * @return
      */
     public Participant getScoreParticipant() {
-        ConsecutiveSlotGroup scoreConsecutiveSlotGroup = this.getScoreConsecutiveSlotGroup();
+        List<ConsecutiveSlotGroup> consecutiveSlotGroups = this.getConsecutiveSlotGroups();
 
-        if (scoreConsecutiveSlotGroup == null) {
-            return null;
+        for (ConsecutiveSlotGroup consecutiveSlotGroup : consecutiveSlotGroups) {
+            if (consecutiveSlotGroup.getScore()) {
+                return consecutiveSlotGroup.getScoreParticipant();
+            }
         }
 
-        return scoreConsecutiveSlotGroup.getScoreParticipant();
+        return null;
     }
 
     /**
