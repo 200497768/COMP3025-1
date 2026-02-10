@@ -106,6 +106,15 @@ public class Competition implements Serializable {
         if (scoreParticipant == null) {
             //This board needs another turn.
 
+            //Increase the number of turns completed.
+            //Change the number of turns completed to the first participant again after all participants have completed a turn.
+            Log.i("200497768", "Increasing turns completed by 1. The number of turns completed was " + this.turnsCompleted);
+            this.turnsCompleted = this.turnsCompleted + 1;
+            if (this.turnsCompleted >= this.participants.size()) {
+                this.turnsCompleted = 0;
+            }
+            Log.i("200497768", "The number of turns completed has been changed to " + this.turnsCompleted);
+
             //Show the score message explaining that another turn is needed, using the view actions class.
             if (this.viewActions != null) {
                 this.viewActions.showNeedsAnotherTurn();
@@ -128,15 +137,6 @@ public class Competition implements Serializable {
                 this.viewActions.boardChanged();
             }
         }
-
-        //Increase the number of turns completed.
-        //Change the number of turns completed to the first participant again after all participants have completed a turn.
-        Log.i("200497768", "Increasing turns completed by 1. The number of turns completed was " + this.turnsCompleted);
-        this.turnsCompleted = this.turnsCompleted + 1;
-        if (this.turnsCompleted >= this.participants.size()) {
-            this.turnsCompleted = 0;
-        }
-        Log.i("200497768", "The number of turns completed has been changed to " + this.turnsCompleted);
     }
 
     /**
