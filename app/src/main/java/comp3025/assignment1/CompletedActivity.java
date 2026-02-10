@@ -8,6 +8,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+/**
+ * This class shows the score for every participant in this competition.
+ * This class runs when the score for any participant becomes 3.
+ * This class runs after GameActivity.
+ *
+ * @author Hao Tian
+ */
 public class CompletedActivity extends AppCompatActivity {
 
     @Override
