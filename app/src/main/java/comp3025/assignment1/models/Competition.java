@@ -54,6 +54,12 @@ public class Competition {
         return board;
     }
 
+    /**
+     * Creates a competition.
+     * After this competition has been created, the view actions can be added using another method.
+     *
+     * @param board
+     */
     public Competition(Board board) {
         Objects.requireNonNull(board);
         this.board = board;
@@ -75,7 +81,7 @@ public class Competition {
 
     /**
      * This method changes the view actions for this competition.
-     *
+     * After providing the view actions to this method, this competition will be able to access it as a field.
      * @param viewActions
      */
     public void changeViewActions(CreatedViewActions viewActions) {
