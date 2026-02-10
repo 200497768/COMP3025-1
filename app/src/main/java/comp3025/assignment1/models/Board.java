@@ -90,6 +90,20 @@ public class Board {
     }
 
     /**
+     * This method returns a vertical group from this board, using the vertical group number.
+     * Using this method isn't recommended because accessing the vertical groups can cause problems.
+     * If this method is used to retrieve vertical groups to add a token, using the methods from the board class instead of this method is recommended.
+     * The vertical groups retrieved using this method must only be used to show the board.
+     * If the vertical groups need to be accessed again in the future, the vertical groups must be retrieved using this method again.
+     * After some actions, a vertical group retrieved using this method because it was part of the board might no longer be part of the board.
+     *
+     * @param verticalGroupNumber
+     * @return
+     */
+    public VerticalGroup getVerticalGroup(int verticalGroupNumber) {
+        return this.verticalGroups.get(verticalGroupNumber);
+    }
+    /**
      * This method is used to retrieve a token using slot numbers.
      * This method will access the ordered token group with the provided horizontal number.
      * Next, this method will access the token with the provided vertical number.
@@ -120,19 +134,7 @@ public class Board {
         }
     }
 
-    /**
-     * This method returns a vertical group from this board, using the vertical group number.
-     * Using this method isn't recommended because accessing the vertical groups can cause problems.
-     * If this method is used to retrieve vertical groups to add a token, using the methods from the board class instead of this method is recommended.
-     * The vertical groups retrieved using this method must only be used to show the board.
-     * If the vertical groups need to be accessed again in the future, the vertical groups must be retrieved using this method again.
-     * After some actions, a vertical group retrieved using this method because it was part of the board might no longer be part of the board.
-     * @param verticalGroupNumber
-     * @return
-     */
-    public VerticalGroup getVerticalGroup(int verticalGroupNumber) {
-        return this.verticalGroups.get(verticalGroupNumber);
-    }
+
 
     public void addToken(Participant participant, int verticalGroupNumber) {
         VerticalGroup verticalGroup = this.verticalGroups.get(verticalGroupNumber);
