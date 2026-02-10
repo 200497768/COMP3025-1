@@ -259,12 +259,12 @@ public class ViewActions extends Actions {
 //This board has finished.
             Log.i("200497768",scoreParticipant.getName()+" has added enough consecutive tokens, and this round has finished.");
 
-            //The board needs to be cleared.
-            board.clear();
-
             this.boardChanged();
 
             this.showScoreMessage(scoreParticipant.getName() + " has added " + board.getConsecutiveNumber() + " consecutive tokens. The score for this participant has increased. " + this.getScoreMessage());
+
+            //The board needs to be cleared.
+            board.clear();
         }
 
         //Show the text board.
