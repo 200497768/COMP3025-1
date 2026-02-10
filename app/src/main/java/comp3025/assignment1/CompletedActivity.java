@@ -22,6 +22,11 @@ public class CompletedActivity extends AppCompatActivity {
      */
     public static final String competitionIntentName = "comp3025.assignment1.competition";
 
+    /**
+     * This field is the competition that was retrieved from the intent.
+     * This class is responsible for showing the scores for every participant in this competition.
+     */
+    private Competition competition;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
