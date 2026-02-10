@@ -1,5 +1,6 @@
 package comp3025.assignment1.models;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -8,10 +9,15 @@ import java.util.Objects;
  *
  * @author Hao Tian
  */
-public class Token {
+public class Token implements Serializable {
     private Participant participant;
 
     private SlotNumbers slotNumbers;
+
+    /**
+     * This field is needed for Serializable.
+     */
+    private static final long serialVersionUID = 1;
 
     public Token(Participant participant, SlotNumbers slotNumbers) {
         Objects.requireNonNull(participant);

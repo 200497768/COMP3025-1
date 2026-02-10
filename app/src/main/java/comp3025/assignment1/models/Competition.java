@@ -211,7 +211,13 @@ public class Competition implements Serializable {
         if (winningParticipant != null) {
             //A participant has won, and this competition has been completed.
 
-            this.viewActions.competitionCompleted();
+            //Before running the method, remove the view actions field, in order to avoid a problem with Serializable.
+            //The view actions is still needed, so it will be available during this method.
+            CreatedViewActions viewActions = this.viewActions;
+            this.viewActions = null;
+
+            //Run the method from the view actions.
+            viewActions.competitionCompleted();
         }
     }
 

@@ -2,6 +2,7 @@ package comp3025.assignment1.models;
 
 import android.util.Log;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -22,7 +23,7 @@ import java.util.Objects;
  *
  * @author Hao Tian
  */
-public class Board {
+public class Board implements Serializable {
 
     /**
      * This field is a list with all of the tokens in this board.
@@ -46,6 +47,11 @@ public class Board {
      * This field is the number of tokens that must be added consecutively by the same participant in order for the score to increase.
      */
     private int consecutiveNumber;
+
+    /**
+     * This field is needed for Serializable.
+     */
+    private static final long serialVersionUID = 1;
 
     /**
      * This method returns the number of tokens that must be added consecutively by the same participant in order for the score to increase.

@@ -1,5 +1,6 @@
 package comp3025.assignment1.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -14,10 +15,17 @@ import java.util.Objects;
  *
  * @author Hao Tian
  */
-public class VerticalGroup {
+public class VerticalGroup implements Serializable {
 
-    //This field is the tokens in this ordered token group.
+    /**
+     * This field is the tokens in this ordered token group.
+     */
     private List<Token> tokens=new ArrayList<>();
+
+    /**
+     * This field is needed for Serializable.
+     */
+    private static final long serialVersionUID = 1;
 
     public VerticalGroup(int verticalGroupNumber, int capacity) {
         if(verticalGroupNumber<0){
