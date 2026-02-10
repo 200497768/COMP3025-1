@@ -27,6 +27,7 @@ public class CompletedActivity extends AppCompatActivity {
      * This class is responsible for showing the scores for every participant in this competition.
      */
     private Competition competition;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
