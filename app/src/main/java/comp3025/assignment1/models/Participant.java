@@ -26,8 +26,12 @@ public class Participant implements Serializable {
      */
     private int score;
 
+    /**
+     * This field is the token color for tokens added by this participant.
+     * The competition class will change this field, after the participant has been added to a competition.
+     * APA for the numbers for this token color is Crimson.
+     */
     private int tokenColor = Color.rgb(220, 20, 60);
-    //APA for the numbers for this token color is Crimson.
 
     public int getScore() {
         return score;
@@ -42,6 +46,12 @@ public class Participant implements Serializable {
 
     private static final long serialVersionUID = 1;
 
+    /**
+     * Creates a participant with the provided name.
+     * The score for this participant will start at 0.
+     *
+     * @param name
+     */
     public Participant(String name) {
         Objects.requireNonNull(name);
         this.name = name;

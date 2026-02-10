@@ -16,21 +16,34 @@ import java.util.Objects;
  */
 public class Board {
 
-    //This field is a list with all of the tokens in this board.
-    //The tokens are accessed through ordered token groups.
+    /**
+     * This field is a list with all of the tokens in this board.
+     * The tokens are accessed through ordered token groups.
+     */
     private List<VerticalGroup> verticalGroups = new ArrayList<>();
 
-    //This field is the number of vertical groups in this board.
+    /**
+     * This field is the number of vertical groups in this board.
+     */
     private int numberOfVerticalGroups;
 
-    //This field is the capacity for every vertical group.
-    //The capacity for every vertical group in this board is the same.
-    //I might need to retrieve the vertical group capacity in the future.
+    /**
+     * This field is the capacity for every vertical group.
+     * The capacity for every vertical group in this board is the same.
+     * I might need to retrieve the vertical group capacity in the future.
+     */
     private int verticalGroupCapacity;
 
-    //This field is the number of tokens that must be added consecutively in order for a participant to win.
+    /**
+     * This field is the number of tokens that must be added consecutively by the same participant in order for the score to increase.
+     */
     private int consecutiveNumber;
 
+    /**
+     * This method returns the number of tokens that must be added consecutively by the same participant in order for the score to increase.
+     *
+     * @return
+     */
     public int getConsecutiveNumber() {
         return consecutiveNumber;
     }
