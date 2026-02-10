@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import comp3025.assignment1.models.Board;
 import comp3025.assignment1.models.Competition;
+import comp3025.assignment1.models.ComputerParticipant;
 import comp3025.assignment1.models.Participant;
 import comp3025.assignment1.models.TextBoard;
 import comp3025.assignment1.models.actions.CreatedViewActions;
@@ -60,7 +61,7 @@ public class GameActivity extends AppCompatActivity {
         competition.addParticipant(participant);
 
         //Add the computer participant.
-        Participant computerParticipant = new Participant("Computer");
+        Participant computerParticipant = new ComputerParticipant();
         competition.addParticipant(computerParticipant);
 
         LinearLayout boardArea = findViewById(R.id.boardArea);
