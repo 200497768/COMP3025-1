@@ -256,9 +256,7 @@ public class Board {
      * @return
      */
     public Participant getScoreParticipant() {
-        List<ConsecutiveSlotGroup> consecutiveSlotGroups = this.getConsecutiveSlotGroups();
-
-        for (ConsecutiveSlotGroup consecutiveSlotGroup : consecutiveSlotGroups) {
+        for (ConsecutiveSlotGroup consecutiveSlotGroup : this.getConsecutiveSlotGroups()) {
             if (consecutiveSlotGroup.getScore()) {
                 return consecutiveSlotGroup.getScoreParticipant();
             }
