@@ -86,10 +86,6 @@ public class Competition {
         } else {
 //This board has finished.
 
-            //The board needs to be cleared.
-            //The view actions class will also clear the board, so I still need to change this.
-            board.clear();
-
             //Increase the score for this participant.
             scoreParticipant.increaseScore();
         }
