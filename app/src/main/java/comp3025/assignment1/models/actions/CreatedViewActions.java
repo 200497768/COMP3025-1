@@ -261,8 +261,14 @@ public class CreatedViewActions extends ViewActions {
 
     public void showRoundCompleted() {
         //Retrieve the score participant.
+        //The score participant is needed to show information like name and score.
         Board board = this.competition.getBoard();
         Participant scoreParticipant = board.getScoreParticipant();
+
+        //A score participant must exist.
+        if (scoreParticipant == null) {
+            throw new IllegalStateException();
+        }
 
         this.showScoreMessage(scoreParticipant.getName() + " has added " + board.getConsecutiveNumber() + " consecutive tokens. The score for this participant has increased. " + this.getScoreMessage());
     }
