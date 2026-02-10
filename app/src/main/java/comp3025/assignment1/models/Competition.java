@@ -34,6 +34,8 @@ public class Competition {
         return participants;
     }
 
+    private ViewActions viewActions;
+
     /**
      * This field is the number of participants that have completed turns.
      * After every a participant adds a token, this number will be increased by 1.
@@ -71,24 +73,32 @@ public class Competition {
      * After every participant has completed a turn, this method changes the participant to the first participant again.
      */
     public void completeTurn() {
+        //Check whether any participant has added enough consecutive tokens to increase the score, or if another turn is needed.
+        Participant scoreParticipant = this.board.getScoreParticipant();
+
+        if (scoreParticipant == null) {
+            //This board needs another turn.
+
+            //Show the score message explaining that another turn is needed, using the view actions class.
+            this.viewActions.showNeedsAnotherTurn();
+        } else {
+//This round has finished.
+
+            //Change the model.
+            this.completeRound();
+
+            //Show the score message explaining that the round has finished, using the view actions class.
+            this.viewActions.showRoundCompleted();
+
+//After the competition has finished, the board will have been changed.
+            this.viewActions.boardChanged();
+        }
+
         this.turnsCompleted = this.turnsCompleted + 1;
 
         //Change the number of turns completed to the first participant again after all participants have completed a turn.
         if (this.turnsCompleted >= this.participants.size()) {
             this.turnsCompleted = 0;
-        }
-
-        //Check whether the score for any participant needs to be increased.
-        //In other words, check if any participant has added enough consecutive tokens.
-        Participant scoreParticipant = this.board.getScoreParticipant();
-        if (scoreParticipant == null) {
-            //This board needs another turn.
-
-        } else {
-//This board has finished.
-
-            //Increase the score for this participant.
-            scoreParticipant.increaseScore();
         }
     }
 
@@ -96,7 +106,7 @@ public class Competition {
      * This method increases the score for the participant that won this round, and clears the board.
      * When this method happens, a score participant must exist.
      */
-    public void completeRound() {
+    private void completeRound() {
         //Retrieve the score participant.
         Participant scoreParticipant = this.board.getScoreParticipant();
 
@@ -106,6 +116,9 @@ public class Competition {
         }
 
         Log.i("200497768", scoreParticipant.getName() + " has added enough consecutive tokens, and this round has finished.");
+
+        //Increase the score for the score participant.
+        scoreParticipant.increaseScore();
 
         //Clear the board.
         Log.i("200497768", "The competition is clearing the board.");

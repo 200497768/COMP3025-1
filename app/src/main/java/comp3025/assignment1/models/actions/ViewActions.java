@@ -14,8 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import comp3025.assignment1.WelcomeActivity;
-import comp3025.assignment1.R;
 import comp3025.assignment1.models.Board;
 import comp3025.assignment1.models.Competition;
 import comp3025.assignment1.models.Participant;
@@ -242,37 +240,28 @@ public class ViewActions extends Actions {
         Log.i("200497768", "A token has been added.");
         this.boardChanged();
 
-        //Complete the turn for this participant.
+        //Complete the turn with the competition.
         this.competition.completeTurn();
 
-        //Determine whether this participant has increase the score, or if this board needs another turn.
-        Board board = this.competition.getBoard();
-        Participant scoreParticipant = board.getScoreParticipant();
-        if (scoreParticipant == null) {
-            //This board needs another turn.
-            Log.i("200497768","This board needs another turn because no participant has added enough consecutive tokens.");
+        //This class will cause the method from the competition class to happen.
+        //The competition class is the model, and will be responsible for changing the board to prepare it for the next round.
 
-            //Show the participant for the next turn.
-            Participant nextTurnParticipant = competition.getTurnParticipant();
-            this.showScoreMessage("A participant added a token. Now, " + nextTurnParticipant.getName() + " needs to add a token to the board. " + this.getScoreMessage());
-        } else {
-//This board has finished.
 
-            //This class will cause the method from the competition class to happen.
-            //The competition class is the model, and will be responsible for changing the board to prepare it for the next round.
-            competition.completeRound();
-
-            this.showScoreMessage(scoreParticipant.getName() + " has added " + board.getConsecutiveNumber() + " consecutive tokens. The score for this participant has increased. " + this.getScoreMessage());
-
-//After the competition has finished, the board will have been changed.
-            this.boardChanged();
-        }
 
         //Show the text board.
         TextBoard textBoard = new TextBoard(board, "Token", "Empty");
         for (String string : textBoard.getLines()) {
             Log.i("200497768", string);
         }
+    }
+
+    public void showNeedsAnotherTurn() {
+        Participant nextTurnParticipant = competition.getTurnParticipant();
+        this.showScoreMessage("A participant added a token. Now, " + nextTurnParticipant.getName() + " needs to add a token to the board. " + this.getScoreMessage());
+    }
+
+    public void showRoundCompleted() {
+        this.showScoreMessage(scoreParticipant.getName() + " has added " + this.board.getConsecutiveNumber() + " consecutive tokens. The score for this participant has increased. " + this.getScoreMessage());
     }
 
     /**
