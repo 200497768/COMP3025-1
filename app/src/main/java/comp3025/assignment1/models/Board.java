@@ -272,13 +272,13 @@ public class Board {
      * @return
      */
     public Participant getScoreParticipant() {
-        ConsecutiveSlotGroup winningConsecutiveSlotGroup = this.getScoreConsecutiveSlotGroup();
+        ConsecutiveSlotGroup scoreConsecutiveSlotGroup = this.getScoreConsecutiveSlotGroup();
 
-        if (winningConsecutiveSlotGroup == null) {
+        if (scoreConsecutiveSlotGroup == null) {
             return null;
         }
 
-        return winningConsecutiveSlotGroup.getScoreParticipant();
+        return scoreConsecutiveSlotGroup.getScoreParticipant();
     }
 
     /**
