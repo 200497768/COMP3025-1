@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Assignment1">
         <activity
-            android:name=".WinActivity"
+            android:name=".CompletedActivity"
             android:exported="false" />
         <activity
             android:name=".GameActivity"
