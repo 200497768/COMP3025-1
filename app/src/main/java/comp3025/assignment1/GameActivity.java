@@ -137,7 +137,7 @@ public class GameActivity extends AppCompatActivity {
         Intent intent = new Intent(GameActivity.this, CompletedActivity.class);
 
         //Add the competition to the intent.
-        intent.putExtra(GameActivity.participantIntentName, this.competition);
+        intent.putExtra(CompletedActivity.competitionIntentName, this.competition);
 
         startActivity(intent);
     }
