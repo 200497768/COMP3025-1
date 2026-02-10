@@ -256,7 +256,9 @@ public class Board {
      * @return
      */
     public Participant getScoreParticipant() {
+        //Go through all of the consecutive slot groups.
         for (ConsecutiveSlotGroup consecutiveSlotGroup : this.getConsecutiveSlotGroups()) {
+            //Check whether this consecutive slot group has enough tokens from the same participant.
             if (consecutiveSlotGroup.getScore()) {
                 return consecutiveSlotGroup.getScoreParticipant();
             }
