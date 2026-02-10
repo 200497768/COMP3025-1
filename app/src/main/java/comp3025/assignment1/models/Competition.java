@@ -62,6 +62,30 @@ public class Competition implements Serializable {
      */
     private static final long serialVersionUID = 1;
 
+    /**
+     * This method returns the winning participant for this competition.
+     * A participant has won the competition if the score of the participant is the maximum score.
+     * The maximum score was determined when this competition was created.
+     * If no participants have won this competition, this method returns null.
+     * This method can be used to check whether this competition still needs another turn, or if it has been completed.
+     * In order to determine whether another round is needed, check whether this method returns null for the winning participant.
+     *
+     * @return
+     */
+    public Participant getWinningParticipant() {
+        //Go through all of the participants, and check the score of every participant.
+        for (Participant participant : this.participants) {
+
+            //Check whether the score for this participant is the maximum score for this competition.
+            if (participant.getScore() >= this.maximumScore) {
+                return participant;
+            }
+        }
+
+        //No participants have won this competition.
+        return null;
+    }
+
     public Board getBoard() {
         return board;
     }
