@@ -135,7 +135,17 @@ public class Board {
     }
 
 
-
+    /**
+     * This method adds a token to the board.
+     * When using this method, the participant that's adding the token must be provided.
+     * The participant can be retrieved using the competition.
+     * In addition, the vertical group number must be provided.
+     * The vertical group number determines the vertical group in the board that the token will be added to.
+     * The board and the vertical group in this board will decide the token number, depending on the number of existing tokens in the vertical group.
+     *
+     * @param participant
+     * @param verticalGroupNumber
+     */
     public void addToken(Participant participant, int verticalGroupNumber) {
         VerticalGroup verticalGroup = this.verticalGroups.get(verticalGroupNumber);
 
