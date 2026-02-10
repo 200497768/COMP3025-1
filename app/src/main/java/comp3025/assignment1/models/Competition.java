@@ -123,12 +123,14 @@ public class Competition {
             }
         }
 
-        this.turnsCompleted = this.turnsCompleted + 1;
-
+        //Increase the number of turns completed.
         //Change the number of turns completed to the first participant again after all participants have completed a turn.
+        Log.i("200497768", "Increasing turns completed by 1. The number of turns completed was " + this.turnsCompleted);
+        this.turnsCompleted = this.turnsCompleted + 1;
         if (this.turnsCompleted >= this.participants.size()) {
             this.turnsCompleted = 0;
         }
+        Log.i("200497768", "The number of turns completed has been changed to " + this.turnsCompleted);
     }
 
     /**
@@ -173,6 +175,8 @@ public class Competition {
         if (this.participants.size() == 0) {
             throw new IllegalStateException();
         }
+
+        Log.i("200497768", "The turn participant will now be determined. Turns completed is " + this.turnsCompleted);
 
         Participant participant = this.participants.get(this.turnsCompleted);
 

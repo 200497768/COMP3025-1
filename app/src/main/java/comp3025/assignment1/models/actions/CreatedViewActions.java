@@ -153,7 +153,9 @@ public class CreatedViewActions extends ViewActions {
                     //In the future, when the board has been cleared, the vertical group retrieved by this method might no longer be correct.
                     //The vertical group retrieved by this method at this time might no longer be part of the board, depending on how the method to clear the board was written.
 
-                    board.addToken(competition.getTurnParticipant(), thisVerticalGroupNumber);
+                    Participant turnParticipant = competition.getTurnParticipant();
+                    Log.i("200497768", "Adding a token for " + turnParticipant.getName());
+                    board.addToken(turnParticipant, thisVerticalGroupNumber);
 
                     //Show the token.
                     viewActions.tokenAdded();
