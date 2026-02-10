@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Objects;
+
 import comp3025.assignment1.models.Board;
 import comp3025.assignment1.models.Competition;
 import comp3025.assignment1.models.ComputerParticipant;
@@ -53,14 +55,15 @@ public class GameActivity extends AppCompatActivity {
         int verticalGroupCapacity = 4;
         int consecutiveNumber = 3;
         Board board = new Board(numberOfVerticalGroups, verticalGroupCapacity, consecutiveNumber);
-
         this.board = board;
 
         TextBoard textBoard = new TextBoard(board, "Token", "Empty");
 
         int maximumScore = 3;
-
         Competition competition = new Competition(board, maximumScore);
+        this.competition = competition;
+
+        //Add the participant to the competition.
         competition.addParticipant(participant);
 
         //Add the computer participant to the competition.
@@ -137,6 +140,7 @@ public class GameActivity extends AppCompatActivity {
         Intent intent = new Intent(GameActivity.this, CompletedActivity.class);
 
         //Add the competition to the intent.
+        Objects.requireNonNull(this.competition);
         intent.putExtra(CompletedActivity.competitionIntentName, this.competition);
 
         startActivity(intent);

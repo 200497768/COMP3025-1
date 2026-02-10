@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Objects;
+
 import comp3025.assignment1.models.Competition;
 import comp3025.assignment1.models.Participant;
 
@@ -41,6 +43,7 @@ public class CompletedActivity extends AppCompatActivity {
         //Retrieve the participant from the intent that was received from WelcomeActivity.
         Intent intent = getIntent();
         Competition competition = intent.getSerializableExtra(CompletedActivity.competitionIntentName, Competition.class);
+        Objects.requireNonNull(competition);
         this.competition = competition;
         //This string must match the name that was used to add the competition to the intent.
         //If the string doesn't match, this method returns null, and this method won't be able to retrieve the competition.
