@@ -14,7 +14,16 @@ import java.util.Objects;
  * @author Hao Tian
  */
 public class Participant implements Serializable {
+
+    /**
+     * This field is the name for this participant.
+     */
     private String name;
+
+    /**
+     * This field is the score for this participant.
+     * The competition class will increase this number when this participant has added 3 consecutive tokens.
+     */
     private int score;
 
     private int tokenColor = Color.rgb(220, 20, 60);
