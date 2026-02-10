@@ -1,6 +1,8 @@
 package comp3025.assignment1;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,5 +29,23 @@ public class CompletedActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    /**
+     * This method is for when the option to share the score has been chosen.
+     * This method retrieves information, including the score, and uses an implicit intent.
+     *
+     * @param view
+     */
+    public void shareScoreChosen(View view) {
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_TEXT, "I'm " + participant.getName() + ", and my score in Connect " + this.board.getConsecutiveNumber() + " is " + participant.getScore() + ".");
+        intent.setType("text/plain");
+
+        Intent shareIntent = Intent.createChooser(intent, "Score");
+        startActivity(shareIntent);
+
+        //APA will be the week 5 class.
     }
 }
