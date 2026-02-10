@@ -3,6 +3,7 @@ package comp3025.assignment1.models;
 import android.graphics.Color;
 import android.util.Log;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -19,7 +20,7 @@ import comp3025.assignment1.models.actions.CreatedViewActions;
  *
  * @author Hao Tian
  */
-public class Competition {
+public class Competition implements Serializable {
 
     /**
      * This field is the board that that this competition involves.
@@ -49,6 +50,11 @@ public class Competition {
      * This number will be changed to 0 again.
      */
     private int turnsCompleted = 0;
+
+    /**
+     * This field is needed for Serializable.
+     */
+    private static final long serialVersionUID = 1;
 
     public Board getBoard() {
         return board;
