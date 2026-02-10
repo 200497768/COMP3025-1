@@ -261,6 +261,13 @@ public class CreatedViewActions extends ViewActions {
         this.showScoreMessage("A participant added a token. Now, " + nextTurnParticipant.getName() + " needs to add a token to the board. " + this.getScoreMessage());
     }
 
+    /**
+     * This method shows a message explaining that a round has been completed.
+     * A participant has added a token to the board, causing enough consecutive tokens for the round to finish.
+     * This is the score participant.
+     * The score of the score participant has been increased.
+     * This method can retrieve the score participant from the board.
+     */
     public void showRoundCompleted() {
         //Retrieve the score participant.
         //The score participant is needed to show information like name and score.
@@ -273,8 +280,6 @@ public class CreatedViewActions extends ViewActions {
         }
 
         this.showScoreMessage(scoreParticipant.getName() + " has added " + board.getConsecutiveNumber() + " consecutive tokens. The score for this participant has increased. " + this.getScoreMessage());
-        //This is a mistake because when the round has finished, the score field from the score participant still hasn't been changed.
-        //I need to change the competition class in order to fix this mistake.
     }
 
     /**
