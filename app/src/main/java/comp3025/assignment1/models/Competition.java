@@ -52,6 +52,12 @@ public class Competition implements Serializable {
     private int turnsCompleted = 0;
 
     /**
+     * This field is the maximum score for this competition.
+     * The competition ends when the score for a participant has increased to the maximum score.
+     */
+    private int maximumScore;
+
+    /**
      * This field is needed for Serializable.
      */
     private static final long serialVersionUID = 1;
@@ -66,9 +72,14 @@ public class Competition implements Serializable {
      *
      * @param board
      */
-    public Competition(Board board) {
+    public Competition(Board board, int maximumScore) {
         Objects.requireNonNull(board);
         this.board = board;
+
+        if (maximumScore < 1) {
+            throw new IllegalArgumentException();
+        }
+        this.maximumScore = maximumScore;
     }
 
     /**

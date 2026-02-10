@@ -57,7 +57,9 @@ public class GameActivity extends AppCompatActivity {
 
         TextBoard textBoard = new TextBoard(board, "Token", "Empty");
 
-        Competition competition = new Competition(board);
+        int maximumScore = 3;
+
+        Competition competition = new Competition(board, maximumScore);
         competition.addParticipant(participant);
 
         //Add the computer participant to the competition.
