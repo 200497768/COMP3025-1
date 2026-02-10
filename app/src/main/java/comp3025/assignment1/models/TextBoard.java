@@ -1,7 +1,5 @@
 package comp3025.assignment1.models;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -57,7 +55,7 @@ public class TextBoard {
             String line = "Line " + tokenNumber + " ";
 
             //Access the slot in each vertical group, going horizontally.
-            for (int verticalGroupNumber = 0; verticalGroupNumber < board.getNumberOfVerticalGroups() - 1; verticalGroupNumber = verticalGroupNumber + 1) {
+            for (int verticalGroupNumber = 0; verticalGroupNumber < board.getNumberOfVerticalGroups(); verticalGroupNumber = verticalGroupNumber + 1) {
 
                 //Retrieve the vertical group with this vertical group number.
                 VerticalGroup verticalGroup = board.getVerticalGroup(verticalGroupNumber);
