@@ -35,6 +35,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     /**
      * This method changes the view.
+     * APA for this method will be the week 5 class.
      */
     public void wishMeLuckButtonChosen(View view) {
         //Retrieve the participant name from the view.
