@@ -96,7 +96,12 @@ public class Competition {
      */
     public void completeRound() {
         Participant participant = this.board.getScoreParticipant();
+
+        //Clear the board.
         this.board.clear();
+
+        //Change the next turn participant to the first participant in this competition.
+        this.turnsCompleted = 0;
     }
 
     /**
