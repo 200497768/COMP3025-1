@@ -107,15 +107,20 @@ public class Competition {
         } else {
 //This round has finished.
 
-            //Change the model.
+            //Show the score message explaining that the round has finished, using the view actions class.
+            if (this.viewActions != null) {
+                this.viewActions.showRoundCompleted();
+            }
+
+            //Change the model, including clearing the board.
+            //Since this method will clear the board, the score participant will no longer be available after this method.
+            //If the view actions needs to show a message involving the score participant, the message must be created before completing the round.
             this.completeRound();
 
-            if (this.viewActions !=null) {
-            //Show the score message explaining that the round has finished, using the view actions class.
-            this.viewActions.showRoundCompleted();
-
-//After the competition has finished, the board will have been changed.
-                this.viewActions.boardChanged();}
+//The board has changed during the method that completed the round.
+            if (this.viewActions != null) {
+                this.viewActions.boardChanged();
+            }
         }
 
         this.turnsCompleted = this.turnsCompleted + 1;
@@ -134,9 +139,9 @@ public class Competition {
         //Retrieve the score participant.
         Participant scoreParticipant = this.board.getScoreParticipant();
 
-        //When this method happens, a score participant must exist.
+        //A score participant must exist.
         if (scoreParticipant == null) {
-            throw new IllegalArgumentException();
+            throw new IllegalStateException();
         }
 
         Log.i("200497768", scoreParticipant.getName() + " has added enough consecutive tokens, and this round has finished.");
