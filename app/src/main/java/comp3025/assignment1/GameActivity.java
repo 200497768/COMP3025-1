@@ -3,7 +3,6 @@ package comp3025.assignment1;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -14,7 +13,7 @@ import comp3025.assignment1.models.Board;
 import comp3025.assignment1.models.Competition;
 import comp3025.assignment1.models.Participant;
 import comp3025.assignment1.models.TextBoard;
-import comp3025.assignment1.models.actions.ViewActions;
+import comp3025.assignment1.models.actions.CreatedViewActions;
 
 /**
  * This class runs after WelcomeActivity.
@@ -66,7 +65,7 @@ public class GameActivity extends AppCompatActivity {
         LinearLayout addArea = findViewById(R.id.addArea);
         LinearLayout verticalGroupsArea = findViewById(R.id.verticalGroupsArea);
         TextView scoreTextView = findViewById(R.id.scoreTextView);
-        ViewActions viewActions = new ViewActions(competition, boardArea, addArea, verticalGroupsArea, scoreTextView, GameActivity.this);
+        CreatedViewActions viewActions = new CreatedViewActions(competition, boardArea, addArea, verticalGroupsArea, scoreTextView, GameActivity.this);
 
         //Add elements to the board area.
         viewActions.boardCreated();

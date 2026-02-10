@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import comp3025.assignment1.models.actions.ViewActions;
+import comp3025.assignment1.models.actions.CreatedViewActions;
 
 /**
  * This class is a competition.
@@ -36,7 +36,7 @@ public class Competition {
         return participants;
     }
 
-    private ViewActions viewActions;
+    private CreatedViewActions viewActions;
 
     /**
      * This field is the number of participants that have completed turns.
@@ -50,7 +50,7 @@ public class Competition {
         return board;
     }
 
-    public Competition(Board board, ViewActions viewActions) {
+    public Competition(Board board, CreatedViewActions viewActions) {
         Objects.requireNonNull(board);
         this.board = board;
     }

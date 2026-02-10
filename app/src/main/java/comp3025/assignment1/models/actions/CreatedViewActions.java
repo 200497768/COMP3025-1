@@ -25,7 +25,7 @@ import comp3025.assignment1.models.VerticalGroup;
 /**
  * This class is responsible for changing board area elements when the board model changes.
  */
-public class ViewActions extends Actions {
+public class CreatedViewActions extends Actions {
 
     /**
      * This field is the competition.
@@ -58,7 +58,7 @@ public class ViewActions extends Actions {
      */
     private List<LinearLayout> verticalGroupAreas = new ArrayList<>();
 
-    public ViewActions(Competition competition, LinearLayout boardArea, LinearLayout verticalGroupsArea, LinearLayout addArea, TextView scoreTextView, Context context) {
+    public CreatedViewActions(Competition competition, LinearLayout boardArea, LinearLayout verticalGroupsArea, LinearLayout addArea, TextView scoreTextView, Context context) {
         super(competition);
 
         Objects.requireNonNull(competition);
@@ -138,7 +138,7 @@ public class ViewActions extends Actions {
             addButton.setText("Add");
 
             Competition competition = this.competition;
-            ViewActions viewActions = this;
+            CreatedViewActions viewActions = this;
 
             //The vertical group number needs to be written this way in order for the method to access it.
             int thisVerticalGroupNumber = verticalGroupNumber;
@@ -246,9 +246,8 @@ public class ViewActions extends Actions {
         //This class will cause the method from the competition class to happen.
         //The competition class is the model, and will be responsible for changing the board to prepare it for the next round.
 
-
-
         //Show the text board.
+        Board board = this.competition.getBoard();
         TextBoard textBoard = new TextBoard(board, "Token", "Empty");
         for (String string : textBoard.getLines()) {
             Log.i("200497768", string);
@@ -261,7 +260,11 @@ public class ViewActions extends Actions {
     }
 
     public void showRoundCompleted() {
-        this.showScoreMessage(scoreParticipant.getName() + " has added " + this.board.getConsecutiveNumber() + " consecutive tokens. The score for this participant has increased. " + this.getScoreMessage());
+        //Retrieve the score participant.
+        Board board = this.competition.getBoard();
+        Participant scoreParticipant = board.getScoreParticipant();
+
+        this.showScoreMessage(scoreParticipant.getName() + " has added " + board.getConsecutiveNumber() + " consecutive tokens. The score for this participant has increased. " + this.getScoreMessage());
     }
 
     /**
