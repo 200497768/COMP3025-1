@@ -95,6 +95,17 @@ public class Participant implements Serializable {
         this.tokenColor = tokenColor;
     }
 
+    /**
+     * This method returns whether this participant will choose the vertical group to add a token to.
+     * If this method determines that this participant won't choose, another method must choose the vertical group, instead of this participant.
+     * If this participant is a computer, this method would determine that the participant won't choose the vertical group.
+     *
+     * @return
+     */
+    public boolean getPersonChoosing() {
+        return true;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
