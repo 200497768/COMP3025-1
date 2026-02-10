@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Objects;
 
 import comp3025.assignment1.models.actions.Action;
+import comp3025.assignment1.models.actions.ViewAction;
 
 /**
  * This class is a board.
@@ -36,9 +37,6 @@ public class Board {
     public int getConsecutiveNumber() {
         return consecutiveNumber;
     }
-
-    //This field is a list showing the actions that have happened to this board since it was created.
-    private List<Action> actions = new ArrayList<>();
 
     public Board(int numberOfVerticalGroups, int verticalGroupCapacity, int consecutiveNumber) {
         //The board must include a single vertical group.
@@ -281,20 +279,7 @@ public class Board {
         return this.verticalGroups.size();
     }
 
-    /**
-     * This method changes the board by adding the action.
-     *
-     * @param action
-     */
-    public void addAction(Action action) {
-        Objects.requireNonNull(action);
 
-        //This board includes a list that shows the actions that have happened.
-        //This action needs to be added to that list.
-        this.actions.add(action);
-
-        //This board will be changed by this action.
-    }
 
     /**
      * This method removes all of the tokens that have been added to the board.
