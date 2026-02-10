@@ -1,6 +1,7 @@
 package comp3025.assignment1.models;
 
 import android.graphics.Color;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -93,15 +94,29 @@ public class Competition {
 
     /**
      * This method increases the score for the participant that won this round, and clears the board.
+     * When this method happens, a score participant must exist.
      */
     public void completeRound() {
-        Participant participant = this.board.getScoreParticipant();
+        //Retrieve the score participant.
+        Participant scoreParticipant = this.board.getScoreParticipant();
+
+        //When this method happens, a score participant must exist.
+        if (scoreParticipant == null) {
+            throw new IllegalArgumentException();
+        }
+
+        Log.i("200497768", scoreParticipant.getName() + " has added enough consecutive tokens, and this round has finished.");
 
         //Clear the board.
+        Log.i("200497768", "The competition is clearing the board.");
         this.board.clear();
 
         //Change the next turn participant to the first participant in this competition.
+        Log.i("200497768", "The competition is changing the next turn participant to the first participant in this competition.");
         this.turnsCompleted = 0;
+
+        //The board needs to be cleared.
+        board.clear();
     }
 
     /**

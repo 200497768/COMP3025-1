@@ -257,14 +257,15 @@ public class ViewActions extends Actions {
             this.showScoreMessage("A participant added a token. Now, " + nextTurnParticipant.getName() + " needs to add a token to the board. " + this.getScoreMessage());
         } else {
 //This board has finished.
-            Log.i("200497768",scoreParticipant.getName()+" has added enough consecutive tokens, and this round has finished.");
 
-            this.boardChanged();
+            //This class will cause the method from the competition class to happen.
+            //The competition class is the model, and will be responsible for changing the board to prepare it for the next round.
+            competition.completeRound();
 
             this.showScoreMessage(scoreParticipant.getName() + " has added " + board.getConsecutiveNumber() + " consecutive tokens. The score for this participant has increased. " + this.getScoreMessage());
 
-            //The board needs to be cleared.
-            board.clear();
+//After the competition has finished, the board will have been changed.
+            this.boardChanged();
         }
 
         //Show the text board.
