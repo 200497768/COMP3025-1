@@ -92,6 +92,14 @@ public class Competition {
     }
 
     /**
+     * This method increases the score for the participant that won this round, and clears the board.
+     */
+    public void roundCompleted() {
+        Participant participant = this.board.getScoreParticipant();
+        this.board.clear();
+    }
+
+    /**
      * This method returns the participant for this turn.
      * This is the participant that needs to add a token to the board.
      * When a token is added to the board, it will have been added by this participant.
@@ -109,13 +117,6 @@ public class Competition {
         return participant;
     }
 
-    /**
-     * This method increases the score for the participant that won this round, and clears the board.
-     */
-    public void roundCompleted() {
-        Participant participant = this.board.getScoreParticipant();
-        this.board.clear();
-    }
 
     /**
      * This method returns a token color that can be provided to a participant.
