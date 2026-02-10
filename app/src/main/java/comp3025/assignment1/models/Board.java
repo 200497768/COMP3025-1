@@ -122,8 +122,11 @@ public class Board {
 
     /**
      * This method returns a vertical group from this board, using the vertical group number.
-     * Instead of accessing the vertical groups, using the methods from the board class is recommended.
-     *
+     * Using this method isn't recommended because accessing the vertical groups can cause problems.
+     * If this method is used to retrieve vertical groups to add a token, using the methods from the board class instead of this method is recommended.
+     * The vertical groups retrieved using this method must only be used to show the board.
+     * If the vertical groups need to be accessed again in the future, the vertical groups must be retrieved using this method again.
+     * After some actions, a vertical group retrieved using this method because it was part of the board might no longer be part of the board.
      * @param verticalGroupNumber
      * @return
      */
