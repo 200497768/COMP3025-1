@@ -84,6 +84,7 @@ public class ViewActions extends Actions {
 
     @Override
     public void boardCreated() {
+        Log.i("200497768", "The board has been created.");
         this.createVerticalGroupAreas();
         this.addSlotsAndTokens();
     }
@@ -92,6 +93,7 @@ public class ViewActions extends Actions {
      * This method clears the vertical groups area by removing every vertical group area that was added to this area.
      */
     private void clearVerticalGroupsArea() {
+        Log.i("200497768", "The vertical groups area will be cleared.");
         for (LinearLayout verticalGroupArea : this.verticalGroupAreas) {
             verticalGroupArea.removeAllViews();
         }
@@ -105,6 +107,8 @@ public class ViewActions extends Actions {
      * Every vertical group area includes the option to add a token to this vertical group.
      */
     private void createVerticalGroupAreas() {
+        Log.i("200497768", "Vertical group areas are being added.");
+
         //The vertical group number will be used to create a string that shows this number.
         int verticalGroupNumber = 0;
 
@@ -172,6 +176,8 @@ public class ViewActions extends Actions {
      * Every slot or token from the model will be added to the vertical group area.
      */
     private void addSlotsAndTokens() {
+        Log.i("200497768", "Slots and tokens are being added to the vertical group areas.");
+
         //The vertical group number will be used to create a string that shows this number.
         int verticalGroupNumber = 0;
 
@@ -225,6 +231,7 @@ public class ViewActions extends Actions {
      */
     private void boardChanged() {
         //At this time, the strategy is to clear the board area, and create it again.
+        Log.i("200497768", "The board has been changed.");
         this.clearVerticalGroupsArea();
         this.createVerticalGroupAreas();
         this.addSlotsAndTokens();
@@ -232,6 +239,7 @@ public class ViewActions extends Actions {
 
     @Override
     public void tokenAdded() {
+        Log.i("200497768", "A token has been added.");
         this.boardChanged();
 
         //Complete the turn for this participant.
@@ -286,6 +294,7 @@ public class ViewActions extends Actions {
      * @param message
      */
     private void showScoreMessage(String message) {
+        Log.i("200497768", "The score message is being changed to " + message);
         this.scoreTextView.setText(message);
     }
 
