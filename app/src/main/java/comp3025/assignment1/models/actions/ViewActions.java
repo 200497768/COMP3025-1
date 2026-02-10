@@ -11,10 +11,10 @@ import comp3025.assignment1.models.Competition;
  *
  * @author Hao Tian
  */
-public class Actions {
+public class ViewActions {
     public Competition competition;
 
-    public Actions(Competition competition) {
+    public ViewActions(Competition competition) {
         Objects.requireNonNull(competition);
         this.competition = competition;
     }

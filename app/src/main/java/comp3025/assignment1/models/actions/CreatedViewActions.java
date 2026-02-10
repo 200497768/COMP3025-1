@@ -25,7 +25,7 @@ import comp3025.assignment1.models.VerticalGroup;
 /**
  * This class is responsible for changing board area elements when the board model changes.
  */
-public class CreatedViewActions extends Actions {
+public class CreatedViewActions extends ViewActions {
 
     /**
      * This field is the competition.
