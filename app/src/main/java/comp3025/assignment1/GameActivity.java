@@ -15,6 +15,7 @@ import comp3025.assignment1.models.ComputerParticipant;
 import comp3025.assignment1.models.Participant;
 import comp3025.assignment1.models.TextBoard;
 import comp3025.assignment1.models.actions.CreatedViewActions;
+import comp3025.assignment1.models.actions.SuppliedMethod;
 
 /**
  * This class runs after WelcomeActivity.
@@ -72,7 +73,16 @@ public class GameActivity extends AppCompatActivity {
         TextView scoreTextView = findViewById(R.id.scoreTextView);
 
         //Create the view actions.
-        CreatedViewActions viewActions = new CreatedViewActions(competition, boardArea, addArea, verticalGroupsArea, scoreTextView, GameActivity.this);
+        GameActivity gameActivity = this;
+        SuppliedMethod completedMethod = new SuppliedMethod() {
+            @Override
+            public void runSuppliedMethod() {
+                //This method runs when the competition has been completed.
+                //When the competition has completed, run the competitionCompleted method from the GameActivity class.
+                gameActivity.competitionCompleted();
+            }
+        };
+        CreatedViewActions viewActions = new CreatedViewActions(competition, boardArea, addArea, verticalGroupsArea, scoreTextView, GameActivity.this, completedMethod);
 
         //Provide the view actions to the competition.
         competition.changeViewActions(viewActions);
@@ -115,5 +125,20 @@ public class GameActivity extends AppCompatActivity {
         startActivity(shareIntent);
 
         //APA will be the week 5 class.
+    }
+
+    /**
+     * This method runs when the competition has finished.
+     * When this happens, this method needs to show all of the scores for this competition using CompletedActivity.
+     * APA for this method will be the week 5 class.
+     */
+    public void competitionCompleted() {
+        //Create an explicit intent that refers to CompletedActivity.
+        Intent intent = new Intent(GameActivity.this, CompletedActivity.class);
+
+        //Add the competition to the intent.
+        intent.putExtra(GameActivity.participantIntentName, this.competition);
+
+        startActivity(intent);
     }
 }

@@ -58,7 +58,18 @@ public class CreatedViewActions extends ViewActions {
      */
     private List<LinearLayout> verticalGroupAreas = new ArrayList<>();
 
-    public CreatedViewActions(Competition competition, LinearLayout boardArea, LinearLayout verticalGroupsArea, LinearLayout addArea, TextView scoreTextView, Context context) {
+    /**
+     * This field is a class with a method that needs to run when the competition has been completed.
+     * If this field is null, no method needs to run when the competition has completed.
+     */
+    private SuppliedMethod suppliedMethod;
+
+    public CreatedViewActions(Competition competition, SuppliedMethod suppliedMethod) {
+        super(competition);
+        this.suppliedMethod = suppliedMethod;
+    }
+
+    public CreatedViewActions(Competition competition, LinearLayout boardArea, LinearLayout verticalGroupsArea, LinearLayout addArea, TextView scoreTextView, Context context, SuppliedMethod suppliedMethod) {
         super(competition);
 
         Objects.requireNonNull(competition);
@@ -78,6 +89,9 @@ public class CreatedViewActions extends ViewActions {
 
         Objects.requireNonNull(context);
         this.context = context;
+
+        //The supplied method field can be null if no method needs to run when the competition has completed.
+        this.suppliedMethod = suppliedMethod;
     }
 
     @Override
@@ -314,5 +328,16 @@ public class CreatedViewActions extends ViewActions {
     @Override
     public void boardCleared() {
 
+    }
+
+    /**
+     * This method runs when the competition has finished.
+     * This method causes a similar method from the GameActivity class to run.
+     * This is needed because I'm not able to access the startActivity method from this class.
+     * The startActivity is needed in order to use the intent.
+     */
+    public void competitionCompleted() {
+        //Retrieve the completed method field, and run the completed method.
+        this.suppliedMethod.runSuppliedMethod();
     }
 }

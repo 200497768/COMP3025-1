@@ -205,6 +205,14 @@ public class Competition implements Serializable {
         if (this.viewActions != null) {
             this.viewActions.boardChanged();
         }
+
+        //Check whether this competition has been completed.
+        Participant winningParticipant = this.getWinningParticipant();
+        if (winningParticipant != null) {
+            //A participant has won, and this competition has been completed.
+
+            this.viewActions.competitionCompleted();
+        }
     }
 
     /**
