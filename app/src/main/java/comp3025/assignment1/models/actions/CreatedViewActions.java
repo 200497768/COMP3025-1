@@ -115,8 +115,8 @@ public class CreatedViewActions extends ViewActions {
     }
 
     /**
-     * This method creates the vertical group areas, and adds the vertical group areas to the vertical groups area.
-     * Every vertical group area includes the option to add a token to this vertical group.
+     * This method creates and adds vertical group areas to the vertical groups area.
+     * An add option will also be created, allowing tokens to be added to this vertical group.
      */
     private void createVerticalGroupAreas() {
         Log.i("200497768", "Vertical group areas are being added.");
