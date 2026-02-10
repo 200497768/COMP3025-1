@@ -273,6 +273,8 @@ public class CreatedViewActions extends ViewActions {
         }
 
         this.showScoreMessage(scoreParticipant.getName() + " has added " + board.getConsecutiveNumber() + " consecutive tokens. The score for this participant has increased. " + this.getScoreMessage());
+        //This is a mistake because when the round has finished, the score field from the score participant still hasn't been changed.
+        //I need to change the competition class in order to fix this mistake.
     }
 
     /**

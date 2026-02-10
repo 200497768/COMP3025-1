@@ -60,7 +60,7 @@ public class GameActivity extends AppCompatActivity {
         Competition competition = new Competition(board);
         competition.addParticipant(participant);
 
-        //Add the computer participant.
+        //Add the computer participant to the competition.
         Participant computerParticipant = new ComputerParticipant();
         competition.addParticipant(computerParticipant);
 
