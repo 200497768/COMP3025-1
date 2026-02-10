@@ -134,9 +134,9 @@ public class ConsecutiveSlotGroup {
     }
 
     /**
-     * This method returns the winning participant.
-     * The winning participant is determined by checking all of the slots in this consecutive slot group.
-     * If the same participant has added a token to every slot, the participant has won.
+     * This method returns the participant with the same token in every slot.
+     * The score participant is determined by checking all of the slots in this consecutive slot group.
+     * If the same participant has added a token to every slot, the participant has added enough tokens to increase the score.
      * This consecutive slot group must be completed in order for a participant to win.
      *
      * @return
@@ -172,15 +172,15 @@ public class ConsecutiveSlotGroup {
     }
 
     /**
-     * This method returns whether a participant has been able to increase the score with this consecutive slot group.
+     * This method returns whether every slot in this consecutive slot group has a token from the same participant.
      * This method determines this by checking whether every token was added by the same participant.
      *
      * @return
      */
     public boolean getScore() {
-        boolean winning = this.getScoreParticipant() != null;
+        boolean scoreParticipantExists = this.getScoreParticipant() != null;
 
-        return winning;
+        return scoreParticipantExists;
     }
 
     public Direction getDirection() {

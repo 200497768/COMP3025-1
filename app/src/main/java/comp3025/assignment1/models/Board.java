@@ -248,8 +248,8 @@ public class Board {
     }
 
     /**
-     * This method returns the consecutive slot group from this board that can cause the score to increase.
-     * If no consecutive slot groups from this board can cause the score to increase, this method returns null.
+     * This method returns the consecutive slot group from this board with enough consecutive tokens.
+     * If no consecutive slot groups from this board have enough tokens, this method returns null.
      *
      * @return
      */
@@ -266,8 +266,8 @@ public class Board {
     }
 
     /**
-     * This method returns the participant that an increase the score.
-     * If the score hasn't been increased for any participant, this method returns null.
+     * This method returns the participant with enough consecutive tokens to increase the score.
+     * If no participant has added enough consecutive tokens, this method returns null.
      *
      * @return
      */
