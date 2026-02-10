@@ -6,9 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import comp3025.assignment1.models.actions.Action;
-import comp3025.assignment1.models.actions.ViewAction;
-
 /**
  * This class is a board.
  * A board includes multiple slots.
