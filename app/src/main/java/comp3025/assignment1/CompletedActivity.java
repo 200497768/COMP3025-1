@@ -52,7 +52,7 @@ public class CompletedActivity extends AppCompatActivity {
     public void shareScoreChosen(View view) {
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_SEND);
-        intent.putExtra(Intent.EXTRA_TEXT, "I'm " + participant.getName() + ", and my score in Connect " + this.board.getConsecutiveNumber() + " is " + participant.getScore() + ".");
+        intent.putExtra(Intent.EXTRA_TEXT, "This text needs to be changed to include the name and score for this participant.");
         intent.setType("text/plain");
 
         Intent shareIntent = Intent.createChooser(intent, "Score");
