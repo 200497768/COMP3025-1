@@ -242,12 +242,14 @@ public class ViewActions extends Actions {
         Participant scoreParticipant = board.getScoreParticipant();
         if (scoreParticipant == null) {
             //This board needs another turn.
+            Log.i("200497768","This board needs another turn because no participant has added enough consecutive tokens.");
 
             //Show the participant for the next turn.
             Participant nextTurnParticipant = competition.getTurnParticipant();
             this.showScoreMessage("A participant added a token. Now, " + nextTurnParticipant.getName() + " needs to add a token to the board. " + this.getScoreMessage());
         } else {
 //This board has finished.
+            Log.i("200497768",scoreParticipant.getName()+" has added enough consecutive tokens, and this round has finished.");
 
             //The board needs to be cleared.
             board.clear();
