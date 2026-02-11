@@ -12,22 +12,31 @@
         android:text="Good luck, string!"
         android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/shareScoreButton"
+    <LinearLayout
+        android:id="@+id/optionsArea"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:onClick="shareScoreChosen"
-        android:text="Share my score"
-        android:textSize="20sp" />
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/backButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Back"
-        android:textSize="20sp" />
+        <Button
+            android:id="@+id/shareScoreButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="shareScoreChosen"
+            android:text="Share my score"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Back"
+            android:textSize="20sp" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/boardArea"
