@@ -154,6 +154,23 @@ public class Competition implements Serializable {
             if (this.viewActions != null) {
                 this.viewActions.showNeedsAnotherTurn();
             }
+
+            //Complete the turn if the turn participant is a computer participant.
+            //When this method has finished, another token needs to be able to be added.
+            Participant turnParticipant = this.getTurnParticipant();
+            if (!turnParticipant.getPersonChoosing()) {
+                //The turn participant is a computer participant.
+                this.board.addToken(turnParticipant, 0);
+                //For now, the computer participant will only add tokens to the first vertical group.
+
+                //Show the token.
+                this.viewActions.tokenAdded();
+
+                //The board has changed.
+                if (this.viewActions != null) {
+                    this.viewActions.boardChanged();
+                }
+            }
         } else {
 //This round has finished.
 

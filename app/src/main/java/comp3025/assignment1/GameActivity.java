@@ -126,6 +126,7 @@ public class GameActivity extends AppCompatActivity {
     /**
      * This method is for when the option to share the score has been chosen.
      * This method retrieves information, including the score, and uses an implicit intent.
+     * APA will be the week 5 class.
      *
      * @param view
      */
@@ -140,8 +141,6 @@ public class GameActivity extends AppCompatActivity {
 
         Intent shareIntent = Intent.createChooser(intent, "Score");
         startActivity(shareIntent);
-
-        //APA will be the week 5 class.
     }
 
     /**
@@ -151,7 +150,7 @@ public class GameActivity extends AppCompatActivity {
      */
     private String getShareScoreText() {
         //Retrieve the turn participant.
-        //The turn participant will be use to retrieve the name and score.
+        //The turn participant will be used to retrieve the name and score.
         Participant turnParticipant = this.competition.getTurnParticipant();
 
         //Retrieve the board.
