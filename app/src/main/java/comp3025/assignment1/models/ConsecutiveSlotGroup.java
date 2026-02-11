@@ -117,6 +117,7 @@ public class ConsecutiveSlotGroup {
 
         return true;
     }
+
     /**
      * This method allows a slot to be added to this consecutive slot group.
      * A slot can only be added if this consecutive slot group isn't complete.

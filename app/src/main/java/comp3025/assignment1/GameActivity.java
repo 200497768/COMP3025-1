@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.List;
 import java.util.Objects;
 
 import comp3025.assignment1.models.Board;
@@ -45,9 +46,9 @@ public class GameActivity extends AppCompatActivity {
         //This string must match the name that was used to add the participant to the intent.
         //If the string doesn't match, this method returns null, and this method won't be able to retrieve the participant.
 
-        //Change the view to show the participant name.
+        //Show the participant name.
         TextView goodLuckTextView = findViewById(R.id.goodLuckTextView);
-        goodLuckTextView.setText("Good luck, "+participant.getName()+"!");
+        goodLuckTextView.setText(this.getGoodLuckMessage());
 
         //Create the view actions.
         GameActivity gameActivity = this;
@@ -92,6 +93,32 @@ public class GameActivity extends AppCompatActivity {
         boardArea.setBackgroundColor(boardColor);
         //APA is SkyBlue.
     }
+
+    /**
+     * This method returns the good luck message as a string.
+     * The good luck message includes the name for every participant.
+     * @return
+     */
+    private String getGoodLuckMessage(){
+        //Retrieve the participants for this competition.
+        List<Participant> participants=this.competition.getParticipants();
+
+        //Create the good luck message by starting with this string.
+        String message="Good luck, ";
+
+        //Go through every participant, not including the last participant.
+        for(int number=0;number<participants.size()-1;number=number+1){
+            //Add the name for this participant to the message.
+            message=message+participant.getName()+", ";
+        }
+
+        //Add the name for the last participant.
+        Participant lastParticipant=participants.get(participants.size()-1);
+        message=message+", and "+lastParticipant.getName()+"!";
+
+        return message;
+    }
+
 
     /**
      * This method is for when the option to share the score has been chosen.
