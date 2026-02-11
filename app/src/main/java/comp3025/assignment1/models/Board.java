@@ -158,7 +158,6 @@ public class Board implements Serializable {
         }
     }
 
-
     /**
      * This method adds a token to the board.
      * When using this method, the participant that's adding the token must be provided.
@@ -271,8 +270,6 @@ public class Board implements Serializable {
         return consecutiveSlotGroups;
     }
 
-
-
     /**
      * This method returns the participant with enough consecutive tokens to increase the score.
      * If no participant has added enough consecutive tokens, this method returns null.
@@ -302,8 +299,6 @@ public class Board implements Serializable {
     public int getNumberOfOrderedTokenGroups() {
         return this.verticalGroups.size();
     }
-
-
 
     /**
      * This method removes all of the tokens that have been added to the board.

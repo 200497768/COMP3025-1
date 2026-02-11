@@ -6,45 +6,48 @@ import java.util.Objects;
 
 /**
  * This class is a consecutive slot group.
- * A consecutive slot group is a group of slots in a board that are next to each other.
+ * A consecutive slot group is a group of slots or tokens in a board that are next to each other.
+ * The slots or tokens can be chosen from the board using a vertical, horizontal, or diagonal line.
+ * Consecutive slot groups are used to check whether tokens from the same participant have been added to all slots in that group.
  * A consecutive slot group allows the board to determine whether a participant has won by adding a group of tokens.
  * The board class uses this class by creating all of the possible consecutive slot groups for the board.
  * This class includes a method to determine if the same participant has added tokens in every slot in this group.
- * If the same participant has added tokens in every slot in this group, that participant wins.
- *
+ * If the same participant has added tokens in every slot in this group, that participant can increase the score.
  * @author Hao Tian
  */
 public class ConsecutiveSlotGroup {
 
-    //I will also need to create consecutive slot groups.
-    //Consecutive slot groups allow me to check whether tokens from the same participant have been added to all slots in that group.
-    //Consecutive slot groups can be created from multiple tokens in this board.
-    //The tokens can be chosen from a vertical, horizontal, or diagonal line.
-
-    //This field determines the number of tokens needed in order to win.
-    //The tokens must be added by the same participant.
-    //This class uses this field to determine the number of slots to add to a consecutive slot group.
-
-    //This field is the number of tokens that must be added consecutively in order for a participant to win.
+    /**
+     * This field is the number of consecutive tokens that must be added in order to complete this consecutive slot group.
+     * After the consecutive slot group has been created, this number of slots must be added to the consecutive slot group.
+     * The method that determines the score participant can't be used until the consecutive slot group has been completed.
+     * When determining whether a consecutive slot group has been completed, slots with no tokens and slots that are outside of the board are included.
+     */
     private int consecutiveNumber;
 
-    private int numberOfSlots;
-
-    //Tokens, or slots, are added to this list.
-    //Some elements will be tokens, and some will be null.
-    //If an element is null, no tokens in that slot, or the slot is outside of the board.
+    /**
+     * This field is the tokens, or slots, that have been added to this consecutive slot group.
+     * If a token hasn't been added to a slot, or the slot is outside of the board, null can be added, until the number of slots added has increased to this number.
+     */
     private List<Token> tokens=new ArrayList<>();
 
-    //This field is the token that this consecutive slot group started with.
-    //The starting token is used to retrieve other tokens that are next to it.
+    /**
+     * This field is the first slot or token in this consecutive slot group.
+     * In other words, this field is the slot or token that this consecutive slot group started with when it was created.
+     * The remaining slots or tokens in this consecutive slot group are next to this slot or token.
+     */
     private Token startingToken;
 
-    //This field is the slot numbers that this consecutive slot group started with.
-    //In other words, this field is the slot numbers of the first slot in this consecutive slot group.
-    //This field is needed so that the slot numbers of the starting token can be retrieved, even if a token hasn't been added to the starting slot.
+    /**
+     * This field is the slot numbers of the first slot or token in this consecutive slot group.
+     * In other words, this field is the slot numbers of the slot or token that this consecutive slot group started with when it was created.
+     * The remaining slots or tokens in this consecutive slot group are next to this slot or token.
+     */
     private SlotNumbers startingSlotNumbers;
 
-    //This field is the direction that was used in order to create this consecutive slot group.
+    /**
+     * This field is the direction that was used in order to create this consecutive slot group.
+     */
     private Direction direction;
 
     /**
@@ -56,7 +59,6 @@ public class ConsecutiveSlotGroup {
     public Token getStartingToken() {
         return startingToken;
     }
-
 
     public ConsecutiveSlotGroup(Token startingToken, int consecutiveNumber, SlotNumbers startingSlotNumbers, Direction direction) {
         Objects.requireNonNull(startingToken);

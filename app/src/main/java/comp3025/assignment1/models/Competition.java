@@ -33,10 +33,6 @@ public class Competition implements Serializable {
      */
     private List<Participant> participants = new ArrayList<>();
 
-    public List<Participant> getParticipants() {
-        return participants;
-    }
-
     /**
      * This field is the view actions for this competition.
      * The view actions isn't needed for this class.
@@ -61,6 +57,15 @@ public class Competition implements Serializable {
      * This field is needed for Serializable.
      */
     private static final long serialVersionUID = 1;
+
+    /**
+     * This method returns the participants in this competition.
+     *
+     * @return
+     */
+    public List<Participant> getParticipants() {
+        return participants;
+    }
 
     /**
      * This method returns the winning participant for this competition.
@@ -266,7 +271,6 @@ public class Competition implements Serializable {
         return participant;
     }
 
-
     /**
      * This method returns a token color that can be provided to a participant.
      * Ensure that this method produces the token color before the participant has been added to this competition.
@@ -286,6 +290,5 @@ public class Competition implements Serializable {
 
             return tokenColor;
         }
-
     }
 }
