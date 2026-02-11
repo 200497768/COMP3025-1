@@ -109,6 +109,7 @@ public class GameActivity extends AppCompatActivity {
         //Go through every participant, not including the last participant.
         for(int number=0;number<participants.size()-1;number=number+1){
             //Add the name for this participant to the message.
+            Participant participant = participants.get(number);
             message=message+participant.getName()+", ";
         }
 
