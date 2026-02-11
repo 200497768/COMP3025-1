@@ -30,7 +30,6 @@ public class GameActivity extends AppCompatActivity {
      */
     private Competition competition;
 
-
     /**
      * This field is the name that must be used when adding the competition to the intent.
      */
@@ -134,10 +133,32 @@ public class GameActivity extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_SEND);
 
-        //Create the string.
+        //Retrieve the turn participant.
+        //The turn participant will be use to retrieve the name and score.
         Participant turnParticipant = this.competition.getTurnParticipant();
+
+        //Retrieve the board.
+        //The board will be used to determine the number of consecutive tokens needed to increase the score.
         Board board = this.competition.getBoard();
-        String text = "I'm " + turnParticipant.getName() + ", and my score in Connect " + board.getConsecutiveNumber() + " is " + turnParticipant.getScore() + ".";
+
+        //Retrieve the number of participants in this competition.
+        List<Participant> participants = this.competition.getParticipants();
+        int numberOfParticipants = participants.size();
+
+        //Determine the number of other participants in this competition, not including the turn participant.
+        int numberOfOtherParticipants = numberOfParticipants - 1;
+
+        //Create the string.
+        String nameString = "I'm " + turnParticipant.getName() + ", and I'm participating in a Connect " + board.getConsecutiveNumber() + " competition ";
+        String otherParticipantsString = "with " + numberOfOtherParticipants + " other participants. ";
+
+        if (numberOfOtherParticipants == 1) {
+            otherParticipantsString = "with 1 other participant. ";
+        }
+
+        String scoreString = "At this time, my score is " + turnParticipant.getScore() + ".";
+
+        String text = nameString + otherParticipantsString + scoreString;
 
         intent.putExtra(Intent.EXTRA_TEXT, text);
         intent.setType("text/plain");
