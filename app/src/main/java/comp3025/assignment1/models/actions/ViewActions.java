@@ -170,8 +170,6 @@ public class ViewActions {
                     Participant turnParticipant = competition.getTurnParticipant();
                     Log.i("200497768", "Adding a token for " + turnParticipant.getName());
                     board.addToken(turnParticipant, thisVerticalGroupNumber);
-
-
                     Log.i("200497768", "A token has been added.");
 
                     //Show the token.
