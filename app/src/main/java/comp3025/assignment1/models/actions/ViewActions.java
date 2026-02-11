@@ -276,6 +276,7 @@ public class ViewActions {
 
     /**
      * This method shows a message explaining that a round has been completed.
+     * This method happens when a participant has increased the score.
      * A participant has added a token to the board, causing enough consecutive tokens for the round to finish.
      * This is the score participant.
      * The score of the score participant has been increased.
@@ -317,14 +318,6 @@ public class ViewActions {
     private void showScoreMessage(String message) {
         Log.i("200497768", "The score message is being changed to " + message);
         this.scoreTextView.setText(message);
-    }
-
-    /**
-     * This method happens when a participant has increased the score.
-     * The class that extends this class is responsible for writing this method in order to show that the participant has increased the score.
-     */
-    public void participantScoreIncreased() {
-
     }
 
     /**
