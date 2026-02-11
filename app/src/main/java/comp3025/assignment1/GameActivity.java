@@ -25,9 +25,11 @@ import comp3025.assignment1.models.actions.SuppliedMethod;
  */
 public class GameActivity extends AppCompatActivity {
 
+    /**
+     * This field is the competition that was created by WelcomeActivity, and received using the intent.
+     */
     private Competition competition;
-    private Board board;
-    private Participant participant;
+
 
     /**
      * This field is the name that must be used when adding the competition to the intent.
@@ -81,6 +83,7 @@ public class GameActivity extends AppCompatActivity {
         TextView winningParticipantTextView = new TextView(GameActivity.this);
         //APA for creating this view is (Yadav, 2019)
 
+        Board board = this.competition.getBoard();
         Participant winningParticipant = board.getScoreParticipant();
         if (winningParticipant == null) {
             winningParticipantTextView.setText("No score participant at this time.");
@@ -130,7 +133,13 @@ public class GameActivity extends AppCompatActivity {
     public void shareScoreChosen(View view) {
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_SEND);
-        intent.putExtra(Intent.EXTRA_TEXT, "I'm " + participant.getName() + ", and my score in Connect " + this.board.getConsecutiveNumber() + " is " + participant.getScore() + ".");
+
+        //Create the string.
+        Participant turnParticipant = this.competition.getTurnParticipant();
+        Board board = this.competition.getBoard();
+        String text = "I'm " + turnParticipant.getName() + ", and my score in Connect " + board.getConsecutiveNumber() + " is " + turnParticipant.getScore() + ".";
+
+        intent.putExtra(Intent.EXTRA_TEXT, text);
         intent.setType("text/plain");
 
         Intent shareIntent = Intent.createChooser(intent, "Score");
