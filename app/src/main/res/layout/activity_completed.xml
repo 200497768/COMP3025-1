@@ -12,7 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="This competition has been completed because the score for a participant has become the maximum score." />
+        android:text="This competition has been completed because the score for a participant has become the maximum score."
+        android:textSize="20sp" />
 
     <LinearLayout
         android:id="@+id/scoresArea"
