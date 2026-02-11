@@ -154,11 +154,11 @@ public class VerticalGroup implements Serializable {
      * This method can be used to determine the slot numbers for the next token that will be added to this vertical group.
      * This method produces slot numbers.
      * The vertical group number is the vertical group number for this vertical group.
-     * The token number depends on the number of tokens that have been added to this vertical group.
+     * The token number of the next token depends on the number of tokens that have been added to this vertical group.
+     * The token number is the same number as the number of tokens that have been added to this vertical group.
      * @return
      */
     public SlotNumbers getNextTokenSlotNumbers() {
-        //The token number can be determined by checking the number of tokens that have been added to this vertical group.
         int tokenNumber = this.getNumberAdded();
 
         SlotNumbers slotNumbers = new SlotNumbers(this.verticalGroupNumber, tokenNumber);
