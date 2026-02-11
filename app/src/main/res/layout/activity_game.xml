@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#B3E5FC"
+    android:background="#2196F3"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="Good luck, string!"
+        android:textColor="@color/white"
         android:textSize="20sp" />
 
     <LinearLayout
@@ -19,7 +20,6 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="#B3E5FC"
         android:orientation="horizontal">
 
         <Button
@@ -54,7 +54,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#673AB7"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -65,7 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#42A5F5"
+            android:background="#1E88E5"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -90,6 +89,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="Score"
+        android:textColor="@color/white"
         android:textSize="20sp" />
 
 
