@@ -19,6 +19,10 @@ public class VerticalGroup implements Serializable {
 
     /**
      * This field is the tokens in this ordered token group.
+     * This list starts with no tokens.
+     * The vertical group class includes a method that can be used to add tokens, and retrieve tokens that have been added.
+     * Using the method from the vertical group class to retrieve tokens isn't recommended.
+     * Instead, this vertical group needs to be added to a board, and the method from the board class needs to be used to retrieve tokens.
      */
     private List<Token> tokens=new ArrayList<>();
 
@@ -39,17 +43,25 @@ public class VerticalGroup implements Serializable {
         this.capacity = capacity;
     }
 
+    /**
+     * This field is the maximum number of tokens that can be added to this vertical group.
+     * The board provides this number when creating this vertical group.
+     * This number is supposed to be the same for every vertical group in a board.
+     */
     private int capacity;
 
-    //This field is the vertical group number of this vertical group when it has been added to a board.
-    //This field is used by a method that produces the slot numbers for tokens being added to this vertical group.
-    //This field isn't needed if this vertical group doesn't exist in a board.
-    //If this number isn't correct, the method that produces slot numbers must not be used.
+    /**
+     * This field is the vertical group number of this vertical group.
+     * A board includes multiple vertical groups.
+     * The vertical group number is used to retrieve this vertical group from a board.
+     * This field isn't needed if this vertical group hasn't been added to a board.
+     * If this number isn't correct, the method that produces slot numbers must not be used.
+     */
     private int verticalGroupNumber;
 
     /**
      * This method returns a token from this vertical group.
-     * This method only allows accessing a slot with a token.
+     * Using this method isn't recommended because this method only allows accessing a slot with a token.
      * If a token hasn't been added to a slot, this method can't be used to access that slot.
      * This method won't return null if a token hasn't been added to the slot.
      * If null is needed for a slot with no token, use the method from the board class.
@@ -71,7 +83,7 @@ public class VerticalGroup implements Serializable {
 
     /**
      * This method returns the tokens from this vertical group.
-     * In other words, this method returns tokens with the same vertical number.
+     * In other words, this method returns tokens with the same vertical number in the board.
      *
      * @return
      */
@@ -81,6 +93,7 @@ public class VerticalGroup implements Serializable {
 
     /**
      * This method returns the tokens from this vertical group, including slots.
+     * If a slot exists in this vertical group, the list that's returned will include null.
      */
     public List<Token> getSlots() {
         List<Token> slots = new ArrayList<>();
@@ -97,6 +110,7 @@ public class VerticalGroup implements Serializable {
 
         return slots;
     }
+
     /**
      * This method returns whether a slot is still available in this vertical group.
      * If a slot is available, a token can be added using another method from this class.
@@ -137,16 +151,13 @@ public class VerticalGroup implements Serializable {
 
     /**
      * This method returns the slot numbers for the token that will be added to this vertical group.
-     *
+     * This method can be used to determine the slot numbers for the next token that will be added to this vertical group.
+     * This method produces slot numbers.
+     * The vertical group number is the vertical group number for this vertical group.
+     * The token number depends on the number of tokens that have been added to this vertical group.
      * @return
      */
     public SlotNumbers getNextTokenSlotNumbers() {
-        //In order to create a token, the slot numbers of the token in the board must be provided to the token class.
-        //The slot numbers includes the vertical group number and token number.
-        //This method is provided with the vertical group number, but still needs to determine the token number.
-
-        //Create the slot numbers for the token that will be created.
-        //This determines the token number of the token that this method will add.
         //The token number can be determined by checking the number of tokens that have been added to this vertical group.
         int tokenNumber = this.getNumberAdded();
 
