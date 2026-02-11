@@ -133,6 +133,23 @@ public class GameActivity extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_SEND);
 
+        String text = this.getShareScoreText();
+
+        intent.putExtra(Intent.EXTRA_TEXT, text);
+        intent.setType("text/plain");
+
+        Intent shareIntent = Intent.createChooser(intent, "Score");
+        startActivity(shareIntent);
+
+        //APA will be the week 5 class.
+    }
+
+    /**
+     * This method produces the share score text for the turn participant.
+     *
+     * @return
+     */
+    private String getShareScoreText() {
         //Retrieve the turn participant.
         //The turn participant will be use to retrieve the name and score.
         Participant turnParticipant = this.competition.getTurnParticipant();
@@ -159,14 +176,6 @@ public class GameActivity extends AppCompatActivity {
         String scoreString = "At this time, my score is " + turnParticipant.getScore() + ".";
 
         String text = nameString + otherParticipantsString + scoreString;
-
-        intent.putExtra(Intent.EXTRA_TEXT, text);
-        intent.setType("text/plain");
-
-        Intent shareIntent = Intent.createChooser(intent, "Score");
-        startActivity(shareIntent);
-
-        //APA will be the week 5 class.
     }
 
     /**
