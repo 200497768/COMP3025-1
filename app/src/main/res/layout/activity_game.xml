@@ -68,7 +68,8 @@
             android:background="#1E88E5"
             android:gravity="center"
             android:orientation="horizontal"
-            android:padding="10sp">
+            android:paddingTop="10sp"
+            android:paddingBottom="10sp">
 
         </LinearLayout>
 
