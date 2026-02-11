@@ -118,7 +118,7 @@ public class GameActivity extends AppCompatActivity {
 
         //Add the name for the last participant.
         Participant lastParticipant=participants.get(participants.size()-1);
-        message=message+", and "+lastParticipant.getName()+"!";
+        message = message + "and " + lastParticipant.getName() + "!";
 
         return message;
     }
