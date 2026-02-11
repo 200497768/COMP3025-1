@@ -6,10 +6,16 @@ import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import comp3025.assignment1.models.Board;
+import comp3025.assignment1.models.Competition;
+import comp3025.assignment1.models.ComputerParticipant;
 import comp3025.assignment1.models.Participant;
+import comp3025.assignment1.models.TextBoard;
 
 /**
  * This class runs when the code has started running.
@@ -42,14 +48,38 @@ public class WelcomeActivity extends AppCompatActivity {
         EditText participantNameEditText = findViewById(R.id.participantNameEditText);
         Editable participantNameEditable = participantNameEditText.getText();
 
-        //Create the participant model.
+        //Create a participant.
         Participant participant = new Participant("" + participantNameEditable);
+
+        //Create the board.
+        int numberOfVerticalGroups = 5;
+        int verticalGroupCapacity = 4;
+        int consecutiveNumber = 3;
+        Board board = new Board(numberOfVerticalGroups, verticalGroupCapacity, consecutiveNumber);
+
+        TextBoard textBoard = new TextBoard(board, "Token", "Empty");
+
+        //Create the competition.
+        int maximumScore = 3;
+        Competition competition = new Competition(board, maximumScore);
+
+        //Add the participant to the competition.
+        competition.addParticipant(participant);
+
+        //Add the computer participant to the competition.
+        Participant computerParticipant = new ComputerParticipant();
+        competition.addParticipant(computerParticipant);
+
+        LinearLayout boardArea = findViewById(R.id.boardArea);
+        LinearLayout addArea = findViewById(R.id.addArea);
+        LinearLayout verticalGroupsArea = findViewById(R.id.verticalGroupsArea);
+        TextView scoreTextView = findViewById(R.id.scoreTextView);
 
         //Create an explicit intent that refers to GameActivity.
         Intent intent = new Intent(WelcomeActivity.this, GameActivity.class);
 
-        //Add the participant to the intent.
-        intent.putExtra(GameActivity.participantIntentName, participant);
+        //Add the competition to the intent.
+        intent.putExtra(GameActivity.competitionIntentName, participant);
 
         startActivity(intent);
     }

@@ -13,9 +13,7 @@ import java.util.Objects;
 
 import comp3025.assignment1.models.Board;
 import comp3025.assignment1.models.Competition;
-import comp3025.assignment1.models.ComputerParticipant;
 import comp3025.assignment1.models.Participant;
-import comp3025.assignment1.models.TextBoard;
 import comp3025.assignment1.models.actions.CreatedViewActions;
 import comp3025.assignment1.models.actions.SuppliedMethod;
 
@@ -31,49 +29,25 @@ public class GameActivity extends AppCompatActivity {
     private Participant participant;
 
     /**
-     * This field is the name that must be used when adding the participant to the intent.
+     * This field is the name that must be used when adding the competition to the intent.
      */
-    public static final String participantIntentName = "comp3025.assignment1.participant";
+    public static final String competitionIntentName = "comp3025.assignment1.competition";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        //Retrieve the participant from the intent that was received from WelcomeActivity.
+        //Retrieve the competition from the intent that was received from WelcomeActivity.
         Intent intent = getIntent();
-        Participant participant = intent.getSerializableExtra(GameActivity.participantIntentName, Participant.class);
-        this.participant = participant;
+        Competition competition = intent.getSerializableExtra(GameActivity.competitionIntentName, Competition.class);
+        this.competition = competition;
         //This string must match the name that was used to add the participant to the intent.
         //If the string doesn't match, this method returns null, and this method won't be able to retrieve the participant.
 
         //Change the view to show the participant name.
         TextView goodLuckTextView = findViewById(R.id.goodLuckTextView);
         goodLuckTextView.setText("Good luck, "+participant.getName()+"!");
-
-        int numberOfVerticalGroups = 5;
-        int verticalGroupCapacity = 4;
-        int consecutiveNumber = 3;
-        Board board = new Board(numberOfVerticalGroups, verticalGroupCapacity, consecutiveNumber);
-        this.board = board;
-
-        TextBoard textBoard = new TextBoard(board, "Token", "Empty");
-
-        int maximumScore = 3;
-        Competition competition = new Competition(board, maximumScore);
-        this.competition = competition;
-
-        //Add the participant to the competition.
-        competition.addParticipant(participant);
-
-        //Add the computer participant to the competition.
-        Participant computerParticipant = new ComputerParticipant();
-        competition.addParticipant(computerParticipant);
-
-        LinearLayout boardArea = findViewById(R.id.boardArea);
-        LinearLayout addArea = findViewById(R.id.addArea);
-        LinearLayout verticalGroupsArea = findViewById(R.id.verticalGroupsArea);
-        TextView scoreTextView = findViewById(R.id.scoreTextView);
 
         //Create the view actions.
         GameActivity gameActivity = this;
@@ -85,6 +59,13 @@ public class GameActivity extends AppCompatActivity {
                 gameActivity.competitionCompleted();
             }
         };
+
+        //Retrieve the areas that are needed for the view actions.
+        LinearLayout boardArea = findViewById(R.id.boardArea);
+        LinearLayout addArea = findViewById(R.id.addArea);
+        LinearLayout verticalGroupsArea = findViewById(R.id.verticalGroupsArea);
+        TextView scoreTextView = findViewById(R.id.scoreTextView);
+
         CreatedViewActions viewActions = new CreatedViewActions(competition, boardArea, addArea, verticalGroupsArea, scoreTextView, GameActivity.this, completedMethod);
 
         //Provide the view actions to the competition.
