@@ -321,14 +321,6 @@ public class ViewActions {
     }
 
     /**
-     * This method happens when the board has been cleared.
-     * This class that extends this class is responsible for writing this method in order to show that the board has been cleared.
-     */
-    public void boardCleared() {
-
-    }
-
-    /**
      * This method runs when the competition has finished.
      * This method causes a similar method from the GameActivity class to run.
      * This is needed because I'm not able to access the startActivity method from this class.
