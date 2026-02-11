@@ -176,6 +176,7 @@ public class GameActivity extends AppCompatActivity {
         String scoreString = "At this time, my score is " + turnParticipant.getScore() + ".";
 
         String text = nameString + otherParticipantsString + scoreString;
+        return text;
     }
 
     /**
