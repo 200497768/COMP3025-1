@@ -42,7 +42,7 @@ public class GameActivity extends AppCompatActivity {
         //Retrieve the competition from the intent that was received from WelcomeActivity.
         Intent intent = getIntent();
         Competition competition = intent.getSerializableExtra(GameActivity.competitionIntentName, Competition.class);
-        this.competition = competition;
+        Objects.requireNonNull(competition);this.competition = competition;
         //This string must match the name that was used to add the participant to the intent.
         //If the string doesn't match, this method returns null, and this method won't be able to retrieve the participant.
 
