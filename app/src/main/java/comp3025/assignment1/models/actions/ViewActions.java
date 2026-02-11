@@ -265,6 +265,10 @@ public class ViewActions {
         this.addSlotsAndTokens();
     }
 
+    /**
+     * This method happens after a participant has added a token to the board, but not enough consecutive tokens have been added to increase the score.
+     * This method shows a message explaining that another turn is needed, and that the next participant needs to add a token.
+     */
     public void showNeedsAnotherTurn() {
         Participant nextTurnParticipant = competition.getTurnParticipant();
         this.showScoreMessage("A participant added a token. Now, " + nextTurnParticipant.getName() + " needs to add a token to the board. " + this.getScoreMessage());
