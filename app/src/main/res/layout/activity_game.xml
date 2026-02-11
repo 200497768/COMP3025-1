@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#F44336"
+    android:background="#B3E5FC"
+    android:gravity="center"
     android:orientation="vertical">
 
     <TextView
@@ -18,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="#E91E63"
+        android:background="#B3E5FC"
         android:orientation="horizontal">
 
         <Button
@@ -45,7 +46,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="#9C27B0"
+        android:gravity="center"
         android:orientation="vertical">
 
         <LinearLayout
@@ -54,6 +55,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#673AB7"
+            android:gravity="center"
             android:orientation="horizontal">
 
         </LinearLayout>
@@ -63,7 +65,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#3F51B5"
+            android:background="#42A5F5"
+            android:gravity="center"
             android:orientation="horizontal">
 
         </LinearLayout>
