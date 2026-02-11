@@ -186,14 +186,29 @@ public class ConsecutiveSlotGroup {
         return scoreParticipantExists;
     }
 
+    /**
+     * This method returns the direction for this consecutive slot group.
+     *
+     * @return
+     */
     public Direction getDirection() {
         return direction;
     }
 
+    /**
+     * This method returns the slot numbers of the starting slot.
+     * This method can be used to retrieve the slot numbers in the board of the first slot or token.
+     * @return
+     */
     public SlotNumbers getStartingSlotNumbers() {
         return startingSlotNumbers;
     }
 
+    /**
+     * This method returns the number of consecutive tokens added by the participant that are needed in order for this consecutive slot group to be cmopleted.
+     * This number was determined when the consecutive slot group was created.
+     * @return
+     */
     public int getConsecutiveNumber() {
         return consecutiveNumber;
     }
