@@ -171,8 +171,24 @@ public class CreatedViewActions extends ViewActions {
                     Log.i("200497768", "Adding a token for " + turnParticipant.getName());
                     board.addToken(turnParticipant, thisVerticalGroupNumber);
 
+
+                    Log.i("200497768", "A token has been added.");
+
                     //Show the token.
-                    viewActions.tokenAdded();
+                    viewActions.boardChanged();
+
+                    //Complete the turn with the competition.
+                    competition.completeTurn();
+
+                    //This class will cause the method from the competition class to happen.
+                    //The competition class is the model, and will be responsible for changing the board to prepare it for the next round.
+
+                    //Show the text board.
+                    Board board = competition.getBoard();
+                    TextBoard textBoard = new TextBoard(board, "Token", "Empty");
+                    for (String string : textBoard.getLines()) {
+                        Log.i("200497768", string);
+                    }
                 }
             });
 
@@ -253,21 +269,7 @@ public class CreatedViewActions extends ViewActions {
 
     @Override
     public void tokenAdded() {
-        Log.i("200497768", "A token has been added.");
-        this.boardChanged();
 
-        //Complete the turn with the competition.
-        this.competition.completeTurn();
-
-        //This class will cause the method from the competition class to happen.
-        //The competition class is the model, and will be responsible for changing the board to prepare it for the next round.
-
-        //Show the text board.
-        Board board = this.competition.getBoard();
-        TextBoard textBoard = new TextBoard(board, "Token", "Empty");
-        for (String string : textBoard.getLines()) {
-            Log.i("200497768", string);
-        }
     }
 
     public void showNeedsAnotherTurn() {
