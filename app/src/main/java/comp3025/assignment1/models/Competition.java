@@ -167,7 +167,7 @@ public class Competition implements Serializable {
             Participant participant = this.getTurnParticipant();
             if (!participant.getPersonChoosing()) {
                 //The turn participant is a computer participant.
-                ComputerParticipant computerParticipant=participant;
+                ComputerParticipant computerParticipant = (ComputerParticipant) participant;
 
                 //Choose a vertical group to add the token to.
                 int verticalGroupNumber =computerParticipant.chooseVerticalGroupNumber();
