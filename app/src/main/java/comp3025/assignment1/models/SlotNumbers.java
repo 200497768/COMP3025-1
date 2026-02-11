@@ -12,12 +12,18 @@ package comp3025.assignment1.models;
  */
 public class SlotNumbers {
 
-    //This field is the vertical group number.
-    //The vertical group number is used to choose a single vertical group from the board.
+    /**
+     * This field is the vertical group number.
+     * A board includes multiple vertical groups.
+     * The vertical group number is used to choose a single vertical group from the board.
+     */
     private int verticalGroupNumber;
 
-    //This field is the token number.
-    //The token number is used to choose a single token from a vertical group.
+    /**
+     * This field is the token number.
+     * A vertical group includes multiple tokens.
+     * The token number is used to choose a single token from a vertical group.
+     */
     private int tokenNumber;
 
     public SlotNumbers(int verticalGroupNumber, int tokenNumber) {
@@ -32,10 +38,21 @@ public class SlotNumbers {
         this.tokenNumber = tokenNumber;
     }
 
+    /**
+     * This method returns the vertical group number.
+     * This number can be used to access a vertical group from a board.
+     *
+     * @return
+     */
     public int getVerticalGroupNumber() {
         return verticalGroupNumber;
     }
 
+    /**
+     * This method returns the token number.
+     * This number can be used to access a token from a vertical group.
+     * @return
+     */
     public int getTokenNumber() {
         return tokenNumber;
     }

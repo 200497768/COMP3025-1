@@ -188,7 +188,6 @@ public class ConsecutiveSlotGroup {
 
     /**
      * This method returns the direction for this consecutive slot group.
-     *
      * @return
      */
     public Direction getDirection() {

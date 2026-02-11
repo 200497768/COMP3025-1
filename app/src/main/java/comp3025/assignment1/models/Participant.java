@@ -76,7 +76,6 @@ public class Participant implements Serializable {
         return name;
     }
 
-
     /**
      * This method returns the background color for tokens added by this participant.
      *

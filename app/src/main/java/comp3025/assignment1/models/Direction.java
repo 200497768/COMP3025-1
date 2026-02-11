@@ -27,6 +27,11 @@ public class Direction {
         return 0;
     }
 
+    /**
+     * This method returns a word that explains this direction.
+     *
+     * @return
+     */
     public String getString() {
         return "string";
     }
