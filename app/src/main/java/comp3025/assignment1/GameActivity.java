@@ -15,8 +15,8 @@ import java.util.Objects;
 import comp3025.assignment1.models.Board;
 import comp3025.assignment1.models.Competition;
 import comp3025.assignment1.models.Participant;
-import comp3025.assignment1.models.actions.CreatedViewActions;
 import comp3025.assignment1.models.actions.SuppliedMethod;
+import comp3025.assignment1.models.actions.ViewActions;
 
 /**
  * This class runs after WelcomeActivity.
@@ -68,7 +68,7 @@ public class GameActivity extends AppCompatActivity {
         LinearLayout verticalGroupsArea = findViewById(R.id.verticalGroupsArea);
         TextView scoreTextView = findViewById(R.id.scoreTextView);
 
-        CreatedViewActions viewActions = new CreatedViewActions(competition, boardArea, addArea, verticalGroupsArea, scoreTextView, GameActivity.this, completedMethod);
+        ViewActions viewActions = new ViewActions(competition, boardArea, addArea, verticalGroupsArea, scoreTextView, GameActivity.this, completedMethod);
 
         //Provide the view actions to the competition.
         competition.changeViewActions(viewActions);

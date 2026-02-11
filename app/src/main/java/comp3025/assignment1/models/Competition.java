@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import comp3025.assignment1.models.actions.CreatedViewActions;
+import comp3025.assignment1.models.actions.ViewActions;
 
 /**
  * This class is a competition.
@@ -41,7 +41,7 @@ public class Competition implements Serializable {
      * This field is the view actions for this competition.
      * The view actions isn't needed for this class.
      */
-    private CreatedViewActions viewActions;
+    private ViewActions viewActions;
 
     /**
      * This field is the number of participants that have completed turns.
@@ -125,7 +125,7 @@ public class Competition implements Serializable {
      * After providing the view actions to this method, this competition will be able to access it as a field.
      * @param viewActions
      */
-    public void changeViewActions(CreatedViewActions viewActions) {
+    public void changeViewActions(ViewActions viewActions) {
         this.viewActions = viewActions;
     }
 
@@ -163,10 +163,11 @@ public class Competition implements Serializable {
                 this.board.addToken(turnParticipant, 0);
                 //For now, the computer participant will only add tokens to the first vertical group.
 
-                //Show the token.
-                this.viewActions.tokenAdded();
+                //Change the turn participant to the next participant.
+                this.completeTurn();
 
                 //The board has changed.
+                //Use the method from the view actions class to show the token that has been added by the computer participant.
                 if (this.viewActions != null) {
                     this.viewActions.boardChanged();
                 }
@@ -230,7 +231,7 @@ public class Competition implements Serializable {
 
             //Before running the method, remove the view actions field, in order to avoid a problem with Serializable.
             //The view actions is still needed, so it will be available during this method.
-            CreatedViewActions viewActions = this.viewActions;
+            ViewActions viewActions = this.viewActions;
             this.viewActions = null;
 
             //Run the method from the view actions.
