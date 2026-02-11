@@ -141,7 +141,8 @@ public class Competition implements Serializable {
         if (scoreParticipant == null) {
             //This board needs another turn.
 
-            //Increase the number of turns completed.
+            //Increase the turn number.
+            //After the turn number has been increased, the turn participant will be the next participant in the competition.
             //Change the number of turns completed to the first participant again after all participants have completed a turn.
             Log.i("200497768", "Increasing turns completed by 1. The number of turns completed was " + this.turnsCompleted);
             this.turnsCompleted = this.turnsCompleted + 1;
@@ -155,17 +156,19 @@ public class Competition implements Serializable {
                 this.viewActions.showNeedsAnotherTurn();
             }
 
-            //Complete the turn if the turn participant is a computer participant.
+            //Check whether the turn participant is a computer participant.
+            //This must happen after the turn number has been increased, since it involves retrieving the turn participant.
             //When this method has finished, another token needs to be able to be added.
-            Participant turnParticipant = this.getTurnParticipant();
-            if (!turnParticipant.getPersonChoosing()) {
+            Participant participant = this.getTurnParticipant();
+            if (!participant.getPersonChoosing()) {
                 //The turn participant is a computer participant.
+                ComputerParticipant computerParticipant=participant;
 
                 //Choose a vertical group to add the token to.
-                int verticalGroupNumber = turnParticipant.chooseVerticalGroup();
+                int verticalGroupNumber =computerParticipant.chooseVerticalGroupNumber();
 
                 //Add the token.
-                this.board.addToken(turnParticipant, 0);
+                this.board.addToken(participant, 0);
 
                 //Change the turn participant to the next participant.
                 this.completeTurn();

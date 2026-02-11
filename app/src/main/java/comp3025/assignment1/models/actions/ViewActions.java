@@ -322,6 +322,7 @@ public class ViewActions {
     public void participantScoreIncreased() {
 
     }
+
     /**
      * This method happens when the board has been cleared.
      * This class that extends this class is responsible for writing this method in order to show that the board has been cleared.
