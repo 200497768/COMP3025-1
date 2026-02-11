@@ -79,7 +79,7 @@ public class WelcomeActivity extends AppCompatActivity {
         Intent intent = new Intent(WelcomeActivity.this, GameActivity.class);
 
         //Add the competition to the intent.
-        intent.putExtra(GameActivity.competitionIntentName, participant);
+        intent.putExtra(GameActivity.competitionIntentName, competition);
 
         startActivity(intent);
     }
