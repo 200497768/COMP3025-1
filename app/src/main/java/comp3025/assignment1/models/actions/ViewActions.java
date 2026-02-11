@@ -101,6 +101,18 @@ public class ViewActions {
     }
 
     /**
+     * This method must be used when the board has changed.
+     * This method shows the board, after it has been changed.
+     */
+    public void boardChanged() {
+        //At this time, the strategy is to clear the board area, and create it again.
+        Log.i("200497768", "The board has been changed.");
+        this.clearVerticalGroupsArea();
+        this.createVerticalGroupAreas();
+        this.addSlotsAndTokens();
+    }
+
+    /**
      * This method clears the vertical groups area by removing every vertical group area that was added to this area.
      */
     private void clearVerticalGroupsArea() {
@@ -253,17 +265,6 @@ public class ViewActions {
         }
     }
 
-    /**
-     * This method must be used when the board has changed.
-     * This method shows the board, after it has been changed.
-     */
-    public void boardChanged() {
-        //At this time, the strategy is to clear the board area, and create it again.
-        Log.i("200497768", "The board has been changed.");
-        this.clearVerticalGroupsArea();
-        this.createVerticalGroupAreas();
-        this.addSlotsAndTokens();
-    }
 
     /**
      * This method happens after a participant has added a token to the board, but not enough consecutive tokens have been added to increase the score.
@@ -297,6 +298,16 @@ public class ViewActions {
     }
 
     /**
+     * This method changes the score message to the string that's provided.
+     *
+     * @param message
+     */
+    private void showScoreMessage(String message) {
+        Log.i("200497768", "The score message is being changed to " + message);
+        this.scoreTextView.setText(message);
+    }
+
+    /**
      * This method creates the score message as a string.
      */
     private String getScoreMessage() {
@@ -309,17 +320,6 @@ public class ViewActions {
 
         return message;
     }
-
-    /**
-     * This method changes the score message to the string that's provided.
-     *
-     * @param message
-     */
-    private void showScoreMessage(String message) {
-        Log.i("200497768", "The score message is being changed to " + message);
-        this.scoreTextView.setText(message);
-    }
-
     /**
      * This method runs when the competition has finished.
      * This method causes a similar method from the GameActivity class to run.
