@@ -9,7 +9,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Welcome to Connect 3." />
+        android:text="Welcome to Connect 3."
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/participantNameEditText"
@@ -18,7 +19,8 @@
         android:layout_weight="1"
         android:ems="10"
         android:hint="What's your name?"
-        android:inputType="text" />
+        android:inputType="text"
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/wishMeLuckButton"
@@ -26,5 +28,6 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:onClick="wishMeLuckButtonChosen"
-        android:text="Wish me luck" />
+        android:text="Wish me luck"
+        android:textSize="20sp" />
 </LinearLayout>
