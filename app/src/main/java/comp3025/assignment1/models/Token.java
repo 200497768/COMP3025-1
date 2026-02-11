@@ -10,8 +10,19 @@ import java.util.Objects;
  * @author Hao Tian
  */
 public class Token implements Serializable {
+
+    /**
+     * This field is the participant that this token was added by.
+     */
     private Participant participant;
 
+    /**
+     * This field is the slot numbers for this token.
+     * The slot numbers are used to retrieve this token from the board.
+     * When this token is created, the board and vertical group are responsible for determining the slot numbers.
+     * The vertical group number can be chosen by the participant, but the token number is chosen by the vertical group.
+     * The token number depends on the number of existing tokens in the same vertical group.
+     */
     private SlotNumbers slotNumbers;
 
     /**
@@ -27,6 +38,12 @@ public class Token implements Serializable {
         this.slotNumbers = slotNumbers;
     }
 
+    /**
+     * This method returns the slot numbers for this token.
+     * The slot numbers class includes methods that can be used to retrieve the vertical group number and token number, if needed.
+     *
+     * @return
+     */
     public SlotNumbers getSlotNumbers() {
         return slotNumbers;
     }
