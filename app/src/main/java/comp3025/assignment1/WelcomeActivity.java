@@ -129,7 +129,7 @@ public class WelcomeActivity extends AppCompatActivity {
      * If multiple participants have been added, the text will wish them luck.
      */
     private void changeWishLuck() {
-        TextView wishMeLuckButton = findViewById(R.id.wishMeLuckButton);
+        Button wishMeLuckButton = findViewById(R.id.wishMeLuckButton);
 
         //Determine the number of participants that have been added that aren't the computer participant.
         int numberOfPersonChoosingParticipants = 0;
