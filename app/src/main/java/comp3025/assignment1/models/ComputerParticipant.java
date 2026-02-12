@@ -13,7 +13,7 @@ public class ComputerParticipant extends Participant {
      * This field is the competition that this computer participant is participating in.
      * The computer participant will access this competition in order to decide the vertical group to add a token to.
      */
-    private Competition competition;
+    public Competition competition;
 
     public ComputerParticipant(Competition competition) {
         super("Computer");
