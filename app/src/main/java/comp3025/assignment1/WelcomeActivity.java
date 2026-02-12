@@ -17,7 +17,7 @@ import java.util.List;
 
 import comp3025.assignment1.models.Board;
 import comp3025.assignment1.models.Competition;
-import comp3025.assignment1.models.participants.FirstAvailableComputerParticipant;
+import comp3025.assignment1.models.participants.ComputerParticipant;
 import comp3025.assignment1.models.participants.Participant;
 
 /**
@@ -204,7 +204,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
             //Add the computer participant to the competition, if only 1 participant was added.
             if (this.participants.size() == 1) {
-                Participant computerParticipant = new FirstAvailableComputerParticipant(competition);
+                Participant computerParticipant = new ComputerParticipant(competition);
                 competition.addParticipant(computerParticipant);
             }
 
