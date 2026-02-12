@@ -173,7 +173,7 @@ public class Competition implements Serializable {
                 int verticalGroupNumber =computerParticipant.chooseVerticalGroupNumber();
 
                 //Add the token.
-                this.board.addToken(participant, 0);
+                this.board.addToken(participant, verticalGroupNumber);
 
                 //Change the turn participant to the next participant.
                 this.completeTurn();
