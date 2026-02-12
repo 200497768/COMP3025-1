@@ -104,12 +104,7 @@ public class Competition implements Serializable {
     public Competition(Board board, int maximumScore) {
         Objects.requireNonNull(board);
         this.board = board;
-    }
 
-    /**
-     * This method changes the maximum score that a participant needs in order to finish this competition.
-     */
-    public void changeMaximumScore(int maximumScore) {
         if (maximumScore < 1) {
             throw new IllegalArgumentException();
         }
