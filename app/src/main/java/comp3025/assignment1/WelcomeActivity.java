@@ -68,7 +68,7 @@ public class WelcomeActivity extends AppCompatActivity {
         competition.addParticipant(participant);
 
         //Add the computer participant to the competition.
-        Participant computerParticipant = new ComputerParticipant();
+        Participant computerParticipant = new ComputerParticipant(competition);
         competition.addParticipant(computerParticipant);
 
         LinearLayout boardArea = findViewById(R.id.boardArea);
