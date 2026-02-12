@@ -31,7 +31,9 @@ public class WelcomeActivity extends AppCompatActivity {
         //This method causes the code to run the welcome view.
         setContentView(R.layout.activity_welcome);
 
-        TextView welcomeTextView = findViewById(R.id.welcomeTextView);
+        //Change the number of consecutive tokens needed.
+        TextView welcomeTextView=findViewById(R.id.welcomeTextView);
+        welcomeTextView.setText("Welcome to Connect 3.");
     }
 
     @Override
