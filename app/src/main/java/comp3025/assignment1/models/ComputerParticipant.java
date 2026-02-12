@@ -34,6 +34,12 @@ public class ComputerParticipant extends Participant {
      * @return
      */
     public int chooseVerticalGroupNumber() {
+        //Retrieve the board.
+        Board board = this.competition.getBoard();
+
+        //Retrieve the number of vertical groups in this board.
+        int numberOfVerticalGroups = board.getNumberOfVerticalGroups();
+
         int verticalGroupNumber = 0;
 
         return verticalGroupNumber;
