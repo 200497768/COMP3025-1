@@ -77,20 +77,7 @@ public class GameActivity extends AppCompatActivity {
         viewActions.boardCreated();
         //The board is supposed to cause actions to happen, but since the board has been created, I'll write it from the onCreate method.
 
-        //Show whether a participant has won.
-        LinearLayout winningParticipantArea = findViewById(R.id.winningParticipantArea);
-        TextView winningParticipantTextView = new TextView(GameActivity.this);
-        //APA for creating this view is (Yadav, 2019)
-
-        Board board = this.competition.getBoard();
-        Participant scoreParticipant = board.getScoreParticipant();
-        if (scoreParticipant == null) {
-            winningParticipantTextView.setText("No score participant at this time.");
-        } else {
-            winningParticipantTextView.setText("Score participant is " + scoreParticipant.getName());
-        }
-        winningParticipantArea.addView(winningParticipantTextView);
-
+        //Change the background color for the board area.
         int boardColor = Color.rgb(135, 206, 235);
         boardArea.setBackgroundColor(boardColor);
         //APA is SkyBlue.

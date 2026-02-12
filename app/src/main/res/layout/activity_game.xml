@@ -77,17 +77,6 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/winningParticipantArea"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="#2196F3"
-        android:orientation="horizontal">
-
-    </LinearLayout>
-
-
     <TextView
         android:id="@+id/scoreTextView"
         android:layout_width="wrap_content"
