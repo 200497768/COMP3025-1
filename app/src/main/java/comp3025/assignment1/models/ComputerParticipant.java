@@ -1,5 +1,7 @@
 package comp3025.assignment1.models;
 
+import java.util.Random;
+
 /**
  * This class is a computer participant.
  * The name for a computer participant can't be chosen.
@@ -44,8 +46,8 @@ public class ComputerParticipant extends Participant {
 
         //Choose a vertical group number.
         //The number that's chosen can be 0, but it must be less than the number of vertical groups in the board.
-
-        int verticalGroupNumber = 0;
+        Random random = new Random();
+        int verticalGroupNumber = random.nextInt(numberOfVerticalGroups);
 
         return verticalGroupNumber;
     }
