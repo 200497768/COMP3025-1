@@ -1,6 +1,7 @@
-package comp3025.assignment1.models;
+package comp3025.assignment1.models.participants;
 
-import comp3025.assignment1.models.participants.ComputerParticipant;
+import comp3025.assignment1.models.Board;
+import comp3025.assignment1.models.Competition;
 
 /**
  * This class is a computer participant.
