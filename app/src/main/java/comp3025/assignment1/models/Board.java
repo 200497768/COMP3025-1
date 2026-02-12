@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import comp3025.assignment1.models.consecutive.ConsecutiveSlotGroup;
+
 /**
  * This class is a board.
  * A board includes multiple vertical groups, with multiple tokens in every vertical group.
