@@ -29,6 +29,7 @@ public class ComputerParticipant extends Participant {
      * This method chooses a vertical group to add a token to, and returns the number for the vertical group.
      * When the turn participant becomes the computer participant, the competition will use this method to retrieve a vertical group number.
      * This method can return any vertical group number, even if a slot isn't available in that vertical group, as long the vertical group number isn't outside of the board.
+     * If this method returns a vertical group number with no slot available, the competition won't add the token to that vertical group.
      * If the competition determines that no slot is available in the vertical group, the competition will retrieve another number from this method.
      * The competition must ensure that a slot is available in the board.
      *
