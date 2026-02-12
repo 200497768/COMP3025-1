@@ -183,33 +183,39 @@ public class WelcomeActivity extends AppCompatActivity {
      * APA for this method will be the week 5 class.
      */
     public void wishMeLuckButtonChosen(View view) {
-        //Create the board.
-        int numberOfVerticalGroups = 5;
-        int verticalGroupCapacity = 4;
-        int consecutiveNumber = 30;
-        Board board = new Board(numberOfVerticalGroups, verticalGroupCapacity, consecutiveNumber);
+        //Check whether a participant has been added before starting the competition.
+        //The competition can only start if a participant has been added, not including the computer participant.
+        //If only a single participant exists, the computer participant will be added.
+        //If multiple participants exist, the computer participant won't be added.
+        if (this.participants.size() > 0) {
+            //Create the board.
+            int numberOfVerticalGroups = 5;
+            int verticalGroupCapacity = 4;
+            int consecutiveNumber = 30;
+            Board board = new Board(numberOfVerticalGroups, verticalGroupCapacity, consecutiveNumber);
 
-        //Create the competition.
-        Competition competition = new Competition(board, 3);
+            //Create the competition.
+            Competition competition = new Competition(board, 3);
 
-        //Add the participants that were created by this class to the competition.
-        for (Participant participant : this.participants) {
-            competition.addParticipant(participant);
+            //Add the participants that were created by this class to the competition.
+            for (Participant participant : this.participants) {
+                competition.addParticipant(participant);
+            }
+
+            //Add the computer participant to the competition, if only 1 participant was added.
+            if (this.participants.size() == 1) {
+                Participant computerParticipant = new FirstAvailableComputerParticipant(competition);
+                competition.addParticipant(computerParticipant);
+            }
+
+            //Create an explicit intent that refers to GameActivity.
+            Intent intent = new Intent(WelcomeActivity.this, GameActivity.class);
+
+            //Add the competition to the intent.
+            intent.putExtra(GameActivity.competitionIntentName, competition);
+
+            startActivity(intent);
         }
-
-        //Add the computer participant to the competition, if only 1 participant was added.
-        if (this.participants.size() == 1) {
-            Participant computerParticipant = new FirstAvailableComputerParticipant(competition);
-            competition.addParticipant(computerParticipant);
-        }
-
-        //Create an explicit intent that refers to GameActivity.
-        Intent intent = new Intent(WelcomeActivity.this, GameActivity.class);
-
-        //Add the competition to the intent.
-        intent.putExtra(GameActivity.competitionIntentName, competition);
-
-        startActivity(intent);
     }
 
 }
