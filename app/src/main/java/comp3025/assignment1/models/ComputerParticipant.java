@@ -9,8 +9,15 @@ package comp3025.assignment1.models;
  */
 public class ComputerParticipant extends Participant {
 
-    public ComputerParticipant() {
+    /**
+     * This field is the competition that this computer participant is participating in.
+     * The computer participant will access this competition in order to decide the vertical group to add a token to.
+     */
+    private Competition competition;
+
+    public ComputerParticipant(Competition competition) {
         super("Computer");
+        this.competition = competition;
     }
 
     @Override
@@ -20,7 +27,9 @@ public class ComputerParticipant extends Participant {
 
     /**
      * This method chooses a vertical group to add a token to, and returns the number for the vertical group.
-     * For now, the computer participant will only add tokens to the first vertical group.
+     * When the turn participant becomes the computer participant, the competition will use this method to retrieve a vertical group number.
+     * This method can return any vertical group number, even if a slot isn't available in that vertical group, as long the vertical group number isn't outside of the board.
+     * If the competition determines that no slot is available in the vertical group, the competition will retrieve another number from this method.
      *
      * @return
      */
