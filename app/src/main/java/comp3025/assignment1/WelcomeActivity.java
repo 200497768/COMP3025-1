@@ -18,6 +18,7 @@ import comp3025.assignment1.models.Participant;
 import comp3025.assignment1.models.TextBoard;
 
 /**
+ * The WelcomeActivity class is responsible for showing an area to input the participant name.
  * This class runs when the code has started running.
  *
  * @author Hao Tian

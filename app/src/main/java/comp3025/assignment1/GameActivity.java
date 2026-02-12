@@ -18,7 +18,9 @@ import comp3025.assignment1.models.actions.SuppliedMethod;
 import comp3025.assignment1.models.actions.ViewActions;
 
 /**
+ * The GameActivity class shows the board, and allows tokens to be added.
  * This class runs after WelcomeActivity.
+ * The onCreate method needs a competition, including a board and participants.
  *
  * @author Hao Tian
  */
@@ -42,7 +44,8 @@ public class GameActivity extends AppCompatActivity {
         //Retrieve the competition from the intent that was received from WelcomeActivity.
         Intent intent = getIntent();
         Competition competition = intent.getSerializableExtra(GameActivity.competitionIntentName, Competition.class);
-        Objects.requireNonNull(competition);this.competition = competition;
+        Objects.requireNonNull(competition);
+        this.competition = competition;
         //This string must match the name that was used to add the participant to the intent.
         //If the string doesn't match, this method returns null, and this method won't be able to retrieve the participant.
 
@@ -79,24 +82,25 @@ public class GameActivity extends AppCompatActivity {
     /**
      * This method returns the good luck message as a string.
      * The good luck message includes the name for every participant.
+     *
      * @return
      */
-    private String getGoodLuckMessage(){
+    private String getGoodLuckMessage() {
         //Retrieve the participants for this competition.
-        List<Participant> participants=this.competition.getParticipants();
+        List<Participant> participants = this.competition.getParticipants();
 
         //Create the good luck message by starting with this string.
-        String message="Good luck, ";
+        String message = "Good luck, ";
 
         //Go through every participant, not including the last participant.
-        for(int number=0;number<participants.size()-1;number=number+1){
+        for (int number = 0; number < participants.size() - 1; number = number + 1) {
             //Add the name for this participant to the message.
             Participant participant = participants.get(number);
-            message=message+participant.getName()+", ";
+            message = message + participant.getName() + ", ";
         }
 
         //Add the name for the last participant.
-        Participant lastParticipant=participants.get(participants.size()-1);
+        Participant lastParticipant = participants.get(participants.size() - 1);
         message = message + "and " + lastParticipant.getName() + "!";
 
         return message;
