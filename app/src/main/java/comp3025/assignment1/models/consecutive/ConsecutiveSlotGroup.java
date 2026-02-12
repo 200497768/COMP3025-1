@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import comp3025.assignment1.models.Direction;
 import comp3025.assignment1.models.Participant;
 import comp3025.assignment1.models.SlotNumbers;
 import comp3025.assignment1.models.Token;

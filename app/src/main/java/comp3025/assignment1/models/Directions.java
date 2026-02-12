@@ -3,6 +3,8 @@ package comp3025.assignment1.models;
 import java.util.ArrayList;
 import java.util.List;
 
+import comp3025.assignment1.models.consecutive.Direction;
+
 /**
  * This class provides methods that produce directions.
  * The methods can be used to create vertical, horizontal, and diagonal directions.

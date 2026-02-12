@@ -5,12 +5,12 @@ import java.util.List;
 import java.util.Objects;
 
 import comp3025.assignment1.models.Board;
-import comp3025.assignment1.models.Direction;
 import comp3025.assignment1.models.Participant;
 import comp3025.assignment1.models.SlotNumbers;
 import comp3025.assignment1.models.Token;
 import comp3025.assignment1.models.VerticalGroup;
 import comp3025.assignment1.models.consecutive.ConsecutiveSlotGroup;
+import comp3025.assignment1.models.consecutive.Direction;
 
 /**
  * This class provides the ability to show a board using text.

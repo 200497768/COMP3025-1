@@ -1,4 +1,4 @@
-package comp3025.assignment1.models;
+package comp3025.assignment1.models.consecutive;
 
 /**
  * This class is the direction model.
