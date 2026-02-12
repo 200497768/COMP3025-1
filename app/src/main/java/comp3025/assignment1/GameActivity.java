@@ -1,7 +1,6 @@
 package comp3025.assignment1;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -75,11 +74,6 @@ public class GameActivity extends AppCompatActivity {
         //Add elements to the board area.
         viewActions.boardCreated();
         //The board is supposed to cause actions to happen, but since the board has been created, I'll write it from the onCreate method.
-
-        //Change the background color for the board area.
-        int boardColor = Color.rgb(135, 206, 235);
-        boardArea.setBackgroundColor(boardColor);
-        //APA is SkyBlue.
     }
 
     /**
