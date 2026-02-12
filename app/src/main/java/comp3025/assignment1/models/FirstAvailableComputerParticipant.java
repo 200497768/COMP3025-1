@@ -16,6 +16,12 @@ public class FirstAvailableComputerParticipant extends ComputerParticipant {
         //Retrieve the board.
         Board board = this.competition.getBoard();
 
+        //Check whether the board has been completed.
+        //This method won't be able to produce a vertical group number if the board has been completed.
+        if (board.getCompleted()) {
+            throw new IllegalStateException();
+        }
+
         //Retrieve the number of vertical groups in this board.
         int numberOfVerticalGroups = board.getNumberOfVerticalGroups();
 
