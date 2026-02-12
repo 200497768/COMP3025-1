@@ -28,7 +28,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:onClick="addParticipantChosen"
-        android:text="Add participant" />
+        android:text="Add participant"
+        android:textSize="20sp" />
 
     <LinearLayout
         android:id="@+id/participantsArea"
