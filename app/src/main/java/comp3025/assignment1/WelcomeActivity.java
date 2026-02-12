@@ -19,7 +19,6 @@ import comp3025.assignment1.models.Board;
 import comp3025.assignment1.models.Competition;
 import comp3025.assignment1.models.FirstAvailableComputerParticipant;
 import comp3025.assignment1.models.Participant;
-import comp3025.assignment1.views.TextBoard;
 
 /**
  * The WelcomeActivity class is responsible for showing an area to input the participant name.
@@ -189,8 +188,6 @@ public class WelcomeActivity extends AppCompatActivity {
         int verticalGroupCapacity = 4;
         int consecutiveNumber = 30;
         Board board = new Board(numberOfVerticalGroups, verticalGroupCapacity, consecutiveNumber);
-
-        TextBoard textBoard = new TextBoard(board, "Token", "Empty");
 
         //Create the competition.
         Competition competition = new Competition(board, 3);
