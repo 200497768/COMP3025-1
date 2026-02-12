@@ -6,6 +6,7 @@ import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -29,6 +30,8 @@ public class WelcomeActivity extends AppCompatActivity {
 
         //This method causes the code to run the welcome view.
         setContentView(R.layout.activity_welcome);
+
+        TextView welcomeTextView = findViewById(R.id.welcomeTextView);
     }
 
     @Override
