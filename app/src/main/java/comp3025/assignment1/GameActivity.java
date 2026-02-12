@@ -83,11 +83,11 @@ public class GameActivity extends AppCompatActivity {
         //APA for creating this view is (Yadav, 2019)
 
         Board board = this.competition.getBoard();
-        Participant winningParticipant = board.getScoreParticipant();
-        if (winningParticipant == null) {
+        Participant scoreParticipant = board.getScoreParticipant();
+        if (scoreParticipant == null) {
             winningParticipantTextView.setText("No score participant at this time.");
         } else {
-            winningParticipantTextView.setText("Score participant is " + winningParticipant.getName());
+            winningParticipantTextView.setText("Score participant is " + scoreParticipant.getName());
         }
         winningParticipantArea.addView(winningParticipantTextView);
 
