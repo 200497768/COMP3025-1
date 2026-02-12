@@ -120,11 +120,23 @@ public class Board implements Serializable {
      * The vertical groups retrieved using this method must only be used to show the board.
      * If the vertical groups need to be accessed again in the future, the vertical groups must be retrieved using this method again.
      * After some actions, a vertical group retrieved using this method because it was part of the board might no longer be part of the board.
+     * Before retrieving the vertical group, this method will check whether vertical group number is allowed.
+     * Instead of accessing the vertical groups field from this class, using this method is recommended because it will check whether the number is allowed.
      *
      * @param verticalGroupNumber
      * @return
      */
     public VerticalGroup getVerticalGroup(int verticalGroupNumber) {
+        //Ensure that the vertical group exists.
+        if (verticalGroupNumber < 0) {
+            throw new IllegalArgumentException();
+        }
+
+        if (verticalGroupNumber > this.verticalGroups.size()) {
+            throw new IllegalArgumentException();
+        }
+
+        //Retrieve the vertical group using the field.
         return this.verticalGroups.get(verticalGroupNumber);
     }
     /**
@@ -165,7 +177,6 @@ public class Board implements Serializable {
      * In addition, the vertical group number must be provided.
      * The vertical group number determines the vertical group in the board that the token will be added to.
      * The board and the vertical group in this board will decide the token number, depending on the number of existing tokens in the vertical group.
-     *
      * @param participant
      * @param verticalGroupNumber
      */
@@ -183,6 +194,21 @@ public class Board implements Serializable {
 
         //Add the token to the vertical group.
         verticalGroup.addToken(token);
+    }
+
+    /**
+     * This method returns whether a token can be added to the vertical group with the provided vertical group number.
+     * A token will be allowed to be added if a slot is available in the vertical group.
+     * Instead of accessing the vertical group to check whether a slot is available, using this method is recommended.
+     *
+     * @param verticalGroupNumber
+     * @return
+     */
+    public boolean getSlotAvailable(int verticalGroupNumber) {
+        //Retrieve the vertical group.
+        VerticalGroup verticalGroup = this.verticalGroups.get(verticalGroupNumber);
+
+        return verticalGroup.getSlotAvailable();
     }
 
     /**
