@@ -4,7 +4,6 @@ import java.util.Random;
 
 import comp3025.assignment1.models.Board;
 import comp3025.assignment1.models.Competition;
-import comp3025.assignment1.models.participants.Participant;
 
 /**
  * This class is a computer participant.

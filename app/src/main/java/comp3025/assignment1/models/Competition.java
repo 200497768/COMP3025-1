@@ -26,7 +26,7 @@ import comp3025.assignment1.views.ViewActions;
 public class Competition implements Serializable {
 
     /**
-     * This field is the board that that this competition involves.
+     * This field is the board that this competition involves.
      * All of the participants will be adding tokens to this board.
      */
     private Board board;

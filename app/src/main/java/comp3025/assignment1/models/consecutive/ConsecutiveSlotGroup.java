@@ -208,7 +208,7 @@ public class ConsecutiveSlotGroup {
     }
 
     /**
-     * This method returns the number of consecutive tokens added by the participant that are needed in order for this consecutive slot group to be cmopleted.
+     * This method returns the number of consecutive tokens added by the participant that are needed in order for this consecutive slot group to be completed.
      * This number was determined when the consecutive slot group was created.
      * @return
      */
