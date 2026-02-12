@@ -38,15 +38,15 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/wishMeLuckButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="wishMeLuckButtonChosen"
-            android:text="Wish me luck"
-            android:textSize="20sp" />
-
     </LinearLayout>
+
+    <Button
+        android:id="@+id/wishMeLuckButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:onClick="wishMeLuckButtonChosen"
+        android:text="Wish me luck"
+        android:textSize="20sp" />
 
 </LinearLayout>
