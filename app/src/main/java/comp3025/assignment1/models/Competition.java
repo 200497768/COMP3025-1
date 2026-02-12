@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import comp3025.assignment1.models.participants.ComputerParticipant;
 import comp3025.assignment1.models.participants.Participant;
 import comp3025.assignment1.views.ViewActions;
 

@@ -1,7 +1,9 @@
-package comp3025.assignment1.models;
+package comp3025.assignment1.models.participants;
 
 import java.util.Random;
 
+import comp3025.assignment1.models.Board;
+import comp3025.assignment1.models.Competition;
 import comp3025.assignment1.models.participants.Participant;
 
 /**

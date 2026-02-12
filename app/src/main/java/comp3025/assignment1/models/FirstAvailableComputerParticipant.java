@@ -1,5 +1,7 @@
 package comp3025.assignment1.models;
 
+import comp3025.assignment1.models.participants.ComputerParticipant;
+
 /**
  * This class is a computer participant.
  * This computer participant chooses the first vertical group in the board that's available.
