@@ -30,4 +30,22 @@
         android:onClick="wishMeLuckButtonChosen"
         android:text="Wish me luck"
         android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/addParticipantButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:onClick="addParticipantChosen"
+        android:text="Add participant" />
+
+    <LinearLayout
+        android:id="@+id/participantsArea"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
 </LinearLayout>

@@ -5,10 +5,15 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import comp3025.assignment1.models.Board;
 import comp3025.assignment1.models.Competition;
@@ -29,6 +34,13 @@ public class WelcomeActivity extends AppCompatActivity {
      */
     private Competition competition;
 
+    /**
+     * This field is all of the participants that have been added.
+     * When creating the wish me luck option has been chosen, the competition will be created.
+     * At that time, all of the participants from this field will be added to the competition.
+     */
+    private List<Participant> participants = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,9 +48,67 @@ public class WelcomeActivity extends AppCompatActivity {
         //This method causes the code to run the welcome view.
         setContentView(R.layout.activity_welcome);
 
+        //The remaining code needs the competition in order to run.
+
+        //Create the board.
+        int numberOfVerticalGroups = 5;
+        int verticalGroupCapacity = 4;
+        int consecutiveNumber = 30;
+        Board board = new Board(numberOfVerticalGroups, verticalGroupCapacity, consecutiveNumber);
+
+        this.competition = new Competition(board, 3);
+
         //Change the number of consecutive tokens needed.
         TextView welcomeTextView=findViewById(R.id.welcomeTextView);
         welcomeTextView.setText("Welcome to Connect 3.");
+    }
+
+    /**
+     * This method creates the participant areas.
+     * This method uses all of the participants from the field.
+     */
+    private void createParticipantsArea() {
+        //Retrieve the participants area.
+        LinearLayout participantsArea = findViewById(R.id.participantsArea);
+
+        //Clear the participants area, in order to remove any existing participant areas.
+        participantsArea.removeAllViews();
+
+        //Go through the field, and create a participant area for every participant.
+        for (Participant participant : this.participants) {
+            //Create a participant area.
+            //The participant area will be added to the participants area.
+            LinearLayout participantArea = new LinearLayout(WelcomeActivity.this);
+
+            //Add the participant area to the participants area.
+            participantsArea.addView(participantArea);
+
+            //Create the name.
+            TextView nameTextView = new TextView(WelcomeActivity.this);
+            nameTextView.setText(participant.getName());
+
+            //Add the name to the participant area.
+            participantArea.addView(nameTextView);
+
+            //Create the remove option.
+            Button removeButton = new Button(WelcomeActivity.this);
+            removeButton.setText("Remove participant");
+            List<Participant> participants = this.participants;
+            WelcomeActivity welcomeActivity = this;
+            removeButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //Remove the participant.
+                    participants.remove(participant);
+
+                    //Create the participants area again, in order to remove this participant.
+                    welcomeActivity.createParticipantsArea();
+                }
+            });
+
+            //Add the remove option to the participant area.
+            participantArea.addView(removeButton);
+        }
     }
 
     @Override
@@ -49,10 +119,14 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     /**
-     * This method changes the view.
-     * APA for this method will be the week 5 class.
+     * This method adds a participant to the list.
+     * This method runs when the option to add a participant has been chosen.
+     * This method needs to retrieve the name for this participant, create a new participant, and add the participant to the list.
+     * The list is a field from this class.
+     *
+     * @param view
      */
-    public void wishMeLuckButtonChosen(View view) {
+    public void addParticipantChosen(View view) {
         //Retrieve the participant name from the view.
         EditText participantNameEditText = findViewById(R.id.participantNameEditText);
         Editable participantNameEditable = participantNameEditText.getText();
@@ -60,6 +134,18 @@ public class WelcomeActivity extends AppCompatActivity {
         //Create a participant.
         Participant participant = new Participant("" + participantNameEditable);
 
+        //Add the participant to the list.
+        this.participants.add(participant);
+
+        //Create the participants area again, in order to show the participant that was added.
+        this.createParticipantsArea();
+    }
+
+    /**
+     * This method changes the view.
+     * APA for this method will be the week 5 class.
+     */
+    public void wishMeLuckButtonChosen(View view) {
         //Create the board.
         int numberOfVerticalGroups = 5;
         int verticalGroupCapacity = 4;
@@ -71,8 +157,10 @@ public class WelcomeActivity extends AppCompatActivity {
         //Create the competition.
         Competition competition = new Competition(board, 3);
 
-        //Add the participant to the competition.
-        competition.addParticipant(participant);
+        //Add the participants that were created by this class to the competition.
+        for (Participant participant : this.participants) {
+            competition.addParticipant(participant);
+        }
 
         //Add the computer participant to the competition.
         Participant computerParticipant = new FirstAvailableComputerParticipant(competition);
@@ -87,6 +175,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
         startActivity(intent);
     }
+
 }
 
 //References
