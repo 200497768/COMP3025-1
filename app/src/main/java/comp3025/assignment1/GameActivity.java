@@ -47,11 +47,15 @@ public class GameActivity extends AppCompatActivity {
         //This string must match the name that was used to add the participant to the intent.
         //If the string doesn't match, this method returns null, and this method won't be able to retrieve the participant.
 
-        //Show the participant name.
+        //Change the good luck string to show the names of every participant.
         TextView goodLuckTextView = findViewById(R.id.goodLuckTextView);
         goodLuckTextView.setText(this.getGoodLuckMessage());
 
-        //Create the view actions.
+        //Retrieve the areas that are needed for the view actions.
+        LinearLayout boardArea = findViewById(R.id.boardArea);
+        LinearLayout addArea = findViewById(R.id.addArea);
+        LinearLayout verticalGroupsArea = findViewById(R.id.verticalGroupsArea);
+        TextView scoreTextView = findViewById(R.id.scoreTextView);
         GameActivity gameActivity = this;
         SuppliedMethod completedMethod = new SuppliedMethod() {
             @Override
@@ -62,12 +66,7 @@ public class GameActivity extends AppCompatActivity {
             }
         };
 
-        //Retrieve the areas that are needed for the view actions.
-        LinearLayout boardArea = findViewById(R.id.boardArea);
-        LinearLayout addArea = findViewById(R.id.addArea);
-        LinearLayout verticalGroupsArea = findViewById(R.id.verticalGroupsArea);
-        TextView scoreTextView = findViewById(R.id.scoreTextView);
-
+        //Create the view actions.
         ViewActions viewActions = new ViewActions(competition, boardArea, addArea, verticalGroupsArea, scoreTextView, GameActivity.this, completedMethod);
 
         //Provide the view actions to the competition.
