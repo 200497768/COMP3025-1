@@ -64,6 +64,17 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     /**
+     * This method refers to multiple methods that must run when the participants have changed.
+     */
+    private void participantsChanged() {
+        //Create the participants area again.
+        this.createParticipantsArea();
+
+        //Change the text to wish the participants luck.
+        this.changeWishLuck();
+    }
+
+    /**
      * This method creates the participant areas.
      * This method uses all of the participants from the field.
      */
@@ -101,13 +112,40 @@ public class WelcomeActivity extends AppCompatActivity {
                     //Remove the participant.
                     participants.remove(participant);
 
-                    //Create the participants area again, in order to remove this participant.
-                    welcomeActivity.createParticipantsArea();
+                    //The participants have changed.
+                    welcomeActivity.participantsChanged();
                 }
             });
 
             //Add the remove option to the participant area.
             participantArea.addView(removeButton);
+        }
+    }
+
+    /**
+     * This method changes the text for the option to start the competition.
+     * The text for this option depends on the number of participants.
+     * If only single participant has been added, not including the computer participant, the text will wish only the participant luck.
+     * If multiple participants have been added, the text will wish them luck.
+     */
+    private void changeWishLuck() {
+        TextView wishMeLuckButton = findViewById(R.id.wishMeLuckButton);
+
+        //Determine the number of participants that have been added that aren't the computer participant.
+        int numberOfPersonChoosingParticipants = 0;
+        for (Participant participant : this.participants) {
+            if (participant.getPersonChoosing()) {
+                //This participant isn't a computer participant.
+                numberOfPersonChoosingParticipants = numberOfPersonChoosingParticipants + 1;
+            }
+        }
+
+        //Check the number of participants that aren't the computer participant.
+        if (numberOfPersonChoosingParticipants == 1) {
+            //Only a single participant has been added, not including the computer participant.
+            wishMeLuckButton.setText("Wish me luck");
+        } else {
+            wishMeLuckButton.setText("Wish us luck");
         }
     }
 
@@ -137,8 +175,8 @@ public class WelcomeActivity extends AppCompatActivity {
         //Add the participant to the list.
         this.participants.add(participant);
 
-        //Create the participants area again, in order to show the participant that was added.
-        this.createParticipantsArea();
+        //The participants have changed.
+        this.participantsChanged();
     }
 
     /**
