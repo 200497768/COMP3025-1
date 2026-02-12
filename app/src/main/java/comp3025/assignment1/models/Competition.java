@@ -151,13 +151,16 @@ public class Competition implements Serializable {
             Log.i("200497768", "Adding a token for " + turnParticipant.getName());
             board.addToken(turnParticipant, verticalGroupNumber);
             Log.i("200497768", "A token has been added.");
+
+            //Show the token.
+            this.viewActions.boardChanged();
+
+            //Complete the turn.
+            this.completeTurn();
         }
 
-        //Show the token.
-        this.viewActions.boardChanged();
-
-        //Complete the turn.
-        this.completeTurn();
+        //The turn must not be completed if the token wasn't added.
+        //This ensures that the turn participant won't be changed, and the turn participant will be able to choose another vertical group.
     }
     /**
      * This method changes the participant to the next participant.
