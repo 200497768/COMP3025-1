@@ -68,9 +68,6 @@ public class ViewActions {
         Objects.requireNonNull(competition);
         this.competition = competition;
 
-        Objects.requireNonNull(competition);
-        this.competition = competition;
-
         Objects.requireNonNull(boardArea);
         this.boardArea = boardArea;
 
@@ -163,7 +160,6 @@ public class ViewActions {
             addButton.setText("Add");
 
             Competition competition = this.competition;
-            ViewActions viewActions = this;
 
             //The vertical group number needs to be written this way in order for the method to access it.
             int thisVerticalGroupNumber = verticalGroupNumber;
@@ -237,7 +233,7 @@ public class ViewActions {
                     //Retrieve the participant, in order to access name and token color.
                     Participant participant = slot.getParticipant();
 
-                    //Determine the token color that will be use to show this token.
+                    //Determine the token color that will be used to show this token.
                     tokenTextView.setBackgroundColor(participant.getTokenColor());
 
                     //Determine text to use to show this token.
