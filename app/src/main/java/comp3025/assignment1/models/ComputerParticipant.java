@@ -40,6 +40,9 @@ public class ComputerParticipant extends Participant {
         //Retrieve the number of vertical groups in this board.
         int numberOfVerticalGroups = board.getNumberOfVerticalGroups();
 
+        //Choose a vertical group number.
+        //The number that's chosen can be 0, but it must be less than the number of vertical groups in the board.
+
         int verticalGroupNumber = 0;
 
         return verticalGroupNumber;
