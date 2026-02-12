@@ -212,6 +212,27 @@ public class Board implements Serializable {
     }
 
     /**
+     * This method returns whether a token has been added to every slot in this board.
+     * When all of the slots in the board have a token, the board has been completed.
+     * Tokens can't be added to a completed board.
+     */
+    public boolean getCompleted() {
+//Go through all of the vertical groups in this board.
+        for (VerticalGroup verticalGroup : this.verticalGroups) {
+            //Check whether a slot is available in this vertical group.
+            if (verticalGroup.getSlotAvailable()) {
+                //A slot is available.
+                //This board hasn't been completed.
+                return false;
+            }
+        }
+
+        //All of the vertical groups in this board have no slots available.
+        //This board has been completed.
+        return true;
+    }
+
+    /**
      * This method creates consecutive slot groups for every slot in this board.
      * This method returns the consecutive slot groups that were created as a list.
      * Every consecutive slot groups can be used to determine if a participant has won.
