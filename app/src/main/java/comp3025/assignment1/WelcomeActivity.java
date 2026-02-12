@@ -19,7 +19,7 @@ import comp3025.assignment1.models.Board;
 import comp3025.assignment1.models.Competition;
 import comp3025.assignment1.models.FirstAvailableComputerParticipant;
 import comp3025.assignment1.models.Participant;
-import comp3025.assignment1.models.TextBoard;
+import comp3025.assignment1.views.TextBoard;
 
 /**
  * The WelcomeActivity class is responsible for showing an area to input the participant name.

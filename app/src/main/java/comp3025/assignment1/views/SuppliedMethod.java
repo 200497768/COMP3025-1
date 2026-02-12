@@ -1,4 +1,4 @@
-package comp3025.assignment1.models.actions;
+package comp3025.assignment1.views;
 
 /**
  * This class includes a single method that can be supplied to another class.

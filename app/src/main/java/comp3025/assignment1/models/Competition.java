@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import comp3025.assignment1.models.actions.ViewActions;
+import comp3025.assignment1.views.ViewActions;
+
 
 /**
  * This class is a competition.

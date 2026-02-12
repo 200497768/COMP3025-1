@@ -1,4 +1,4 @@
-package comp3025.assignment1.models.actions;
+package comp3025.assignment1.views;
 
 import static android.widget.LinearLayout.VERTICAL;
 
@@ -20,7 +20,6 @@ import comp3025.assignment1.models.Participant;
 import comp3025.assignment1.models.SlotNumbers;
 import comp3025.assignment1.models.Token;
 import comp3025.assignment1.models.VerticalGroup;
-import comp3025.assignment1.views.TextBoard;
 
 /**
  * This class is responsible for changing board area elements when the board model changes.
