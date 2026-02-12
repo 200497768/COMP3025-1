@@ -6,8 +6,6 @@ import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -71,10 +69,6 @@ public class WelcomeActivity extends AppCompatActivity {
         Participant computerParticipant = new ComputerParticipant(competition);
         competition.addParticipant(computerParticipant);
 
-        LinearLayout boardArea = findViewById(R.id.boardArea);
-        LinearLayout addArea = findViewById(R.id.addArea);
-        LinearLayout verticalGroupsArea = findViewById(R.id.verticalGroupsArea);
-        TextView scoreTextView = findViewById(R.id.scoreTextView);
 
         //Create an explicit intent that refers to GameActivity.
         Intent intent = new Intent(WelcomeActivity.this, GameActivity.class);
