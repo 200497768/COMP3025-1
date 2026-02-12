@@ -18,9 +18,9 @@ import comp3025.assignment1.models.Board;
 import comp3025.assignment1.models.Competition;
 import comp3025.assignment1.models.Participant;
 import comp3025.assignment1.models.SlotNumbers;
-import comp3025.assignment1.models.TextBoard;
 import comp3025.assignment1.models.Token;
 import comp3025.assignment1.models.VerticalGroup;
+import comp3025.assignment1.views.TextBoard;
 
 /**
  * This class is responsible for changing board area elements when the board model changes.
