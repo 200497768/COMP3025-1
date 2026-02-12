@@ -191,7 +191,7 @@ public class WelcomeActivity extends AppCompatActivity {
             //Create the board.
             int numberOfVerticalGroups = 5;
             int verticalGroupCapacity = 4;
-            int consecutiveNumber = 30;
+            int consecutiveNumber = 3;
             Board board = new Board(numberOfVerticalGroups, verticalGroupCapacity, consecutiveNumber);
 
             //Create the competition.
