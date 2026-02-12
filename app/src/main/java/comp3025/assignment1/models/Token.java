@@ -3,6 +3,8 @@ package comp3025.assignment1.models;
 import java.io.Serializable;
 import java.util.Objects;
 
+import comp3025.assignment1.models.participants.Participant;
+
 /**
  * This class is a token that has been added to the board.
  * Every token is associated with a participant.

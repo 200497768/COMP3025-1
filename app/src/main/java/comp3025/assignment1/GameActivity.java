@@ -13,7 +13,7 @@ import java.util.Objects;
 
 import comp3025.assignment1.models.Board;
 import comp3025.assignment1.models.Competition;
-import comp3025.assignment1.models.Participant;
+import comp3025.assignment1.models.participants.Participant;
 import comp3025.assignment1.views.SuppliedMethod;
 import comp3025.assignment1.views.ViewActions;
 

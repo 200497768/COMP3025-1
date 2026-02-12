@@ -2,6 +2,8 @@ package comp3025.assignment1.models;
 
 import java.util.Random;
 
+import comp3025.assignment1.models.participants.Participant;
+
 /**
  * This class is a computer participant.
  * The name for a computer participant can't be chosen.

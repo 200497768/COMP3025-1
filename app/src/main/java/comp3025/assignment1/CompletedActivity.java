@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Objects;
 
 import comp3025.assignment1.models.Competition;
-import comp3025.assignment1.models.Participant;
+import comp3025.assignment1.models.participants.Participant;
 
 /**
  * This class shows the score for every participant in this competition.
