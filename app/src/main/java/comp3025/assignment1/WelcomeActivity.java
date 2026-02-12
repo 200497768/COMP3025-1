@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import comp3025.assignment1.models.Board;
 import comp3025.assignment1.models.Competition;
-import comp3025.assignment1.models.ComputerParticipant;
+import comp3025.assignment1.models.FirstAvailableComputerParticipant;
 import comp3025.assignment1.models.Participant;
 import comp3025.assignment1.models.TextBoard;
 
@@ -56,7 +56,7 @@ public class WelcomeActivity extends AppCompatActivity {
         //Create the board.
         int numberOfVerticalGroups = 5;
         int verticalGroupCapacity = 4;
-        int consecutiveNumber = 3;
+        int consecutiveNumber = 30;
         Board board = new Board(numberOfVerticalGroups, verticalGroupCapacity, consecutiveNumber);
 
         TextBoard textBoard = new TextBoard(board, "Token", "Empty");
@@ -69,7 +69,7 @@ public class WelcomeActivity extends AppCompatActivity {
         competition.addParticipant(participant);
 
         //Add the computer participant to the competition.
-        Participant computerParticipant = new ComputerParticipant(competition);
+        Participant computerParticipant = new FirstAvailableComputerParticipant(competition);
         competition.addParticipant(computerParticipant);
 
 
