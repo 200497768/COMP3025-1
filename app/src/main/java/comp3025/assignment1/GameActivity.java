@@ -93,16 +93,30 @@ public class GameActivity extends AppCompatActivity {
         //Create the good luck message by starting with this string.
         String message = "Good luck, ";
 
-        //Go through every participant, not including the last participant.
-        for (int number = 0; number < participants.size() - 1; number = number + 1) {
-            //Add the name for this participant to the message.
-            Participant participant = participants.get(number);
-            message = message + participant.getName() + ", ";
+        //The message needs to be different, depending on the number of participants.
+        //If 2 participants exist, the message will combine the names using a string.
+        //If 3 or more participants exist, the message will go through all of the participants.
+        if (participants.size() == 2) {
+            //Retrieve both participants.
+            Participant participant = participants.get(0);
+            Participant anotherParticipant = participants.get(1);
+
+            //Create the rest of the message using the names of both participants.
+            message = message + participant.getName() + " and " + anotherParticipant.getName();
+        } else {
+            //Go through every participant, not including the last participant.
+            for (int number = 0; number < participants.size() - 1; number = number + 1) {
+                //Add the name for this participant to the message.
+                Participant participant = participants.get(number);
+                message = message + participant.getName() + ", ";
+            }
+
+            //Add the name for the last participant.
+            Participant lastParticipant = participants.get(participants.size() - 1);
+            message = message + "and " + lastParticipant.getName();
         }
 
-        //Add the name for the last participant.
-        Participant lastParticipant = participants.get(participants.size() - 1);
-        message = message + "and " + lastParticipant.getName() + "!";
+        message = message + "!";
 
         return message;
     }
