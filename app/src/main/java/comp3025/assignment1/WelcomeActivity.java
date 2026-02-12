@@ -197,10 +197,11 @@ public class WelcomeActivity extends AppCompatActivity {
             competition.addParticipant(participant);
         }
 
-        //Add the computer participant to the competition.
-        Participant computerParticipant = new FirstAvailableComputerParticipant(competition);
-        competition.addParticipant(computerParticipant);
-
+        //Add the computer participant to the competition, if only 1 participant was added.
+        if (this.participants.size() == 1) {
+            Participant computerParticipant = new FirstAvailableComputerParticipant(competition);
+            competition.addParticipant(computerParticipant);
+        }
 
         //Create an explicit intent that refers to GameActivity.
         Intent intent = new Intent(WelcomeActivity.this, GameActivity.class);
