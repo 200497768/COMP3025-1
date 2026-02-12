@@ -135,6 +135,31 @@ public class Competition implements Serializable {
     }
 
     /**
+     * This method adds a token to the vertical group for the turn participant, if possible.
+     */
+    public void addToken(int verticalGroupNumber) {
+        //The token must be added using a method from the board class, not by accessing a vertical group.
+        //At this time, the vertical group that's retrieved from the board refers to the vertical group in the board.
+        //In the future, when the board has been cleared, the vertical group retrieved by this method might no longer be correct.
+        //The vertical group retrieved by this method at this time might no longer be part of the board, depending on how the method to clear the board was written.
+
+        //Check whether a slot is available.
+        if (this.board.getSlotAvailable(verticalGroupNumber)) {
+            //Add the token, since a slot is available.
+
+            Participant turnParticipant = this.getTurnParticipant();
+            Log.i("200497768", "Adding a token for " + turnParticipant.getName());
+            board.addToken(turnParticipant, verticalGroupNumber);
+            Log.i("200497768", "A token has been added.");
+        }
+
+        //Show the token.
+        this.viewActions.boardChanged();
+
+        //Complete the turn.
+        this.completeTurn();
+    }
+    /**
      * This method changes the participant to the next participant.
      * This method must be used when a participant has finished adding a token to the board.
      * After every participant has completed a turn, this method changes the participant to the first participant again.

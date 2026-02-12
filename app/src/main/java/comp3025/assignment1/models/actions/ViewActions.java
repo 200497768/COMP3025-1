@@ -174,24 +174,12 @@ public class ViewActions {
                     //Add a token to the model.
                     //This method happens when a token has been added to the board.
 
-                    //The token must be added using a method from the board class, not by accessing a vertical group.
-                    //At this time, the vertical group that's retrieved from the board refers to the vertical group in the board.
-                    //In the future, when the board has been cleared, the vertical group retrieved by this method might no longer be correct.
-                    //The vertical group retrieved by this method at this time might no longer be part of the board, depending on how the method to clear the board was written.
-
-                    Participant turnParticipant = competition.getTurnParticipant();
-                    Log.i("200497768", "Adding a token for " + turnParticipant.getName());
-                    board.addToken(turnParticipant, thisVerticalGroupNumber);
-                    Log.i("200497768", "A token has been added.");
-
-                    //Show the token.
-                    viewActions.boardChanged();
-
-                    //Complete the turn with the competition.
-                    competition.completeTurn();
-
                     //This class will cause the method from the competition class to happen.
                     //The competition class is the model, and will be responsible for changing the board to prepare it for the next round.
+
+                    //Use the competition to add a token to the board.
+                    //The competition might not add the token, depending on whether a slot is available in the vertical group.
+                    competition.addToken(thisVerticalGroupNumber);
 
                     //Show the text board.
                     Board board = competition.getBoard();
