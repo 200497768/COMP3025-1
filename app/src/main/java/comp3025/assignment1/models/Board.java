@@ -9,6 +9,7 @@ import java.util.Objects;
 
 import comp3025.assignment1.models.consecutive.ConsecutiveSlotGroup;
 import comp3025.assignment1.models.consecutive.Direction;
+import comp3025.assignment1.models.consecutive.Directions;
 
 /**
  * This class is a board.

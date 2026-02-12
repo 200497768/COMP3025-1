@@ -1,9 +1,7 @@
-package comp3025.assignment1.models;
+package comp3025.assignment1.models.consecutive;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import comp3025.assignment1.models.consecutive.Direction;
 
 /**
  * This class provides methods that produce directions.
