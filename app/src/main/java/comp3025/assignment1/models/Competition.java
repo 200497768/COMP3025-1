@@ -213,28 +213,29 @@ public class Competition implements Serializable {
     /**
      * This method is the actions that must happen after a turn has caused a round to be completed.
      * This includes increasing the score for the score participant, showing a message, clearing the board, and starting the next round.
-     * When this method happens, a score participant must exist.
+     * When this method happens, a score participant might exist.
      * This method changes the model, including clearing the board.
      * Since this method will clear the board, the score participant will no longer be available after this method.
      * If the view actions needs to show a message involving the score participant, the message must be created before completing the round.
+     * This method happens when the round has finished.
+     * A round can finish if a participant has added enough consecutive tokens to increase the score, or if the board has been completed.
      */
     private void completeRound() {
         //Retrieve the score participant.
         Participant scoreParticipant = this.board.getScoreParticipant();
 
-        //A score participant must exist.
-        if (scoreParticipant == null) {
-            throw new IllegalStateException();
-        }
+        //A score participant might exist, depending on what caused the round to finish.
+        //The score participant won't exist if the round finished because the board has been completed.
+        if (scoreParticipant != null) {
+            Log.i("200497768", scoreParticipant.getName() + " has added enough consecutive tokens, and this round has finished.");
 
-        Log.i("200497768", scoreParticipant.getName() + " has added enough consecutive tokens, and this round has finished.");
+            //Increase the score for the score participant.
+            scoreParticipant.increaseScore();
 
-        //Increase the score for the score participant.
-        scoreParticipant.increaseScore();
-
-        //Show the score message explaining that the round has finished, using the view actions class.
-        if (this.viewActions != null) {
-            this.viewActions.showRoundCompleted();
+            //Show the score message explaining that the round has finished, using the view actions class.
+            if (this.viewActions != null) {
+                this.viewActions.showRoundCompleted();
+            }
         }
 
         //Clear the board.
