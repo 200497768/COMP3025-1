@@ -24,6 +24,11 @@ import comp3025.assignment1.models.TextBoard;
  */
 public class WelcomeActivity extends AppCompatActivity {
 
+    /**
+     * This field is the competition that's being created.
+     */
+    private Competition competition = new Competition();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,8 +69,7 @@ public class WelcomeActivity extends AppCompatActivity {
         TextBoard textBoard = new TextBoard(board, "Token", "Empty");
 
         //Create the competition.
-        int maximumScore = 3;
-        Competition competition = new Competition(board, maximumScore);
+        Competition competition = new Competition(board);
 
         //Add the participant to the competition.
         competition.addParticipant(participant);

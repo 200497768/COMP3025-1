@@ -51,7 +51,7 @@ public class Competition implements Serializable {
      * This field is the maximum score for this competition.
      * The competition ends when the score for a participant has increased to the maximum score.
      */
-    private int maximumScore;
+    private int maximumScore = 3;
 
     /**
      * This field is needed for Serializable.
@@ -104,10 +104,16 @@ public class Competition implements Serializable {
     public Competition(Board board, int maximumScore) {
         Objects.requireNonNull(board);
         this.board = board;
+    }
 
+    /**
+     * This method changes the maximum score that a participant needs in order to finish this competition.
+     */
+    public void changeMaximumScore(int maximumScore) {
         if (maximumScore < 1) {
             throw new IllegalArgumentException();
         }
+
         this.maximumScore = maximumScore;
     }
 
