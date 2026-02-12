@@ -156,6 +156,18 @@ public class Competition implements Serializable {
             }
             Log.i("200497768", "The number of turns completed has been changed to " + this.turnsCompleted);
 
+            //Check whether the board has been completed.
+            //Another turn is only possible if the board hasn't been completed.
+            if (this.board.getCompleted()) {
+                //The board has been completed, and another turn isn't possible.
+                Log.i("200497768", "The board has been completed, and another turn isn't possible.");
+
+                //This round has finished.
+                //Complete the round by using the method from this class.
+                //This method will show a message, clear the board, and start the next round.
+                this.completeRound();
+            }
+
             //Show the score message explaining that another turn is needed, using the view actions class.
             if (this.viewActions != null) {
                 this.viewActions.showNeedsAnotherTurn();
@@ -192,7 +204,6 @@ public class Competition implements Serializable {
             }
         } else {
 //This round has finished.
-
             //Complete the round by using the method from this class.
             //This method will show a message, clear the board, and start the next round.
             this.completeRound();
