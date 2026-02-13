@@ -80,7 +80,6 @@ public class ViewActions {
         Objects.requireNonNull(nextRoundArea);
         this.nextRoundArea = nextRoundArea;
 
-
         Objects.requireNonNull(scoreTextView);
         this.scoreTextView = scoreTextView;
 
@@ -311,6 +310,8 @@ public class ViewActions {
                 //This method will show a message, clear the board, and start the next round.
                 competition.completeRound();
 
+                //Clear the next round area.
+                nextRoundArea.removeAllViews();
                 nextRoundArea.removeView(nextRoundButton);
             }
         });
@@ -322,9 +323,6 @@ public class ViewActions {
         for (Button addButton : this.addTokenOptions) {
             this.addArea.removeView(addButton);
         }
-
-        //Remove the add token options that have been added to the field.
-        this.addTokenOptions = new ArrayList<>();
 
         //Clear the add area.
         this.addArea.removeAllViews();
