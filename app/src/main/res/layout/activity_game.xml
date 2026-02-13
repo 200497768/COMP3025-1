@@ -2,80 +2,88 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#2196F3"
+    android:background="@drawable/background2"
     android:gravity="center"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/goodLuckTextView"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/elementsArea"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Good luck, string!"
-        android:textColor="@color/white"
-        android:textSize="20sp" />
-
-    <LinearLayout
-        android:id="@+id/optionsArea"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/shareScoreButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="shareScoreChosen"
-            android:text="Share my score"
-            android:textSize="20sp" />
-
-        <Button
-            android:id="@+id/backButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Back"
-            android:textSize="20sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/addArea"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/boardArea"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
+        android:background="#2196F3"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/goodLuckTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Good luck, string!"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
         <LinearLayout
-            android:id="@+id/verticalGroupsArea"
-            android:layout_width="match_parent"
+            android:id="@+id/optionsArea"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_margin="20sp"
-            android:background="#1E88E5"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingTop="10sp"
-            android:paddingBottom="10sp">
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/shareScoreButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="shareScoreChosen"
+                android:text="Share my score"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Back"
+                android:textSize="20sp" />
 
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/addArea"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/boardArea"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/verticalGroupsArea"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="20sp"
+                android:background="#1E88E5"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp">
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/scoreTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add a token to start."
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/scoreTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add a token to start."
-        android:textColor="@color/white"
-        android:textSize="20sp" />
-
 
 </LinearLayout>
