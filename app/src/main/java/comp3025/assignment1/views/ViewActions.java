@@ -37,16 +37,18 @@ public class ViewActions {
     private LinearLayout boardArea;
 
     /**
-     * This field is the area that will be used for the options to add tokens to the board.
-     */
-    private LinearLayout addArea;
-
-    /**
      * This field is the area that will be used to show the vertical groups.
      * This class will create a vertical group area for every vertical group in the board.
      * The vertical group areas will be added to the vertical groups area.
      */
     private LinearLayout verticalGroupsArea;
+
+    /**
+     * This field is the area that will be used for the options to add tokens to the board.
+     */
+    private LinearLayout addArea;
+
+    private LinearLayout nextRoundArea;
 
     private TextView scoreTextView;
 
@@ -65,7 +67,7 @@ public class ViewActions {
 
     private List<Button> addTokenOptions = new ArrayList<>();
 
-    public ViewActions(Competition competition, LinearLayout boardArea, LinearLayout verticalGroupsArea, LinearLayout addArea, TextView scoreTextView, Context context, SuppliedMethod suppliedMethod) {
+    public ViewActions(Competition competition, LinearLayout boardArea, LinearLayout verticalGroupsArea, LinearLayout addArea, LinearLayout nextRoundArea, TextView scoreTextView, Context context, SuppliedMethod suppliedMethod) {
         Objects.requireNonNull(competition);
         this.competition = competition;
 
@@ -74,6 +76,10 @@ public class ViewActions {
 
         Objects.requireNonNull(addArea);
         this.addArea = addArea;
+
+        Objects.requireNonNull(nextRoundArea);
+        this.nextRoundArea = nextRoundArea;
+
 
         Objects.requireNonNull(scoreTextView);
         this.scoreTextView = scoreTextView;
@@ -296,7 +302,7 @@ public class ViewActions {
         Button nextRoundButton = new Button(this.context);
         nextRoundButton.setText("Next round");
         Competition competition = this.competition;
-        LinearLayout boardArea = this.boardArea;
+        LinearLayout nextRoundArea = this.nextRoundArea;
         nextRoundButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -305,12 +311,12 @@ public class ViewActions {
                 //This method will show a message, clear the board, and start the next round.
                 competition.completeRound();
 
-                boardArea.removeView(nextRoundButton);
+                nextRoundArea.removeView(nextRoundButton);
             }
         });
 
         //Add the next round option to the board area.
-        this.boardArea.addView(nextRoundButton);
+        this.nextRoundArea.addView(nextRoundButton);
 
         //Remove all of the add token options.
         for (Button addButton : this.addTokenOptions) {

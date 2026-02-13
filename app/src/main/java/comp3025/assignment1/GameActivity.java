@@ -56,8 +56,9 @@ public class GameActivity extends AppCompatActivity {
 
         //Retrieve the areas that are needed for the view actions.
         LinearLayout boardArea = findViewById(R.id.boardArea);
-        LinearLayout addArea = findViewById(R.id.addArea);
         LinearLayout verticalGroupsArea = findViewById(R.id.verticalGroupsArea);
+        LinearLayout addArea = findViewById(R.id.addArea);
+        LinearLayout nextRoundArea = findViewById(R.id.nextRoundArea);
         TextView scoreTextView = findViewById(R.id.scoreTextView);
         GameActivity gameActivity = this;
         SuppliedMethod completedMethod = new SuppliedMethod() {
@@ -70,7 +71,7 @@ public class GameActivity extends AppCompatActivity {
         };
 
         //Create the view actions.
-        ViewActions viewActions = new ViewActions(competition, boardArea, verticalGroupsArea, addArea, scoreTextView, GameActivity.this, completedMethod);
+        ViewActions viewActions = new ViewActions(competition, boardArea, verticalGroupsArea, addArea, nextRoundArea, scoreTextView, GameActivity.this, completedMethod);
 
         //Provide the view actions to the competition.
         competition.changeViewActions(viewActions);
