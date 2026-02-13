@@ -358,7 +358,7 @@ public class ViewActions {
 
         List<Participant> participants = this.competition.getParticipants();
         for (Participant participant : participants) {
-            message = message + participant.getName() + " " + participant.getScore() + " ";
+            message = message + "The score for " + participant.getName() + " is " + participant.getScore() + ". ";
         }
 
         return message;
