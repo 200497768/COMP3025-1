@@ -168,16 +168,20 @@ public class ViewActions {
             //Add a string to the vertical group area showing the number for this vertical group.
             TextView verticalGroupNumberTextView = new TextView(this.context);
             //APA for creating this view is (Yadav, 2019)
-            verticalGroupNumberTextView.setText("Vertical " + verticalGroupNumber + " ");
+
+            //Determine the vertical group number that I'll show by increasing the vertical number.
+            int showingVerticalGroupNumber = verticalGroupNumber + 1;
+
+            verticalGroupNumberTextView.setText("Vertical " + showingVerticalGroupNumber + " ");
             verticalGroupArea.addView(verticalGroupNumberTextView);
 
             //Create the option to allow adding a token to this vertical group.
             Button addButton = new Button(this.context);
-            addButton.setText("Add a token to vertical group " + verticalGroupNumber);
+            addButton.setText("Add a token to vertical group " + showingVerticalGroupNumber);
 
             Competition competition = this.competition;
 
-            //The vertical group number needs to be written this way in order for the method to access it.
+            //The vertical group number that I'll show needs to be written this way in order for the method to access it.
             int thisVerticalGroupNumber = verticalGroupNumber;
 
             addButton.setOnClickListener(new View.OnClickListener() {
