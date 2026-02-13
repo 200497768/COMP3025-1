@@ -320,6 +320,9 @@ public class ViewActions {
         //Remove the add token options that have been added to the field.
         this.addTokenOptions = new ArrayList<>();
 
+        //Clear the add area.
+        this.addArea.removeAllViews();
+
         //Show a score message.
         this.showScoreMessage(scoreParticipant.getName() + " has added " + board.getConsecutiveNumber() + " consecutive tokens. The score for this participant has increased. " + this.getScoreMessage());
     }
