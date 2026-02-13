@@ -66,19 +66,12 @@ public class CompletedActivity extends AppCompatActivity {
             //Add the participant area to the scores area.
             scoresArea.addView(participantArea);
 
-            //Create the name.
-            TextView nameTextView = new TextView(CompletedActivity.this);
-            nameTextView.setText(participant.getName());
+            //Create the participant.
+            TextView participantTextView = new TextView(CompletedActivity.this);
+            participantTextView.setText(participant.getName() + ", your score is  " + participant.getScore() + ".");
 
-            //Add the name to the participant area.
-            participantArea.addView(nameTextView);
-
-            //Create the score.
-            TextView scoreTextView = new TextView(CompletedActivity.this);
-            scoreTextView.setText("Score " + participant.getScore());
-
-            //Add the score to the participant area.
-            participantArea.addView(scoreTextView);
+            //Add the participant to the participant area.
+            participantArea.addView(participantTextView);
 
             //Add the share score option.
             Button shareScoreButton = new Button(CompletedActivity.this);
