@@ -216,7 +216,7 @@ public class Competition implements Serializable {
                 ComputerParticipant computerParticipant = (ComputerParticipant) participant;
 
                 //Choose a vertical group number to add the token to.
-                int verticalGroupNumber =computerParticipant.chooseVerticalGroupNumber();
+                int verticalGroupNumber = computerParticipant.chooseVerticalGroupNumber();
 
                 //Check whether a slot is available in this vertical group.
                 while (!this.board.getSlotAvailable(verticalGroupNumber)) {
@@ -234,6 +234,14 @@ public class Competition implements Serializable {
                 //Use the method from the view actions class to show the token that has been added by the computer participant.
                 if (this.viewActions != null) {
                     this.viewActions.boardChanged();
+                }
+
+                //Check whether the token that the computer participant added has added enough consecutive tokens.
+                //Show the score message explaining that the round has finished, using the view actions class.
+                if (this.board.getScoreParticipant() != null) {
+                    if (this.viewActions != null) {
+                        this.viewActions.showRoundCompleted();
+                    }
                 }
             }
         } else {
