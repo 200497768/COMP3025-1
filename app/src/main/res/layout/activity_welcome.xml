@@ -5,49 +5,52 @@
     android:background="@drawable/background1"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/welcomeTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Welcome to Connect 3."
-        android:textSize="20sp" />
-
-    <EditText
-        android:id="@+id/participantNameEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:ems="10"
-        android:hint="What's your name?"
-        android:inputType="text"
-        android:textSize="20sp" />
-
-    <Button
-        android:id="@+id/addParticipantButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:onClick="addParticipantChosen"
-        android:text="Add participant"
-        android:textSize="20sp" />
-
     <LinearLayout
-        android:id="@+id/participantsArea"
+        android:id="@+id/elementsArea"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
         android:orientation="vertical">
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/welcomeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome to Connect 3."
+            android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/wishMeLuckButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:onClick="wishMeLuckButtonChosen"
-        android:text="Wish me luck"
-        android:textSize="20sp" />
+        <EditText
+            android:id="@+id/participantNameEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="What's your name?"
+            android:inputType="text"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/addParticipantButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="addParticipantChosen"
+            android:text="Add participant"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:id="@+id/participantsArea"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/wishMeLuckButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="wishMeLuckButtonChosen"
+            android:text="Wish me luck"
+            android:textSize="20sp" />
+
+    </LinearLayout>
 
 </LinearLayout>
