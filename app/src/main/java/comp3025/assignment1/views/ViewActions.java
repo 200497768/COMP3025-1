@@ -106,8 +106,18 @@ public class ViewActions {
         //At this time, the strategy is to clear the board area, and create it again.
         Log.i("200497768", "The board has been changed.");
         this.clearVerticalGroupsArea();
+        this.clearAddArea();
         this.createVerticalGroupAreas();
         this.addSlotsAndTokens();
+    }
+
+    /**
+     * This method clears the add area.
+     * The add area includes all of the add options that were added.
+     * This method must be used when the board has changed, so that the board, including the add options, can be created again.
+     */
+    private void clearAddArea() {
+        this.addArea.removeAllViews();
     }
 
     /**
