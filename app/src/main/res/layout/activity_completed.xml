@@ -33,4 +33,13 @@
         android:text="TextView"
         android:textSize="20sp" />
 
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:onClick="backButtonChosen"
+        android:text="Start another competition"
+        android:textSize="20sp" />
+
 </LinearLayout>

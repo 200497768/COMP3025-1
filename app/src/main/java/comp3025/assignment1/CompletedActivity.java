@@ -115,4 +115,18 @@ public class CompletedActivity extends AppCompatActivity {
         Intent shareIntent = Intent.createChooser(intent, "Score");
         startActivity(shareIntent);
     }
+
+    /**
+     * This method starts WelcomeActivity again.
+     *
+     * @param view
+     */
+    public void backButtonChosen(View view) {
+        //Create an explicit intent that refers to CompletedActivity.
+        Intent intent = new Intent(CompletedActivity.this, WelcomeActivity.class);
+
+        //No information needs to be added to the intent.
+
+        startActivity(intent);
+    }
 }
