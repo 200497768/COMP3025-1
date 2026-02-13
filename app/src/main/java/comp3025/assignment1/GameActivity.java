@@ -70,7 +70,7 @@ public class GameActivity extends AppCompatActivity {
         };
 
         //Create the view actions.
-        ViewActions viewActions = new ViewActions(competition, boardArea, addArea, verticalGroupsArea, scoreTextView, GameActivity.this, completedMethod);
+        ViewActions viewActions = new ViewActions(competition, boardArea, verticalGroupsArea, addArea, scoreTextView, GameActivity.this, completedMethod);
 
         //Provide the view actions to the competition.
         competition.changeViewActions(viewActions);
