@@ -48,6 +48,13 @@ public class CompletedActivity extends AppCompatActivity {
         //This string must match the name that was used to add the competition to the intent.
         //If the string doesn't match, this method returns null, and this method won't be able to retrieve the competition.
 
+        //Retrieve the winning participant.
+        Participant winningParticipant = this.competition.getWinningParticipant();
+
+        //Show the winning participant.
+        TextView winningParticipantTextView = findViewById(R.id.winningParticipantTextView);
+        winningParticipantTextView.setText("Congratulations, " + winningParticipant.getName() + ". You've won the competition.");
+
         //Add the participants, scores, and share score options.
         LinearLayout scoresArea = findViewById(R.id.scoresArea);
         for (Participant participant : competition.getParticipants()) {
