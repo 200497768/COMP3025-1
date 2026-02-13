@@ -174,9 +174,10 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     /**
-     * This method returns whether the participant can be added.
+     * This method returns whether a participant with this name can be added to the competition.
+     * A participant can be added if a name has been provided, and another participant with the same name doesn't exist in the competition.
      */
-    private boolean getAddParticipantAllowed(String participantName) {
+    private boolean getParticipantNameAllowed(String participantName) {
         //Check whether the participant name has been provided.
         //Only add the participant if the name has been provided.
         if (participantName.equals("")) {
