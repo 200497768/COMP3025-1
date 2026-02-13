@@ -161,7 +161,7 @@ public class WelcomeActivity extends AppCompatActivity {
         Editable participantNameEditable = participantNameEditText.getText();
         String participantName = "" + participantNameEditable;
 
-        if (this.getAddParticipantAllowed(participantName)) {
+        if (this.getParticipantNameAllowed(participantName)) {
             //Create a participant.
             Participant participant = new Participant(participantName);
 
