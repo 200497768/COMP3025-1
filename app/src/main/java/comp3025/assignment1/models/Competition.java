@@ -178,6 +178,8 @@ public class Competition implements Serializable {
         if (scoreParticipant == null) {
             //This board needs another turn.
 
+            Log.i("200497768", "No score participant at this time.");
+
             //Increase the turn number.
             //After the turn number has been increased, the turn participant will be the next participant in the competition.
             //Change the number of turns completed to the first participant again after all participants have completed a turn.
