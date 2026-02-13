@@ -238,9 +238,14 @@ public class Competition implements Serializable {
 //This round has finished.
 
             //Use the view actions to show that the round has completed.
-            this.viewActions.boardChanged();
-            this.viewActions.showRoundCompleted();
+            if (this.viewActions != null) {
+                this.viewActions.boardChanged();
+            }
 
+            //Show the score message explaining that the round has finished, using the view actions class.
+            if (this.viewActions != null) {
+                this.viewActions.showRoundCompleted();
+            }
         }
     }
 
@@ -266,10 +271,9 @@ public class Competition implements Serializable {
             //Increase the score for the score participant.
             scoreParticipant.increaseScore();
 
-            //Show the score message explaining that the round has finished, using the view actions class.
-            if (this.viewActions != null) {
-                this.viewActions.showRoundCompleted();
-            }
+            //THis method must not use the showRoundCompleted method from the view actions class during this method.
+            //The showRoundCompleted method will add a next round option.
+            //This method runs when the next round option has been chosen.
         }
 
         //Clear the board.

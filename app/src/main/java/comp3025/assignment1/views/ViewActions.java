@@ -281,6 +281,7 @@ public class ViewActions {
         Button nextRoundButton = new Button(this.context);
         nextRoundButton.setText("Next round");
         Competition competition = this.competition;
+        LinearLayout boardArea = this.boardArea;
         nextRoundButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -288,6 +289,8 @@ public class ViewActions {
                 //This needs to happen when the view actions has finished showing the fact that the round has completed.
                 //This method will show a message, clear the board, and start the next round.
                 competition.completeRound();
+
+                boardArea.removeView(nextRoundButton);
             }
         });
 
