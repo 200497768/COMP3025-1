@@ -8,12 +8,13 @@
     tools:context=".CompletedActivity">
 
     <TextView
-        android:id="@+id/goodLuckTextView"
+        android:id="@+id/competitionCompletedTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="This competition has been completed because the score for a participant has become the maximum score."
         android:textSize="20sp" />
+
 
     <LinearLayout
         android:id="@+id/scoresArea"
@@ -23,5 +24,13 @@
         android:orientation="vertical">
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/winningParticipantTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="TextView"
+        android:textSize="20sp" />
 
 </LinearLayout>
