@@ -239,9 +239,14 @@ public class Competition implements Serializable {
                 //Check whether the token that the computer participant added has added enough consecutive tokens.
                 //Show the score message explaining that the round has finished, using the view actions class.
                 if (this.board.getScoreParticipant() != null) {
+
+                    //The computer participant has added enough consecutive tokens.
                     if (this.viewActions != null) {
                         this.viewActions.showRoundCompleted();
                     }
+
+                    //The next round option must not be added now.
+                    //The next round option will be added when the showRoundCompleted method runs.
                 }
             }
         } else {
@@ -262,6 +267,11 @@ public class Competition implements Serializable {
             //Show the score message explaining that the round has finished, using the view actions class.
             if (this.viewActions != null) {
                 this.viewActions.showRoundCompleted();
+            }
+
+            //Add the next round option.
+            if (this.viewActions != null) {
+                this.viewActions.addNextRoundOption();
             }
         }
     }

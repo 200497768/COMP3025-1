@@ -279,25 +279,11 @@ public class ViewActions {
     }
 
     /**
-     * This method shows a message explaining that a round has been completed.
-     * This method happens when a participant has increased the score.
-     * A participant has added a token to the board, causing enough consecutive tokens for the round to finish.
-     * This is the score participant.
-     * The score of the score participant has been increased.
-     * This method can retrieve the score participant from the board.
+     * This method adds an option that allows starting the next round.
      */
-    public void showRoundCompleted() {
-        //Retrieve the score participant.
-        //The score participant is needed to show information like name and score.
-        Board board = this.competition.getBoard();
-        Participant scoreParticipant = board.getScoreParticipant();
-
-        //A score participant must exist.
-        if (scoreParticipant == null) {
-            throw new IllegalStateException();
-        }
-
+    public void addNextRoundOption() {
         //Add an option to start the next round.
+        Log.i("200497768", "Adding an option to start the next round.");
         Button nextRoundButton = new Button(this.context);
         nextRoundButton.setText("Next round");
         Competition competition = this.competition;
@@ -318,6 +304,29 @@ public class ViewActions {
 
         //Add the next round option to the board area.
         this.nextRoundArea.addView(nextRoundButton);
+    }
+
+
+    /**
+     * This method shows a message explaining that a round has been completed.
+     * This method happens when a participant has increased the score.
+     * A participant has added a token to the board, causing enough consecutive tokens for the round to finish.
+     * This is the score participant.
+     * The score of the score participant has been increased.
+     * This method can retrieve the score participant from the board.
+     */
+    public void showRoundCompleted() {
+        Log.i("200497768", "Showing the fact that enough consecutive tokens have been added.");
+
+        //Retrieve the score participant.
+        //The score participant is needed to show information like name and score.
+        Board board = this.competition.getBoard();
+        Participant scoreParticipant = board.getScoreParticipant();
+
+        //A score participant must exist.
+        if (scoreParticipant == null) {
+            throw new IllegalStateException();
+        }
 
         //Remove all of the add token options.
         for (Button addButton : this.addTokenOptions) {
