@@ -236,9 +236,11 @@ public class Competition implements Serializable {
             }
         } else {
 //This round has finished.
-            //Complete the round by using the method from this class.
-            //This method will show a message, clear the board, and start the next round.
-            this.completeRound();
+
+            //Use the view actions to show that the round has completed.
+            this.viewActions.boardChanged();
+            this.viewActions.showRoundCompleted();
+
         }
     }
 
@@ -252,7 +254,7 @@ public class Competition implements Serializable {
      * This method happens when the round has finished.
      * A round can finish if a participant has added enough consecutive tokens to increase the score, or if the board has been completed.
      */
-    private void completeRound() {
+    public void completeRound() {
         //Retrieve the score participant.
         Participant scoreParticipant = this.board.getScoreParticipant();
 

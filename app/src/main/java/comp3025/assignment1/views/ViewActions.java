@@ -277,6 +277,23 @@ public class ViewActions {
             throw new IllegalStateException();
         }
 
+        //Add an option to start the next round.
+        Button nextRoundButton = new Button(this.context);
+        nextRoundButton.setText("Next round");
+        Competition competition = this.competition;
+        nextRoundButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Complete the round by using the method from the competition class.
+                //This needs to happen when the view actions has finished showing the fact that the round has completed.
+                //This method will show a message, clear the board, and start the next round.
+                competition.completeRound();
+            }
+        });
+
+        //Add the next round option to the board area.
+        this.boardArea.addView(nextRoundButton);
+
         this.showScoreMessage(scoreParticipant.getName() + " has added " + board.getConsecutiveNumber() + " consecutive tokens. The score for this participant has increased. " + this.getScoreMessage());
     }
 
