@@ -63,6 +63,8 @@ public class ViewActions {
      */
     private SuppliedMethod suppliedMethod;
 
+    private List<Button> addTokenOptions = new ArrayList<>();
+
     public ViewActions(Competition competition, LinearLayout boardArea, LinearLayout verticalGroupsArea, LinearLayout addArea, TextView scoreTextView, Context context, SuppliedMethod suppliedMethod) {
         Objects.requireNonNull(competition);
         this.competition = competition;
@@ -185,8 +187,11 @@ public class ViewActions {
                 }
             });
 
-            //Add the option to the add area.
+            //Add the add token option to the add area.
             this.addArea.addView(addButton);
+
+            //The add token option needs to be retrieved in the future.
+            this.addTokenOptions.add(addButton);
 
             //Tokens and slots for this vertical group have been added.
             //The vertical group number needs to be increased.
@@ -296,6 +301,11 @@ public class ViewActions {
 
         //Add the next round option to the board area.
         this.boardArea.addView(nextRoundButton);
+
+        //Remove all of the add token options.
+        for (Button addButton : this.addTokenOptions) {
+            this.boardArea.removeView(addButton);
+        }
 
         this.showScoreMessage(scoreParticipant.getName() + " has added " + board.getConsecutiveNumber() + " consecutive tokens. The score for this participant has increased. " + this.getScoreMessage());
     }
