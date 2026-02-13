@@ -314,9 +314,13 @@ public class ViewActions {
 
         //Remove all of the add token options.
         for (Button addButton : this.addTokenOptions) {
-            this.boardArea.removeView(addButton);
+            this.addArea.removeView(addButton);
         }
 
+        //Remove the add token options that have been added to the field.
+        this.addTokenOptions = new ArrayList<>();
+
+        //Show a score message.
         this.showScoreMessage(scoreParticipant.getName() + " has added " + board.getConsecutiveNumber() + " consecutive tokens. The score for this participant has increased. " + this.getScoreMessage());
     }
 
