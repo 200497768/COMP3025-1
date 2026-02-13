@@ -3,7 +3,6 @@ package comp3025.assignment1;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -146,13 +145,6 @@ public class WelcomeActivity extends AppCompatActivity {
         } else {
             wishMeLuckButton.setText("Wish us luck");
         }
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        System.out.println("onStart method running.");
-        Log.i("200497768", "onStart method running.");
     }
 
     /**
