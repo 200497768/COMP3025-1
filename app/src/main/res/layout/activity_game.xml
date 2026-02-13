@@ -46,15 +46,6 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/addArea"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical">
-
-        </LinearLayout>
-
-        <LinearLayout
             android:id="@+id/boardArea"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -73,6 +64,15 @@
                 android:paddingBottom="10sp">
 
             </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/addArea"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
 
         </LinearLayout>
 
