@@ -159,7 +159,7 @@ public class WelcomeActivity extends AppCompatActivity {
      * This method adds a participant to the list.
      * This method runs when the option to add a participant has been chosen.
      * This method needs to retrieve the name for this participant, create a new participant, and add the participant to the list.
-     * The list is a field from this class.
+     * The participant is only added if a name has been provided, and the name isn't the same as an existing participant.
      *
      * @param view
      */
@@ -167,16 +167,42 @@ public class WelcomeActivity extends AppCompatActivity {
         //Retrieve the participant name from the view.
         EditText participantNameEditText = findViewById(R.id.participantNameEditText);
         Editable participantNameEditable = participantNameEditText.getText();
+        String participantName = "" + participantNameEditable;
 
-        //Create a participant.
-        Participant participant = new Participant("" + participantNameEditable);
+        if (this.getAddParticipantAllowed(participantName)) {
+            //Create a participant.
+            Participant participant = new Participant(participantName);
 
-        //Add the participant to the list.
-        this.participants.add(participant);
+            //Add the participant to the list.
+            this.participants.add(participant);
 
-        //The participants have changed.
-        this.participantsChanged();
+            //The participants have changed.
+            this.participantsChanged();
+        }
     }
+
+    /**
+     * This method returns whether the participant can be added.
+     */
+    private boolean getAddParticipantAllowed(String participantName) {
+        //Check whether the participant name has been provided.
+        //Only add the participant if the name has been provided.
+        if (participantName == "") {
+            return false;
+        }
+
+        //Check whether a participant with this name exists in the competition.
+        for (Participant existingParticipant : this.participants) {
+            String existingParticipantName = existingParticipant.getName();
+
+            if (participantName == existingParticipantName) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
 
     /**
      * This method changes the view.
