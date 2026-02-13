@@ -192,4 +192,17 @@ public class GameActivity extends AppCompatActivity {
 
         startActivity(intent);
     }
+
+    /**
+     * This method starts WelcomeActivity again.
+     * @param view
+     */
+    public void backButtonChosen(View view){
+        //Create an explicit intent that refers to CompletedActivity.
+        Intent intent = new Intent(GameActivity.this,WelcomeActivity.class);
+
+        //No information needs to be added to the intent.
+
+        startActivity(intent);
+    }
 }
