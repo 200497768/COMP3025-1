@@ -28,11 +28,6 @@ import comp3025.assignment1.models.participants.Participant;
 public class WelcomeActivity extends AppCompatActivity {
 
     /**
-     * This field is the competition that's being created.
-     */
-    private Competition competition;
-
-    /**
      * This field is all of the participants that have been added.
      * When creating the wish me luck option has been chosen, the competition will be created.
      * At that time, all of the participants from this field will be added to the competition.
@@ -45,16 +40,6 @@ public class WelcomeActivity extends AppCompatActivity {
 
         //This method causes the code to run the welcome view.
         setContentView(R.layout.activity_welcome);
-
-        //The remaining code needs the competition in order to run.
-
-        //Create the board.
-        int numberOfVerticalGroups = 5;
-        int verticalGroupCapacity = 4;
-        int consecutiveNumber = 30;
-        Board board = new Board(numberOfVerticalGroups, verticalGroupCapacity, consecutiveNumber);
-
-        this.competition = new Competition(board, 3);
 
         //Change the number of consecutive tokens needed.
         TextView welcomeTextView=findViewById(R.id.welcomeTextView);
