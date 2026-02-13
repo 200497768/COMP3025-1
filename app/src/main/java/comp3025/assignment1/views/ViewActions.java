@@ -158,7 +158,7 @@ public class ViewActions {
 
             //Create the option to allow adding a token to this vertical group.
             Button addButton = new Button(this.context);
-            addButton.setText("Add");
+            addButton.setText("Add a token to vertical group " + verticalGroupNumber);
 
             Competition competition = this.competition;
 
