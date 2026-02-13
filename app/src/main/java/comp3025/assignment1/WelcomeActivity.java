@@ -179,8 +179,8 @@ public class WelcomeActivity extends AppCompatActivity {
      */
     private boolean getParticipantNameAllowed(String participantName) {
         //Check whether the participant name has been provided.
-        //Only add the participant if the name has been provided.
         if (participantName.equals("")) {
+            //This participant name isn't allowed because a participant name hasn't been provided.
             return false;
         }
 
@@ -189,10 +189,12 @@ public class WelcomeActivity extends AppCompatActivity {
             String existingParticipantName = existingParticipant.getName();
 
             if (participantName.equals(existingParticipantName)) {
+                //This participant name isn't allowed because a participant with the same name exists in the competition.
                 return false;
             }
         }
 
+        //This participant name is allowed.
         return true;
     }
 
