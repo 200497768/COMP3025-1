@@ -236,6 +236,13 @@ public class Competition implements Serializable {
             }
         } else {
 //This round has finished.
+            Log.i("200497768", scoreParticipant.getName() + " has added enough consecutive tokens, and this round has finished.");
+
+            //The score for the participant must be increased before using the view actions to show the fact that the round has been completed.
+            //This allows the view actions to retrieve the increased score.
+
+            //Increase the score for the score participant.
+            scoreParticipant.increaseScore();
 
             //Use the view actions to show that the round has completed.
             if (this.viewActions != null) {
@@ -251,31 +258,17 @@ public class Competition implements Serializable {
 
     /**
      * This method is the actions that must happen after a turn has caused a round to be completed.
-     * This includes increasing the score for the score participant, showing a message, clearing the board, and starting the next round.
+     * This method happens when the round has finished.
+     * This includes showing a message, clearing the board, and starting the next round.
      * When this method happens, a score participant might exist.
-     * This method changes the model, including clearing the board.
      * Since this method will clear the board, the score participant will no longer be available after this method.
      * If the view actions needs to show a message involving the score participant, the message must be created before completing the round.
-     * This method happens when the round has finished.
      * A round can finish if a participant has added enough consecutive tokens to increase the score, or if the board has been completed.
+     * This method isn't responsible for increasing the score, since the score is supposed to have been increased before this method.
+     * This method must not use the showRoundCompleted method from the view actions, since the next round option has caused this method to happen.
+     * The showRoundCompleted method adds the next round option, and that option isn't needed at this time.
      */
     public void completeRound() {
-        //Retrieve the score participant.
-        Participant scoreParticipant = this.board.getScoreParticipant();
-
-        //A score participant might exist, depending on what caused the round to finish.
-        //The score participant won't exist if the round finished because the board has been completed.
-        if (scoreParticipant != null) {
-            Log.i("200497768", scoreParticipant.getName() + " has added enough consecutive tokens, and this round has finished.");
-
-            //Increase the score for the score participant.
-            scoreParticipant.increaseScore();
-
-            //THis method must not use the showRoundCompleted method from the view actions class during this method.
-            //The showRoundCompleted method will add a next round option.
-            //This method runs when the next round option has been chosen.
-        }
-
         //Clear the board.
         Log.i("200497768", "The competition is clearing the board.");
         this.board.clear();
