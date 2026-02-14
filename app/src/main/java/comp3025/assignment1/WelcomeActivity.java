@@ -155,6 +155,9 @@ public class WelcomeActivity extends AppCompatActivity {
 
             //The participants have changed.
             this.participantsChanged();
+
+            //Clear the participant name area.
+            participantNameEditable.clear();
         }
     }
 
